@@ -40,20 +40,21 @@ angular.module('starter', ['ionic'])
           }
         }
       })
-      .state('main.public', {
-        url: 'main/public',
-        views: {
-          'public-tab': {
-            templateUrl: 'templates/public.html',
-              controller: 'PublicCtrl'
-          }
-        }
-      })
+      //.state('main.public', {
+      //  url: 'main/public',
+      //  views: {
+      //    'public-tab': {
+      //      templateUrl: 'templates/public.html',
+      //        controller: 'PublicCtrl'
+      //    }
+      //  }
+      //})
       .state('main.admin', {
         url: 'main/admin',
         views: {
           'admin-tab': {
-            templateUrl: 'templates/admin.html'
+            templateUrl: 'templates/admin.html',
+              //controller: 'AdminCtrl'
           }
         },
         data: {
@@ -69,6 +70,7 @@ angular.module('starter', ['ionic'])
 })
     .run(function ($rootScope, $state, AuthService, AUTH_EVENTS) {
         $rootScope.$on('$stateChangeStart', function (event,next, nextParams, fromState) {
+
 
             if ('data' in next && 'authorizedRoles' in next.data) {
                 var authorizedRoles = next.data.authorizedRoles;
@@ -87,7 +89,8 @@ angular.module('starter', ['ionic'])
             }
         });
     })
-    .run(function($httpBackend){
+
+    //.run(function($httpBackend){
 
         //$httpBackend.whenGET('http://localhost:8100/valid')
         //    .respond({message: 'This is my valid response!'});
@@ -101,4 +104,4 @@ angular.module('starter', ['ionic'])
         //    .passThrough();
         //
         //$httpBackend.whenGET(/templates\/\w+.*/).passThrough();
-    })
+    //})

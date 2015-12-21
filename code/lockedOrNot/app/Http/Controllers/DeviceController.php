@@ -27,7 +27,7 @@ class DeviceController extends Controller
          * return the state of the lock;
          *  1 = isLocked; 0 = isNotLocked;
         **/
-        $state = [ 'state'=>1 ];
+        $state = [ 'state'=> 0 ];
         return Response::json($state);
     }
 

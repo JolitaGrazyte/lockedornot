@@ -1,1 +1,19 @@
 /* Empty. Add your own CSS if you like */
+
+
+.circle{
+
+    position: absolute;
+    left: 50%;
+    top: 200px;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #fb2a44;
+}
+
+
+.locked{
+    background-color: #50bc57;
+}
