@@ -1,0 +1,10 @@
+{
+  "name": "login-app",
+  "app_id": "295cf706",
+  "proxies": [
+    {
+      "path": "/login",
+      "proxyUrl": "http://lockdrnot.local.com//api/authenticate"
+    }
+  ]
+}

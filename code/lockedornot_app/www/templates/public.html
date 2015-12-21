@@ -1,0 +1,31 @@
+<ion-view view-title="Public" name="dashboard-view">
+    <ion-content class="padding">
+        This is open for everyone!
+
+
+        <div ng-controller="PublicCtrl as items">
+            <!--<input class="full" ng-model="results.query" ng-change="results.proceed()" type="text" id="search" name="search"/>-->
+
+            <ul id="results" >
+                My items list:
+                <li ng-repeat="item in items.dataItems">
+                    {{ item }}
+
+                </li>
+                <!--<li ng-repeat="item in results.toShow">-->
+                    <!--<a href="{{item.link}}">{{item.name}}</a>-->
+                <!--</li>-->
+                <!--<li class="animate-repeat" ng-hide="results.toShow.length">-->
+                    <!--<strong>No results found...</strong>-->
+                <!--</li>-->
+
+            </ul>
+
+            <div class="preview">
+                {{results.query}}
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

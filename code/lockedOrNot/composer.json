@@ -8,8 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "^5.1",
-        "tymon/jwt-auth": "0.5.*",
-        "infogram/infogram": "^1.0"
+        "tymon/jwt-auth": "0.5.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

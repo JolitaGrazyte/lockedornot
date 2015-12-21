@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\User;
+use Response;
+
 
 class StatsController extends Controller
 {
@@ -22,14 +23,29 @@ class StatsController extends Controller
      */
     public function index()
     {
+//        $car_color_stats = $this->all_stats('car_color');
+//        $car_brand_stats = $this->all_stats('car_brand');
+////
+////        dd($car_brand_stats);
+////
+////        dd($car_color_stats);
+//
+//        return $car_brand_stats;
+
+        return view('stats.index');
+    }
+
+    public function json_stats(){
+
         $car_color_stats = $this->all_stats('car_color');
         $car_brand_stats = $this->all_stats('car_brand');
 //
-        dd($car_brand_stats);
+//        dd($car_brand_stats);
+//
+//        dd($car_color_stats);
 
-        dd($car_color_stats);
+        return $car_brand_stats;
 
-        return view('stats.index');
     }
 
 
@@ -37,16 +53,29 @@ class StatsController extends Controller
 
         $stats = [];
 
-        $distincts = $this->user->select($sort)->distinct()->get();
+        //lookup how many different distinct colors or brands there are
+        $distincts = $this->user->select($sort)
+            ->groupBy($sort)
+            ->get();
+//            ->distinct()->get();
+
+//        dd($distincts);
 
         foreach($distincts as $distinct){
 
             if(!is_null($distinct[$sort]))
-                $stats[$distinct[$sort]] = User::all()->where($sort, $distinct[$sort])->count();
+//                dd($distinct[$sort].', '.User::where($sort, $distinct[$sort])->count());
+
+                $stats[$distinct[$sort]] = User::where($sort, $distinct[$sort])->count();
 
         }
+//        dd(json_encode($stats));
+        $jsonstats = Response::json($stats);
+//        dd($jsonstats);
 
-        return $stats;
+        return $jsonstats;
+
+//        return $stats;
     }
 
     /**
