@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Locked Or Not">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
     <meta name="author" content="">
     {{--<link rel="icon" href="../../favicon.ico">--}}
 
@@ -36,7 +36,7 @@
 
     @include('layouts.footer')
 
-    @section('script')
+    @section('scripts')
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -58,7 +58,7 @@
 
 @show
 
-@yield('scripts')
+@yield('extra-scripts')
 
 </body>
 </html>

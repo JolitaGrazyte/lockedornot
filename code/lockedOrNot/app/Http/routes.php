@@ -44,8 +44,16 @@ get('nglogin', function(){
 resource('dashboard', 'DashboardController@index');
 resource('stats', 'StatsController@index');
 
+//get state: locked or not on web-page
+get('device-state', 'DeviceController@response');
+
 Route::group(['prefix' => 'api'], function()
 {
     resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
     post('authenticate', 'AuthenticateController@authenticate');
+    get('lockedornot', 'DeviceController@jsonResponse');
+    get('stats', 'StatsController@json_stats');
+
+
 });
+

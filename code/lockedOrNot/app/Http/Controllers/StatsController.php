@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use Response;
+use DB;
 
 
 class StatsController extends Controller
@@ -23,59 +24,57 @@ class StatsController extends Controller
      */
     public function index()
     {
-//        $car_color_stats = $this->all_stats('car_color');
-//        $car_brand_stats = $this->all_stats('car_brand');
-////
-////        dd($car_brand_stats);
-////
-////        dd($car_color_stats);
-//
-//        return $car_brand_stats;
-
-        return view('stats.index');
+        $stats =  $this->json_stats();
+        return view('stats.index', compact('stats'));
     }
 
     public function json_stats(){
 
         $car_color_stats = $this->all_stats('car_color');
         $car_brand_stats = $this->all_stats('car_brand');
+        $city_stats  = $this->all_stats('city');
 //
 //        dd($car_brand_stats);
 //
 //        dd($car_color_stats);
 
-        return $car_brand_stats;
+//        dd($city_stats);
+
+        return $car_color_stats;
 
     }
 
+    /**
+     * lookup how many different distinct colors or brands there are
+     *
+     * @param null $sort
+     * @return mixed
+     */
+    private function all_stats($sort=null){
 
-    function all_stats($sort=null){
-
-        $stats = [];
-
-        //lookup how many different distinct colors or brands there are
-        $distincts = $this->user->select($sort)
-            ->groupBy($sort)
-            ->get();
+//        dd($sort);
+//        $distincts = $this->user->select($sort)
+//            ->groupBy($sort)
+//            ->get();
 //            ->distinct()->get();
+
+       $distincts = DB::table('users')
+           ->select(DB::raw( 'count('.$sort.') as value, '.$sort))
+           ->groupBy($sort)
+           ->get();
 
 //        dd($distincts);
 
-        foreach($distincts as $distinct){
-
-            if(!is_null($distinct[$sort]))
-//                dd($distinct[$sort].', '.User::where($sort, $distinct[$sort])->count());
-
-                $stats[$distinct[$sort]] = User::where($sort, $distinct[$sort])->count();
-
-        }
-//        dd(json_encode($stats));
-        $jsonstats = Response::json($stats);
+        $jsonstats = Response::json($distincts);
 //        dd($jsonstats);
 
-        return $jsonstats;
+//       return $jsonstats;
 
-//        return $stats;
+//       return json_encode($distincts);
+
+       return Response::json($distincts);
+
+
     }
 
     /**
