@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+
+@section('head')
 <head>
 
     <meta charset="utf-8">
@@ -14,7 +16,6 @@
 
     {{--<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">--}}
 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
@@ -22,6 +23,8 @@
     {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
 
 </head>
+@show
+
 <body>
 
     @include('errors.errors')
@@ -40,13 +43,12 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    {{--Todo: move select2 script to specific page where it is used--}}
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
+    <script src="{{ url('js/parallax.js') }}"></script>
 
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.min.js"></script>
-    <script> var baseUrl = "{{ url('/') }}/";</script>
-    <script src="/js/app.js"></script>
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

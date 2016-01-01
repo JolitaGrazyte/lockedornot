@@ -1,6 +1,47 @@
 html, body{
     width: 100%;
     height: 100%;
+    /*overflow-y: hidden;*/
+}
+/*.img-container{*/
+    /*height: 100%;*/
+/*}*/
+.parallax-window-img {
+    min-height: 700px;
+    background: transparent;
+}
+
+.parallax-window-noimg {
+    min-height: 400px;
+    background: transparent;
+}
+
+.slogan, .site-name{
+    position: absolute;
+    z-index: 10;
+    color: #ff255f;
+    font-size: 14rem;
+    text-shadow: 1px 1px #9ae5f5;
+}
+
+.navbar{
+    background: transparent;
+    border: 0;
+
+}
+
+.navbar-default .navbar-nav.athome > li > a {
+    color: whitesmoke;
+}
+
+.site-name{
+    left: 25%;
+    top: 25%;
+}
+
+.slogan{
+    left: 25.6%;
+    top: 25%;
 }
 
 .content-main{
@@ -17,19 +58,20 @@ html, body{
     width: 100%;
 }
 
-.front-info{
-    height: 80%;
-    width: 80%;
-    border: solid ghostwhite 3px;
-    position: absolute;
-    left: 50%; top: 10%;
-    -webkit-transform: translate(-50%);
-    transform: translate(-50%);
-}
-
 div.modal-backdrop.fade.in{
     z-index:-1;
 }
+
+.modal.fade .modal-dialog {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -webkit-transform: translate(-50%, 0);
+    transition: -webkit-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out; }
+
+
 
 nav ul.navbar-right li{
     right: 35px;
@@ -46,3 +88,15 @@ footer{
 .modal-content{
     border-radius:0;
 }
+
+.social-btn{
+
+    border-radius: 0;
+}
+.fb-btn{
+
+}
+.gplus-btn{
+
+}
+

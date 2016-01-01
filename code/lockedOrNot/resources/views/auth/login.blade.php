@@ -1,4 +1,4 @@
-{{--@extends('layouts.master')--}}
+{{--@EXTENDS('LAYOUTS.MASTER')--}}
 
 {{--@section('title', 'Login')--}}
 

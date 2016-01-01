@@ -20,7 +20,13 @@
 @stop
 
 
-@section('scripts')
+@section('extra-scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-route.min.js"></script>
+    <script> var baseUrl = "{{ url('/') }}/";</script>
+    <script src="/js/app.js"></script>
+
+
     <script src="{{ url('js/defiantjs/defiant.js') }}"></script>
 
 @stop
