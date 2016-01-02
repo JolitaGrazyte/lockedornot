@@ -29,7 +29,7 @@ Route::controllers([
 // Registration routes...
 get('register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
 post('register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
-get('register/{provider}',  ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
+get('login/{provider}',  ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
 
 // Authentication routes...
 get('login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
@@ -41,7 +41,7 @@ get('nglogin', function(){
     return view('nglogin');
 });
 
-resource('dashboard', 'DashboardController@index');
+resource('dashboard', 'DashboardController');
 resource('stats', 'StatsController@index');
 
 //get state: locked or not on web-page

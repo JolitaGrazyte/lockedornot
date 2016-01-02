@@ -3,9 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
-//use Illuminate\Contracts\Routing\Middleware;
-//use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Request;
 
 class Cors
 {
@@ -18,9 +16,13 @@ class Cors
      */
     public function handle($request, Closure $next)
     {
-        return $next($request)
-            ->header('Access-Control-Allow-Origin' , '*')
-            ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
-            ->header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, X-Auth-Token');
+        if(!Request::is('login/*')){
+            return $next($request)
+                ->header('Access-Control-Allow-Origin' , '*')
+                ->header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
+                ->header('Access-Control-Allow-Headers', 'Content-Type, Accept, Authorization, X-Requested-With, X-Auth-Token');
+        }
+
+        return $next($request);
     }
 }

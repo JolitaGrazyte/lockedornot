@@ -7824,6 +7824,83 @@ button.close {
 .fa-percent:before {
   content: ""; }
 
+@font-face {
+  font-family: "cantarellregular";
+  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf");
+  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_regular/Cantarell-Regular.woff") format("woff"), url("../../fonts/cantarell_regular/Cantarell-Regular.ttf") format("truetype"), url("../../fonts/cantarell_regular/Cantarell-Regular.svg#cantarellregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "cantarellregular";
+  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf");
+  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_regular/Cantarell-Regular.woff") format("woff"), url("../../fonts/cantarell_regular/Cantarell-Regular.ttf") format("truetype"), url("../../fonts/cantarell_regular/Cantarell-Regular.svg#cantarellregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "cantarelloblique";
+  src: url("../../fonts/cantarell_oblique/Cantarell-Oblique.otf");
+  src: url("../../fonts/cantarell_oblique/Cantarell-Oblique.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_oblique/Cantarell-Oblique.woff") format("woff"), url("../../fonts/cantarell_oblique/Cantarell-Oblique.ttf") format("truetype"), url("../../fonts/cantarell_oblique/Cantarell-Oblique.svg#cantarelloblique") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "cantarellbold";
+  src: url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.otf");
+  src: url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.woff") format("woff"), url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.ttf") format("truetype"), url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.svg#cantarellbold") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "capsuularegular";
+  src: url("../../fonts/capsuula_regular/Capsuula-webfont.otf");
+  src: url("../../fonts/capsuula_regular/Capsuula-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/capsuula_regular/Capsuula-webfont.woff") format("woff"), url("../../fonts/capsuula_regular/Capsuula-webfont.ttf") format("truetype"), url("../../fonts/capsuula_regular/Capsuula-webfont.svg#capsuularegular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "ciclefina";
+  src: url("../../fonts/cicle_fina/Cicle_Fina.otf");
+  src: url("../../fonts/cicle_fina/Cicle_Fina.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_fina/Cicle_Fina.woff") format("woff"), url("../../fonts/cicle_fina/Cicle_Fina.ttf") format("truetype"), url("../../fonts/cicle_fina/Cicle_Fina.svg#ciclefina") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "ciclegordita_italic";
+  src: url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.otf");
+  src: url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.woff") format("woff"), url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.ttf") format("truetype"), url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.svg#ciclegordita_italic") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "cicle_semi_italicsemi_italic";
+  src: url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.otf");
+  src: url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.woff") format("woff"), url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.ttf") format("truetype"), url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.svg#cicle_semi_italicsemi_italic") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "bebas";
+  src: url("../../fonts/bebas_regular/bebas.otf");
+  src: url("../../fonts/bebas_regular/bebas.otf?#iefix") format("embedded-opentype"), url("../../fonts/bebas_regular/bebas.woff") format("woff"), url("../../fonts/bebas_regular/bebas.ttf") format("truetype"), url("../../fonts/bebas_regular/bebas.svg#bebas") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "icomoon";
+  src: url("../../fonts/icomoon/icomoon.otf");
+  src: url("../../fonts/icomoon/icomoon.otf?#iefix") format("embedded-opentype"), url("../../fonts/icomoon/icomoon.woff") format("woff"), url("../../fonts/icomoon/icomoon.ttf") format("truetype"), url("../../fonts/icomoon/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "fontawesome";
+  src: url("../../fonts/fontawesome/fontawesome-webfont.otf");
+  src: url("../../fonts/fontawesome/fontawesome-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("../../fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("../../fonts/fontawesome/fontawesome-webfont.svg#fontawesome") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 .slogan, .site-name {
   position: absolute;
   z-index: 10;
@@ -7834,13 +7911,6 @@ button.close {
 .site-name {
   left: 25%;
   top: 25%; }
-
-@font-face {
-  font-family: "icomoon";
-  src: url("../../fonts/icomoon/icomoon.otf");
-  src: url("../../fonts/icomoon/icomoon.otf?#iefix") format("embedded-opentype"), url("../../fonts/icomoon/icomoon.woff") format("woff"), url("../../fonts/icomoon/icomoon.ttf") format("truetype"), url("../../fonts/icomoon/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -7928,82 +7998,8 @@ footer {
   bottom: 2rem;
   right: 35px; }
 
-@font-face {
-  font-family: "cantarellregular";
-  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf");
-  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_regular/Cantarell-Regular.woff") format("woff"), url("../../fonts/cantarell_regular/Cantarell-Regular.ttf") format("truetype"), url("../../fonts/cantarell_regular/Cantarell-Regular.svg#cantarellregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "cantarellregular";
-  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf");
-  src: url("../../fonts/cantarell_regular/Cantarell-Regular.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_regular/Cantarell-Regular.woff") format("woff"), url("../../fonts/cantarell_regular/Cantarell-Regular.ttf") format("truetype"), url("../../fonts/cantarell_regular/Cantarell-Regular.svg#cantarellregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "cantarelloblique";
-  src: url("../../fonts/cantarell_oblique/Cantarell-Oblique.otf");
-  src: url("../../fonts/cantarell_oblique/Cantarell-Oblique.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_oblique/Cantarell-Oblique.woff") format("woff"), url("../../fonts/cantarell_oblique/Cantarell-Oblique.ttf") format("truetype"), url("../../fonts/cantarell_oblique/Cantarell-Oblique.svg#cantarelloblique") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "cantarellbold";
-  src: url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.otf");
-  src: url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.woff") format("woff"), url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.ttf") format("truetype"), url("../../fonts/cantarell_bold/Cantarell-Bold-webfont.svg#cantarellbold") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "capsuularegular";
-  src: url("../../fonts/capsuula_regular/Capsuula-webfont.otf");
-  src: url("../../fonts/capsuula_regular/Capsuula-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/capsuula_regular/Capsuula-webfont.woff") format("woff"), url("../../fonts/capsuula_regular/Capsuula-webfont.ttf") format("truetype"), url("../../fonts/capsuula_regular/Capsuula-webfont.svg#capsuularegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "ciclefina";
-  src: url("../../fonts/cicle_fina/Cicle_Fina.otf");
-  src: url("../../fonts/cicle_fina/Cicle_Fina.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_fina/Cicle_Fina.woff") format("woff"), url("../../fonts/cicle_fina/Cicle_Fina.ttf") format("truetype"), url("../../fonts/cicle_fina/Cicle_Fina.svg#ciclefina") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "ciclegordita_italic";
-  src: url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.otf");
-  src: url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.woff") format("woff"), url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.ttf") format("truetype"), url("../../fonts/cicle_gorditaitalic/Cicle_Gordita_Italic-webfont.svg#ciclegordita_italic") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "cicle_semi_italicsemi_italic";
-  src: url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.otf");
-  src: url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.woff") format("woff"), url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.ttf") format("truetype"), url("../../fonts/cicle_semiitalic/Cicle_Semi_Italic-webfont.svg#cicle_semi_italicsemi_italic") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "bebas";
-  src: url("../../fonts/bebas_regular/bebas.otf");
-  src: url("../../fonts/bebas_regular/bebas.otf?#iefix") format("embedded-opentype"), url("../../fonts/bebas_regular/bebas.woff") format("woff"), url("../../fonts/bebas_regular/bebas.ttf") format("truetype"), url("../../fonts/bebas_regular/bebas.svg#bebas") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "icomoon";
-  src: url("../../fonts/icomoon/icomoon.otf");
-  src: url("../../fonts/icomoon/icomoon.otf?#iefix") format("embedded-opentype"), url("../../fonts/icomoon/icomoon.woff") format("woff"), url("../../fonts/icomoon/icomoon.ttf") format("truetype"), url("../../fonts/icomoon/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: "fontawesome";
-  src: url("../../fonts/fontawesome/fontawesome-webfont.otf");
-  src: url("../../fonts/fontawesome/fontawesome-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("../../fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("../../fonts/fontawesome/fontawesome-webfont.svg#fontawesome") format("svg");
-  font-weight: normal;
-  font-style: normal; }
+.modal h2 {
+  font-family: 'bebas'; }
 
 div.modal-backdrop.fade.in {
   z-index: -1; }
@@ -8016,6 +8012,9 @@ div.modal-backdrop.fade.in {
   -webkit-transform: translate(-50%, 0);
   transition: -webkit-transform 0.5s ease-out;
   transition: transform 0.5s ease-out; }
+
+.parallax-window-img img {
+  opacity: 0.8; }
 
 .modal-backdrop.in {
   opacity: 0.7;

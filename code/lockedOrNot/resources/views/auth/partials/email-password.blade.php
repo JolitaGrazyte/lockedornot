@@ -3,7 +3,7 @@
         {{--{!! Form::label('email', 'Your e-mail:', ['class' => 'control-label']) !!}--}}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'your email']) !!}
+            {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Your email']) !!}
         </div>
     </div>
 

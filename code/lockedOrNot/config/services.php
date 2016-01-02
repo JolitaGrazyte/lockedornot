@@ -36,15 +36,15 @@ return [
     ],
 
     'facebook' => [
-        'client_id'     =>  env('FB_ID'),
+        'client_id'     =>  env('FB_CLIENT_ID'),
         'client_secret' =>  env('FB_SECRET'),
-        'redirect'      =>  'http://lockdRNot.local.com/login/facebook',
+        'redirect'      =>  'http://lockdrnot.local.com/login/facebook',
     ],
 
     'google' => [
-        'client_id'     => env('GOOGLE_ID'),
+        'client_id'     => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
-        'redirect'      => 'http://lockdRNot.local.com/login/google'
+        'redirect'      => 'http://lockdrnot.local.com/login/google'
     ],
 
 

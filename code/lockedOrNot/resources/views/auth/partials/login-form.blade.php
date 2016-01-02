@@ -6,7 +6,7 @@
     <div class="col-lg-12 col-sm-12">
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="remember"> Remember Me
+                <input type="checkbox" name="remember"> Remember me
             </label>
         </div>
     </div>
@@ -17,7 +17,7 @@
 
         {!! Form::submit('Login', ['class' => 'my-btn form-control']) !!}
 
-        <a class="btn btn-link" onclick="$('#loginModal').modal('hide');" data-toggle="modal" data-target="#passwordModal">Forgot Your Password?</a>
+        <a class="btn btn-link" onclick="$('#loginModal').modal('hide');" data-toggle="modal" data-target="#passwordModal">Forgot your password?</a>
     </div>
 </div>
 

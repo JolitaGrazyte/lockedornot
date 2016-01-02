@@ -4,16 +4,6 @@
  @import "font_mixin";
  @import "colors";
 
- @import "main";
- @import "forms";
- @import "social";
- @import "nav";
- @import "login";
- @import "parallax";
- @import "locked-footer";
-
-
-
  @include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
  @include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
  @include font_mixin('cantarelloblique', 'cantarell_oblique', 'Cantarell-Oblique');
@@ -26,6 +16,14 @@
 
  @include font_mixin('icomoon', 'icomoon', 'icomoon');
  @include font_mixin('fontawesome', 'fontawesome', 'fontawesome-webfont');
+
+ @import "main";
+ @import "forms";
+ @import "social";
+ @import "nav";
+ @import "login";
+ @import "parallax";
+ @import "locked-footer";
 
 
  //@font-face {
@@ -44,7 +42,11 @@
    //font-family: 'ciclefina';
    //font-family: 'cantarellregular';
    //font-family: 'capsuularegular';
-   //font-family: 'bebas';
+
+ }
+
+ .modal h2{
+  font-family: 'bebas';
  }
 
  div.modal-backdrop.fade.in{
@@ -61,6 +63,10 @@
   transition: transform 0.5s ease-out;
  }
 
+ .parallax-window-img img{
+  opacity: 0.8;
+  //filter: alpha(opacity=1);
+ }
 
  .modal-backdrop.in {
   opacity: 0.7;

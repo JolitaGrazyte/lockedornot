@@ -8,8 +8,12 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+//use Laravel\Socialite\Facades\Socialite;
+use App\AuthenticateUserListener;
+use App\AuthenticateUser;
 
-class AuthController extends Controller
+class AuthController extends Controller implements AuthenticateUserListener
 {
     /*
     |--------------------------------------------------------------------------
@@ -67,5 +71,31 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+
+
+    /**
+     * Register with some social provider, like facebook, google+.
+     *
+     * @param AuthenticateUser $authenticateUser
+     * @param Request $request
+     * @param null $provider
+     * @return mixed
+     */
+    public function social_register( AuthenticateUser $authenticateUser, Request $request, $provider = null) {
+
+        return $authenticateUser->execute($request->has('code'), $this, $provider);
+
+    }
+
+
+    /**
+     * @param $user
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function userHasBeenRegistered($user) {
+
+        return redirect('dashboard');
     }
 }

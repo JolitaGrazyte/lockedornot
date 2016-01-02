@@ -1,5 +1,7 @@
+//@import "../font-awesome-scss/font-awesome";
 @import "colors";
-@include font_mixin('icomoon', 'icomoon', 'icomoon');
+//@import "font_mixin";
+//@include font_mixin('icomoon', 'icomoon', 'icomoon');
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
