@@ -12,7 +12,6 @@
         </div>
 
         <div class="col-lg-8 col-sm-12">
-        <h1>Dashboard</h1>
 
         <div style="border: 1px solid gainsboro" class="col-lg-6 col-sm-12">
         <h2>Personal statistics</h2>

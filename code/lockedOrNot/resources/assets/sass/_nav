@@ -1,0 +1,14 @@
+.navbar{
+  background: transparent;
+  border: 0;
+
+}
+
+.navbar-default .navbar-nav.athome > li > a {
+  color: whitesmoke;
+}
+
+nav ul.navbar-right li{
+  right: 35px;
+}
+

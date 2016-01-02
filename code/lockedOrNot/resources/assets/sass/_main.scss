@@ -1,0 +1,14 @@
+@import "colors";
+.slogan, .site-name{
+  position: absolute;
+  z-index: 10;
+  color: $site-name;
+  font-size: 14rem;
+  text-shadow: .1rem .1rem #9ae5f5;
+}
+
+
+.site-name{
+  left: 25%;
+  top: 25%;
+}

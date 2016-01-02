@@ -12,7 +12,7 @@
 */
 
 get('/', ['as' => 'home',       function () {
-    return view('home');
+    return view('home.index');
 }]);
 
 //get('/dashboard', ['as' => 'dashboard',       function () {

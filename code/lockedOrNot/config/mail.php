@@ -54,8 +54,9 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+//    'from' => ['address' => null, 'name' => null],
 
+    'from' => ['address' => 'donotreply@'.env('MAILGUN_DOMAIN'), 'name' => "password reset"],
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

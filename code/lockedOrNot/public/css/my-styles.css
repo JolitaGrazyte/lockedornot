@@ -1,102 +1,67 @@
+/*@font-face {*/
+    /*font-family: 'icomoon';*/
+    /*src:    url('../fonts/icomoon.eot?xds2z4');*/
+    /*src:    url('../fonts/icomoon.eot?xds2z4#iefix') format('embedded-opentype'),*/
+    /*url('../fonts/icomoon.ttf?xds2z4') format('truetype'),*/
+    /*url('../fonts/icomoon.woff?xds2z4') format('woff'),*/
+    /*url('../fonts/icomoon.svg?xds2z4#icomoon') format('svg');*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+/*}*/
+
+
+/*[class^="icon-"], [class*=" icon-"] {*/
+    /*!* use !important to prevent issues with browser extensions that change fonts *!*/
+    /*font-family: 'icomoon' !important;*/
+    /*speak: none;*/
+    /*font-style: normal;*/
+    /*font-weight: normal;*/
+    /*font-variant: normal;*/
+    /*text-transform: none;*/
+    /*line-height: 1;*/
+
+    /*!* Better Font Rendering =========== *!*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+/*}*/
+
 html, body{
     width: 100%;
     height: 100%;
     /*overflow-y: hidden;*/
 }
-/*.img-container{*/
-    /*height: 100%;*/
-/*}*/
-.parallax-window-img {
-    min-height: 700px;
-    background: transparent;
-}
 
-.parallax-window-noimg {
-    min-height: 400px;
-    background: transparent;
+.or-social-line {
+    line-height: 0.5;
+    text-align: center;
 }
-
-.slogan, .site-name{
+.or-social-line span {
+    display: inline-block;
+    position: relative;
+}
+.or-social-line span:before,
+.or-social-line span:after {
+    content: "";
     position: absolute;
-    z-index: 10;
-    color: #ff255f;
-    font-size: 14rem;
-    text-shadow: 1px 1px #9ae5f5;
+    height: 5px;
+    border-bottom: 1px solid #8b8b8b;
+    border-top: 1px solid #8b8b8b;
+    top: 0;
+    width: 200px;
 }
-
-.navbar{
-    background: transparent;
-    border: 0;
-
+.or-social-line span:before {
+    right: 100%;
+    margin-right: 15px;
 }
-
-.navbar-default .navbar-nav.athome > li > a {
-    color: whitesmoke;
+.or-social-line span:after {
+    left: 100%;
+    margin-left: 15px;
 }
-
-.site-name{
-    left: 25%;
-    top: 25%;
+.social-login-links p{
+    margin-left: -4px;
 }
 
 .slogan{
     left: 25.6%;
     top: 25%;
 }
-
-.content-main{
-
-    position: relative;
-    top: 10rem;
-
-}
-
-
-.main-bckgr-img{
-
-    position: absolute;
-    width: 100%;
-}
-
-div.modal-backdrop.fade.in{
-    z-index:-1;
-}
-
-.modal.fade .modal-dialog {
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    -webkit-transform: translate(-50%, 0);
-    transition: -webkit-transform 0.5s ease-out;
-    transition: transform 0.5s ease-out; }
-
-
-
-nav ul.navbar-right li{
-    right: 35px;
-}
-
-
-footer{
-    position: fixed;
-    bottom: 2rem;
-    right: 35px;
-}
-
-
-.modal-content{
-    border-radius:0;
-}
-
-.social-btn{
-
-    border-radius: 0;
-}
-.fb-btn{
-
-}
-.gplus-btn{
-
-}
-

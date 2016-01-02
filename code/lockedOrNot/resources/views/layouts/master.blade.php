@@ -18,6 +18,9 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
+
+    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--}}
+
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
     <link rel="stylesheet" href="{{ url('css/my-styles.css') }}">
     {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
@@ -36,6 +39,8 @@
     @include('auth.login-modal')
 
     @include('auth.register-modal')
+
+    @include('auth.password-modal')
 
     @include('layouts.footer')
 
