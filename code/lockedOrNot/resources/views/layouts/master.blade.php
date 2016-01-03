@@ -42,20 +42,18 @@
 
     @include('auth.password-modal')
 
+    @if(Auth::check())
+
+        @include('profile.edit-modal', ['user'=> Auth::user()])
+
+    @endif
+
     @include('layouts.footer')
 
     @section('scripts')
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-    {{--Todo: move select2 script to specific page where it is used--}}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-
-    <script src="{{ url('js/parallax.js') }}"></script>
-    <script src="{{ url('js/noframework.waypoints.min.js') }}"></script>
-    <script src="{{ url('js/waypoints.js') }}"></script>
-
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -65,9 +63,14 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="{{ url('js/alert-dismiss.js') }}"></script>
+
+    {{--Todo: move select2 script to specific page where it is used--}}
+    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>--}}
+
 @show
 
-@yield('extra-scripts')
+{{--@yield('extra-scripts')--}}
 
 </body>
 </html>

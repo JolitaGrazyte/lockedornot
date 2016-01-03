@@ -8122,10 +8122,17 @@ html, body {
 
 .for-free {
   text-transform: uppercase;
-  color: red; }
+  color: red;
+  color: #ff1b3d; }
 
-.dashboard-container {
+.dashboard-container, .page-not-found {
   position: absolute;
   top: 100px; }
+
+.urgent {
+  color: #ff1b3d; }
+
+.urgent.form-control {
+  border: 1px solid #ff86a7; }
 
 /*# sourceMappingURL=app.css.map */

@@ -2,6 +2,12 @@
 
 @section('title', 'Home')
 
+@section('head')
+@parent
+
+<link rel="stylesheet" href="{{ url('css/morris.css') }}">
+
+@stop
 @section('content')
 
     <h1 class="site-name">Locked Or Not</h1>
@@ -35,10 +41,15 @@
 
 @stop
 
-@section('extra-scripts')
+@section('scripts')
+
+    @parent
+
+    <script src="{{ url('js/parallax.js') }}"></script>
+    <script src="{{ url('js/noframework.waypoints.min.js') }}"></script>
+    <script src="{{ url('js/waypoints.js') }}"></script>
 
     <script type="text/javascript" src='{{url('js/Chart.min.js')}}'></script>
-
     <script type="text/javascript" src="{{ url('js/stats.js') }}"></script>
 
 @stop
