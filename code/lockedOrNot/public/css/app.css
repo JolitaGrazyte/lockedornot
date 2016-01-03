@@ -5753,15 +5753,6 @@ button.close {
  *  Font Awesome 4.5.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-/* FONT PATH
- * -------------------------- */
-@font-face {
-  font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.5.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 .fa {
   display: inline-block;
   font: normal normal normal 14px / 1 FontAwesome;
@@ -7853,13 +7844,6 @@ button.close {
   font-style: normal; }
 
 @font-face {
-  font-family: "capsuularegular";
-  src: url("../../fonts/capsuula_regular/Capsuula-webfont.otf");
-  src: url("../../fonts/capsuula_regular/Capsuula-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/capsuula_regular/Capsuula-webfont.woff") format("woff"), url("../../fonts/capsuula_regular/Capsuula-webfont.ttf") format("truetype"), url("../../fonts/capsuula_regular/Capsuula-webfont.svg#capsuularegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
   font-family: "ciclefina";
   src: url("../../fonts/cicle_fina/Cicle_Fina.otf");
   src: url("../../fonts/cicle_fina/Cicle_Fina.otf?#iefix") format("embedded-opentype"), url("../../fonts/cicle_fina/Cicle_Fina.woff") format("woff"), url("../../fonts/cicle_fina/Cicle_Fina.ttf") format("truetype"), url("../../fonts/cicle_fina/Cicle_Fina.svg#ciclefina") format("svg");
@@ -7896,8 +7880,22 @@ button.close {
 
 @font-face {
   font-family: "fontawesome";
-  src: url("../../fonts/fontawesome/fontawesome-webfont.otf");
-  src: url("../../fonts/fontawesome/fontawesome-webfont.otf?#iefix") format("embedded-opentype"), url("../../fonts/fontawesome/fontawesome-webfont.woff") format("woff"), url("../../fonts/fontawesome/fontawesome-webfont.ttf") format("truetype"), url("../../fonts/fontawesome/fontawesome-webfont.svg#fontawesome") format("svg");
+  src: url("../../fonts/fontawesome/fontawesome.otf");
+  src: url("../../fonts/fontawesome/fontawesome.otf?#iefix") format("embedded-opentype"), url("../../fonts/fontawesome/fontawesome.woff") format("woff"), url("../../fonts/fontawesome/fontawesome.ttf") format("truetype"), url("../../fonts/fontawesome/fontawesome.svg#fontawesome") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "exo-regular";
+  src: url("../../fonts/exo/exoregular.otf");
+  src: url("../../fonts/exo/exoregular.otf?#iefix") format("embedded-opentype"), url("../../fonts/exo/exoregular.woff") format("woff"), url("../../fonts/exo/exoregular.ttf") format("truetype"), url("../../fonts/exo/exoregular.svg#exo-regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "exo-black";
+  src: url("../../fonts/exo/exoblack.otf");
+  src: url("../../fonts/exo/exoblack.otf?#iefix") format("embedded-opentype"), url("../../fonts/exo/exoblack.woff") format("woff"), url("../../fonts/exo/exoblack.ttf") format("truetype"), url("../../fonts/exo/exoblack.svg#exo-black") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -7909,7 +7907,12 @@ button.close {
   text-shadow: .1rem .1rem #9ae5f5; }
 
 .site-name {
+  font-family: sans-serif;
   left: 25%;
+  top: 25%; }
+
+.slogan {
+  left: 25.6%;
   top: 25%; }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -7975,15 +7978,61 @@ button.close {
 .social-login-links {
   position: relative; }
 
+.navbar-default .navbar-nav.athome > li {
+  min-height: 70px; }
+
+.navbar-brand {
+  padding: 10px 15px; }
+
 .navbar {
   background: transparent;
-  border: 0; }
+  border: 0;
+  min-height: 70px; }
 
 .navbar-default .navbar-nav.athome > li > a {
-  color: whitesmoke; }
+  color: whitesmoke;
+  font-size: 1.5rem;
+  line-height: 45px; }
 
 nav ul.navbar-right li {
   right: 35px; }
+
+@media (max-width: 767px) {
+  .navbar {
+    background: white; }
+  .navbar-default .navbar-nav.athome > li > a {
+    color: dimgrey; }
+  nav ul.navbar-right li {
+    right: 0; } }
+
+.or-social-line {
+  line-height: 0.5;
+  text-align: center; }
+
+.or-social-line span {
+  display: inline-block;
+  position: relative; }
+
+.or-social-line span:before,
+.or-social-line span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 1px solid #8b8b8b;
+  border-top: 1px solid #8b8b8b;
+  top: 0;
+  width: 200px; }
+
+.or-social-line span:before {
+  right: 100%;
+  margin-right: 15px; }
+
+.or-social-line span:after {
+  left: 100%;
+  margin-left: 15px; }
+
+.social-login-links p {
+  margin-left: -4px; }
 
 .parallax-window-img {
   min-height: 700px;
@@ -7997,6 +8046,12 @@ footer {
   position: fixed;
   bottom: 2rem;
   right: 35px; }
+
+.navbar-default .navbar-collapse {
+  margin-top: 20px; }
+
+html, body {
+  font-family: 'exo-regular'; }
 
 .modal h2 {
   font-family: 'bebas'; }
@@ -8031,5 +8086,12 @@ div.modal-backdrop.fade.in {
   border-radius: 0;
   height: 45px;
   font-size: 1.4rem; }
+
+.center {
+  text-align: center; }
+
+.for-free {
+  text-transform: uppercase;
+  color: red; }
 
 /*# sourceMappingURL=app.css.map */

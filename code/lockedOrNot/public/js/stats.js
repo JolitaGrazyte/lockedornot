@@ -33,9 +33,9 @@ $.ajax({
         }
 
         var options = {
-            segmentShowStroke : false,
+            segmentShowStroke : true,
             animateScale : true
-        }
+        };
 
         new Chart(stats).Doughnut(stats_data, options);
 
@@ -44,25 +44,7 @@ $.ajax({
 
 
 
-var barData = {
-    labels : ["January","February","March","April","May","June"],
-    datasets : [
-        {
-            fillColor : "#48A497",
-            strokeColor : "#48A4D1",
-            data : [456,479,324,569,702,600]
-        },
-        {
-            fillColor : "rgba(73,188,170,0.4)",
-            strokeColor : "rgba(72,174,209,0.4)",
-            data : [364,504,605,400,345,320]
-        }
-
-    ]
-};
-
-
-var income = document.getElementById("income").getContext("2d");
+var freq = document.getElementById("freq").getContext("2d");
 
 var barData = {
     labels : ["January","February","March","April","May","June"],
@@ -82,4 +64,4 @@ var barData = {
 }
 
 
-new Chart(income).Bar(barData);
+new Chart(freq).Bar(barData);

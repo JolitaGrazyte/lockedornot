@@ -10,6 +10,10 @@
         <h3>Get a peace of mind!</h3>
     </div>
 
+    <div class="tweet">
+
+
+    </div>
 
     <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-bl-filter.jpg') }}"></div>
 

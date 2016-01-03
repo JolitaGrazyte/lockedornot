@@ -8,14 +8,17 @@
  @include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
  @include font_mixin('cantarelloblique', 'cantarell_oblique', 'Cantarell-Oblique');
  @include font_mixin('cantarellbold', 'cantarell_bold', 'Cantarell-Bold-webfont');
- @include font_mixin('capsuularegular','capsuula_regular', 'Capsuula-webfont');
  @include font_mixin('ciclefina', 'cicle_fina', 'Cicle_Fina');
  @include font_mixin('ciclegordita_italic', 'cicle_gorditaitalic', 'Cicle_Gordita_Italic-webfont');
  @include font_mixin('cicle_semi_italicsemi_italic', 'cicle_semiitalic', 'Cicle_Semi_Italic-webfont');
- @include font_mixin('bebas', 'bebas_regular', 'bebas');
 
+
+ @include font_mixin('bebas', 'bebas_regular', 'bebas');
  @include font_mixin('icomoon', 'icomoon', 'icomoon');
- @include font_mixin('fontawesome', 'fontawesome', 'fontawesome-webfont');
+ @include font_mixin('fontawesome', 'fontawesome', 'fontawesome');
+
+ @include font_mixin('exo-regular', 'exo', 'exoregular');
+ @include font_mixin('exo-black', 'exo', 'exoblack');
 
  @import "main";
  @import "forms";
@@ -25,23 +28,14 @@
  @import "parallax";
  @import "locked-footer";
 
-
- //@font-face {
- //  font-family: 'icomoon';
- //  src:    url('../fonts/icomoon.eot?xds2z4');
- //  src:    url('../fonts/icomoon.eot?xds2z4#iefix') format('embedded-opentype'),
- //  url('../fonts/icomoon.ttf?xds2z4') format('truetype'),
- //  url('../fonts/icomoon.woff?xds2z4') format('woff'),
- //  url('../fonts/icomoon.svg?xds2z4#icomoon') format('svg');
- //  font-weight: normal;
- //  font-style: normal;
- //}
-
+ .navbar-default .navbar-collapse{
+  margin-top: 20px;
+ }
 
  html, body {
    //font-family: 'ciclefina';
    //font-family: 'cantarellregular';
-   //font-family: 'capsuularegular';
+  font-family: 'exo-regular';
 
  }
 
@@ -90,3 +84,16 @@
   height: 45px;
   font-size: 1.4rem;
  }
+
+ .center{
+  text-align: center;
+ }
+
+ .for-free{
+  text-transform: uppercase;
+  color: red;
+ }
+ //
+ //canvas{
+ // border: 1px red dotted;
+ //}
