@@ -3,10 +3,11 @@
         <h1 class="center">How it works?</h1>
     </div>
     <div class="row">
-        <div class="front-info">
+        <div class="how-it-works">
             <div class="col-lg-4 col-sm-12">
                 <h3><em>Sign Up for <span class="for-free">FREE</span>.</em></h3>
                 <p>
+                <div><span class="fa fa-pencil-square-o"></span> Get an account.</div>
                     <div>Register with providing your device serial number.</div>
                     <div>It is needed for the further interaction.</div>
                 </p>
@@ -15,7 +16,7 @@
             <div class="col-lg-4 col-sm-12">
                 <h3><em>Check if your car is locked.</em></h3>
                 <p>
-                    <div>Any time you ask yourself: 'did i lock my car?'</div>
+                    <div>Any time you ask yourself: <em>"did i lock my car?"</em></div>
                     <div>Get connected and check if your car is locked.</div>
                 </p>
 
@@ -23,7 +24,7 @@
             <div class="col-lg-4 col-sm-12">
                 <h3><em>Track your personal activity</em></h3>
                 <p>
-                    <div>Get statistics:</div>
+                    <div><span class="fa fa-bar-chart-o"></span> Get statistics:</div>
                 <ul>
                     <li>how frequently you check</li>
                     <li>how often is it true</li>

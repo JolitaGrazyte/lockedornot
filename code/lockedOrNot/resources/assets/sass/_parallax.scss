@@ -1,9 +1,18 @@
 .parallax-window-img {
-  min-height: 700px;
+  min-height: 670px;
   background: transparent;
 }
 
 .parallax-window-noimg {
   min-height: 400px;
   background: transparent;
+  padding: 2rem 0;
+}
+
+
+@media (max-width: 767px){
+  .parallax-window-img {
+    min-height: 300px;
+  }
+
 }

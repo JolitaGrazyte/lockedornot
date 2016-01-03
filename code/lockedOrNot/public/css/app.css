@@ -7915,6 +7915,19 @@ button.close {
   left: 25.6%;
   top: 25%; }
 
+@media (max-width: 767px) {
+  .site-name {
+    font-size: 6rem;
+    left: 0;
+    text-align: center;
+    top: 13%;
+    width: 100%; }
+  .slogan {
+    width: 100%;
+    left: 0;
+    top: 20%;
+    text-align: center; } }
+
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
@@ -7991,15 +8004,17 @@ button.close {
 
 .navbar-default .navbar-nav.athome > li > a {
   color: whitesmoke;
-  font-size: 1.5rem;
-  line-height: 45px; }
+  font-size: 1.6rem; }
 
 nav ul.navbar-right li {
   right: 35px; }
 
 @media (max-width: 767px) {
   .navbar {
-    background: white; }
+    background: white;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    border-color: #e7e7e7; }
   .navbar-default .navbar-nav.athome > li > a {
     color: dimgrey; }
   nav ul.navbar-right li {
@@ -8035,12 +8050,17 @@ nav ul.navbar-right li {
   margin-left: -4px; }
 
 .parallax-window-img {
-  min-height: 700px;
+  min-height: 670px;
   background: transparent; }
 
 .parallax-window-noimg {
   min-height: 400px;
-  background: transparent; }
+  background: transparent;
+  padding: 2rem 0; }
+
+@media (max-width: 767px) {
+  .parallax-window-img {
+    min-height: 300px; } }
 
 footer {
   position: fixed;
@@ -8049,6 +8069,14 @@ footer {
 
 .navbar-default .navbar-collapse {
   margin-top: 20px; }
+
+.nav {
+  font-family: bebas;
+  word-spacing: 4px; }
+
+.how-it-works {
+  width: 100%;
+  font-size: 1.6rem; }
 
 html, body {
   font-family: 'exo-regular'; }

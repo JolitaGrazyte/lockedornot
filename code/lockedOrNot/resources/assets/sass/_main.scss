@@ -17,3 +17,24 @@
   left: 25.6%;
   top: 25%;
 }
+
+@media (max-width: 767px){
+
+  .site-name{
+    font-size: 6rem;
+    left: 0;
+    text-align: center;
+    top:13%;
+    width: 100%;
+
+  }
+  .slogan{
+    width: 100%;
+    left: 0;
+    top:20%;
+    text-align: center;
+  }
+
+
+}
+

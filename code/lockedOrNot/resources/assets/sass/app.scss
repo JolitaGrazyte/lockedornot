@@ -28,9 +28,21 @@
  @import "parallax";
  @import "locked-footer";
 
+
  .navbar-default .navbar-collapse{
   margin-top: 20px;
  }
+
+ .nav{
+  font-family: bebas;
+  word-spacing: 4px;
+ }
+
+ .how-it-works{
+  width: 100%;
+   font-size: 1.6rem;
+
+  }
 
  html, body {
    //font-family: 'ciclefina';

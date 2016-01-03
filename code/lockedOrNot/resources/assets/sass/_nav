@@ -18,11 +18,10 @@
 
 }
 
-
 .navbar-default .navbar-nav.athome > li > a {
   color: whitesmoke;
-  font-size: 1.5rem;
-  line-height: 45px;
+  font-size: 1.6rem;
+  //line-height: 35px;
 }
 
 nav ul.navbar-right li{
@@ -33,6 +32,8 @@ nav ul.navbar-right li{
 
   .navbar{
     background: white;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
   }
 
   .navbar-default .navbar-nav.athome > li > a {

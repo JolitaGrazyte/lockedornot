@@ -8,7 +8,7 @@
         </button>
         <a class="navbar-brand" href="{{ route('home') }}">
             {{--<img class="logo" src="/img/logo.png" alt="Logo Locked Or Not"/>--}}
-            <img class="logo" src="{{ url('/img/logo-light-blue.png') }}" width="120" alt="Logo Locked Or Not"/>
+            <img class="logo" src="{{ url('/img/logo-light-blue.png') }}" width="150" alt="Logo Locked Or Not"/>
         </a>
     </div>
 
