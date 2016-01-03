@@ -28,7 +28,7 @@ class AuthController extends Controller implements AuthenticateUserListener
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    protected $redirectPath =   '/dashboard';
+    protected $redirectPath =   '/profile';
 
     /**
      * Create a new authentication controller instance.
@@ -96,6 +96,6 @@ class AuthController extends Controller implements AuthenticateUserListener
      */
     public function userHasBeenRegistered($user) {
 
-        return redirect('dashboard');
+        return redirect('profile');
     }
 }

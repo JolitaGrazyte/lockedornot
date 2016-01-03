@@ -53,6 +53,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 
     <script src="{{ url('js/parallax.js') }}"></script>
+    <script src="{{ url('js/noframework.waypoints.min.js') }}"></script>
+    <script src="{{ url('js/waypoints.js') }}"></script>
 
 
 

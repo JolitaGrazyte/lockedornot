@@ -7886,16 +7886,16 @@ button.close {
   font-style: normal; }
 
 @font-face {
-  font-family: "exo-regular";
-  src: url("../../fonts/exo/exoregular.otf");
-  src: url("../../fonts/exo/exoregular.otf?#iefix") format("embedded-opentype"), url("../../fonts/exo/exoregular.woff") format("woff"), url("../../fonts/exo/exoregular.ttf") format("truetype"), url("../../fonts/exo/exoregular.svg#exo-regular") format("svg");
+  font-family: "exoregular";
+  src: url("../../fonts/exo/exo-regular.otf");
+  src: url("../../fonts/exo/exo-regular.otf?#iefix") format("embedded-opentype"), url("../../fonts/exo/exo-regular.woff") format("woff"), url("../../fonts/exo/exo-regular.ttf") format("truetype"), url("../../fonts/exo/exo-regular.svg#exoregular") format("svg");
   font-weight: normal;
   font-style: normal; }
 
 @font-face {
-  font-family: "exo-black";
-  src: url("../../fonts/exo/exoblack.otf");
-  src: url("../../fonts/exo/exoblack.otf?#iefix") format("embedded-opentype"), url("../../fonts/exo/exoblack.woff") format("woff"), url("../../fonts/exo/exoblack.ttf") format("truetype"), url("../../fonts/exo/exoblack.svg#exo-black") format("svg");
+  font-family: "exoblack";
+  src: url("../../fonts/exo/exo-black.otf");
+  src: url("../../fonts/exo/exo-black.otf?#iefix") format("embedded-opentype"), url("../../fonts/exo/exo-black.woff") format("woff"), url("../../fonts/exo/exo-black.ttf") format("truetype"), url("../../fonts/exo/exo-black.svg#exoblack") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -7927,6 +7927,32 @@ button.close {
     left: 0;
     top: 20%;
     text-align: center; } }
+
+.modal h2 {
+  font-family: 'bebas', sans-serif; }
+
+div.modal-backdrop.fade.in {
+  z-index: -1; }
+
+.modal.fade .modal-dialog {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  -webkit-transform: translate(-50%, 0);
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out; }
+
+.modal-backdrop.in {
+  opacity: 0.7;
+  filter: alpha(opacity=10); }
+
+.modal-content {
+  border-radius: 0; }
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    width: 500px; } }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -8002,9 +8028,19 @@ button.close {
   border: 0;
   min-height: 70px; }
 
+.navbar-bckgr-white {
+  background: white; }
+
 .navbar-default .navbar-nav.athome > li > a {
   color: whitesmoke;
   font-size: 1.6rem; }
+
+.navbar-default .navbar-collapse {
+  margin-top: 20px; }
+
+.nav {
+  font-family: bebas;
+  word-spacing: 4px; }
 
 nav ul.navbar-right li {
   right: 35px; }
@@ -8013,8 +8049,7 @@ nav ul.navbar-right li {
   .navbar {
     background: white;
     text-align: center;
-    border-bottom: 1px solid transparent;
-    border-color: #e7e7e7; }
+    border-bottom: 1px solid #e7e7e7; }
   .navbar-default .navbar-nav.athome > li > a {
     color: dimgrey; }
   nav ul.navbar-right li {
@@ -8054,7 +8089,7 @@ nav ul.navbar-right li {
   background: transparent; }
 
 .parallax-window-noimg {
-  min-height: 400px;
+  min-height: 350px;
   background: transparent;
   padding: 2rem 0; }
 
@@ -8067,48 +8102,15 @@ footer {
   bottom: 2rem;
   right: 35px; }
 
-.navbar-default .navbar-collapse {
-  margin-top: 20px; }
-
-.nav {
-  font-family: bebas;
-  word-spacing: 4px; }
+html, body {
+  font-family: 'exo-regular', sans-serif; }
 
 .how-it-works {
   width: 100%;
   font-size: 1.6rem; }
 
-html, body {
-  font-family: 'exo-regular'; }
-
-.modal h2 {
-  font-family: 'bebas'; }
-
-div.modal-backdrop.fade.in {
-  z-index: -1; }
-
-.modal.fade .modal-dialog {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  -webkit-transform: translate(-50%, 0);
-  transition: -webkit-transform 0.5s ease-out;
-  transition: transform 0.5s ease-out; }
-
 .parallax-window-img img {
   opacity: 0.8; }
-
-.modal-backdrop.in {
-  opacity: 0.7;
-  filter: alpha(opacity=10); }
-
-.modal-content {
-  border-radius: 0; }
-
-@media (min-width: 768px) {
-  .modal-dialog {
-    width: 500px; } }
 
 .form-control {
   border-radius: 0;
@@ -8121,5 +8123,9 @@ div.modal-backdrop.fade.in {
 .for-free {
   text-transform: uppercase;
   color: red; }
+
+.dashboard-container {
+  position: absolute;
+  top: 100px; }
 
 /*# sourceMappingURL=app.css.map */

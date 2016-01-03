@@ -15,10 +15,6 @@ get('/', ['as' => 'home',       function () {
     return view('home.index');
 }]);
 
-//get('/dashboard', ['as' => 'dashboard',       function () {
-//    return view('dashboard.index');
-//}]);
-
 
 // Password reset
 Route::controllers([
@@ -40,12 +36,20 @@ get('logout',      ['as' => 'logout',           'uses' => 'Auth\AuthController@g
 get('nglogin', function(){
     return view('nglogin');
 });
-
-resource('dashboard', 'DashboardController');
-resource('stats', 'StatsController@index');
+Route::group(['middleware' => 'auth'], function()
+{
+//    resource('dashboard', 'DashboardController');
+    get('{name}/personal-stats', ['as' => 'personal-stats', 'uses' => 'StatsController@personalStats']);
+    resource('profile', 'ProfileController');
 
 //get state: locked or not on web-page
-get('device-state', 'DeviceController@response');
+    get('device-state', 'DeviceController@response');
+});
+
+
+get('stats', ['as' => 'stats', 'uses' => 'StatsController@index']);
+
+
 
 Route::group(['prefix' => 'api'], function()
 {
@@ -53,7 +57,6 @@ Route::group(['prefix' => 'api'], function()
     post('authenticate', 'AuthenticateController@authenticate');
     get('lockedornot', 'DeviceController@jsonResponse');
     get('stats', 'StatsController@json_stats');
-
 
 });
 

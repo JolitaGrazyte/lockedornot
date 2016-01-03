@@ -18,10 +18,23 @@
 
 }
 
+.navbar-bckgr-white{
+  background: white;
+}
+
 .navbar-default .navbar-nav.athome > li > a {
   color: whitesmoke;
   font-size: 1.6rem;
   //line-height: 35px;
+}
+
+.navbar-default .navbar-collapse{
+  margin-top: 20px;
+}
+
+.nav{
+  font-family: bebas;
+  word-spacing: 4px;
 }
 
 nav ul.navbar-right li{
@@ -44,4 +57,3 @@ nav ul.navbar-right li{
     right: 0;
   }
 }
-

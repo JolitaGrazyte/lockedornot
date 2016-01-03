@@ -17,11 +17,12 @@
  @include font_mixin('icomoon', 'icomoon', 'icomoon');
  @include font_mixin('fontawesome', 'fontawesome', 'fontawesome');
 
- @include font_mixin('exo-regular', 'exo', 'exoregular');
- @include font_mixin('exo-black', 'exo', 'exoblack');
+ @include font_mixin('exoregular', 'exo', 'exo-regular');
+ @include font_mixin('exoblack', 'exo', 'exo-black');
 
  @import "main";
  @import "forms";
+ @import "modals";
  @import "social";
  @import "nav";
  @import "login";
@@ -29,65 +30,24 @@
  @import "locked-footer";
 
 
- .navbar-default .navbar-collapse{
-  margin-top: 20px;
- }
-
- .nav{
-  font-family: bebas;
-  word-spacing: 4px;
- }
-
- .how-it-works{
-  width: 100%;
-   font-size: 1.6rem;
-
-  }
 
  html, body {
    //font-family: 'ciclefina';
    //font-family: 'cantarellregular';
-  font-family: 'exo-regular';
+  font-family: 'exo-regular', sans-serif;
 
  }
 
- .modal h2{
-  font-family: 'bebas';
+ .how-it-works{
+  width: 100%;
+  font-size: 1.6rem;
+
  }
 
- div.modal-backdrop.fade.in{
-  z-index:-1;
- }
-
- .modal.fade .modal-dialog {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  -webkit-transform: translate(-50%, 0);
-  transition: -webkit-transform 0.5s ease-out;
-  transition: transform 0.5s ease-out;
- }
 
  .parallax-window-img img{
   opacity: 0.8;
   //filter: alpha(opacity=1);
- }
-
- .modal-backdrop.in {
-  opacity: 0.7;
-  filter: alpha(opacity=10); }
-
-
-
- .modal-content{
-  border-radius:0;
- }
-
- @media (min-width: 768px) {
-  .modal-dialog {
-   width: 500px;
-    }
  }
 
 
@@ -105,7 +65,13 @@
   text-transform: uppercase;
   color: red;
  }
+
  //
  //canvas{
  // border: 1px red dotted;
  //}
+ //
+ .dashboard-container{
+  position: absolute;
+  top: 100px;
+ }

@@ -24,7 +24,7 @@ class SocialRegister extends Request
     public function rules()
     {
         return [
-            //
+
         ];
     }
 }

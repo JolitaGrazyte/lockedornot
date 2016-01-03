@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -16,50 +17,23 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //
+        return view('profile.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param $full_name
      * @return \Illuminate\Http\Response
+     * @internal param string $name
      */
-    public function edit($id)
+    public function edit($full_name)
     {
-        //
+        $name = explode('-', $full_name);
+        $user = Auth::check()? AUth::user()->where('first_name', $name[0])->where('last_name', $name[1])->first() : '';
+        return view('profile.edit')->withUser($user);
     }
 
     /**
@@ -74,14 +48,14 @@ class ProfileController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+//    /**
+//     * Remove the specified resource from storage.
+//     *
+//     * @param  int  $id
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function destroy($id)
+//    {
+//        //
+//    }
 }
