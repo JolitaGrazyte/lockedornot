@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Stats extends Model
 {
@@ -17,4 +18,7 @@ class Stats extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function scopeTodaystats($query){
+        return $query->where('created_at', Carbon::today());
+    }
 }

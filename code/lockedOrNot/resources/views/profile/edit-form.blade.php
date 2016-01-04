@@ -13,7 +13,7 @@
         {!! Form::label('device_nr', 'Your lockedOrNot serial nr:', ['class' => 'control-label']) !!}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
-            {!! Form::text('device_nr',  old('device_nr'), ['class' => is_null($user->device)? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
+            {!! Form::text('device_nr',  isset($user)?$user->device->device_nr:null, ['class' => is_null($user->device)? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
         </div>
 
 

@@ -41,3 +41,31 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'updated_at'    =>  $date
     ];
 });
+
+$factory->define(App\Stats::class, function(Faker\Generator $faker){
+
+    $users = \App\User::all();
+    $now = Carbon\Carbon::now();
+    $users_count = \App\User::count();
+
+//    dd(mt_rand(1, $users_count));
+//    dd($users_count);
+
+    $user = \App\User::find(mt_rand(1, $users_count));
+//    dd($user);
+//
+//    foreach($users as $user)
+//    {
+        $stats =
+
+            [
+                'device_nr'     => $user->device->device_nr,
+                'device_state'  => mt_rand(0, 1),
+                'user_id'       => $user->id,
+                'created_at'    => $now->subDays(mt_rand(1, 30)),
+                'updated_at'    => $now->subDays(mt_rand(1, 30)),
+            ];
+//    }
+
+    return $stats;
+});

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Stats;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -27,7 +29,17 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
+
+        $device_state = $this->authUser->device->state;
+        $msg = $device_state == 0? 'Your car is not locked!': 'Your car is locked yet!';
+        $stats = $this->authUser->stats;
+
+        $stats_true = $stats->where('device_state', 0)->count();
+        $paranoia_stats = $stats->where('device_state', 1)->count();
+        $stats_total = $stats->count();
+        $percent_true = $stats_true*100/$stats_total;
+
+        return view('profile.index', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg'));
     }
 
 

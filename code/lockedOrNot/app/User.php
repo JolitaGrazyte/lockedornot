@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -49,5 +50,12 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->hasOne('App\Device');
     }
+
+    public function stats()
+    {
+        return $this->hasMany('App\Stats');
+    }
+
+
 
 }
