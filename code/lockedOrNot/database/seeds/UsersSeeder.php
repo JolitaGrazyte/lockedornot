@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
         $cities = ['Antwerp', 'Gent', 'Brussels', 'Paris', 'London'];
         $cars   = ['Volvo', 'Audi', 'Mercedes', 'Toyota', 'Jaguar'];
         $colours = ['red', 'blue', 'white', 'black', 'grey'];
-        $digits = 5;
+//        $digits = 5;
 
         DB::table('users')->delete();
         $users = [
@@ -27,7 +27,7 @@ class UsersSeeder extends Seeder
                 'last_name'     => 'Grazyte',
 //                'email'       => 'jolita.grazyte@student.kdg.be',
                 'email'         => 'test@test.be',
-                'device_nr'     => 'LRN'.rand(pow(10, $digits-1), pow(10, $digits)-1),
+//                'device_nr'     => 'LRN'.rand(pow(10, $digits-1), pow(10, $digits)-1),
                 'city'          => $cities[rand(0, 4)],
                 'car_brand'     => $cars[rand(0, 4)],
                 'car_color'     => $colours[rand(0,4)],

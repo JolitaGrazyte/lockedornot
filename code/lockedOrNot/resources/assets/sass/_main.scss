@@ -2,20 +2,22 @@
 .slogan, .site-name{
   position: absolute;
   z-index: 10;
-  color: $site-name;
-  font-size: 14rem;
-  text-shadow: .1rem .1rem #9ae5f5;
+  //color: $site-name;
+  color: white;
+  text-shadow: .1rem .1rem #2a2b3f;
 }
 
 .site-name{
   font-family: sans-serif;
+  font-size: 14rem;
   left: 25%;
-  top: 25%;
+  top: 45%;
 }
 
 .slogan{
-  left: 25.6%;
-  top: 25%;
+  right: 25.6%;
+  top: 55%;
+  font-size: 24rem;
 }
 
 @media (max-width: 767px){

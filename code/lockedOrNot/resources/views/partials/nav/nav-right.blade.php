@@ -1,10 +1,11 @@
 <ul class="nav navbar-nav navbar-right {{ Request::is('/') ? 'athome': '' }}">
 
     @if ( Auth::guest() )
+        @include('partials.front-login')
 
-        <li><a href="" id="login" data-toggle="modal" data-target="#loginModal" >Login</a></li>
+        {{--<li><a href="" id="login" data-toggle="modal" data-target="#loginModal" >Login</a></li>--}}
 
-        <li><a href="" id="register" data-toggle="modal" data-target="#registerModal" >Register</a></li>
+        {{--<li><a href="" id="register" data-toggle="modal" data-target="#registerModal" >Register</a></li>--}}
     @else
 
 

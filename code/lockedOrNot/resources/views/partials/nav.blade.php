@@ -7,10 +7,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ route('home') }}">
+        {{--<a class="navbar-brand" href="{{ route('home') }}">--}}
             {{--<img class="logo" src="/img/logo.png" alt="Logo Locked Or Not"/>--}}
-            <img class="logo" src="{{ url('/img/logo-light-blue.png') }}" width="150" alt="Logo Locked Or Not"/>
-        </a>
+            {{--<img class="logo" src="{{ Request::is('/')? url('/img/logo-light-blue.png'):url('/img/lockedOrNotLogoDark.png') }}" width="150" alt="Logo Locked Or Not"/>--}}
+        {{--</a>--}}
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

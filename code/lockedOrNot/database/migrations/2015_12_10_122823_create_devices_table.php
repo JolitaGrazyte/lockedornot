@@ -16,15 +16,24 @@ class CreateDevicesTable extends Migration
 
             $table->increments('id');
             $table->string('device_nr', 45);
-
-            //for statistics
-            $table->string('city', 45)->nullable();
-            $table->string('car_brand', 45)->nullable();
-            $table->string('car_color', 45)->nullable();
-
-
+            $table->tinyInteger('state')->default(0);
+            $table->integer('user_id');
             $table->timestamps();
         });
+
+//        Schema::create('device_user', function(Blueprint $table){
+//            $table->increments('id');
+//            $table->tinyInteger('device_id')->unsigned();
+//            $table->foreign('device_id')->references('id')->on('devices')->onDelete('cascade')->onUpdate('cascade');
+//
+//            $table->tinyInteger('state')->unsigned();
+//            $table->foreign('state')->references('state')->on('devices')->onDelete('cascade')->onUpdate('cascade');
+//
+//            $table->integer('user_id')->unsigned();
+//            $table->foreign('user_id')->references('id')->on('devices')->onDelete('cascade')->onUpdate('cascade');
+//
+//            $table->timestamps();
+//        });
     }
 
     /**
@@ -34,6 +43,7 @@ class CreateDevicesTable extends Migration
      */
     public function down()
     {
+//        Schema::drop('device_user');
         Schema::drop('devices');
     }
 }

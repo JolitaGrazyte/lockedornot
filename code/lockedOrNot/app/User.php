@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['device_nr', 'first_name', 'last_name', 'email', 'password', 'city', 'car_color', 'car_brand'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'password', 'city', 'car_color', 'car_brand'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -40,6 +40,14 @@ class User extends Model implements AuthenticatableContract,
     public function getFullNameAttribute()
     {
         return $this->first_name.' '.$this->last_name;
+    }
+
+    /**
+     * Get the phone record associated with the user.
+     */
+    public function device()
+    {
+        return $this->hasOne('App\Device');
     }
 
 }

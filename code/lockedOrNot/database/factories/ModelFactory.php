@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     $cities = ['Antwerp', 'Gent', 'Brussels', 'Paris', 'London'];
     $cars   = ['Volvo', 'Audi', 'Mercedes', 'Toyota', 'Jaguar'];
     $colours = ['red', 'blue', 'white', 'black', 'grey'];
-    $digits = 5;
+//    $digits = 5;
 
     return [
 //        'username'      => $full_name,
@@ -33,7 +33,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'password'      => Hash::make('testing'),
 //        'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
-        'device_nr'     => 'LRN'.rand(pow(10, $digits-1), pow(10, $digits)-1),
+//        'device_nr'     => 'LRN'.rand(pow(10, $digits-1), pow(10, $digits)-1),
         'city'          => $cities[rand(0, 4)],
         'car_brand'     => $cars[rand(0, 4)],
         'car_color'     => $colours[rand(0,4)],

@@ -31,7 +31,6 @@ class ProfileController extends Controller
     }
 
 
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -52,7 +51,9 @@ class ProfileController extends Controller
      */
     public function update( ProfileRequest $request, $id)
     {
-        $this->authUser->update($request->all());
+        $user = $this->authUser;
+        $user->update($request->all());
+        $user->device->associate($request->get('device_nr'));
 
         Session::flash('message', 'You have succefully updated your profile.');
         Session::flash('alert-class', 'alert-success');

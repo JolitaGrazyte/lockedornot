@@ -75,12 +75,15 @@ class StatsController extends Controller
 
        return Response::json($distincts);
 
-
     }
 
     public function personalStats($name)
     {
         $stats = [];
+        $how_freq_check = 0;
+        $how_freq_true = 0;
+        $how_freq_false = 0;
+
         return $stats;
     }
 

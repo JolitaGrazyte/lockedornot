@@ -42,9 +42,12 @@ Route::group(['middleware' => 'auth'], function()
     get('{name}/personal-stats', ['as' => 'personal-stats', 'uses' => 'StatsController@personalStats']);
     resource('profile', 'ProfileController');
 
-//get state: locked or not on web-page
-    get('device-state', 'DeviceController@response');
+    //get state: locked or not on web-page
+    get('device-state/{id}', 'DeviceController@response');
+
 });
+
+
 
 
 get('stats', ['as' => 'stats', 'uses' => 'StatsController@index']);

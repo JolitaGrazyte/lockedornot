@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name', 45);
             $table->string('last_name', 45);
 
-            $table->string('device_nr', 45);
+//            $table->string('device_nr', 45);
 
             //for statistics
             $table->string('city', 45)->nullable();
@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
     }
 
     /**

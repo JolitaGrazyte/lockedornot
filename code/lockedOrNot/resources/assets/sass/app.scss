@@ -10,7 +10,9 @@
  @include font_mixin('cantarellbold', 'cantarell_bold', 'Cantarell-Bold-webfont');
  @include font_mixin('ciclefina', 'cicle_fina', 'Cicle_Fina');
  @include font_mixin('ciclegordita_italic', 'cicle_gorditaitalic', 'Cicle_Gordita_Italic-webfont');
+ @include font_mixin('ciclegordita', 'cicle_gordita', 'Cicle_Gordita-webfont');
  @include font_mixin('cicle_semi_italicsemi_italic', 'cicle_semiitalic', 'Cicle_Semi_Italic-webfont');
+ @include font_mixin('cicle_semi', 'cicle_semi', 'Cicle_Semi-webfont');
 
 
  @include font_mixin('bebas', 'bebas_regular', 'bebas');
@@ -29,14 +31,55 @@
  @import "parallax";
  @import "locked-footer";
 
+ .slogan, .site-name{
+  position: absolute;
+  z-index: 10;
+  //color: $site-name;
+  color: white;
+  text-shadow: 1px 1px #0d102e;
+ }
+
+ .site-name{
+  font-family: ccicle_semi, sans-serif;
+  font-size: 14rem;
+  left: 25%;
+  top: 25%;
+ }
+
+ .slogan{
+  right: 22%;
+  top: 40%;
+  font-size: 4rem;
+  font-style: oblique;
+  border-top: 1px solid white;
+ }
 
 
  html, body {
    //font-family: 'ciclefina';
    //font-family: 'cantarellregular';
   font-family: 'exo-regular', sans-serif;
-
  }
+
+ #map {
+  position:relative;
+  top:100px;
+  height: 400px;
+  bottom:0;
+  width:100%;
+ }
+
+ .menu-ui {
+  position:absolute;
+  top:10px;
+  right:10px;
+ }
+
+ /* Do a fancy data transition for browsers that support it */
+ //path {
+ // -webkit-transition:fill 200ms;
+ // transition:fill 200ms;
+ //}
 
  .how-it-works{
   width: 100%;
@@ -44,12 +87,10 @@
 
  }
 
-
  .parallax-window-img img{
   opacity: 0.8;
   //filter: alpha(opacity=1);
  }
-
 
  .form-control{
   border-radius: 0;
@@ -72,8 +113,13 @@
  // border: 1px red dotted;
  //}
  //
- .dashboard-container, .page-not-found{
+ .dashboard-container, .page-not-found, .stats-container{
   position: absolute;
+  top: 100px;
+
+ }
+ .stats-container{
+  position: relative;
   top: 100px;
 
  }
@@ -89,4 +135,32 @@
   border: 1px solid #ff86a7;;
  }
 
+
+ .front-login{
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  //border: 1px red dotted;
+  text-align: center;
+ }
+
+ .front-login li{
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  line-height: 40px;
+  border: 1px solid white;
+
+ }
+
+ .front-login ul > li a{
+  font-family: bebas;
+  color: #FFF;
+  font-size: 2rem;
+
+ }
 

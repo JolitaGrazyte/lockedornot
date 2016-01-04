@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Device;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -31,13 +32,20 @@ class DeviceController extends Controller
         return Response::json($state);
     }
 
-    public function response(){
+    public function response($id){
+
+        $device = Device::where('user_id', $id)->first();
+//        dd($device);
+        $state = $device->state;
+//        dd($state);
+        $state = mt_rand(0, 1);
+//        dd($state);
 
         /**
          * return the state of the lock;
          *  1 = isLocked; 0 = isNotLocked;
          **/
-        $state = [ 'state'=>1 ];
+
         return view('device.index', compact('state'));
     }
 

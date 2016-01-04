@@ -1,7 +1,9 @@
 {!!Form::model($user, ['route' =>  ['profile.update', $user->id], 'class' => 'form-horizontal', 'method' => 'PATCH'])  !!}
 
 <div class="form-group">
-    @if(empty(Auth::user()->device_nr))
+
+
+    @if(is_null(Auth::user()->device))
         <div class="col-lg-12">
             <h5 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h5>
         </div>
@@ -11,7 +13,7 @@
         {!! Form::label('device_nr', 'Your lockedOrNot serial nr:', ['class' => 'control-label']) !!}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
-            {!! Form::text('device_nr',  old('device_nr'), ['class' => empty($user->device_nr)? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
+            {!! Form::text('device_nr',  old('device_nr'), ['class' => is_null($user->device)? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
         </div>
 
 
