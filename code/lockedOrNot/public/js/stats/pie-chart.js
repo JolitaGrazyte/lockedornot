@@ -1,52 +1,71 @@
 $(function(){
 
-    var stats = document.getElementById('pie-chart').getContext('2d');
-    var user_id = document.getElementsByName('user_id');
-    console.log(user_id);
+    var pie_stats   = document.getElementById('pie-chart').getContext('2d');
+    var doughnut_stats = document.getElementById('doughnut-chart').getContext('2d');
+    var user_id = document.getElementById('user_id').value;
+    //
+    //console.log(user_id);
 
-    //var stats_data  = [];
+    var p_stats_data  = [];
+    var d_stats_data = [];
     $.ajax({
-        url:'http://lockdrnot.local.com/api/personal-stats/1',
+        url:'http://lockdrnot.local.com/api/personal-stats/'+user_id,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',
         success: function(data){
 
-            var data_l = data.length;
-            //console.log(data.length);
+            var paranoia_stats = 0;
+            var real_stats  = 0;
+            var total = real_stats+paranoia_stats;
 
-            for(var i in data){
-                $.each(data[i], function( k, v ) {
+                for(var i in data){
 
-                    if(k=='device_state' && v==1)
-                    console.log('Paranoia');
-                    else if(k=='device_state' && v==0)
-                    console.log('Real danger');
-                    console.log( "Key: " + k + ", Value: " + v );
+                $.each(data[i], function( key, val ) {
+
+                    if(key=='device_state' && val==1){
+                        paranoia_stats++;
+                        //console.log('Paranoia');
+                    }
+
+                    else if(key=='device_state' && val==0) {
+
+                        real_stats++;
+                        //console.log('Real danger');
+                    }
+                    //console.log( "Key: " + k + ", Value: " + v );
                 });
             }
 
-            console.log(data);
+            //console.log(data);
+            //console.log(stats_data);
+            //console.log(data[i]);
+            p_stats_data.push({value: real_stats, color: "#FF003D", label: 'real danger'});
+            p_stats_data.push({value: paranoia_stats, color: "#FFF", label: 'paranoia'});
 
+            d_stats_data.push({value: real_stats, color: "#FF003D", label: 'real danger'});
+            d_stats_data.push({value: paranoia_stats, color: "#FFF", label: 'paranoia'});
 
+            //console.log(p_stats_data);
 
-            console.log(stats_data);
-                    console.log(data[i]);
+            var p_options = {
+                segmentStrokeColor : "#0f0",
+                segmentShowStroke : true,
+                animateScale : true,
+                segmentStrokeWidth : 1,
+            };
+            var d_options = {
+                segmentStrokeColor : "#0f0",
+//            segmentShowStroke : true,
+//            animateScale : true,
+                animateScale : false,
+                segmentStrokeWidth : 1,
+                percentageInnerCutout : 70
+            };
+
+            new Chart(pie_stats).Pie(p_stats_data, p_options);
+            new Chart(doughnut_stats).Doughnut(d_stats_data, d_options);
         }
     });
 
-    var stats_data = [
-        {value: 1, color: "#FF003D", label: 'real danger'},
-        {value: 3, color: "#FFF", label: 'paranoia'},
-
-    ];
-
-    var options = {
-        segmentStrokeColor : "#0f0",
-        segmentShowStroke : true,
-        animateScale : true,
-        segmentStrokeWidth : 1,
-    };
-
-    new Chart(stats).Pie(stats_data, options);
 });

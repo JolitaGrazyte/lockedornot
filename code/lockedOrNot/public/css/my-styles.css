@@ -34,3 +34,25 @@
     /*font-size: 2rem;*/
 
 /*}*/
+
+
+.site-name{
+    font-family: "DIN Condensed";
+    font-size: 20rem;
+    left: 2%;
+    top: 44%;
+    color: #fb5542;
+}
+
+.slogan{
+    font-family: "DIN Condensed";
+    right: 46.4%;
+    top: 61%;
+    font-size: 6rem;
+
+}
+
+.front-login{
+right: 2rem;
+
+}

@@ -8190,12 +8190,7 @@ html, body {
 
 .front-login {
   z-index: 100;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%);
-  transform: translate(-50%);
-  text-align: center; }
+  position: absolute; }
 
 .front-login li {
   text-align: center;

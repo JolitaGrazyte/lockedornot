@@ -2,12 +2,6 @@
 
 @section('title', 'Home')
 
-@section('head')
-@parent
-
-<link rel="stylesheet" href="{{ url('css/morris.css') }}">
-
-@stop
 @section('content')
 
     <h1 class="site-name">Locked Or Not</h1>
@@ -19,12 +13,12 @@
 
     </div>
 
-    <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2.jpg') }}" alt=""></div>
+    <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt=""></div>
 
-    @if ( Auth::guest() )
-        @include('partials.front-login')
+    {{--@if ( Auth::guest() )--}}
+        {{--@include('partials.front-login')--}}
 
-    @endif
+    {{--@endif--}}
 
 
         <div id="hiw"></div>

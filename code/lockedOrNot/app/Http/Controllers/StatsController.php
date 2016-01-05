@@ -84,9 +84,16 @@ class StatsController extends Controller
 
     public function personal_stats_json($id)
     {
-        $distincts = Stats::personalStats($id);
+        $stats = Stats::personalStats($id);
 
-        return Response::json($distincts);
+        return Response::json($stats);
     }
 
+    public function personal_stats_punch_card_json($id)
+    {
+        $stats = Stats::personalStatsWeek($id);
+//        dd($stats);
+
+        return Response::json($stats);
+    }
 }

@@ -43,7 +43,21 @@ class Stats extends Model
     {
         return DB::table('stats')
                 ->select(DB::raw( 'user_id, created_at, device_state'))
-                ->where('user_id', $user_id)->get();
+                ->where('user_id', $user_id)
+                ->get();
     }
+
+    public static function personalStatsWeek($user_id)
+    {
+        $now    = Carbon::now();
+        $start  = $now->subDays(7);
+//        dd($start);
+        return DB::table('stats')
+            ->select(DB::raw( 'user_id, created_at, device_state'))
+            ->where('created_at','>', $start)
+            ->where('user_id', $user_id)
+            ->get();
+    }
+
 
 }

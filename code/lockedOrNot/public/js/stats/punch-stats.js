@@ -1,20 +1,40 @@
 $(function () {
 
+    var user_id = document.getElementById('user_id').value;
+
+    //console.log(user_id);
 
     $.ajax({
-        url:'http://lockdrnot.local.com/api/personal-stats/1',
+        url:'http://lockdrnot.local.com/api/personal-stats/'+user_id,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',
         success: function(data){
+            var paranoia_stats = 0;
+            var real_stats  = 0;
+            var total= real_stats+paranoia_stats;
+            var stats_data = [];
+
+            for(var i in data) {
+                $.each(data[i], function (key, val) {
+                    if (key == 'created_at') {
+                        //console.log(Date.parse(val.substr(0, 7)));
+
+                        var now = new Date(Date.parse(val.substr(0, 10)));
+                        console.log(val+'-'+now);
+                    }
 
 
-                console.log(data);
-//                    console.log(data[i]);
+                });
+                //console.log(data);
+
             }
+
+        }
     });
 
-    $('#container-chart').highcharts({
+
+    $('#punch-chart').highcharts({
 
         chart: {
             defaultSeriesType: 'scatter'
@@ -38,7 +58,7 @@ $(function () {
 
         series: [{
             data: [
-
+                {y: 0, x: 3600000 * 1,  marker: { radius: Math.floor(Math.random()*11) }},
                 {y: 0, x: 3600000 * 1,  marker: { radius: Math.floor(Math.random()*11) }},
                 {y: 0, x: 3600000 * 2,  marker: { radius: Math.floor(Math.random()*11) }},
                 {y: 0, x: 3600000 * 3,  marker: { radius: Math.floor(Math.random()*11) }},

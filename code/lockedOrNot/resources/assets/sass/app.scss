@@ -135,12 +135,12 @@
  .front-login{
   z-index: 100;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%);
-  transform: translate(-50%);
+  //left: 0;
+  //top: 50%;
+  //-webkit-transform: translate(-50%);
+  //transform: translate(-50%);
   //border: 1px red dotted;
-  text-align: center;
+  //text-align: center;
  }
 
  .front-login li{

@@ -2,6 +2,10 @@
 
     @if ( Auth::guest() )
 
+            @include('partials.front-login')
+
+
+
 
         {{--<li><a href="" id="login" data-toggle="modal" data-target="#loginModal" >Login</a></li>--}}
 

@@ -10,7 +10,7 @@
         </button>
         <a class="navbar-brand" href="{{ route('home') }}">
             {{--<img class="logo" src="/img/logo.png" alt="Logo Locked Or Not"/>--}}
-            <img class="logo" src="{{ Request::is('/')? url('/img/lor-logo-light-4.png'):url('/img/lor-logo-4.png') }}" width="100" alt="Logo Locked Or Not"/>
+{{--            <img class="logo" src="{{ Request::is('/')? url('/img/lor-logo-light-4.png'):url('/img/lor-logo-4.png') }}" width="100" alt="Logo Locked Or Not"/>--}}
 {{--        <img class="logo" src="{{ url('/img/lor-logo-4.png') }}" width="100" alt="Logo Locked Or Not"/>--}}
 
         </a>

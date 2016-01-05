@@ -1,6 +1,7 @@
 $(function(){
     var stats = document.getElementById('doughnut-chart').getContext('2d');
 
+
     var stats_data = [
         {value: 25, color: "#FF003D", label: 'real danger %'},
         {value: 100-25, color: "#FFF", label: 'false alarm %'},
