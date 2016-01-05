@@ -89,7 +89,30 @@ class StatsController extends Controller
         return Response::json($stats);
     }
 
-    public function personal_stats_punch_card_json($id)
+    public function monthly_stats_json($id)
+    {
+
+        $paranoia       = [];
+        $real_danger    = [];
+
+        for($i=1; $i<= 12; ++$i){
+            $month = $i;
+            $paranoia_stats = Stats::statsMonthly($id, $month, 0);
+            $real_stats = Stats::statsMonthly($id, $month, 1);
+
+            $paranoia[]     = $paranoia_stats[0]->count;
+            $real_danger[]  = $real_stats[0]->count;
+            $total = $paranoia_stats[0]->count + $real_stats[0]->count;
+            $total_stats[] = $total;
+        }
+
+        $stats = ['paranoia'=>$paranoia, 'real_danger' => $real_danger, 'total_stats' => $total_stats ];
+
+
+        return Response::json($stats);
+    }
+
+    public function punch_stats_json($id)
     {
         $stats = Stats::personalStatsWeek($id);
 //        dd($stats);

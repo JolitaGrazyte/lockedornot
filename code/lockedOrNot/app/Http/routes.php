@@ -65,6 +65,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
     get('lockedornot', 'DeviceController@jsonResponse');
     get('stats', 'StatsController@json_stats');
     get('personal-stats/{id}', 'StatsController@personal_stats_json');
-    get('personal-week-stats/{id}', 'StatsController@personal_stats_punch_card_json');
+    get('month-stats/{id}', 'StatsController@monthly_stats_json');
+    get('punch-stats/{id}', 'StatsController@punch_stats_json');
 
 });

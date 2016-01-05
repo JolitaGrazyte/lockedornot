@@ -6,8 +6,7 @@
 
     <h1 class="site-name">Locked Or Not</h1>
 
-
-        <h2 class="slogan">Get a peace of mind!</h2>
+    <h2 class="slogan">Get a peace of mind!</h2>
 
     <div class="tweet">
 

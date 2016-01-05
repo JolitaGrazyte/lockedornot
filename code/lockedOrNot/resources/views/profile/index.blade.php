@@ -84,7 +84,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <h3>How many times it was true: {{ $stats_true }}</h3>
+                        <h3>How many per month i check</h3>
                         <div id="total-chart"></div>
                     </div>
                     <div class="col-lg-4">
