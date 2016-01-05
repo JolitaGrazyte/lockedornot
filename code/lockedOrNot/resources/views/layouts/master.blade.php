@@ -22,6 +22,9 @@
     {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--}}
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
+    @if(!Request::is('/'))
+    <link rel="stylesheet" href="{{ url('css/dashboard-app.css') }}">
+    @endif
     <link rel="stylesheet" href="{{ url('css/my-styles.css') }}">
     {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
 

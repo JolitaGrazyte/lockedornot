@@ -8033,15 +8033,15 @@ div.modal-backdrop.fade.in {
   position: relative; }
 
 .navbar-default .navbar-nav.athome > li {
-  min-height: 70px; }
+  min-height: 50px; }
 
 .navbar-brand {
-  padding: 10px 15px; }
+  padding: 20px 15px; }
 
 .navbar {
   background: transparent;
   border: 0;
-  min-height: 70px; }
+  min-height: 50px; }
 
 .navbar-bckgr-white {
   background: white; }
@@ -8061,6 +8061,8 @@ nav ul.navbar-right li {
   right: 35px; }
 
 @media (max-width: 767px) {
+  .navbar-brand {
+    padding: 10px 15px; }
   .navbar {
     background: white;
     text-align: center;
@@ -8068,6 +8070,7 @@ nav ul.navbar-right li {
   .navbar-default .navbar-nav.athome > li > a {
     color: dimgrey; }
   nav ul.navbar-right li {
+    text-align: center;
     right: 0; } }
 
 .or-social-line {
@@ -8100,7 +8103,7 @@ nav ul.navbar-right li {
   margin-left: -4px; }
 
 .parallax-window-img {
-  min-height: 670px;
+  min-height: 700px;
   background: transparent; }
 
 .parallax-window-noimg {

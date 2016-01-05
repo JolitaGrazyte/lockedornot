@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Stats;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
@@ -53,12 +54,6 @@ class StatsController extends Controller
     private function all_stats($sort=null)
     {
 
-//        dd($sort);
-//        $distincts = $this->user->select($sort)
-//            ->groupBy($sort)
-//            ->get();
-//            ->distinct()->get();
-
        $distincts = DB::table('users')
            ->select(DB::raw( 'count('.$sort.') as value, '.$sort))
            ->groupBy($sort)
@@ -85,6 +80,13 @@ class StatsController extends Controller
         $how_freq_false = 0;
 
         return $stats;
+    }
+
+    public function personal_stats_json($id)
+    {
+        $distincts = Stats::personalStats($id);
+
+        return Response::json($distincts);
     }
 
 }

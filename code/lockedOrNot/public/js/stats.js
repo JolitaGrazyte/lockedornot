@@ -78,7 +78,7 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'
         Morris.Bar({
             element: 'bar-example',
             data: [
-                {y: 'Monday', a: 80, b: 90},
+                {y: 'Monday', a: 50, b: 90},
                 {y: 'Tuesday', a: 75,  b: 65},
                 {y: 'Wednesday', a: 50,  b: 40},
                 {y: 'Thursday', a: 75,  b: 65},
@@ -89,7 +89,7 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'
             barColors :  ['#FF1B3D', '#0DFFB6'],
             xkey: 'y',
             ykeys: ['a', 'b'],
-            labels: ['Real danger', 'False alarm'],
+            labels: ['False alarm', 'Real danger'],
         });
 
     });

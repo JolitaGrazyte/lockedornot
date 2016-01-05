@@ -39,7 +39,10 @@ class ProfileController extends Controller
         $stats_total = $stats->count();
         $percent_true = $stats_true*100/$stats_total;
 
-        return view('profile.index', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg'));
+        $st = new Stats();
+        $days = $st->days();
+
+        return view('profile.index', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days'));
     }
 
 
@@ -65,9 +68,12 @@ class ProfileController extends Controller
     {
         $user = $this->authUser;
         $user->update($request->all());
-        $user->device->associate($request->get('device_nr'));
+        $device = $user->device;
+        $device->device_nr = $request->device_nr;
+        $device->save();
 
-        Session::flash('message', 'You have succefully updated your profile.');
+
+        Session::flash('message', 'You have successfully updated your profile.');
         Session::flash('alert-class', 'alert-success');
 
         return redirect()->back();

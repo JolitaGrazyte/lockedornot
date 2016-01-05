@@ -2,11 +2,6 @@
 
 @section('title', 'Dashboard')
 
-@section('head')
-    @parent
-    <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
-    @stop
 
 @section('content')
 
@@ -28,7 +23,6 @@
                    </div>
                </div>
             </div>
-        <div id='map'></div>
     </div>
 
 @stop

@@ -48,10 +48,7 @@ Route::group(['middleware' => 'auth'], function()
 });
 
 
-
-
 get('stats', ['as' => 'stats', 'uses' => 'StatsController@index']);
-
 
 
 Route::group(['prefix' => 'api'], function()
@@ -63,3 +60,10 @@ Route::group(['prefix' => 'api'], function()
 
 });
 
+Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
+{
+    get('lockedornot', 'DeviceController@jsonResponse');
+    get('stats', 'StatsController@json_stats');
+    get('personal-stats/{id}', 'StatsController@personal_stats_json');
+
+});
