@@ -12,24 +12,6 @@ $(function () {
             for(var i in data){
                 //console.log(data);
 
-            }
-
-            totals = {
-                name: 'Total times checked',
-                data: data.total_stats
-
-            };
-            par =
-            {
-                name: 'It was false',
-                data: data.paranoia
-
-            };
-            real = {
-                name: 'It was true',
-                data: data.real_danger
-            };
-            stats_data.push(totals, par, real);
             //
             //console.log(stats_data)
             //
@@ -81,10 +63,31 @@ $(function () {
                         borderWidth: 0
                     }
                 },
-                series: stats_data
+                series: [
+                    {
+                        name: 'Total times checked',
+                        data: data.total_stats
+
+                    },
+                    {
+                        name: 'It was false',
+                        data: data.paranoia
+
+                    },
+                    {
+                        name: 'It was true',
+                        data: data.real_danger
+                    }
+
+
+                ],
+                exporting: {
+                    enabled: false
+                }
 
             });
 
+            }
 
         }
     });

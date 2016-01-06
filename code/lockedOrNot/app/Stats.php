@@ -61,9 +61,6 @@ class Stats extends Model
 
     public static function statsMonthly($user_id, $month, $state)
     {
-//        $now    = Carbon::now();
-//        $start  = $now->subDays(7);
-//        dd($start);
         return DB::table('stats')
 //            ->select(DB::raw( 'MONTH(`created_at`) as month,  user_id, created_at, count(device_state)'))
             ->select(DB::raw( 'count(device_state) as count'))
@@ -73,6 +70,17 @@ class Stats extends Model
             ->get();
     }
 
+    public static function statsHourly($user_id, $day, $hour, $state){
+
+             return DB::table('stats')
+//            ->select(DB::raw( 'MONTH(`created_at`) as month,  user_id, created_at, count(device_state)'))
+                 ->select(DB::raw( 'count(device_state) as count'))
+                 ->whereRaw('DAY(created_at) = '.$day)
+                 ->whereRaw('HOUR(created_at) = '.$hour)
+                 ->where('user_id', $user_id)
+                 ->where('device_state', $state)
+                 ->get();
+    }
 
 
 

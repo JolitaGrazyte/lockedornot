@@ -91,7 +91,6 @@ class StatsController extends Controller
 
     public function monthly_stats_json($id)
     {
-
         $paranoia       = [];
         $real_danger    = [];
 
@@ -114,9 +113,32 @@ class StatsController extends Controller
 
     public function punch_stats_json($id)
     {
-        $stats = Stats::personalStatsWeek($id);
+//        $p_stats = Stats::statsHourly($id, 5, 22, 0);
+//        dd($p_stats);
+
+        $interval = 3600000;
+
+        for($d=0; $d<7; ++$d){
+            for($h=0; $h<24; ++$h){
+
+
+                $p_stats[$d] = Stats::statsHourly($id, $d, $h, 0);
+                $paranoia[]     = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $p_stats[$d][0]->count*11]];
+
+                $r_stats[$d] = Stats::statsHourly($id, $d, $h, 1);
+                $real_danger[]     = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $r_stats[$d][0]->count*11]];
+
+//                dd($p_stats[$d][0]->count);
+                $total = $p_stats[$d][0]->count + $r_stats[$d][0]->count;
+                $total_stats[] = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $total*11]];
+
+            }
+        }
+
 //        dd($stats);
+        $stats = ['paranoia'=>$paranoia, 'real'=> $real_danger, 'total' => $total_stats ];
 
         return Response::json($stats);
+
     }
 }
