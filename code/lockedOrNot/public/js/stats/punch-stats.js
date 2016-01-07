@@ -2,31 +2,14 @@ $(function () {
 
     var user_id = document.getElementById('user_id').value;
 
-    //console.log(user_id);
-
     $.ajax({
         url:'http://lockdrnot.local.com/api/punch-stats/'+user_id,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',
         success: function(data){
-            //var paranoia_stats = 0;
-            //var real_stats  = 0;
-            //var total= real_stats+paranoia_stats;
-            //var stats_data = [];
 
             for(var i in data) {
-                //$.each(data[i], function (key, val) {
-                //    //if (key == 'created_at') {
-                //    //    //console.log(Date.parse(val.substr(0, 7)));
-                //    //
-                //    //    var now = new Date(Date.parse(val.substr(0, 10)));
-                //    //    console.log(val+'-'+now);
-                //    //}
-                //
-                //
-                //});
-                //console.log(data);
 
                 $('#punch-chart').highcharts({
 

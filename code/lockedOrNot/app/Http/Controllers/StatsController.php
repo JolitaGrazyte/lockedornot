@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Stats;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
@@ -121,7 +122,6 @@ class StatsController extends Controller
         for($d=0; $d<7; ++$d){
             for($h=0; $h<24; ++$h){
 
-
                 $p_stats[$d] = Stats::statsHourly($id, $d, $h, 0);
                 $paranoia[]     = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $p_stats[$d][0]->count*11]];
 
@@ -140,5 +140,60 @@ class StatsController extends Controller
 
         return Response::json($stats);
 
+    }
+
+    public function am_stats($id){
+
+        $paranoia       = [];
+        $real_danger    = [];
+//
+        $stats = [];
+
+        $now = Carbon::now();
+
+                $month = $now->month;
+
+                for($d=1; $d<=8; ++$d){
+
+                    $day = $d;
+                    $paranoia_stats = Stats::statsDaily($id, $month, $day, 0);
+                    $real_stats     = Stats::statsDaily($id, $month, $day, 1);
+                    $total_stats    = Stats::statsDailyTotal($id, $month, $day);
+
+                    if($total_stats[0]->count != 0){
+
+                        $total[] = [
+                            'date'  => substr($total_stats[0]->created_at, 0, 10),
+                            'value' => $total_stats[0]->count,
+                            'state' => $total_stats[0]->device_state
+                        ];
+
+                        $stats[] = [
+                            'date'      =>  substr($total_stats[0]->created_at, 0, 10),
+                            'total'     =>  $total_stats[0]->count != 0 ? $total_stats[0]->count: 0,
+                            'paranoia'  =>  $paranoia_stats[0]->count != 0 ? $paranoia_stats[0]->count : 0,
+                            'real'      =>  $real_stats[0]->count != 0 ? $real_stats[0]->count : 0
+                        ];
+
+                    }
+
+                    if($paranoia_stats[0]->count != 0){
+                        $paranoia[] = [
+                            'date'  => substr($paranoia_stats[0]->created_at, 0, 10),
+                            'value' => $paranoia_stats[0]->count
+                        ];
+
+                    }
+
+                    if( $real_stats[0]->count != 0){
+                        $real_danger[]  = [
+                            'date'  => substr($real_stats[0]->created_at, 0, 10),
+                            'value' => $real_stats[0]->count
+                        ];
+                    }
+
+                }
+
+        return Response::json($stats);
     }
 }

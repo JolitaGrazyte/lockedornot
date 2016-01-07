@@ -1,11 +1,11 @@
-@mixin font_mixin($style-name, $family, $file) {
+@mixin font_mixin($font-family-name, $folder, $file) {
   @font-face {
-    font-family: $style-name;
-    src:  url("../../fonts/" + $family + "/" + $file + ".otf");
-    src:  url("../../fonts/" + $family + "/" + $file + ".otf?#iefix") format('embedded-opentype'),
-          url("../../fonts/" + $family + "/" + $file + ".woff") format('woff'),
-          url("../../fonts/" + $family + "/" + $file + ".ttf")  format('truetype'),
-          url("../../fonts/" + $family + "/" + $file + ".svg#" + $style-name) format('svg');
+    font-family: $font-family-name;
+    src:  url("../../fonts/" + $folder + "/" + $file + ".otf");
+    src:  url("../../fonts/" + $folder + "/" + $file + ".otf?#iefix") format('embedded-opentype'),
+          url("../../fonts/" + $folder + "/" + $file + ".woff") format('woff'),
+          url("../../fonts/" + $folder + "/" + $file + ".ttf")  format('truetype'),
+          url("../../fonts/" + $folder + "/" + $file + ".svg#" + $font-family-name) format('svg');
     font-weight: normal;
     font-style: normal;
   }

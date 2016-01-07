@@ -67,5 +67,6 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
     get('personal-stats/{id}', 'StatsController@personal_stats_json');
     get('month-stats/{id}', 'StatsController@monthly_stats_json');
     get('punch-stats/{id}', 'StatsController@punch_stats_json');
+    get('am-stats/{id}', 'StatsController@am_stats');
 
 });

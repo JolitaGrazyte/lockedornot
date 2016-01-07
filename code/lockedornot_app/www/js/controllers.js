@@ -55,8 +55,8 @@ angular.module('starter')
         $scope.getState = function(){
             //console.log('car state: '+$scope.state);
             return AuthService.car_state();
-
         };
+
         $scope.logout = function() {
             AuthService.logout();
             $state.go('login');

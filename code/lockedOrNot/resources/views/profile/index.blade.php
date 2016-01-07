@@ -5,6 +5,35 @@
 
 @section('content')
     <style>
+
+
+        /*.amChartsButtonSelected {*/
+            /*background-color:#CC0000;*/
+            /*border-style:solid;*/
+            /*border-color:#CC0000;*/
+            /*border-width:1px;*/
+            /*color:#FFFFFF;*/
+            /*-moz-border-radius: 5px;*/
+            /*border-radius: 5px;*/
+            /*margin: 1px;*/
+            /*padding:3px;*/
+        /*}*/
+        /*.amChartsButton {*/
+            /*background-color:#EEEEEE;*/
+            /*border-style:solid;*/
+            /*border-color:#CCCCCC;*/
+            /*border-width:1px;*/
+            /*color:#000000;*/
+            /*-moz-border-radius: 5px;*/
+            /*border-radius: 5px;*/
+            /*margin: 1px;*/
+            /*padding:3px;*/
+        /*}*/
+        /*.amChartsCompareList {*/
+            /*border-style:solid;*/
+            /*border-color:#CCCCCC;*/
+            /*border-width:1px;*/
+        /*}*/
         .dashboard-container .row:not(:first-child){
             border: red 1px dotted;
             margin-bottom: 25px;
@@ -27,6 +56,15 @@
         tr{
             height: 50px;
         }
+
+        #chartdiv{
+            width		: 100%;
+            height		: 500px;
+            background: #333;
+            box-shadow: 2px 2px 2px 2px #222;
+        }
+
+
 
 
     </style>
@@ -84,7 +122,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
-                        <h3>How many per month i check</h3>
+                        <h3>How many times per month i checked</h3>
                         <div id="total-chart"></div>
                     </div>
                     <div class="col-lg-4">
@@ -102,12 +140,17 @@
             @endif
 
         </div>
-    </div>
 
-
-    <div class="container">
         <div id="punch-chart"></div>
+
+        <h2>How many times per day</h2>
+        <div id="chartdiv"></div>
+
+
     </div>
+
+
+
 
 @stop
 
@@ -122,6 +165,15 @@
     <script src="{{ url('js/stats/pie-chart.js') }}"></script>
     <script src="{{ url('js/stats/total-stats.js') }}"></script>
 
+    <script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>
+    <script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>
+    {{--<script src="http://www.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>--}}
+
+    <script>
+
+    </script>
+    <script src="{{ url('js/am-charts-stats/total-stats.js') }}"></script>
 
 
 @stop

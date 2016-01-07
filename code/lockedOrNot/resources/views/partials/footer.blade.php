@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="pull-right">
+    <div class="">
         Locked Or Not | {{ date('Y') }}
     </div>
 </div>

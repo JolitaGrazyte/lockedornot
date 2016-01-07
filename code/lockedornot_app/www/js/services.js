@@ -84,8 +84,8 @@ angular.module('starter')
 
                 var link = 'http://lockdrnot.local.com/api/authenticate';
                 //var link = '';
-                //link = 'http://lockedornot-jolitagrazyte.c9users.io/api/authenticate';
-                //link = 'http://lockedornot.jolitagrazyte.com/api/authenticate';
+                //var link = 'http://lockedornot-jolitagrazyte.c9users.io/api/authenticate';
+                //var link = 'http://lockedornot.jolitagrazyte.com/api/authenticate';
 
                 $http.post(link, { email: name, password: pw })
 
@@ -124,8 +124,8 @@ angular.module('starter')
                 //console.log($http.defaults.headers.common['X-Auth-Token']);
 
                 var link = 'http://lockdrnot.local.com/api/lockedornot';
-                //link = 'http://lockedornot-jolitagrazyte.c9users.io/api/lockedornot';
-                //link = 'http://lockedornot.jolitagrazyte.com/api/authenticatlockedornot
+                //var link = 'http://lockedornot-jolitagrazyte.c9users.io/api/lockedornot';
+                //var  link = 'http://lockedornot.jolitagrazyte.com/api/lockedornot';
 
                 //console.log('got token: ' + token);
 

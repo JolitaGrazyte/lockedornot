@@ -4,26 +4,28 @@
 
 @section('content')
 
-    <h1 class="site-name">Locked Or Not</h1>
+   <div class="name-slogan-wrapper">
+       <div class="site-name">Locked Or Not</div>
+       {{--<h1 class="sitename">Locked or not</h1>--}}
 
-    <h2 class="slogan">Get a peace of mind!</h2>
+       <h2 class="slogan pull-right">Get a peace of mind!</h2>
 
-    <div class="tweet">
-
-    </div>
+   </div>
 
     <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt=""></div>
 
-    {{--@if ( Auth::guest() )--}}
-        {{--@include('partials.front-login')--}}
-
-    {{--@endif--}}
-
-
-        <div id="hiw"></div>
     <div class="parallax-window-noimg" data-parallax="scroll" data-image-src="">
 
         @include('home.partials.how-it-works')
+
+    </div>
+
+   <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt=""></div>
+
+    <div id="about" class="parallax-window-noimg" data-parallax="scroll" data-image-src="">
+
+        <h1 class="center">Product</h1>
+
 
     </div>
 

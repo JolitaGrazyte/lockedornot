@@ -17,9 +17,3 @@
     </div>
 
 @stop
-
-
-@section('extra-scripts')
-
-
-@stop

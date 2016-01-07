@@ -4,25 +4,26 @@
  @import "font_mixin";
  @import "colors";
 
- @include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
- @include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
- @include font_mixin('cantarelloblique', 'cantarell_oblique', 'Cantarell-Oblique');
- @include font_mixin('cantarellbold', 'cantarell_bold', 'Cantarell-Bold-webfont');
- @include font_mixin('ciclefina', 'cicle_fina', 'Cicle_Fina');
- @include font_mixin('ciclegordita_italic', 'cicle_gorditaitalic', 'Cicle_Gordita_Italic-webfont');
- @include font_mixin('ciclegordita', 'cicle_gordita', 'Cicle_Gordita-webfont');
- @include font_mixin('cicle_semi_italicsemi_italic', 'cicle_semiitalic', 'Cicle_Semi_Italic-webfont');
- @include font_mixin('cicle_semi', 'cicle_semi', 'Cicle_Semi-webfont');
+ //@include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
+ //@include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
+ //@include font_mixin('cantarelloblique', 'cantarell_oblique', 'Cantarell-Oblique');
+ //@include font_mixin('cantarellbold', 'cantarell_bold', 'Cantarell-Bold-webfont');
+ //@include font_mixin('ciclefina', 'cicle_fina', 'Cicle_Fina');
+ //@include font_mixin('ciclegordita_italic', 'cicle_gorditaitalic', 'Cicle_Gordita_Italic-webfont');
+ //@include font_mixin('ciclegordita', 'cicle_gordita', 'Cicle_Gordita-webfont');
+ //@include font_mixin('cicle_semi_italicsemi_italic', 'cicle_semiitalic', 'Cicle_Semi_Italic-webfont');
+ //@include font_mixin('cicle_semi', 'cicle_semi', 'Cicle_Semi-webfont');
 
 
- @include font_mixin('bebas', 'bebas_regular', 'bebas');
+ @include font_mixin('bebasregular', 'bebas_regular', 'bebas');
  @include font_mixin('icomoon', 'icomoon', 'icomoon');
  @include font_mixin('fontawesome', 'fontawesome', 'fontawesome');
 
  @include font_mixin('exoregular', 'exo', 'exo-regular');
- @include font_mixin('exoblack', 'exo', 'exo-black');
+ //@include font_mixin('din_condensedbold', 'din', 'din_condensed_bold-webfont')
+ //@include font_mixin('exo-black', 'exo', 'exo-black');
 
- @import "main";
+ //@import "main";
  @import "forms";
  @import "modals";
  @import "social";
@@ -31,43 +32,46 @@
  @import "parallax";
  @import "locked-footer";
 
- .slogan, .site-name{
-  position: absolute;
-  z-index: 10;
-  //color: $site-name;
-  color: white;
-  text-shadow: 1px 1px #0d102e;
- }
-
- .site-name{
-  font-family: ccicle_semi, sans-serif;
-  font-size: 14rem;
-  left: 25%;
-  top: 25%;
- }
-
- .slogan{
-  right: 22%;
-  top: 40%;
-  font-size: 4rem;
-  font-style: oblique;
-  border-top: 1px solid white;
- }
-
-
  html, body {
-   //font-family: 'ciclefina';
-   //font-family: 'cantarellregular';
   font-family: 'exo-regular', sans-serif;
  }
 
- #map {
-  position:relative;
-  top:100px;
-  height: 400px;
-  bottom:0;
-  width:100%;
+ .name-slogan-wrapper{
+  z-index: 12;
+  position: absolute;
+  left: 2%;
+  top: 45%;
+  //border: red dotted 1px;
  }
+
+
+ .site-name{
+  line-height: 11rem;
+  font-size: 19rem;
+  color: $site-name;
+  position: relative;
+  text-shadow: 1px 1px #0d102e;
+
+ }
+
+ .slogan{
+  color: whitesmoke;
+  width: 365px;
+  font-size: 4rem;
+  font-style: oblique;
+  border-top: 1px solid white;
+  text-shadow: 1px 1px #0d102e;
+ }
+
+
+ //
+ //#map {
+ // position:relative;
+ // top:100px;
+ // height: 400px;
+ // bottom:0;
+ // width:100%;
+ //}
 
  .menu-ui {
   position:absolute;
@@ -75,11 +79,6 @@
   right:10px;
  }
 
- /* Do a fancy data transition for browsers that support it */
- //path {
- // -webkit-transition:fill 200ms;
- // transition:fill 200ms;
- //}
 
  .how-it-works{
   width: 100%;
@@ -104,8 +103,7 @@
 
  .for-free{
   text-transform: uppercase;
-  color: red;
-  color: #ff1b3d;
+  color: $site-name;
  }
 
  //
@@ -135,12 +133,7 @@
  .front-login{
   z-index: 100;
   position: absolute;
-  //left: 0;
-  //top: 50%;
-  //-webkit-transform: translate(-50%);
-  //transform: translate(-50%);
-  //border: 1px red dotted;
-  //text-align: center;
+  right: 2rem;
  }
 
  .front-login li{
@@ -148,14 +141,15 @@
   display: inline-block;
   width: 200px;
   height: 50px;
-  line-height: 40px;
+  line-height: 45px;
   border: 1px solid white;
 
  }
 
  .front-login ul > li a{
-  font-family: bebas;
+  font-family: 'bebasregular';
   color: #FFF;
   font-size: 2rem;
+  outline: 0;
 
  }

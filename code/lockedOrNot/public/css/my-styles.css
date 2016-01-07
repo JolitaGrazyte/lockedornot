@@ -1,58 +1,27 @@
-/*.front-login{*/
-    /*z-index: 100;*/
-    /*position: absolute;*/
-    /*left: 50%;*/
-    /*top: 50%;*/
-    /*-webkit-transform: translate(-50%);*/
-    /*transform: translate(-50%);*/
-    /*border: 1px red dotted;*/
-/*}*/
 
-/*.front-login ul{*/
-    /*list-style: none;z-index: 100;*/
-    /*position: absolute;*/
-    /*left: 50%;*/
-    /*top: 50%;*/
-    /*-webkit-transform: translate(-50%);*/
-    /*transform: translate(-50%);*/
-    /*border: 1px red dotted;*/
+@font-face {
+    font-family: 'din_condensedbold';
+    src: url('din/din_condensed_bold-webfont.eot');
+    src: url('din/din_condensed_bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('din/din_condensed_bold-webfont.woff2') format('woff2'),
+    url('din/din_condensed_bold-webfont.woff') format('woff'),
+    url('din/din_condensed_bold-webfont.ttf') format('truetype'),
+    url('din/din_condensed_bold-webfont.svg#din_condensedbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
 
-/*}*/
-
-/*.front-login li{*/
-    /*display: inline-block;*/
-    /*margin-right: 2rem;*/
-    /*width: 100px;*/
-    /*height: 50px;*/
-    /*line-height: 40px;*/
-
-/*}*/
-
-/*.front-login ul li a{*/
-
-    /*color: #FFF;*/
-    /*font-size: 2rem;*/
-
-/*}*/
+}
 
 
 .site-name{
-    font-family: "DIN Condensed";
-    font-size: 20rem;
-    left: 2%;
-    top: 44%;
-    color: #fb5542;
+    font-family: 'din_condensedbold';
 }
 
+.navbar-brand{
+    /*margin-top: 8px;*/
+    margin-left: 16px;
+
+}
 .slogan{
-    font-family: "DIN Condensed";
-    right: 46.4%;
-    top: 61%;
-    font-size: 6rem;
-
-}
-
-.front-login{
-right: 2rem;
-
+    /*font-family: bebas;*/
 }
