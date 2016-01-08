@@ -94,7 +94,6 @@ class AuthController extends Controller implements AuthenticateUserListener
 
     }
 
-
     /**
      * Handle a login request to the application.
      *
@@ -119,7 +118,7 @@ class AuthController extends Controller implements AuthenticateUserListener
         $credentials = $this->getCredentials($request);
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
-            $this->putStats(Auth::user());
+//            $this->putStats(Auth::user());
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
@@ -144,7 +143,6 @@ class AuthController extends Controller implements AuthenticateUserListener
         $stats->device_state    = $user->device->state;
         $stats->save();
     }
-
 
     /**
      * @param $user

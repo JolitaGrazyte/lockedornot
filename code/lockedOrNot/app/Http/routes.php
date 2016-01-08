@@ -11,6 +11,7 @@
 |
 */
 
+
 get('/', ['as' => 'home',       function () {
     return view('home.index');
 }]);
@@ -26,6 +27,9 @@ Route::controllers([
 get('register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
 post('register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
 get('login/{provider}',     ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
+
+
+
 
 // Authentication routes...
 get('login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
@@ -48,16 +52,18 @@ Route::group(['middleware' => 'auth'], function()
 });
 
 
-get('stats', ['as' => 'stats', 'uses' => 'StatsController@index']);
+//get('stats', ['as' => 'stats', 'uses' => 'StatsController@index']);
 
 
 Route::group(['prefix' => 'api'], function()
 {
     resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
     post('authenticate', 'AuthenticateController@authenticate');
-//    get('lockedornot', 'DeviceController@jsonResponse');
-    get('stats', 'StatsController@json_stats');
+    //    get('lockedornot', 'DeviceController@jsonResponse');
     get('lockedornot', 'DeviceController@getState');
+
+    //Todo: check, this is not working!
+    post('signup', 'AuthenticateController@register');
 
 
 });

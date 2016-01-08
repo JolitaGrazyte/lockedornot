@@ -7,7 +7,7 @@ angular.module('starter')
         var LOCAL_TOKEN_KEY = 'yourTokenKey';
         var username = '';
         var isAuthenticated = false;
-        var role = '';
+        //var role = '';
         var authToken;
         var isLocked = false;
 
@@ -23,11 +23,19 @@ angular.module('starter')
             //console.log('car state: '+res+ ' so it\'s locked' );
             useResult(locked);
         }
+        function loadUsername(){
+            var locked = window.localStorage.getItem(username);
+            //console.log('car state: '+res+ ' so it\'s locked' );
+            useUsername(username);
+        }
 
         function useResult(locked){
             isLocked = locked;
         }
 
+        function useUsername(full_name){
+            username = full_name;
+        }
         function storeUserCredentials(token) {
 
             //console.log('token: '+token);
@@ -44,6 +52,12 @@ angular.module('starter')
 
         }
 
+        function storeUsername(full_name){
+            window.localStorage.setItem(username, full_name);
+            username = full_name;
+            useUsername(full_name);
+        }
+
         function useCredentials(token) {
             //username = token.split('.')[0];
 
@@ -53,14 +67,14 @@ angular.module('starter')
             authToken = token;
 
             //console.log('authToken: '+authToken);
-            username = 'admin';
-
-            if (username == 'admin') {
-                role = USER_ROLES.admin
-            }
-            if (username == 'user') {
-                role = USER_ROLES.public
-            }
+            //username = 'admin';
+            //
+            //if (username == 'admin') {
+            //    role = USER_ROLES.admin
+            //}
+            //if (username == 'user') {
+            //    role = USER_ROLES.public
+            //}
 
             // Set the token as header for your requests!
             $http.defaults.headers.common['X-Auth-Token'] = token;
@@ -91,19 +105,20 @@ angular.module('starter')
 
                     .then(function (res){
 
+                        //console.log(res.data);
                         var token = res.data.token;
                         //$scope.response = res.data;
                         //console.log('token 1: '+token);
 
                         storeUserCredentials(token);
-                        alert('Login success.');
+                        //alert('Login success.');
                         resolve('Login success.');
 
 
                     }), function(err) {
                     console.error('ERR', err);
                     reject('Login Failed.');
-                    alert('Login Failed.');
+                    alert('Sorry there were some problems. Your login failed.');
                     // err.status will contain the status code
                 };
             });
@@ -133,8 +148,10 @@ angular.module('starter')
 
                     .then(function (res) {
 
-                        console.log(res);
+                        console.log(res.data.username);
+
                         storeResult(res.data.state);
+                        storeUsername(res.data.username);
 
                         //console.log('car state: '+result+ ' so it\'s locked' );
 
@@ -164,6 +181,7 @@ angular.module('starter')
 
         loadUserCredentials();
         loadResult();
+        loadUsername();
 
         return {
             car_state: function(){ return isLocked; },
@@ -172,6 +190,6 @@ angular.module('starter')
             isAuthorized: isAuthorized,
             isAuthenticated: function() {return isAuthenticated;},
             username: function() {return username;},
-            role: function() {return role;}
+            //role: function() {return role;}
         };
     });

@@ -4,25 +4,21 @@
 namespace App\Http\Controllers;
 
     use Illuminate\Http\Request;
-
     use App\Http\Requests;
     use JWTAuth;
     use Tymon\JWTAuth\Exceptions\JWTException;
     use App\User;
-    use App\Http\Controllers\Auth\AuthController;
 
 
 class AuthenticateController extends Controller
 {
-    private $authContrl;
 
-    public function __construct( AuthController $authContrl)
+    public function __construct()
     {
         // Apply the jwt.auth middleware to all methods in this controller
         // except for the authenticate method. We don't want to prevent
         // the user from retrieving their token if they don't already have it
         $this->middleware('jwt.auth', ['except' => ['authenticate']]);
-        $this->authContrl = $authContrl;
 
     }
 
@@ -34,6 +30,21 @@ class AuthenticateController extends Controller
         }
         $users = User::all();
         return $users;
+    }
+
+
+    public function register(){
+        $credentials = Input::only('email', 'password');
+
+        try {
+            $user = User::create($credentials);
+        } catch (Exception $e) {
+            return Response::json(['error' => 'User already exists.'], HttpResponse::HTTP_CONFLICT);
+        }
+
+        $token = JWTAuth::fromUser($user);
+
+        return Response::json(compact('token'));
     }
 
     public function authenticate(Request $request)
