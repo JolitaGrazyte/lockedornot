@@ -8,12 +8,33 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Response;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Stats;
+use Illuminate\Support\Facades\App;
 
 class DeviceController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('jwt.auth', ['except' => ['response']]);
+        $this->middleware('jwt.auth', ['except' => ['response', 'putState']]);
+    }
+
+    public function putState(){
+
+        $pusher = App::make('pusher');
+
+        $pusher->trigger(
+            'notifications',
+            'new-notification',
+            ['text' => 'this is a notification']
+        );
+
+        $pusher->trigger(
+            'test-channel',
+            'test-event',
+            ['text' => 'Testing real time notifications with pusher...']
+        );
+
+
     }
 
     /**
@@ -53,9 +74,9 @@ class DeviceController extends Controller
 
     public function getState(){
 
-        $token = JWTAuth::getToken();
-        $user = JWTAuth::toUser($token);
-        $data = ['state' => $user->device->state, 'username' => $user->first_name];
+        $token  = JWTAuth::getToken();
+        $user   = JWTAuth::toUser($token);
+        $data   = ['state' => $user->device->state, 'username' => $user->first_name];
         $this->putStats($user);
 
         return Response::json($data);

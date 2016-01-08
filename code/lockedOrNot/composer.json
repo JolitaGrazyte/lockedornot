@@ -10,7 +10,9 @@
         "laravelcollective/html": "^5.1",
         "laravel/socialite": "^2.0",
         "nesbot/carbon": "^1.20",
-        "tymon/jwt-auth": "0.5.*"
+        "tymon/jwt-auth": "0.5.*",
+        "pusher/pusher-php-server": "^2.2",
+        "vinkla/pusher": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -19,7 +19,7 @@ $(function () {
                     "precision": 2,
                     "valueAxes": [{
                         "id": "v1",
-                        "title": "Sales",
+                        "title": "Paranoia",
                         "position": "left",
                         "autoGridCount": false,
                         "labelFunction": function(value) {
@@ -27,7 +27,7 @@ $(function () {
                         }
                     }, {
                         "id": "v2",
-                        "title": "Market Days",
+                        "title": "Real Danger",
                         "gridAlpha": 0,
                         "position": "right",
                         "autoGridCount": false
@@ -41,7 +41,7 @@ $(function () {
                         "fillColors": "#e1ede9",
                         "fillAlphas": 1,
                         "type": "column",
-                        "title": "Real danger",
+                        "title": "Paranoia",
                         "valueField": "real",
                         "clustered": false,
                         "columnWidth": 0.5,
@@ -55,7 +55,7 @@ $(function () {
                         "fillColors": "#62cf73",
                         "fillAlphas": 1,
                         "type": "column",
-                        "title": "PARANOIA",
+                        "title": "Real danger",
                         "valueField": "paranoia",
                         "clustered": false,
                         "columnWidth": 0.3,
@@ -136,8 +136,6 @@ $(function () {
                     },
                     "dataProvider": data
                 });
-
-
 
             }
 

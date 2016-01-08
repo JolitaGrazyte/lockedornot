@@ -57,24 +57,32 @@ Route::group(['middleware' => 'auth'], function()
 
 Route::group(['prefix' => 'api'], function()
 {
-    resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
-    post('authenticate', 'AuthenticateController@authenticate');
-    //    get('lockedornot', 'DeviceController@jsonResponse');
-    get('lockedornot', 'DeviceController@getState');
+    resource('authenticate',    'AuthenticateController', ['only' => ['index']]);
+    post('authenticate',        'AuthenticateController@authenticate');
+    //    get('lockedornot',    'DeviceController@jsonResponse');
+    get('lockedornot',          'DeviceController@getState');
 
     //Todo: check, this is not working!
     post('signup', 'AuthenticateController@register');
-
 
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
 {
-    get('stats', 'StatsController@json_stats');
-    get('personal-stats/{id}', 'StatsController@personal_stats_json');
-    get('month-stats/{id}', 'StatsController@monthly_stats_json');
-    get('punch-stats/{id}', 'StatsController@punch_stats_json');
-    get('am-stats/{id}', 'StatsController@am_stats');
+    get('stats',                'StatsController@json_stats');
+    get('personal-stats/{id}',  'StatsController@personal_stats_json');
+    get('month-stats/{id}',     'StatsController@monthly_stats_json');
+    get('punch-stats/{id}',     'StatsController@punch_stats_json');
+    get('am-stats/{id}',        'StatsController@am_stats');
 
 });
 
+
+//Pusher real time notifications
+get('/bridge', 'DeviceController@putState');
+
+//get('/broadcast', function() {
+//    event(new DeviceStateChanged('Broadcasting in Laravel using Pusher!'));
+//
+//    return view('welcome');
+//});

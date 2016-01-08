@@ -147,6 +147,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Vinkla\Pusher\PusherServiceProvider::class,
 
 
 

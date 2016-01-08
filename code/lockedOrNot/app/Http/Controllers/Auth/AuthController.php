@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Device;
+use App\Events\DeviceStateChanged;
 use App\Stats;
 use App\User;
 use Illuminate\Contracts\Auth\Guard;
@@ -119,6 +120,7 @@ class AuthController extends Controller implements AuthenticateUserListener
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
 //            $this->putStats(Auth::user());
+//            event(new DeviceStateChanged(User::find(1)->device->state));
             return $this->handleUserWasAuthenticated($request, $throttles);
         }
 
