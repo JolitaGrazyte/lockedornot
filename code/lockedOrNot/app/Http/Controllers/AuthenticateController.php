@@ -9,17 +9,20 @@ namespace App\Http\Controllers;
     use JWTAuth;
     use Tymon\JWTAuth\Exceptions\JWTException;
     use App\User;
+    use App\Http\Controllers\Auth\AuthController;
 
 
 class AuthenticateController extends Controller
 {
+    private $authContrl;
 
-    public function __construct()
+    public function __construct( AuthController $authContrl)
     {
         // Apply the jwt.auth middleware to all methods in this controller
         // except for the authenticate method. We don't want to prevent
         // the user from retrieving their token if they don't already have it
         $this->middleware('jwt.auth', ['except' => ['authenticate']]);
+        $this->authContrl = $authContrl;
 
     }
 
@@ -49,6 +52,7 @@ class AuthenticateController extends Controller
             // something went wrong
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
+
 
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token'));

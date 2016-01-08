@@ -8,12 +8,14 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Response;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class DeviceController extends Controller
 {
     public function __construct()
     {
         $this->middleware('jwt.auth', ['except' => ['response']]);
+//        $this->middleware(['before' => 'jwt-auth', ['only' => ['getInfo']]]);
     }
 
     /**
@@ -21,14 +23,18 @@ class DeviceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function jsonResponse()
+    public function jsonResponse( Request $request )
     {
 
         /**
          * return the state of the lock;
          *  1 = isLocked; 0 = isNotLocked;
         **/
-        $state = [ 'state'=> 0 ];
+
+
+
+
+        $state = [ 'state'=> $request->id ];
         return Response::json($state);
     }
 
@@ -49,5 +55,20 @@ class DeviceController extends Controller
         return view('device.index', compact('state'));
     }
 
+    public function getState(){
+
+
+                $token = JWTAuth::getToken();
+                $user = JWTAuth::toUser($token);
+
+                return Response::json([
+                    'data' => [
+                        'email' => $user->email,
+                        'registered_at' => $user->created_at->toDateTimeString(),
+                        'device_state' => $user->device->state
+                    ]
+                ]);
+
+    }
 
 }

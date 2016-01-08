@@ -36,10 +36,10 @@ myApp
 
         $scope.doLogin = function(loginForm){
             console.log(loginForm);
-            //data = {
-            //    email: $scope.email,
-            //    password: $scope.password
-            //};
+            data = {
+                email: $scope.email,
+                password: $scope.password
+            };
 
             $http({
 

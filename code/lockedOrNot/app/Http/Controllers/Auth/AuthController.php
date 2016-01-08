@@ -136,7 +136,7 @@ class AuthController extends Controller implements AuthenticateUserListener
                 $this->loginUsername() => $this->getFailedLoginMessage(),
             ]);
     }
-    private function putStats($user){
+    public function putStats($user){
 
         $stats = Stats::create();
         $stats->user_id         = $user->id;

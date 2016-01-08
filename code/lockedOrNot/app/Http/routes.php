@@ -25,7 +25,7 @@ Route::controllers([
 // Registration routes...
 get('register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
 post('register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
-get('login/{provider}',  ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
+get('login/{provider}',     ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
 
 // Authentication routes...
 get('login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
@@ -55,14 +55,15 @@ Route::group(['prefix' => 'api'], function()
 {
     resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
     post('authenticate', 'AuthenticateController@authenticate');
-    get('lockedornot', 'DeviceController@jsonResponse');
+//    get('lockedornot', 'DeviceController@jsonResponse');
     get('stats', 'StatsController@json_stats');
+    get('lockedornot', 'DeviceController@getState');
+
 
 });
 
 Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
 {
-    get('lockedornot', 'DeviceController@jsonResponse');
     get('stats', 'StatsController@json_stats');
     get('personal-stats/{id}', 'StatsController@personal_stats_json');
     get('month-stats/{id}', 'StatsController@monthly_stats_json');
@@ -70,3 +71,4 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
     get('am-stats/{id}', 'StatsController@am_stats');
 
 });
+
