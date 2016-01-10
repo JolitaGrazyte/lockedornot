@@ -11,10 +11,21 @@
                     <div>Register with providing your device serial number.</div>
                     <div>It is needed for the further interaction.</div>
                 </p>
+                <p>
+                    <a class="register-now" href="" id="register" data-toggle="modal" data-target="#registerModal" >
+                        <em>Register now</em> ---<span class="fa fa-angle-right"></span>
+                    </a>
+                </p>
 
             </div>
             <div class="col-lg-4 col-sm-12">
                 <h3><span class="fa fa-check-square-o"></span> <em>Check if your car is locked.</em></h3>
+                <p>
+                    <div>
+                        <span class="fa fa-mobile-phone"></span> Download our app.
+                        <a class="register-now" href="#about"><em>Find out more</em> ---<span class="fa fa-angle-right"></span></a>
+                    </div>
+                </p>
                 <p>
                     <div>Any time you ask yourself: <em>"did i lock my car?"</em></div>
                     <div>Get connected and check if your car is locked.</div>

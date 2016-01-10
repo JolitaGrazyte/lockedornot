@@ -1,5 +1,6 @@
 
-<nav class="{{(!Request::is('/') ? 'container' : '')}} navbar navbar-default navbar-fixed-top">
+{{--<nav class="{{(!Request::is('/') ? 'container' : '')}} navbar navbar-default navbar-fixed-top">--}}
+    <nav class="navbar navbar-default navbar-fixed-top">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
             <span class="fa fa-user"></span>

@@ -19,7 +19,7 @@ angular.module('starter', ['ionic'])
   });
 })
 
-    .config(function ($stateProvider, $urlRouterProvider, USER_ROLES) {
+    .config(function ($stateProvider, $urlRouterProvider) {
   $stateProvider
       .state('login', {
         url: '/login',
@@ -39,28 +39,8 @@ angular.module('starter', ['ionic'])
             controller: 'DashCtrl'
           }
         }
-      })
-      //.state('main.public', {
-      //  url: 'main/public',
-      //  views: {
-      //    'public-tab': {
-      //      templateUrl: 'templates/public.html',
-      //        controller: 'PublicCtrl'
-      //    }
-      //  }
-      //})
-      .state('main.admin', {
-        url: 'main/admin',
-        views: {
-          'admin-tab': {
-            templateUrl: 'templates/admin.html',
-              //controller: 'AdminCtrl'
-          }
-        },
-        data: {
-          authorizedRoles: [USER_ROLES.admin]
-        }
       });
+
 
   // Thanks to Ben Noblet!
   $urlRouterProvider.otherwise(function ($injector, $location) {
@@ -90,18 +70,3 @@ angular.module('starter', ['ionic'])
         });
     })
 
-    //.run(function($httpBackend){
-
-        //$httpBackend.whenGET('http://localhost:8100/valid')
-        //    .respond({message: 'This is my valid response!'});
-        //$httpBackend.whenGET('http://localhost:8100/notauthenticated')
-        //    .respond(401, {message: "Not Authenticated"});
-        //$httpBackend.whenGET('http://localhost:8100/notauthorized')
-        //    .respond(403, {message: "Not Authorized"});
-        //$httpBackend.whenGET('http://lockdrnot.local.com/api/authenticate')
-        //    .passThrough();
-        //$httpBackend.whenPOST('http://lockdrnot.local.com/api/authenticate')
-        //    .passThrough();
-        //
-        //$httpBackend.whenGET(/templates\/\w+.*/).passThrough();
-    //})

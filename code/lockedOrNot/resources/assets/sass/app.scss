@@ -36,6 +36,10 @@
   font-family: 'exo-regular', sans-serif;
  }
 
+ a{
+  outline:0;
+ }
+
  .name-slogan-wrapper{
   z-index: 12;
   position: absolute;
@@ -106,11 +110,13 @@
   color: $site-name;
  }
 
- //
- //canvas{
- // border: 1px red dotted;
- //}
- //
+ .register-now{
+  color: $site-name;
+  font-size: 1.8rem;
+ }
+
+
+
  .dashboard-container, .page-not-found, .stats-container{
   margin-top: 100px;
 
@@ -122,12 +128,16 @@
  }
 
  .urgent{
-  color: #ff1b3d;
+  color: $site-name;
+
+ }
+ .urgent-update{
+  text-align: center;
  }
 
  .urgent.form-control
  {
-  border: 1px solid #ff86a7;
+  border: 1px solid $site-name;
  }
 
 
@@ -153,4 +163,20 @@
   font-size: 2rem;
   outline: 0;
 
+ }
+
+ .fa-mobile-phone{
+  font-size: 2.5rem;
+ }
+ .fa-bars{
+  font-size: 3rem;
+  line-height: 5rem;
+  color: whitesmoke;
+ }
+
+ .fa-circle.unlocked{
+  color: #fb4039;
+ }
+ .fa-circle.locked{
+  color: #00b000;
  }

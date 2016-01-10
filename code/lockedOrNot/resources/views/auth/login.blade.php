@@ -46,7 +46,7 @@
     <div class="form-group">
         <div class="col-md-6 col-md-offset-4">
 
-            {!! Form::submit('Login', ['class' => 'my-btn form-control']) !!}
+            {!! Form::submit('Login', ['class' => 'my-btn form-control btn-submit']) !!}
 
             <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
         </div>

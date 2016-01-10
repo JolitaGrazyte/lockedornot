@@ -6,7 +6,10 @@
 {{--        {!! Form::label('device_nr', 'Device Serial Nr:', ['class' => 'control-label']) !!}--}}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
-            {!! Form::text('device_nr',  null, ['class' => 'form-control', 'placeholder' => 'your device serial nr.']) !!}
+
+            <span class="fa fa-circle-thin"></span>
+            {{--<span class="fa fa-check"></span>--}}
+            {!! Form::text('device_nr',  null, ['class' => 'form-control', 'placeholder' => 'your device serial nr.', 'required']) !!}
         </div>
 
 
@@ -43,8 +46,9 @@
         {{--{!! Form::label('password_confirmation', 'Re-type your password:', ['class' => 'control-label']) !!}--}}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-
-            {!! Form::password('password_confirmation', ['class' => 'form-control',  'placeholder' => 'Re-type your password']) !!}
+            <span class="fa fa-circle-thin"></span>
+            {{--<span class="fa fa-check"></span>--}}
+            {!! Form::password('password_confirmation', ['class' => 'form-control',  'placeholder' => 'Re-type your password', 'required']) !!}
         </div>
     </div>
 
@@ -60,3 +64,5 @@
     </div>
 
 </div>
+
+

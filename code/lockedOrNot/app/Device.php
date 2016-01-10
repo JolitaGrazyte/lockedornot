@@ -19,7 +19,7 @@ class Device extends Model
      *
      * @var array
      */
-    protected $fillable = ['device_nr'];
+    protected $fillable = ['device_nr', 'user_id'];
 
     /**
      * Get the user that owns the phone.

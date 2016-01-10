@@ -67,7 +67,5 @@ angular.module('starter')
             $state.go('login');
         };
 
-
-
     });
 

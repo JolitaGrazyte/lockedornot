@@ -1,8 +1,11 @@
 $(function () {
 
     var user_id = document.getElementById('user_id').value;
+    var base_url = 'http://lockdrnot.local.com/api/am-stats/';
+    var url = base_url+user_id;
+
     $.ajax({
-        url:'http://lockdrnot.local.com/api/am-stats/'+user_id,
+        url: url,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',

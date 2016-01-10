@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Device;
 use App\Stats;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class ProfileController extends Controller
     public function index()
     {
 
-        $device_state = $this->authUser->device->state;
+        $device_state = $this->authUser->device?$this->authUser->device->state:Session::flash('messages','You must urgently fill in your device nr. for further interaction.');
         $msg = $device_state == 0? 'Your car is not locked!': 'Your car is locked yet!';
         $stats = $this->authUser->stats;
 
@@ -68,8 +69,13 @@ class ProfileController extends Controller
     {
         $user = $this->authUser;
         $user->update($request->all());
-        $device = $user->device;
-        $device->device_nr = $request->device_nr;
+        $device = $user->device ?
+                    $user->device->device_nr = $request->device_nr :
+                    Device::create([
+                        'device_nr'     => $request->device_nr,
+                        'user_id'       => $user->id
+                    ]);
+
         $device->save();
 
 

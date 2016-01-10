@@ -1,19 +1,64 @@
 /* Empty. Add your own CSS if you like */
-
-
-.circle{
-
-    position: absolute;
-    left: 50%;
-    top: 200px;
-    transform: translateX(-50%);
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: #fb2a44;
+html, body{
+    height: 100%;
+    overflow-y: hidden;
 }
 
+.wrapper{
+
+    background-color: #fb382e;
+    padding-top: 50px;
+}
+
+.ion-log-out{
+    cursor: pointer;
+}
+
+.fa{
+    font-size: 10rem;
+    color: #3b3b3b;
+}
 
 .locked{
     background-color: #50bc57;
 }
+
+.bar{
+
+    height: 70px;
+    line-height: 50px;
+    color: #fb5542;
+}
+
+.login{
+    margin-top: 200px;
+}
+.logo-wrapper{
+    position: relative;
+    /*left: 44.5%;*/
+    width: 100%;
+    text-align: center;
+}
+.logo{
+    width: 160px;
+    height: 58px;
+    background-size: 100% 100%;
+    background-image: url("../img/locked-logo-2.png");
+}
+
+/*.css-typing*/
+/*{*/
+    /*width: 30em;*/
+    /*white-space:nowrap;*/
+    /*overflow:hidden;*/
+    /*-webkit-animation: type 5s steps(50, end);*/
+    /*animation: type 5s steps(50, end);*/
+/*}*/
+
+/*@keyframes type{*/
+    /*from { width: 0; }*/
+/*}*/
+
+/*@-webkit-keyframes type{*/
+    /*from { width: 0; }*/
+/*}*/

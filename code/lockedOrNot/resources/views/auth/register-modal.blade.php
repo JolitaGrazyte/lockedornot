@@ -25,3 +25,16 @@
 
 
 </div>
+
+{{--@if (count($errors) > 0)--}}
+{{--@section('scripts')--}}
+    {{--@parent--}}
+
+        {{--<script>--}}
+
+            {{--$('#loginModal').modal('hide');--}}
+            {{--$('#registerModal').modal('show');--}}
+        {{--</script>--}}
+{{--@stop--}}
+
+{{--@endif--}}

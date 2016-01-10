@@ -8024,6 +8024,9 @@ footer {
 html, body {
   font-family: 'exo-regular', sans-serif; }
 
+a {
+  outline: 0; }
+
 .name-slogan-wrapper {
   z-index: 12;
   position: absolute;
@@ -8069,6 +8072,10 @@ html, body {
   text-transform: uppercase;
   color: #fb5542; }
 
+.register-now {
+  color: #fb5542;
+  font-size: 1.8rem; }
+
 .dashboard-container, .page-not-found, .stats-container {
   margin-top: 100px; }
 
@@ -8077,10 +8084,13 @@ html, body {
   top: 100px; }
 
 .urgent {
-  color: #ff1b3d; }
+  color: #fb5542; }
+
+.urgent-update {
+  text-align: center; }
 
 .urgent.form-control {
-  border: 1px solid #ff86a7; }
+  border: 1px solid #fb5542; }
 
 .front-login {
   z-index: 100;
@@ -8100,5 +8110,19 @@ html, body {
   color: #FFF;
   font-size: 2rem;
   outline: 0; }
+
+.fa-mobile-phone {
+  font-size: 2.5rem; }
+
+.fa-bars {
+  font-size: 3rem;
+  line-height: 5rem;
+  color: whitesmoke; }
+
+.fa-circle.unlocked {
+  color: #fb4039; }
+
+.fa-circle.locked {
+  color: #00b000; }
 
 /*# sourceMappingURL=app.css.map */

@@ -141,8 +141,8 @@ class AuthController extends Controller implements AuthenticateUserListener
 
         $stats = Stats::create();
         $stats->user_id         = $user->id;
-        $stats->device_nr       = $user->device->device_nr;
-        $stats->device_state    = $user->device->state;
+        $stats->device_nr       = $user->device?$user->device->device_nr:null;
+        $stats->device_state    = $user->device?$user->device->state:null;
         $stats->save();
     }
 

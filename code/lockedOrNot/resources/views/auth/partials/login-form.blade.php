@@ -18,7 +18,7 @@
         {!! Form::submit('Login', ['class' => 'my-btn form-control']) !!}
 
         <a class="btn btn-link" onclick="$('#loginModal').modal('hide');" data-toggle="modal" data-target="#passwordModal">Forgot your password?</a>
-    </div>
+</div>
 </div>
 
 <div class="form-group">

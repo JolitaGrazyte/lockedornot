@@ -1,18 +1,22 @@
-
-
-<ion-view view-title="Locked Or Not" name="dashboard-view">
+<ion-view view-title="" name="dashboard-view">
+    <ion-nav-buttons class="logo-wrapper">
+        <div class="logo"></div>
+    </ion-nav-buttons>
     <ion-nav-buttons side="right">
-        <button class="button icon-left ion-log-out button-stable" ng-click="logout()">Logout</button>
+        <a class="icon-left ion-log-out button-stable" ng-click="logout()">Logout</a>
     </ion-nav-buttons>
 
 
-    <ion-content class="padding">
-        <div class="row"><div class="col text-center">
-            <h3 class="title">Hi {{getUsername()}}!</h3>
+    <ion-content id="ion-content" class="wrapper" ng-class="{ locked:getState() }">
+            <div class="row">
+                <div class="col text-center">
+                    <h3 class="title">Hi {{getUsername()}}!</h3>
+                    <div id="notification" class="notification"></div>
+                    <h4> Your car is {{ getState() == 1 ? 'locked':'not locked' }} !!</h4>
+                    <!--<p class="css-typing">This is a paragraph that is being typed by CSS animation.</p>-->
+                    <i class="fa fa-lock"></i>
 
-            <div class="circle"  ng-class="{ locked:getState() }"></div>
-            <div class="notification"></div>
-
-        </div></div>
+                </div>
+            </div>
     </ion-content>
 </ion-view>

@@ -18,7 +18,11 @@ class DeviceController extends Controller
         $this->middleware('jwt.auth', ['except' => ['response', 'putState']]);
     }
 
-    public function putState(){
+    public function putState($device_nr, $state){
+
+        $device = Device::where('device_nr', $device_nr)->first();
+        $device->state = $state;
+        $device->save();
 
         $pusher = App::make('pusher');
 
@@ -31,9 +35,8 @@ class DeviceController extends Controller
         $pusher->trigger(
             'test-channel',
             'test-event',
-            ['text' => 'Testing real time notifications with pusher...']
+            ['text' => $device->state]
         );
-
 
     }
 
@@ -44,13 +47,10 @@ class DeviceController extends Controller
      */
     public function jsonResponse( Request $request )
     {
-
         /**
          * return the state of the lock;
          *  1 = isLocked; 0 = isNotLocked;
         **/
-
-
         $state = [ 'state'=> $request->id ];
         return Response::json($state);
     }
@@ -58,11 +58,8 @@ class DeviceController extends Controller
     public function response($id){
 
         $device = Device::where('user_id', $id)->first();
-//        dd($device);
         $state = $device->state;
-//        dd($state);
         $state = mt_rand(0, 1);
-//        dd($state);
 
         /**
          * return the state of the lock;
@@ -78,6 +75,14 @@ class DeviceController extends Controller
         $user   = JWTAuth::toUser($token);
         $data   = ['state' => $user->device->state, 'username' => $user->first_name];
         $this->putStats($user);
+
+        $pusher = App::make('pusher');
+
+        $pusher->trigger(
+            'test-channel',
+            'test-event',
+            ['text' => 'Be happy !!']
+        );
 
         return Response::json($data);
 
