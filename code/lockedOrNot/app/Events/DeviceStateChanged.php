@@ -10,23 +10,12 @@ class DeviceStateChanged extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
-    public $text;
+    public $device_state;
 
-    public function __construct($text)
+    public function __construct($device_state)
     {
-        $this->text = $text;
+        $this->device_state = $device_state;
     }
-
-//    public $device_state;
-//
-//    /**
-//     * Create a new event instance.
-//     *
-//     */
-//    public function __construct( $device_state )
-//    {
-//        $this->device_state = $device_state;
-//    }
 
     /**
      * Get the channels the event should be broadcast on.

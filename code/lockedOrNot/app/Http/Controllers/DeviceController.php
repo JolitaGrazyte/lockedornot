@@ -25,18 +25,14 @@ class DeviceController extends Controller
         $device->state = $state;
         $device->save();
 
+        $text = $state == 0 ? 'Your car is not locked!!' : 'All good. Your car is locked!';
+
         $pusher = App::make('pusher');
 
         $pusher->trigger(
             'notifications',
             'new-notification',
-            ['text' => 'this is a notification']
-        );
-
-        $pusher->trigger(
-            'test-channel',
-            'test-event',
-            ['text' => $device->state]
+            ['device_state' => $device->state, 'text' => $text]
         );
 
     }
@@ -72,18 +68,22 @@ class DeviceController extends Controller
 
     public function getState(){
 
-        $token  = JWTAuth::getToken();
-        $user   = JWTAuth::toUser($token);
-        $data   = ['state' => $user->device->state, 'username' => $user->first_name];
+        $token      = JWTAuth::getToken();
+        $user       = JWTAuth::toUser($token);
+        $unlocked   = $user->devices()->unlocked();
+        $device_state = $unlocked->count() == 0 ? 1 : 0;
+
+        $data   = ['state' => $device_state, 'username' => $user->first_name];
+//        $text = $user->device->state == 0 ? 'Oeps! Your car is not locked!' : 'All good. Your car is locked!';
         $this->putStats($user);
 
-        $pusher = App::make('pusher');
-
-        $pusher->trigger(
-            'test-channel',
-            'test-event',
-            ['text' => 'Be happy !!']
-        );
+//        $pusher = App::make('pusher');
+//
+//        $pusher->trigger(
+//            'notifications',
+//            'new-notification',
+//            ['text' => $text]
+//        );
 
         return Response::json($data);
 
@@ -96,6 +96,7 @@ class DeviceController extends Controller
         $stats->device_nr       = $user->device->device_nr;
         $stats->device_state    = $user->device->state;
         $stats->save();
+
     }
 
 }

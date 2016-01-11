@@ -32,9 +32,9 @@ class StatsController extends Controller
 
     public function json_stats(){
 
-        $car_color_stats = $this->all_stats('car_color');
-        $car_brand_stats = $this->all_stats('car_brand');
-        $city_stats  = $this->all_stats('city');
+        $car_color_stats    = $this->all_stats('car_color');
+        $car_brand_stats    = $this->all_stats('car_brand');
+        $city_stats         = $this->all_stats('city');
 //
 //        dd($car_brand_stats);
 //
@@ -62,7 +62,7 @@ class StatsController extends Controller
 
 //        dd($distincts);
 
-        $jsonstats = Response::json($distincts);
+//        $jsonstats = Response::json($distincts);
 //        dd($jsonstats);
 
 //       return $jsonstats;

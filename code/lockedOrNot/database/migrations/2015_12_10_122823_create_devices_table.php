@@ -18,22 +18,10 @@ class CreateDevicesTable extends Migration
             $table->string('device_nr', 45);
             $table->tinyInteger('state')->default(0);
             $table->integer('user_id');
+            $table->integer('stats_id');
             $table->timestamps();
         });
 
-//        Schema::create('device_user', function(Blueprint $table){
-//            $table->increments('id');
-//            $table->tinyInteger('device_id')->unsigned();
-//            $table->foreign('device_id')->references('id')->on('devices')->onDelete('cascade')->onUpdate('cascade');
-//
-//            $table->tinyInteger('state')->unsigned();
-//            $table->foreign('state')->references('state')->on('devices')->onDelete('cascade')->onUpdate('cascade');
-//
-//            $table->integer('user_id')->unsigned();
-//            $table->foreign('user_id')->references('id')->on('devices')->onDelete('cascade')->onUpdate('cascade');
-//
-//            $table->timestamps();
-//        });
     }
 
     /**

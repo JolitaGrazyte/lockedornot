@@ -30,15 +30,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $user = $this->authUser;
+        $unlocked_devices = $user->devices()->unlocked();
 
-        $device_state = $this->authUser->device?$this->authUser->device->state:Session::flash('messages','You must urgently fill in your device nr. for further interaction.');
-        $msg = $device_state == 0? 'Your car is not locked!': 'Your car is locked yet!';
+        $msg = $unlocked_devices->count() == 0 ? 'Your car is not locked!': 'Your car is locked yet!';
         $stats = $this->authUser->stats;
 
-        $stats_true = $stats->where('device_state', 0)->count();
-        $paranoia_stats = $stats->where('device_state', 1)->count();
-        $stats_total = $stats->count();
-        $percent_true = $stats_true*100/$stats_total;
+        $stats_true     = $user->unlockedStats()->count();
+        $paranoia_stats = $user->paranoiaStats()->count();
+        $stats_total    = $stats->count();
+        $percent_true   = $stats_true*100/$stats_total;
 
         $st = new Stats();
         $days = $st->days();

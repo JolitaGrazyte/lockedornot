@@ -26,15 +26,15 @@
 
 </div>
 
-{{--@if (count($errors) > 0)--}}
-{{--@section('scripts')--}}
-    {{--@parent--}}
+@if (count($errors) > 0)
+@section('scripts')
+    @parent
 
-        {{--<script>--}}
+        <script>
 
-            {{--$('#loginModal').modal('hide');--}}
-            {{--$('#registerModal').modal('show');--}}
-        {{--</script>--}}
-{{--@stop--}}
+            $('#loginModal').modal('hide');
+            $('#registerModal').modal('show');
+        </script>
+@stop
 
-{{--@endif--}}
+@endif

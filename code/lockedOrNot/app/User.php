@@ -46,9 +46,9 @@ class User extends Model implements AuthenticatableContract,
     /**
      * Get the phone record associated with the user.
      */
-    public function device()
+    public function devices()
     {
-        return $this->hasOne('App\Device');
+        return $this->hasMany('App\Device');
     }
 
     public function stats()
@@ -56,4 +56,15 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Stats');
     }
 
+    public function scopeParanoiaStats($q){
+        $q->whereHas('stats', function($query){
+            $query->where('device_state', 1);
+        });
+    }
+
+    public function scopeUnlockedStats($q){
+        $q->whereHas('stats', function($query){
+            $query->where('device_state', 0);
+        });
+    }
 }

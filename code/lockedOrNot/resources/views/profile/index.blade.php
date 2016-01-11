@@ -59,7 +59,7 @@
 
             <input id="user_id" type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-            @if(is_null(Auth::user()->device))
+            @if(is_null(Auth::user()->devices))
                 <div class="row urgent-update">
                     <h3 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h3>
                     <a href=""
@@ -113,13 +113,13 @@
                     <div class="col-lg-4">
                         <h2>Me</h2>
                         <div>{{ Auth::user()->full_name }}</div>
-                        <div>my device nr.: {{Auth::user()->device->device_nr}}</div>
+                        {{--<div>my device nr.: {{Auth::user()->device->device_nr}}</div>--}}
 
                         <h2>My car</h2>
 
                         <div>
 
-                        <h3 class="{{ Auth::user()->device->state == 0?'urgent':'' }}">{{$msg}}</h3>
+                        <h3 class="{{ Auth::user()->devices()->unlocked()?'urgent':'' }}">{{$msg}}</h3>
 
                         </div>
                     </div>
