@@ -21,23 +21,32 @@ pusher.connection.bind('connected', function() {
     $('div#status').text('Real time is go!');
 });
 
-var channel = pusher.subscribe('test-channel');
-channel.bind('test-event', function(data) {
-    //console.log(data.text);
+//var device_channel = pusher.subscribe('device');
+//device_channel.bind('device-state', function(data) {
+//    //console.log(data.text);
+//
+//
+//
+//});
+var msg_channel = pusher.subscribe('notifications');
+    msg_channel.bind('new-notification', function(data){
 
-    var message = data.text;
-    $('div.notification').text(message);
-
-
-    var el = document.getElementById('ion-content');
-    if(data.text === '1'){
-
-        el.style.background = '#50bc57';
-    }
-    else{
-
-        el.style.background = '#fb5542';
-    }
+        var message = data.text;
+        $('.notification').text(message);
 
 
-});
+        var message = data.device_state;
+        //$('div.notification').text(message);
+
+        var el = document.getElementById('ion-content');
+        if(message === '1'){
+
+            el.style.background = '#50bc57';
+        }
+        else{
+
+            el.style.background = '#fb5542';
+        }
+
+    });
+

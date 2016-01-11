@@ -70,14 +70,20 @@ class ProfileController extends Controller
     {
         $user = $this->authUser;
         $user->update($request->all());
-        $device = $user->device ?
-                    $user->device->device_nr = $request->device_nr :
-                    Device::create([
-                        'device_nr'     => $request->device_nr,
-                        'user_id'       => $user->id
-                    ]);
+        $q = $request->get('quantity');
 
-        $device->save();
+        //Todo: for many devices per user
+//        if($q=5){
+//
+//        }
+//        $device = $user->devices && $user->devices->count() < 1 ?
+//                    $user->devices->device_nr = $request->device_nr :
+//                    Device::create([
+//                        'device_nr'     => $request->device_nr,
+//                        'user_id'       => $user->id
+//                    ]);
+
+//        $device->save();
 
 
         Session::flash('message', 'You have successfully updated your profile.');
