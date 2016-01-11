@@ -27,7 +27,25 @@ class UsersSeeder extends Seeder
                 'last_name'     => 'Grazyte',
 //                'email'       => 'jolita.grazyte@student.kdg.be',
                 'email'         => 'test@test.be',
-//                'device_nr'     => 'LRN'.rand(pow(10, $digits-1), pow(10, $digits)-1),
+//              'device_nr'     => 'LRN11112',
+                'city'          => $cities[rand(0, 4)],
+                'car_brand'     => $cars[rand(0, 4)],
+                'car_color'     => $colours[rand(0,4)],
+                'password'      => Hash::make('test'),
+
+            ]
+        ];
+        DB::table('users')->insert($users);
+        $users = [
+
+            [
+                //SUPER USER = admin
+//                'username'      => 'admin',
+                'first_name'    => 'Jonas',
+                'last_name'     => 'Van Reeth',
+//                'email'       => 'jolita.grazyte@student.kdg.be',
+                'email'         => 'test',
+                //'device_nr'     => 'LRN11112',
                 'city'          => $cities[rand(0, 4)],
                 'car_brand'     => $cars[rand(0, 4)],
                 'car_color'     => $colours[rand(0,4)],
