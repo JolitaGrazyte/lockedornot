@@ -39,6 +39,20 @@ class Stats extends Model
         return $this->days;
     }
 
+//
+//    public function devices(){
+//        return $this->belongsToMany('App\Device');
+//    }
+//
+//
+//    public function scopeUnlocked($q){
+//        $q->whereHas('devices', function($query){
+//            $query->where('state', 0);
+//        });
+//
+//    }
+
+
     public static function personalStats($user_id)
     {
         return DB::table('stats')

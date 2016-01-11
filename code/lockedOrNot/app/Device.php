@@ -29,4 +29,18 @@ class Device extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function notlocked(){
+
+        return $this->where('state', 0);
+
+    }
+    public function scopeUnlocked($q){
+        $q->where('state', 0);
+
+    }
+    public function scopeLocked($q){
+        $q->where('state', 1);
+
+    }
+
 }
