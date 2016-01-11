@@ -20,6 +20,7 @@ class DeviceController extends Controller
 
     public function putState($device_nr, $state){
 
+
         $device = Device::where('device_nr', $device_nr)->first();
         $device->state = $state;
         $device->save();
