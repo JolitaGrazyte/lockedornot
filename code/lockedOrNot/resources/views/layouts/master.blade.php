@@ -20,6 +20,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" />
 
+    {{--=== *** REGISTER step form *** ===--}}
+    <link rel="stylesheet" href="{{ url('css/jquery.steps/jquery.steps.css') }}">
+{{--        <link rel="stylesheet" href="{{ url('css/jquery.steps/normalize.css') }}">--}}
+    <link rel="stylesheet" href="{{ url('css/jquery.steps/main.css') }}">
+
+
+    <script src="{{ url('js/jquery.js') }}"></script>
+    <script src="{{ url('js/jquery.steps.min.js') }}"></script>
+    <script src="{{ url('js/jquery.validate.min.js') }}"></script>
+
     {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--}}
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
@@ -28,6 +38,8 @@
     @endif
     <link rel="stylesheet" href="{{ url('css/my-styles.css') }}">
     {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
+
+
 
 </head>
 @show

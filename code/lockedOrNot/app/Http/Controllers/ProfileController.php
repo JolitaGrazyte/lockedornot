@@ -30,21 +30,38 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = $this->authUser;
-        $unlocked_devices = $user->devices()->unlocked();
+        $user           = $this->authUser;
+//        $msg            = '';
+////        $stats_total    = 0;
+////        $paranoia_stats = 0;
+////        $stats_true     = 0;
 
-        $msg = $unlocked_devices->count() == 0 ? 'Your car is not locked!': 'Your car is locked yet!';
-        $stats = $this->authUser->stats;
+        $no_device = is_null($user->devices);
+        $device_state = false;
 
-        $stats_true     = $user->unlockedStats()->count();
-        $paranoia_stats = $user->paranoiaStats()->count();
-        $stats_total    = $stats->count();
-        $percent_true   = $stats_true*100/$stats_total;
+        if(!$no_device){
 
-        $st = new Stats();
-        $days = $st->days();
+            $unlocked_devices = $user->devices()->unlocked();
+            $msg = $unlocked_devices->count() == 0 ? 'Your car is locked yet!': 'Your car is unlocked yet!';
+            $stats = $this->authUser->stats;
 
-        return view('profile.index', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days'));
+            $stats_true     = $user->unlockedStats()->count();
+            $paranoia_stats = $user->paranoiaStats()->count();
+            $stats_total    = $stats->count();
+            $percent_true   = $stats_total != 0 ? $stats_true*100/$stats_total : 0;
+            $st = new Stats();
+            $days = $st->days();
+        }
+        else{
+            $msg = "It happened so, that we didn't receive your Locked Or Not device number.
+                    Please update your information and provide the Locked Or Not device number.";
+        }
+
+        $percent_true = 20;
+        $percent_false  = 100 - $percent_true;
+
+        return view('profile.index2',
+            compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days', 'no_device', 'percent_false'));
     }
 
 

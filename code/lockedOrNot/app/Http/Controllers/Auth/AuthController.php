@@ -34,6 +34,8 @@ class AuthController extends Controller implements AuthenticateUserListener
 
     protected $redirectPath =   '/profile';
 
+    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
     /**
      * Create a new authentication controller instance.
      * @param Guard $auth
@@ -55,7 +57,8 @@ class AuthController extends Controller implements AuthenticateUserListener
         return Validator::make($data, [
             'device_nr' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+//            'password' => 'required|confirmed|min:6',
+            'password' => 'required|min:6',
         ]);
     }
 
@@ -68,17 +71,30 @@ class AuthController extends Controller implements AuthenticateUserListener
      */
     protected function create(array $data)
     {
-        $device = Device::create([
-            'device_nr' => $data['device_nr']
-        ]);
+
         $user = User::create([
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'first_name'    =>  $data['first_name'],
+            'last_name'     =>  $data['last_name'],
+            'email'         =>  $data['email'],
+            'password'      =>  bcrypt($data['password']),
+            'car_brand'     =>  $data['car_brand'],
+            'car_color'     =>  $data['car_color'],
         ]);
 
-        $user->device()->associate($device);
+
+        for($i=1;$i <= $data['package']; ++$i){
+            $device = Device::create([
+            'device_nr' => $data['device_nr'].'-'.$i
+        ]);
+            $user->devices()->save($device);
+
+        }
+
+        $user->save();
+
+
+        return $user;
+
     }
 
     /**
@@ -137,14 +153,14 @@ class AuthController extends Controller implements AuthenticateUserListener
                 $this->loginUsername() => $this->getFailedLoginMessage(),
             ]);
     }
-    public function putStats($user){
-
-        $stats = Stats::create();
-        $stats->user_id         = $user->id;
-        $stats->device_nr       = $user->device?$user->device->device_nr:null;
-        $stats->device_state    = $user->device?$user->device->state:null;
-        $stats->save();
-    }
+//    public function putStats($user){
+//
+//        $stats = Stats::create();
+//        $stats->user_id         = $user->id;
+//        $stats->device_nr       = $user->device?$user->device->device_nr:null;
+//        $stats->device_state    = $user->device?$user->device->state:null;
+//        $stats->save();
+//    }
 
     /**
      * @param $user

@@ -17,11 +17,17 @@ var elixir = require('laravel-elixir');
 
 
 elixir(function(mix) {
-    var bootstrapPath = 'node_modules/bootstrap-sass/assets';
-    var waypointsPath = 'node_modules/waypoints/lib';
+    var bootstrapPath       =   'node_modules/bootstrap-sass/assets';
+    var waypointsPath       =   'node_modules/waypoints/lib';
+    var jqueryPath          =   'bower_components/jquery/dist';
+    var jqueryStepsPath     =   'bower_components/jquery.steps/build';
+    var jqueryValid         =   'bower_components/jquery-validation/dist';
 
     mix.sass('app.scss')
-    .copy(bootstrapPath + '/fonts', 'public/fonts')
-    .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'public/js')
-    .copy(waypointsPath + '/noframework.waypoints.min.js', 'public/js');
+        .copy(bootstrapPath + '/fonts', 'public/fonts')
+        .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'public/js')
+        .copy(waypointsPath + '/noframework.waypoints.min.js', 'public/js')
+        .copy(jqueryPath + '/jquery.min.js', 'public/js')
+        .copy(jqueryStepsPath + '/jquery.steps.min.js','public/js')
+        .copy(jqueryValid + '/jquery.validate.min.js','public/js');
 });

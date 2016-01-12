@@ -25,7 +25,7 @@
 
             <span class="fa fa-circle-thin"></span>
             {{--<span class="fa fa-check"></span>--}}
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'Choose your password']) !!}
+            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'Your password']) !!}
         </div>
     </div>
 

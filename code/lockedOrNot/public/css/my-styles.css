@@ -12,6 +12,39 @@
 
 }
 
+@font-face {
+    font-family: 'bebasregular';
+    src: url('bebas/bebas.eot');
+    src: url('bebas/bebas.eot?#iefix') format('embedded-opentype'),
+    url('bebas/bebas.woff') format('woff'),
+    url('bebas/bebas.ttf') format('truetype'),
+    url('bebas/bebas.svg#bebasregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'exoregular';
+    src: url('exo/exo-regular.eot');
+    src: url('exo/exo-regular.eot?#iefix') format('embedded-opentype'),
+    url('exo/exo-regular.woff2') format('woff2'),
+    url('exo/exo-regular.woff') format('woff'),
+    url('exo/exo-regular.ttf') format('truetype'),
+    url('exo/exo-regular.svg#exoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html, body{
+    font-family: 'exo-regular', sans-serif;
+}
+
+
+a.register-now, .menu-button, .close-button{
+    outline: 0;
+}
+
 .site-name{
     font-family: 'din_condensedbold';
 }
@@ -238,4 +271,17 @@ input.ng-invalid.ng-dirty ~ .fa-times-circle-o, input.ng-valid.ng-dirty ~ .fa-ch
 .container, .container-fluid{
     margin-bottom: 15rem;
 }
+
+
+.radio-text{
+    position: relative;
+    top: -16px;
+
+}
+
+
+/*======== 2 STEP FORM ========*/
+
+
+/*======== end 2 STEP FORM ========*/
 

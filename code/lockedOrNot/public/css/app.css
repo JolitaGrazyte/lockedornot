@@ -8057,6 +8057,10 @@ a {
   width: 100%;
   font-size: 1.6rem; }
 
+.how-it-works-title {
+  margin-left: -40px;
+  margin-bottom: 20px; }
+
 .parallax-window-img img {
   opacity: 0.8; }
 
@@ -8095,14 +8099,15 @@ a {
 .front-login {
   z-index: 100;
   position: absolute;
-  right: 2rem; }
+  right: 2rem;
+  top: 2.43rem; }
 
 .front-login li {
   text-align: center;
   display: inline-block;
-  width: 200px;
-  height: 50px;
-  line-height: 45px;
+  width: 180px;
+  height: 43px;
+  line-height: 40px;
   border: 1px solid white; }
 
 .front-login ul > li a {
