@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <h1 class="center">How it works?</h1>
+        <h1 class="center how-it-works-title">How it works?</h1>
     </div>
     <div class="row">
         <div class="how-it-works">

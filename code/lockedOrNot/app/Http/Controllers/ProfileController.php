@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Response;
 use Session;
+use App\StatusEnum;
 
 class ProfileController extends Controller
 {
@@ -30,29 +31,49 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = $this->authUser;
-        $unlocked_devices = $user->devices()->unlocked();
 
-        $msg = $unlocked_devices->count() == 0 ? 'Your car is not locked!': 'Your car is locked yet!';
-        $stats = $this->authUser->stats;
+        $user           = $this->authUser;
+//        $msg            = '';
+////        $stats_total    = 0;
+////        $paranoia_stats = 0;
+////        $stats_true     = 0;
+        $status = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
 
-        // $stats_true     = $user->unlockedStats()->count();
-        // $paranoia_stats = $user->paranoiaStats()->count();
-        $stats_true     = Stats::where('device_state',0)
-                                ->where('user_id',Auth::user()->id)
-                                ->count();
-        $paranoia_stats = Stats::where('device_state',1)
-                                ->where('user_id',Auth::user()->id)
-                                ->count();
+        $no_device = empty($user->devices) && is_null($user->devices);
+        $device_state = false;
+//        dd($user->monthlyStats(1)->get());
 
-        $stats_total    = $stats->count();
-        $percent_true   = round($stats_true*100/$stats_total,2);
-        $percent_false  = 100-$percent_true;
+        if(!$no_device){
 
-        $st = new Stats();
-        $days = $st->days();
+            $unlocked_devices = $user->devices()->unlocked();
+            $msg = $unlocked_devices->count() == 0 ? 'Your car is locked yet!': 'Your car is unlocked yet!';
+            $stats = $this->authUser->stats;
 
-        return view('profile.index3', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true','percent_false', 'msg', 'days'));
+//            $device = $user->devices;
+//            dd($device);
+
+            $stats_true     = $user->unlockedStats()->count();
+            $paranoia_stats = $user->paranoiaStats()->count();
+            $stats_total    = $stats->count();
+            $percent_true   = $stats_total != 0 ? $stats_true*100/$stats_total : 0;
+            $st = new Stats();
+            $days = $st->days();
+        }
+        else{
+            $msg = "It happened so, that we didn't receive your Locked Or Not device number.
+                    Please update your information and provide the Locked Or Not device number.";
+        }
+        $stats_true = 20;
+        $percent_true = 20;
+        $percent_false  = 100 - $percent_true;
+
+        if($stats_true >= 10) $status = StatusEnum::TOP_LOCKER;
+        if($stats_true >= 10 && $stats_true < 40) $status = StatusEnum::VICE_LOCKER;
+        if($stats_true >= 40 && $stats_true <= 80) $status = StatusEnum::OK_LOCKER;
+        if($stats_true >= 80 && $stats_true <= 100) $status = StatusEnum::PARANOID_LOCKER;
+
+        return view('profile.index2',
+            compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days', 'no_device', 'percent_false', 'status'));
     }
 
 
@@ -78,14 +99,17 @@ class ProfileController extends Controller
     {
         $user = $this->authUser;
         $user->update($request->all());
-        $device = $user->device ?
-                    $user->device->device_nr = $request->device_nr :
-                    Device::create([
-                        'device_nr'     => $request->device_nr,
-                        'user_id'       => $user->id
-                    ]);
+        $q = $request->get('quantity');
 
-        $device->save();
+        for($i=1;$i <= $q; ++$i){
+            $device = Device::create([
+                'device_nr' => $request->get('device_nr').'-'.$i
+            ]);
+
+            $user->devices()->save($device);
+        }
+
+        $user->save();
 
 
         Session::flash('message', 'You have successfully updated your profile.');

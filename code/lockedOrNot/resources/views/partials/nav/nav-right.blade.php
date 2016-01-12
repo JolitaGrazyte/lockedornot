@@ -18,11 +18,11 @@
                        data-toggle="modal"
                        data-target="#editModal"
                     ><i class="fa fa-fw fa-user"></i><span>My profile</span></a>
-                    @if(!is_null(Auth::user()->device))
-                    <a href="#"  title="your car is  {{ Auth::user()->device->state==0? 'unlocked': 'locked' }}" ><i class="fa fa-fw fa-automobile"></i><span>My car state</span>
-                        <span class="fa {{ Auth::user()->device->state==0? 'fa-circle unlocked':'fa-circle locked' }}"></span>
-                    </a>
-                    @endif
+                    {{--@if(!$no_device)--}}
+                    {{--<a href="#"  title="your car is  {{ $state? 'unlocked': 'locked' }}" ><i class="fa fa-fw fa-automobile"></i><span>My car state</span>--}}
+                        {{--<span class="fa {{ Auth::user()->device->state==0? 'fa-circle unlocked':'fa-circle locked' }}"></span>--}}
+                    {{--</a>--}}
+                    {{--@endif--}}
                     <a href="{{ route('logout') }}"><i class="fa fa-fw fa-sign-out"></i><span>Logout</span></a>
                 </div>
             </nav>

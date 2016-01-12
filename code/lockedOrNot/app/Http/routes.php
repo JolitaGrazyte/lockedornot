@@ -86,3 +86,7 @@ get('/bridge/{device_nr}/{id}', 'DeviceController@putState');
 //
 //    return view('welcome');
 //});
+//
+//get('form', function(){
+//   return view('auth.step-register');
+//});

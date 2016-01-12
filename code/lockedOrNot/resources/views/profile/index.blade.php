@@ -59,9 +59,9 @@
 
             <input id="user_id" type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-            @if(is_null(Auth::user()->devices))
+            @if($no_device)
                 <div class="row urgent-update">
-                    <h3 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h3>
+                    <h3 class="urgent">{{$msg}} </h3>
                     <a href=""
                        data-toggle="modal"
                        data-target="#editModal">Update my info</a>
