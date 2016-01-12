@@ -1,4 +1,4 @@
-
+	
 @extends('layouts.master')
 
 @section('title', 'Dashboard')
@@ -16,8 +16,8 @@
         }
 
         [class^='col-lg']:not(.col-lg-12):not(.col-lg-6){
-            border: seagreen 1px dotted;
-            min-height: 250px;
+            border: white 1px solid;
+            /*min-height: 250px;*/
             padding: 15px;
             text-align: center;
 
@@ -45,6 +45,27 @@
             background: #333;
             box-shadow: 2px 2px 2px 2px #222;
         }
+
+        .wrap
+        {
+        	border:none;
+        	border-radius: 5px;
+        	background-color: #66c0cf;
+        }
+
+        .info
+        {
+    		border-radius: 5px;
+        	background-color:#f5f5f5;
+        	text-transform: capitalize;
+        }
+        .lockedPer, .openPer
+        {
+        	color: white;
+        	font-size: 25px;
+        	min-height: 50px;
+        	text-transform: uppercase;
+        }
         /*==== end of CHARTS ====*/
     </style>
     <div class="container-fluid">
@@ -59,40 +80,99 @@
 
             <input id="user_id" type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-            
+            @if(is_null(Auth::user()->devices))
+                <div class="row urgent-update">
+                    <h3 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h3>
+                    <a href=""
+                       data-toggle="modal"
+                       data-target="#editModal">Update my info</a>
+
+                </div>
+            @else
+
                 <div class="row">
-                
+                        {{--<div class="col-lg-4 col-lg-offset-4">--}}
+                            {{--<h2>Me</h2>--}}
+                            {{--<div>{{ Auth::user()->full_name }}</div>--}}
+                            {{--<div>my device nr.: {{Auth::user()->device->device_nr}}</div>--}}
+
+                            {{--<h2>My car</h2>--}}
+
+                            {{--<div>--}}
+
+                            {{--<h3 class="{{ Auth::user()->device->state == 0?'urgent':'' }}">{{$msg}}</h3>--}}
+
+                            {{--</div>--}}
+                            {{--<hr>--}}
+
+                            {{--<a href=""--}}
+                               {{--data-toggle="modal"--}}
+                               {{--data-target="#editModal">update my info</a>--}}
+                        {{--</div>--}}
+                    {{--<div class="col-lg-4">--}}
+                        {{--<h2>My car</h2>--}}
+
+                        {{--<div>--}}
+
+                            {{--<h3 class="{{ Auth::user()->device->state == 0?'urgent':'' }}">{{$msg}}</h3>--}}
+
+                        {{--</div>--}}
+                    {{--</div>--}}
                 </div>
 
                 <div class="row">
                     <div class="col-lg-6"><h2>My personal stats</h2></div>
-                    <div class="col-lg-6">
+                    <!-- <div class="col-lg-6">
                         <h3>Total times checked: {{ $stats_total }} </h3>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-lg-8">
                         <h3>How many times per month i checked</h3>
                         <!-- <div id="total-chart"></div> -->
-                        <div class="row col-lg-offset-1 col-lg-10 progress">
-                          <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
-                            open when checked
-                          </div>
-                          <div class="progress-bar progress-bar-danger" role="progressbar" style="width:60%">
-                            locked when cheched
-                          </div>
+                        <div class="row">
+                        	<div class="col-lg-offset-1 col-lg-10 wrap">
+								<div class="progress">
+		                          <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_true}}%">
+		                            open when checked
+		                          </div>
+		                          <div class="progress-bar progress-bar-danger" role="progressbar"style="width:{{$percent_false}}%">
+		                            locked when cheched
+		                          </div>
+		                        </div>
+		                        <div class="col-sm-1 col-lg-1 openPer" style="border:none;">{{$percent_true}}%</div>
+                        		<div class="col-sm-offset-9 col-sm-1 col-lg-offset-9 col-lg-1  lockedPer" style="border:none; ">{{$percent_false}}%</div>
+                        	
+		                        <div class="col-lg-3 info" style="border: #66c0cf solid 1px;">
+		                        {{ $stats_total}}
+	                        	<p class="text-info">checked</p> 
+		                        </div>
+		                        <div class="col-lg-3 info" style="border: #66c0cf solid 1px;">
+		                       	{{$stats_true}}
+		                       	<p class="text-success"> open </p>
+		                        </div>
+		                        <div class="col-lg-3 info" style="border: #66c0cf solid 1px;">
+		                        {{$paranoia_stats}}
+		                       	<p class="text-success"> locked </p>
+		                        </div>
+		                        <div class="col-lg-3 info" style="border: #66c0cf solid 1px;">
+		                        Forget-me-lockje
+		                        <p class="text-info">status</p> 
+		                        </div>
+	                        </div>
+
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <h2>Me</h2>
                         <div>{{ Auth::user()->full_name }}</div>
-                        <div>my device nr.: {{Auth::user()->device->device_nr}}</div>
+                        {{--<div>my device nr.: {{Auth::user()->device->device_nr}}</div>--}}
 
                         <h2>My car</h2>
 
                         <div>
 
-                        <h3 class="{{ Auth::user()->device->state == 0?'urgent':'' }}">{{$msg}}</h3>
+                        <h3 class="{{ Auth::user()->devices()->unlocked()?'urgent':'' }}">{{$msg}}</h3>
 
                         </div>
                     </div>
@@ -121,6 +201,8 @@
                 <h2>How many times per day</h2>
                 <div id="chartdiv"></div>
 
+
+            @endif
 
 
         </div>

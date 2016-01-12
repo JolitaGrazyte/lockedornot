@@ -36,15 +36,23 @@ class ProfileController extends Controller
         $msg = $unlocked_devices->count() == 0 ? 'Your car is not locked!': 'Your car is locked yet!';
         $stats = $this->authUser->stats;
 
-        $stats_true     = $user->unlockedStats()->count();
-        $paranoia_stats = $user->paranoiaStats()->count();
+        // $stats_true     = $user->unlockedStats()->count();
+        // $paranoia_stats = $user->paranoiaStats()->count();
+        $stats_true     = Stats::where('device_state',0)
+                                ->where('user_id',Auth::user()->id)
+                                ->count();
+        $paranoia_stats = Stats::where('device_state',1)
+                                ->where('user_id',Auth::user()->id)
+                                ->count();
+
         $stats_total    = $stats->count();
-        $percent_true   = $stats_true*100/$stats_total;
+        $percent_true   = round($stats_true*100/$stats_total,2);
+        $percent_false  = 100-$percent_true;
 
         $st = new Stats();
         $days = $st->days();
 
-        return view('profile.index', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days'));
+        return view('profile.index3', compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true','percent_false', 'msg', 'days'));
     }
 
 

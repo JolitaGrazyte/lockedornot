@@ -4,6 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+//added by jonas
+use Auth;
+
 class Device extends Model
 {
 
@@ -35,11 +38,11 @@ class Device extends Model
 
     }
     public function scopeUnlocked($q){
-        $q->where('state', 0);
+        $q->where('state', 0)->where('user_id',Auth::user()->id);
 
     }
     public function scopeLocked($q){
-        $q->where('state', 1);
+        $q->where('state', 1)->where('user_id',Auth::user()->id);
 
     }
 
