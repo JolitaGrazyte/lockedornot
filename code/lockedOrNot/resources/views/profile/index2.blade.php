@@ -15,18 +15,6 @@
 
         }
 
-        .profile-my-info{
-            float: right;
-        }
-
-
-        @media (max-width: 767px){
-            .profile-my-info{
-                float: none;
-            }
-
-        }
-
         [class^='col-lg']:not(.col-lg-12):not(.col-lg-6){
             border: seagreen 1px dotted;
             min-height: 250px;
@@ -38,30 +26,10 @@
             min-height: 100px;
             border: 1px dotted #269abc;
         }
-        /*.col-lg-8{*/
-            /*min-height: 500px;*/
-        /*}*/
+
         .navbar{
             background: #FFF;
         }
-
-        /*tr, td{*/
-            /*border: 1px gray solid;*/
-        /*}*/
-        /*td{*/
-            /*width: 100px;*/
-        /*}*/
-        /*tr{*/
-            /*height: 50px;*/
-        /*}*/
-
-        /*#chartdiv{*/
-            /*width: 100%;*/
-            /*height: 540px;*/
-            /*background: #333;*/
-            /*box-shadow: 2px 2px 2px 2px #222;*/
-        /*}*/
-        /*==== end of CHARTS ====*/
 
 
     </style>
@@ -77,7 +45,7 @@
 
             <input id="user_id" type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-            @if(is_null(Auth::user()->devices))
+            @if($no_device)
                 <div class="row urgent-update">
                     <h3 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h3>
                     <a href=""
@@ -86,38 +54,6 @@
 
                 </div>
             @else
-
-                {{--<div class="row">--}}
-                        {{--<div class="col-lg-4 col-lg-offset-4">--}}
-                            {{--<h2>Me</h2>--}}
-                            {{--<div>{{ Auth::user()->full_name }}</div>--}}
-                            {{--<div>my device nr.: {{Auth::user()->device->device_nr}}</div>--}}
-
-                            {{--<h2>My car</h2>--}}
-
-                            {{--<div>--}}
-
-                            {{--<h3 class="{{ Auth::user()->device->state == 0?'urgent':'' }}">{{$msg}}</h3>--}}
-
-                            {{--</div>--}}
-                            {{--<hr>--}}
-
-                            {{--<a href=""--}}
-                               {{--data-toggle="modal"--}}
-                               {{--data-target="#editModal">update my info</a>--}}
-                        {{--</div>--}}
-                    {{--<div class="col-lg-4">--}}
-                        {{--<h2>My car</h2>--}}
-
-                        {{--<div>--}}
-
-                            {{--<h3 class="{{ Auth::user()->device->state == 0?'urgent':'' }}">{{$msg}}</h3>--}}
-
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-
-
 
 
                 <div class="col-lg-4 col-sm-12 profile-my-info">
@@ -138,28 +74,29 @@
                 <div class="col-lg-8 col-sm-12">
                     <div class="row">
                         <div class="col-lg-6"><h2>My personal stats</h2></div>
-                        <div class="col-lg-6">
-                            <h3>Total times checked: {{ $stats_total }} </h3>
-                        </div>
+
                     </div>
-                    <h3>How many times per month i have checked</h3>
-                    <!-- <div id="total-chart"></div> -->
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%">
-                            open when checked
-                        </div>
-                        <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%">
-                            locked when checked
-                        </div>
-                    </div>
+                   <div class="row">
+                       <div class="col-lg-6">
+                           <h3>My satus: </h3>{{$status}}
+                       </div>
+                       <div class="col-lg-6">
+                           <h3>Total times checked: {{ $stats_total }} </h3>
+                       </div>
+                       <h3>How many times per month i have checked</h3>
+                       <!-- <div id="total-chart"></div> -->
+                       <div class="progress">
+                           <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%">
+                               open when checked
+                           </div>
+                           <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%">
+                               locked when checked
+                           </div>
+                       </div>
+                   </div>
                 </div>
-
             @endif
-
-
         </div>
-
-
     </div>
 
 @stop

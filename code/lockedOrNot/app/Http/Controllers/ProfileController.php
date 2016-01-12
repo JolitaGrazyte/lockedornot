@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Response;
 use Session;
+use App\StatusEnum;
 
 class ProfileController extends Controller
 {
@@ -35,15 +36,20 @@ class ProfileController extends Controller
 ////        $stats_total    = 0;
 ////        $paranoia_stats = 0;
 ////        $stats_true     = 0;
+        $status = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
 
-        $no_device = is_null($user->devices);
+        $no_device = empty($user->devices) && is_null($user->devices);
         $device_state = false;
+//        dd($user->monthlyStats(1)->get());
 
         if(!$no_device){
 
             $unlocked_devices = $user->devices()->unlocked();
             $msg = $unlocked_devices->count() == 0 ? 'Your car is locked yet!': 'Your car is unlocked yet!';
             $stats = $this->authUser->stats;
+
+//            $device = $user->devices;
+//            dd($device);
 
             $stats_true     = $user->unlockedStats()->count();
             $paranoia_stats = $user->paranoiaStats()->count();
@@ -56,12 +62,17 @@ class ProfileController extends Controller
             $msg = "It happened so, that we didn't receive your Locked Or Not device number.
                     Please update your information and provide the Locked Or Not device number.";
         }
-
+        $stats_true = 20;
         $percent_true = 20;
         $percent_false  = 100 - $percent_true;
 
+        if($stats_true >= 10) $status = StatusEnum::TOP_LOCKER;
+        if($stats_true >= 10 && $stats_true < 40) $status = StatusEnum::VICE_LOCKER;
+        if($stats_true >= 40 && $stats_true <= 80) $status = StatusEnum::OK_LOCKER;
+        if($stats_true >= 80 && $stats_true <= 100) $status = StatusEnum::PARANOID_LOCKER;
+
         return view('profile.index2',
-            compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days', 'no_device', 'percent_false'));
+            compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days', 'no_device', 'percent_false', 'status'));
     }
 
 
@@ -89,18 +100,15 @@ class ProfileController extends Controller
         $user->update($request->all());
         $q = $request->get('quantity');
 
-        //Todo: for many devices per user
-//        if($q=5){
-//
-//        }
-//        $device = $user->devices && $user->devices->count() < 1 ?
-//                    $user->devices->device_nr = $request->device_nr :
-//                    Device::create([
-//                        'device_nr'     => $request->device_nr,
-//                        'user_id'       => $user->id
-//                    ]);
+        for($i=1;$i <= $q; ++$i){
+            $device = Device::create([
+                'device_nr' => $request->get('device_nr').'-'.$i
+            ]);
 
-//        $device->save();
+            $user->devices()->save($device);
+        }
+
+        $user->save();
 
 
         Session::flash('message', 'You have successfully updated your profile.');

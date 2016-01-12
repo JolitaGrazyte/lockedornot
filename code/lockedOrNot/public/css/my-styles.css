@@ -277,6 +277,37 @@ input.ng-invalid.ng-dirty ~ .fa-times-circle-o, input.ng-valid.ng-dirty ~ .fa-ch
     position: relative;
     top: -16px;
 
+
+}
+
+.profile-my-info{
+    float: right;
+}
+
+
+@media (max-width: 767px){
+    .profile-my-info{
+        float: none;
+    }
+
+}
+
+@media (max-width: 414px){
+    .site-name{
+        font-size: 5rem;
+        top: -12rem;
+        left: 2rem;
+        line-height: 2px;
+    }
+    .slogan{
+        font-size: 2rem;
+        margin-top: -10rem;
+        width: 218px;
+        margin-left: 20px;
+        text-align: right;
+
+    }
+
 }
 
 

@@ -15,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $no_device = true;
         if(Auth::guest()){
 
             return redirect()->to($this->redirectPath);
@@ -23,9 +22,9 @@ class AppServiceProvider extends ServiceProvider
 
         $user = Auth::user();
 
-        $no_device = is_null($user->devices);
+        $no_device = empty($user->devices) && is_null($user->devices);
 
-             view()->composer(['partials.nav-right', 'profile.edit-form', 'home.index'], function($view) use($no_device){
+             view()->composer(['partials.nav-right', 'profile.edit-form'], function($view) use($no_device){
 
                  $view->with('no_device', $no_device);
              });

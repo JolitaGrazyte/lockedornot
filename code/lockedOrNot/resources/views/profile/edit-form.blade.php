@@ -2,8 +2,7 @@
 
 <div class="form-group">
 
-
-    @if(is_null(Auth::user()->devices))
+    @if(empty($user->devices))
         <div class="col-lg-12">
             <h5 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h5>
         </div>
@@ -11,11 +10,33 @@
 
 
 
+            <div class="col-lg-12">
+
+                {!! Form::label('package', 'My "locked or not" device package contains:', ['class' => 'control-label']) !!}
+                <div class="input-group margin-bottom-sm">
+                    {{--<span class="input-group-addon">--}}
+                    {{--<i class="fa fa-gear fa-fw"></i>--}}
+                    {{--</span>--}}
+
+                    {{--<span class="fa fa-circle-thin"></span>--}}
+                    {{--<span class="fa fa-check"></span>--}}
+                    <label for="package"></label>
+                    {!! Form::radio('quantity',  5, ['class' => '']) !!}
+                    <span class="radio-text">5 devices</span>
+
+                    {!! Form::radio('quantity',  1, ['class' => '']) !!}
+                    <span class="radio-text"> 1 devices </span>
+
+                </div>
+
+
+            </div>
+
     <div class="col-lg-12">
         {!! Form::label('device_nr', 'Your lockedOrNot serial nr:', ['class' => 'control-label']) !!}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
-            {!! Form::text('device_nr',  is_null($user->devices) ? null : substr($user->devices->first()->device_nr, 0, 7), ['class' => is_null($user->devices) ? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
+            {!! Form::text('device_nr',  $no_device ? null : substr($user->devices->first()->device_nr, 0, 7), ['class' => $no_device ? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
         </div>
 
 
@@ -47,17 +68,6 @@
         </div>
     </div>
 </div>
-
-{{--<div class="form-group">--}}
-
-    {{--<div class="col-lg-12">--}}
-        {{--{!! Form::label('last_name', 'Your city', ['class' => 'control-label']) !!}--}}
-        {{--<div class="input-group margin-bottom-sm">--}}
-            {{--<span class="input-group-addon"><i class="fa fa-bank fa-fw"></i></span>--}}
-            {{--{!! Form::text('city',  old('city'), ['class' => 'form-control', 'placeholder' => 'your city']) !!}--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</div>--}}
 
 <a href="">Update my login information</a>
 

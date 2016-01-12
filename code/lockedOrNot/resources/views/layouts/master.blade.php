@@ -60,7 +60,7 @@
 
     @if(Auth::check())
 
-        @include('profile.edit-modal', ['user'=> Auth::user()])
+        @include('profile.edit-modal', ['user'=> Auth::user(), 'no_device' => empty(Auth::user()->devices) && is_null(Auth::user()->devices)])
 
     @endif
 

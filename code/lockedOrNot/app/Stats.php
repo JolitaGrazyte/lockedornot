@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-use App\DaysEnum;
+//use App\DaysEnum;
 use DB;
 class Stats extends Model
 {

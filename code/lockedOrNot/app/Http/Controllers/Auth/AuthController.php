@@ -168,7 +168,7 @@ class AuthController extends Controller implements AuthenticateUserListener
      */
     public function userHasBeenRegistered($user) {
 
-        $this->putStats($user);
+//        $this->putStats($user);
 
         return redirect('profile');
     }
