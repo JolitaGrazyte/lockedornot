@@ -76,24 +76,24 @@
                         <div class="col-lg-6"><h2>My personal stats</h2></div>
 
                     </div>
-                   <div class="row">
-                       <div class="col-lg-6">
-                           <h3>My satus: </h3>{{$status}}
-                       </div>
-                       <div class="col-lg-6">
-                           <h3>Total times checked: {{ $stats_total }} </h3>
-                       </div>
-                       <h3>How many times per month i have checked</h3>
-                       <!-- <div id="total-chart"></div> -->
-                       <div class="progress">
-                           <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%">
-                               open when checked
-                           </div>
-                           <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%">
-                               locked when checked
-                           </div>
-                       </div>
-                   </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3>My satus: </h3>{{$status}}
+                        </div>
+                        <div class="col-lg-6">
+                            <h3>Total times checked: {{ $stats_total }} </h3>
+                        </div>
+                        <h3>How many times per month i have checked</h3>
+                        <!-- <div id="total-chart"></div> -->
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%">
+                                open when checked
+                            </div>
+                            <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%">
+                                locked when checked
+                            </div>
+                        </div>
+                    </div>
                 </div>
             @endif
         </div>
@@ -102,25 +102,25 @@
 @stop
 
 {{--@section('scripts')--}}
-    {{--@parent--}}
-    {{--<script type="text/javascript" src='{{url('js/Chart.min.js')}}'></script>--}}
+{{--@parent--}}
+{{--<script type="text/javascript" src='{{url('js/Chart.min.js')}}'></script>--}}
 
-    {{--<script src="http://code.highcharts.com/highcharts.js"></script>--}}
-    {{--<script src="http://code.highcharts.com/highcharts-more.js"></script>--}}
-    {{--<script src="http://code.highcharts.com/modules/exporting.js"></script>--}}
-    {{--<script src="{{url('js/stats/punch-stats.js')}}"></script>--}}
-    {{--<script src="{{ url('js/stats/pie-chart.js') }}"></script>--}}
-    {{--<script src="{{ url('js/stats/total-stats.js') }}"></script>--}}
+{{--<script src="http://code.highcharts.com/highcharts.js"></script>--}}
+{{--<script src="http://code.highcharts.com/highcharts-more.js"></script>--}}
+{{--<script src="http://code.highcharts.com/modules/exporting.js"></script>--}}
+{{--<script src="{{url('js/stats/punch-stats.js')}}"></script>--}}
+{{--<script src="{{ url('js/stats/pie-chart.js') }}"></script>--}}
+{{--<script src="{{ url('js/stats/total-stats.js') }}"></script>--}}
 
-    {{--<script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>--}}
-    {{--<script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>--}}
-    {{--<script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>--}}
-    {{--<script src="http://www.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>--}}
+{{--<script src="http://www.amcharts.com/lib/3/amcharts.js" type="text/javascript"></script>--}}
+{{--<script src="http://www.amcharts.com/lib/3/serial.js" type="text/javascript"></script>--}}
+{{--<script src="https://www.amcharts.com/lib/3/themes/dark.js"></script>--}}
+{{--<script src="http://www.amcharts.com/lib/3/amstock.js" type="text/javascript"></script>--}}
 
-    {{--<script>--}}
+{{--<script>--}}
 
-    {{--</script>--}}
-    {{--<script src="{{ url('js/am-charts-stats/total-stats.js') }}"></script>--}}
+{{--</script>--}}
+{{--<script src="{{ url('js/am-charts-stats/total-stats.js') }}"></script>--}}
 
 
 {{--@stop--}}
