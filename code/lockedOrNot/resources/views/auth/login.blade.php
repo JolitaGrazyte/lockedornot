@@ -1,64 +1,39 @@
-{{--@EXTENDS('LAYOUTS.MASTER')--}}
 
-{{--@section('title', 'Login')--}}
 
-{{--@section('content')--}}
+  <div class="content">
 
-    {{--<h1>Login</h1>--}}
+      {!!Form::open(['route' => 'post-login', 'id' => 'Form', 'class' => 'form-horizontal', 'role' => 'form'])  !!}
 
-    {{--@include('errors.errors')--}}
+      <div class="error-message">
+          <p>these credentials do not match our records</p>
+      </div>
 
-    {!!Form::open(['route' => 'postLogin', 'class' => 'form-horizontal', 'role' => 'form'])  !!}
+      <h2 class="modal-title">Login</h2>
+      @include('auth.partials.email-password')
 
-    <div class="form-group">
 
-        {!! Form::label('email', 'E-mail Address', ['class' => 'col-md-4 control-label']) !!}
+      <div class="form-group">
+          <div class="col-lg-12 col-sm-12">
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox" name="remember"> Remember me
+                  </label>
+              </div>
+          </div>
+      </div>
 
-        <div class="col-md-6">
+      <div class="form-group">
+          <div class="col-lg-12 col-sm-12">
 
-        {!! Form::email('email', old('email'), ['class' => 'form-control', 'placeholder' => 'email']) !!}
+              {!! Form::submit('Login', ['class' => 'my-btn form-control']) !!}
 
-        </div>
-    </div>
+              <a class="btn btn-link" onclick="$('#loginModal').modal('hide');" data-toggle="modal" data-target="#passwordModal">Forgot your password?</a>
+          </div>
+      </div>
 
-    <div class="form-group">
 
-        {!! Form::label('password', 'Password', ['class' => 'col-md-4 control-label']) !!}
+      @include('auth.partials.social-login')
 
-        <div class="col-md-6">
+      {!! Form::close() !!}
 
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'password']) !!}
-
-        </div>
-
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-6 col-md-offset-4">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="remember"> Remember Me
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-6 col-md-offset-4">
-
-            {!! Form::submit('Login', ['class' => 'my-btn form-control btn-submit']) !!}
-
-            <a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
-        </div>
-    </div>
-
-    {!! Form::close() !!}
-
-    {{--<div class="form-group">--}}
-    {{--<div class="col-md-6 col-md-offset-4">--}}
-    {{--<a href="{{ url('login/facebook') }}"><button class="btn btn-primary">facebook</button></a>--}}
-    {{--<a href="{{ url('login/google') }}"><button class="btn btn-primary">google+</button></a>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-
-{{--@stop--}}
+  </div>

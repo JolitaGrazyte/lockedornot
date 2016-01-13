@@ -20,7 +20,7 @@
 
     </div>
 
-   <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt=""></div>
+   <div id="product-section-img" class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt=""></div>
 
     <div id="about" class="parallax-window-noimg" data-parallax="scroll" data-image-src="">
 

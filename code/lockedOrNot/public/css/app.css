@@ -7863,7 +7863,8 @@ div.modal-backdrop.fade.in {
   filter: alpha(opacity=10); }
 
 .modal-content {
-  border-radius: 0; }
+  border-radius: 0;
+  padding-bottom: 1.5rem; }
 
 @media (min-width: 768px) {
   .modal-dialog {
@@ -7898,7 +7899,7 @@ div.modal-backdrop.fade.in {
   border-radius: 0;
   height: 42px;
   line-height: 24px;
-  width: 230px; }
+  width: 225px; }
 
 .fb-btn {
   background: #5a76af;
@@ -7948,7 +7949,7 @@ div.modal-backdrop.fade.in {
 .navbar {
   background: transparent;
   border: 0;
-  min-height: 50px; }
+  min-height: 90px; }
 
 .navbar-bckgr-white {
   background: white; }
@@ -8016,7 +8017,7 @@ nav ul.navbar-right li {
 .parallax-window-noimg {
   min-height: 350px;
   background: transparent;
-  padding: 2rem 0; }
+  padding: 1rem 0; }
 
 @media (max-width: 767px) {
   .parallax-window-img {
@@ -8055,18 +8056,13 @@ a {
   border-top: 1px solid white;
   text-shadow: 1px 1px #0d102e; }
 
-.menu-ui {
-  position: absolute;
-  top: 10px;
-  right: 10px; }
-
 .how-it-works {
   width: 100%;
   font-size: 1.6rem; }
 
 .how-it-works-title {
   margin-left: -40px;
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 .parallax-window-img img {
   opacity: 0.8; }

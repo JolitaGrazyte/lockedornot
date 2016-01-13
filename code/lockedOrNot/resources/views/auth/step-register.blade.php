@@ -1,4 +1,9 @@
 
+{{--<style></style>--}}
+{{--<div></div>--}}
+
+{{--<form id="register-form" action="#">--}}
+
 <h3></h3>
 {{--<h3>Account</h3>--}}
 <fieldset>

@@ -28,6 +28,7 @@
         }
         .navbar{
             background: #FFF;
+            min-height: 100px;
         }
 
         tr, td{
@@ -197,10 +198,10 @@
                     {{--</div>--}}
                 </div>
 
-                <div id="punch-chart"></div>
+                {{--<div id="punch-chart"></div>--}}
 
-                <h2>How many times per day</h2>
-                <div id="chartdiv"></div>
+                {{--<h2>How many times per day</h2>--}}
+                {{--<div id="chartdiv"></div>--}}
 
 
             @endif

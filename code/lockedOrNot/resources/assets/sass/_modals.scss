@@ -4,6 +4,7 @@
 
 div.modal-backdrop.fade.in{
   z-index:-1;
+
 }
 
 .modal.fade .modal-dialog {
@@ -23,6 +24,7 @@ div.modal-backdrop.fade.in{
 
 .modal-content{
   border-radius:0;
+  padding-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {

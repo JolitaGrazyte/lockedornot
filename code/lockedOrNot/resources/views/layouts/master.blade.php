@@ -52,11 +52,14 @@
 
     @yield('content')
 
-    @include('auth.login-modal')
+
+    {{--@include('auth.login-modal')--}}
 
     @include('auth.register-modal')
 
-    @include('auth.password-modal')
+    {{--@include('auth.password-modal')--}}
+
+    @include('partials.modal')
 
     @if(Auth::check())
 
@@ -84,15 +87,14 @@
 
     <script src="{{ url('js/alert-dismiss.js') }}"></script>
 
-    <script src="js/main.js"></script>
-    <script src="js/classie.js"></script>
+    @if(Auth::check())
+        <script src="{{ 'js/main.js' }}"></script>
+        @endif
+    <script src="{{ 'js/classie.js' }}"></script>
 
-    {{--Todo: move select2 script to specific page where it is used--}}
-    {{--<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>--}}
+    <script src="{{ 'js/modal.js' }}"></script>
 
 @show
-
-{{--@yield('extra-scripts')--}}
 
 </body>
 </html>

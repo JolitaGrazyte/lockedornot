@@ -24,16 +24,16 @@ Route::controllers([
 
 
 // Registration routes...
-get('register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
-post('register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
+get('auth/register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
+post('auth/register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
 get('login/{provider}',     ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
 
 
 
 
 // Authentication routes...
-get('login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
-post('login',      ['as' => 'post-login',       'uses' => 'Auth\AuthController@postLogin']);
+get('auth/login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
+post('auth/login',      ['as' => 'post-login',       'uses' => 'Auth\AuthController@postLogin']);
 get('logout',      ['as' => 'logout',           'uses' => 'Auth\AuthController@getLogout']);
 
 

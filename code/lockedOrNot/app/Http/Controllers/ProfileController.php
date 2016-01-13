@@ -46,7 +46,7 @@ class ProfileController extends Controller
         if(!$no_device){
 
             $unlocked_devices = $user->devices()->unlocked();
-            $msg = $unlocked_devices->count() == 0 ? 'Your car is locked yet!': 'Your car is unlocked yet!';
+            $msg = $unlocked_devices->count() == 0 ? 'Your car is locked now!': 'Oops, your car is unlocked!';
             $stats = $this->authUser->stats;
 
 //            $device = $user->devices;
@@ -63,14 +63,14 @@ class ProfileController extends Controller
             $msg = "It happened so, that we didn't receive your Locked Or Not device number.
                     Please update your information and provide the Locked Or Not device number.";
         }
-        $stats_true = 20;
-        $percent_true = 20;
+        $stats_true = 1;
+//        $percent_true = 50;
         $percent_false  = 100 - $percent_true;
 
-        if($stats_true >= 10) $status = StatusEnum::TOP_LOCKER;
-        if($stats_true >= 10 && $stats_true < 40) $status = StatusEnum::VICE_LOCKER;
-        if($stats_true >= 40 && $stats_true <= 80) $status = StatusEnum::OK_LOCKER;
-        if($stats_true >= 80 && $stats_true <= 100) $status = StatusEnum::PARANOID_LOCKER;
+        if($percent_true >= 10) $status = StatusEnum::TOP_LOCKER;
+        if($percent_true >= 10 && $percent_true < 40) $status = StatusEnum::VICE_LOCKER;
+        if($percent_true >= 40 && $percent_true <= 80) $status = StatusEnum::OK_LOCKER;
+        if($percent_true >= 80 && $percent_true <= 100) $status = StatusEnum::PARANOID_LOCKER;
 
         return view('profile.index2',
             compact('stats_true', 'paranoia_stats', 'stats_total', 'device_state', 'percent_true', 'msg', 'days', 'no_device', 'percent_false', 'status'));
