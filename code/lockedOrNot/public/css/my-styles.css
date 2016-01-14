@@ -272,9 +272,10 @@ input.ng-invalid.ng-dirty ~ .fa-times-circle-o, input.ng-valid.ng-dirty ~ .fa-ch
     margin-bottom: 15rem;
 }
 
-.radio-text{
+.register-radio-text{
     position: relative;
     top: -16px;
+    left: 20px;
 
 }
 
@@ -389,4 +390,24 @@ input.ng-invalid.ng-dirty ~ .fa-times-circle-o, input.ng-valid.ng-dirty ~ .fa-ch
 .modal-title {
     margin: 0;
     line-height: 2;
+}
+button[class='close']{
+    font-size: 3.3rem;
+}
+
+.input-group-addon
+{
+    background: transparent;
+    border-radius: 0;
+}
+.login-modal-icon{
+    position: absolute; top: 15px; left: 5px; z-index: 1000; color: #616161;
+}
+
+.login-input{
+    width: 100%;
+}
+
+.how-it-works-list{
+    margin-left: -20px;
 }

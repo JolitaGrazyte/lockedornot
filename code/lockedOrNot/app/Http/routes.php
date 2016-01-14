@@ -81,6 +81,10 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
 //Pusher real time notifications
 get('/bridge/{device_nr}/{id}', 'DeviceController@putState');
 
+get('statistics', function(){
+   return view('stats.dash');
+});
+
 //get('/broadcast', function() {
 //    event(new DeviceStateChanged('Broadcasting in Laravel using Pusher!'));
 //

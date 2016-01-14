@@ -7,7 +7,7 @@
       <div class="error-message">
           <p>these credentials do not match our records</p>
       </div>
-
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
       <h2 class="modal-title">Login</h2>
       @include('auth.partials.email-password')
 

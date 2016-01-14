@@ -17,26 +17,8 @@
             {!! Form::close() !!}
 
         </div>
-        {{--<div class="modal-footer">--}}
-            {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
-        {{--</div>--}}
     </div>
 
 </div>
 
-
 </div>
-
-
-{{--@if (count($errors) > 0)--}}
-{{--@section('scripts')--}}
-    {{--@parent--}}
-
-        {{--<script>--}}
-            {{--$('#loginModal').modal('show');--}}
-            {{--$('#registerModal').modal('hide');--}}
-        {{--</script>--}}
-
-{{--@stop--}}
-
-{{--@endif--}}

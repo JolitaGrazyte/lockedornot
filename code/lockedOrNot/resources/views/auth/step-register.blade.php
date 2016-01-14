@@ -9,16 +9,16 @@
 <fieldset>
     <legend>Account</legend>
 
-    <div class="form-group">
+    {{--<div class="form-group">--}}
 
-        <div class="col-lg-12">
+        {{--<div class="col-lg-12">--}}
             {{--        {!! Form::label('first_name', 'Your name:', ['class' => 'control-label']) !!}--}}
-            <div class="input-group margin-bottom-sm">
-                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Your username']) !!}
-            </div>
-        </div>
-    </div>
+            {{--<div class="input-group margin-bottom-sm">--}}
+                {{--<span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>--}}
+                {{--{!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Your username']) !!}--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 
     @include('auth.partials.email-password')
@@ -31,35 +31,44 @@
 <fieldset>
     <legend>Profile Information</legend>
 
-    <div class="form-group">
-
         <div class="col-lg-12">
-            {{--        {!! Form::label('first_name', 'Your name:', ['class' => 'control-label']) !!}--}}
+            {{-- {!! Form::label('first_name', 'Your name:', ['class' => 'control-label']) !!}--}}
             <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                 {!! Form::text('first_name', null, ['class' => 'form-control', 'placeholder' => 'Your name']) !!}
             </div>
-        </div>
-    </div>
+            <div id="first_name-group">
+                <p class="help-text"></p>
+            </div>
 
-    <div class="form-group">
+        </div>
 
         <div class="col-lg-12">
-            {{--        {!! Form::label('last_name', 'Your surname:', ['class' => 'control-label']) !!}--}}
+            {{-- {!! Form::label('last_name', 'Your surname:', ['class' => 'control-label']) !!}--}}
             <div class="input-group margin-bottom-sm">
                 <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                 {!! Form::text('last_name',  null, ['class' => 'form-control', 'placeholder' => 'Your surname']) !!}
             </div>
-        </div>
-    </div>
 
-    <p>(*) Mandatory</p>
+            <div id="last_name-group">
+                <p class="help-text"></p>
+            </div>
+
+            <p>(*) Mandatory</p>
+        </div>
+
+
 </fieldset>
 
 <h3></h3>
 {{--<h3>Device</h3>--}}
 <fieldset>
-    <legend>Please enter your "Locked Or Not" device serial number</legend>
+    <legend style="font-family: sans-serif;">
+        Please enter your "Locked Or Not" device serial number.
+        <em>
+            <a href="">Where to find it ?</a>
+        </em>
+    </legend>
 
     <div class="form-group">
 
@@ -75,10 +84,10 @@
                 {{--<span class="fa fa-check"></span>--}}
                 <label for="package"></label>
                 {!! Form::radio('package',  5, ['class' => '']) !!}
-                <span class="radio-text">5 devices</span>
+                <span class="register-radio-text">5 devices</span>
 
                 {!! Form::radio('package',  1, ['class' => '']) !!}
-                <span class="radio-text"> 1 devices </span>
+                <span class="register-radio-text"> 1 devices </span>
 
             </div>
 
@@ -91,7 +100,9 @@
 
             {!! Form::label('device_nr', 'Locked Or Not Device Serial Nr:', ['class' => 'control-label']) !!}
             <div class="input-group margin-bottom-sm">
-                <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
+                <span class="input-group-addon">
+                    <i class="fa fa-gear fa-fw"></i>
+                </span>
 
                 <span class="fa fa-circle-thin"></span>
                 {{--<span class="fa fa-check"></span>--}}
@@ -111,7 +122,10 @@
     <div class="form-group">
 
         <div class="col-lg-12">
-            <h5>Please fill in also these fields. We need your help to generate some general statistics. We wont expose them to others as your personal. </h5>
+            <h5>
+                Please fill in also these fields.
+                We need your help to generate some general statistics.
+                We wont expose them to others as your personal. </h5>
         </div>
         <div class="col-lg-12">
             {!! Form::label('last_name', 'Your car (brand and color)', ['class' => 'control-label']) !!}

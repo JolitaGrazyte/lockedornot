@@ -1,4 +1,4 @@
-<ul class="nav navbar-nav navbar-right {{ Request::is('/') ? 'athome': '' }}">
+<ul class="nav navbar-nav navbar-right {{ Request::is('profile') ? '':'athome' }}">
 
 
     @if ( Auth::guest() )
@@ -32,7 +32,7 @@
                 </nav>
                 <button class="close-button" id="close-button">Close Menu</button>
             </div>
-            <button class="menu-button {{ !Request::is('/')?'dark':'' }}" id="open-button">Open Menu</button>
+            <button class="menu-button {{ Request::is('profile')?'dark':'' }}" id="open-button">Open Menu</button>
 {{--            <a class="{{ Request::is('/')? 'hidden':'' }}" href="{{ route('logout') }}"><i class="fa fa-fw fa-sign-out"></i><span>Logout</span></a>--}}
 
 

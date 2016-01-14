@@ -5,7 +5,7 @@
     <div class="row">
         <div class="how-it-works">
             <div class="col-lg-4 col-sm-12">
-                <h3><span class="fa fa-pencil-square-o"></span> <em>Sign Up for <span class="for-free">FREE</span>.</em></h3>
+                <h3><em>Sign Up for <span class="for-free">FREE</span>.</em></h3>
                 <p>
                 <div> Get an account.</div>
                     <div>Register with providing your device serial number.</div>
@@ -19,7 +19,7 @@
 
             </div>
             <div class="col-lg-4 col-sm-12">
-                <h3><span class="fa fa-check-square-o"></span> <em>Check if your car is locked.</em></h3>
+                <h3><em>Check if your car is locked.</em></h3>
                 <p>
                     <div>
                         <span class="fa fa-mobile-phone"></span> Download our app.
@@ -33,10 +33,10 @@
 
             </div>
             <div class="col-lg-4 col-sm-12">
-                <h3><span class="fa fa-bar-chart"></span> <em>Track your personal activity</em></h3>
+                <h3><em>Track your personal activity</em></h3>
                 <p>
-                    <div>Get statistics:</div>
-                <ul>
+                    <div> <span class="fa fa-bar-chart"></span>  Get statistics:</div>
+                <ul class="how-it-works-list">
                     <li>how frequently you check</li>
                     <li>how often is it true</li>
                     <li>how often it was a false alarm</li>
