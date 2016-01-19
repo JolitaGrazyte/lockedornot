@@ -1,31 +1,25 @@
-@extends('layouts.master')
+@extends('layouts.dashboard')
 
 @section('title', 'Profile')
 
 @section('content')
 
-    <div class="container-fluid">
-
-        <div class="dashboard-container">
+    <div class="row">
+        <div class="col-lg-12">
             <div class="row">
-                <div class="col-lg-2">
-                    @include('partials.sidebar')
-                </div>
-                <div class="col-lg-7">
+                <div class="col-lg-8">
                     @include('errors.errors')
+                </div>
+            </div>
 
-
-
+            <div class="row">
+                <div class="col-lg-8">
+                    @include('profile.edit-form', ['no_device' => $no_device])
                 </div>
             </div>
         </div>
 
     </div>
 
-
-
-@stop
-
-@section('footer')
 
 @stop

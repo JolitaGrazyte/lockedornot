@@ -84,6 +84,7 @@ class ProfileController extends Controller
 
         $panels = $this->getPanels($user);
         $support = $this->getUserStatusAndMsg($percent_true);
+//        dd($support);
 
         return view('stats.index',
             compact(
@@ -210,10 +211,11 @@ class ProfileController extends Controller
      *
      * @internal param string $name
      */
-    public function edit()
+    public function edit($name)
     {
         $user = $this->authUser;
-        return view('profile.edit')->withUser($user);
+        $no_device      = empty($user->devices) && is_null($user->devices);
+        return view('profile.edit', compact('user', 'no_device'))->withTitle('Update profile');
     }
 
     /**
