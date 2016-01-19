@@ -96,4 +96,16 @@ class User extends Model implements AuthenticatableContract,
                 ->whereRaw('HOUR(created_at) = '.$hour);
         });
     }
+
+    public function scopeWeekDayStats($q, $day){
+        $q->whereHas('stats', function($query) use ($day){
+            $query->whereRaw('WEEKDAY(created_at) = '.$day);
+        });
+    }
+
+//    public function scopeStatus($q){
+//
+//
+//    }
+
 }

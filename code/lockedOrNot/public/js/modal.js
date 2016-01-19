@@ -77,6 +77,7 @@ $(document).ready(function(){
                     console.log(data['responseJSON']);
                     associate_errors(data['responseJSON'], $form);
                 }
+                $('.other-error-message').slideDown('fast');
             }
         });
     }

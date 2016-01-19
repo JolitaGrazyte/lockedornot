@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <div class="content-wrap">
+    <div class="content">
 
         <div class="col-md-5 my-form">
 

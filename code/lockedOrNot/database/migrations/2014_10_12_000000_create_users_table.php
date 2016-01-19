@@ -26,7 +26,6 @@ class CreateUsersTable extends Migration
             $table->string('city', 45)->nullable();
             $table->string('car_brand', 45)->nullable();
             $table->string('car_color', 45)->nullable();
-            $table->integer('role_id');
 
             $table->rememberToken();
             $table->timestamps();

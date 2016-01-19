@@ -8029,16 +8029,13 @@ footer {
   bottom: 2rem;
   right: 35px; }
 
-html, body {
-  font-family: 'exo-regular', sans-serif; }
-
 a {
   outline: 0; }
 
 .name-slogan-wrapper {
   z-index: 12;
   position: absolute;
-  left: 2%;
+  left: 2.3%;
   top: 45%; }
 
 .site-name {
@@ -8102,7 +8099,7 @@ a {
 .front-login {
   z-index: 100;
   position: absolute;
-  right: 2rem;
+  right: 2.5%;
   top: 2.43rem; }
 
 .front-login li {

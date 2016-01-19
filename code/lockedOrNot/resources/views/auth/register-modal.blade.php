@@ -14,7 +14,7 @@
 
                 {!!Form::open(['route' =>  ['post-register'], 'id' => 'register-form'])  !!}
 
-                @include('auth.step-register')
+                @include('auth.partials.step-register')
 
                 {{--@include('auth.partials.register-form')--}}
 
@@ -32,16 +32,12 @@
                         transitionEffect: "slideLeft",
                         onStepChanging: function (event, currentIndex, newIndex)
                         {
-                            // Allways allow previous action even if the current form is not valid!
+                            // Always allow previous action even if the current form is not valid!
                             if (currentIndex > newIndex)
                             {
                                 return true;
                             }
-                            // Forbid next action on "Warning" step if the user is to young
-//                            if (newIndex === 3 && Number($("#age-2").val()) < 18)
-//                            {
-//                                return false;
-//                            }
+
 
                             // Needed in some cases if the user went back (clean up)
                             if (currentIndex < newIndex)
@@ -56,17 +52,6 @@
                         onStepChanged: function (event, currentIndex, priorIndex)
                         {
 
-//                            if (currentIndex === 3)
-//                            {
-//
-//                                form.steps("next");
-//                            }
-//
-//                            // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-//                            if (currentIndex === 2 && priorIndex === 3)
-//                            {
-//                                form.steps("previous");
-//                            }
                         },
                         onFinishing: function (event, currentIndex)
                         {
@@ -83,9 +68,6 @@
                             element.parent('.input-group').after(error);
                         },
                         rules: {
-//                            confirm: {
-//                                equalTo: "#password-2"
-//                            },
                             password:{
                                 minlength: 6
                             },
@@ -106,9 +88,7 @@
                 </script>
 
             </div>
-            {{--<div class="modal-footer">--}}
-            {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
-            {{--</div>--}}
+
         </div>
 
     </div>
@@ -121,8 +101,6 @@
     @parent
 
         <script>
-
-            $('#loginModal').modal('hide');
             $('#registerModal').modal('show');
         </script>
 @stop

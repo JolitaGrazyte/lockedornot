@@ -35,7 +35,7 @@
     padding: 0;
 }
 
-/* Accessibility */
+/*=== Accessibility ====*/
 .wizard > .steps .current-info,
 .tabcontrol > .steps .current-info
 {
@@ -52,23 +52,17 @@
 
 
 
-/*
-    Wizard
-*/
+/*==== Wizard ====*/
 
 .wizard > .steps
 {
+    content: '';
     position: relative;
-    display: block;
+    /*display: block;*/
     width: 100%;
-    margin-left: 20px;
-}
-
-.wizard.vertical > .steps
-{
-    display: inline;
-    float: left;
-    width: 30%;
+    /*margin-left: 20px;*/
+    text-align: center;
+    z-index: 10;
 }
 
 .wizard > .steps .number
@@ -78,13 +72,26 @@
 
 .wizard > .steps > ul > li
 {
-    width: 25%;
+    width: 17%;
+}
+
+/*progressbar connectors*/
+.wizard > .steps > ul > li:after {
+    content: '';
+    width: 80%;
+    height: 2px;
+    background: #d3d3d3;
+    position: absolute;
+    left: 10%;
+    top: 29px;
+    z-index: -1; /*put it behind the numbers*/
 }
 
 .wizard > .steps > ul > li,
 .wizard > .actions > ul > li
 {
-    float: left;
+    display: inline-block;
+    /*float: left;*/
 }
 
 /*.wizard.vertical > .steps > ul > li*/
@@ -123,8 +130,9 @@
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background: #2184be;
-    color: #fff;
+    background: #e3fbed;
+    border: 1px solid #d3d3d3;
+    color: #858585;
     cursor: default;
 }
 
@@ -132,8 +140,16 @@
 .wizard > .steps .done a:hover,
 .wizard > .steps .done a:active
 {
-    background: #9dc8e2;
-    color: #fff;
+    /*background: wheat;*/
+    border: 1px solid #d3d3d3;
+    background: #b5e8d4;
+    color: #858585;
+
+   /*== image done maybe ===*/
+    /*color: #71f466;*/
+    /*background-size: 100% 100%;*/
+    /*background-image: url("../../img/done.png");*/
+
 }
 
 .wizard > .steps .error a,
@@ -207,9 +223,9 @@
 
 .wizard > .content > .body input.error
 {
-    background: rgb(251, 227, 228);
-    border: 1px solid #fbc2c4;
-    color: #8a1f11;
+    /*background: rgb(255, 239, 239);*/
+    border: 1px solid #ffb5b2;
+    color: #ff382e;
 }
 
 .wizard > .content > .body label
@@ -220,26 +236,28 @@
 
 .wizard > .content > .body label.error
 {
-    color: #8a1f11;
+    color: #ff382e;
     display: inline-block;
-    margin-left: 1.5em;
+    margin-top: .5rem;
+    margin-left: 3.1em;
+    font-style: oblique;
 }
 
 .wizard > .actions
 {
     position: relative;
     display: block;
-    text-align: right;
+    text-align: center;
     width: 100%;
 }
 
-.wizard.vertical > .actions
-{
-    display: inline;
-    float: right;
-    margin: 0 2.5%;
-    width: 95%;
-}
+/*.wizard.vertical > .actions*/
+/*{*/
+    /*display: inline;*/
+    /*!*float: right;*!*/
+    /*margin: 0 2.5%;*/
+    /*width: 95%;*/
+/*}*/
 
 .wizard > .actions > ul
 {
@@ -249,27 +267,28 @@
 
 .wizard > .actions > ul > li
 {
+    width: 220px;
     margin: 0 0.5em;
 }
 
-.wizard.vertical > .actions > ul > li
-{
-    margin: 0 0 0 1em;
-}
+/*.wizard.vertical > .actions > ul > li*/
+/*{*/
+    /*margin: 0 0 0 1em;*/
+/*}*/
 
 .wizard > .actions a,
 .wizard > .actions a:hover,
 .wizard > .actions a:active
 {
-    background: #fb5542;
-    color: #fff;
+    background: #b5e8d4;
+    color: #858585;
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;
 
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    /*-webkit-border-radius: 5px;*/
+    /*-moz-border-radius: 5px;*/
+    /*border-radius: 5px;*/
 }
 
 .wizard > .actions .disabled a,
@@ -288,11 +307,7 @@
 {
 }
 
-
-
-/*
-    Tabcontrol
-*/
+/*=== Tabcontrol ===*/
 
 .tabcontrol > .steps
 {
@@ -315,12 +330,12 @@
     margin: 5px 2px 0 0;
     padding: 1px;
 
-    -webkit-border-top-left-radius: 5px;
-    -webkit-border-top-right-radius: 5px;
-    -moz-border-radius-topleft: 5px;
-    -moz-border-radius-topright: 5px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    /*-webkit-border-top-left-radius: 5px;*/
+    /*-webkit-border-top-right-radius: 5px;*/
+    /*-moz-border-radius-topleft: 5px;*/
+    /*-moz-border-radius-topright: 5px;*/
+    /*border-top-left-radius: 5px;*/
+    /*border-top-right-radius: 5px;*/
 }
 
 .tabcontrol > .steps > ul > li:hover
@@ -387,4 +402,8 @@
 .tabcontrol > .content > .body ul > li
 {
     display: list-item;
+}
+
+form#register-form legend{
+    padding-left: 1.8rem
 }

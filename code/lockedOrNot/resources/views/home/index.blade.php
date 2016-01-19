@@ -4,15 +4,20 @@
 
 @section('content')
 
-   <div class="name-slogan-wrapper">
-       <div class="site-name">Locked Or Not</div>
-       {{--<h1 class="sitename">Locked or not</h1>--}}
 
-       <h2 class="slogan pull-right">Get a peace of mind!</h2>
 
-   </div>
+    <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt="This a background image of locked or not site.">
 
-    <div class="parallax-window-img" data-parallax="scroll" data-image-src="{{ url('img/car-lock-2-filter.jpg') }}" alt="This a background image of locked or not site."></div>
+
+    </div>
+
+    <div class="name-slogan-wrapper">
+        <div class="site-name">Locked Or Not</div>
+        {{--<h1 class="sitename">Locked or not</h1>--}}
+
+        <h2 class="slogan pull-right">Get a peace of mind!</h2>
+
+    </div>
 
     <div class="parallax-window-noimg" data-parallax="scroll" data-image-src="">
 

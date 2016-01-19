@@ -3,10 +3,10 @@
         {{--{!! Form::label('email', 'Your e-mail:', ['class' => 'control-label']) !!}--}}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-            <span class="fa fa-times-circle-o"></span>
-            <span class="fa fa-circle-thin"></span>
+            {{--<span class="fa fa-times-circle-o"></span>--}}
+            {{--<span class="fa fa-circle-thin">*</span>--}}
 
-            {!! Form::email('email', null, ['   class' => 'form-control', 'placeholder' => 'Your email', 'required', 'title' => 'Your email']) !!}
+            {!! Form::email('email', null, ['   class' => 'form-control', 'placeholder' => 'Your email', 'required']) !!}
 
         </div>
         <div id="email-group">
@@ -25,7 +25,7 @@
             <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
             <span class="fa fa-circle-thin"></span>
 
-            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'Your password ']) !!}
+            {!! Form::password('password', ['class' => 'form-control',  'placeholder' => 'Your password', 'required']) !!}
 
         </div>
         <div id="password-group">

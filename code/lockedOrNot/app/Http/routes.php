@@ -34,7 +34,7 @@ get('login/{provider}',     ['as' => 'social-register', 'uses' => 'Auth\AuthCont
 // Authentication routes...
 get('auth/login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
 post('auth/login',      ['as' => 'post-login',       'uses' => 'Auth\AuthController@postLogin']);
-get('logout',      ['as' => 'logout',           'uses' => 'Auth\AuthController@getLogout']);
+get('logout',           ['as' => 'logout',           'uses' => 'Auth\AuthController@getLogout']);
 
 
 get('nglogin', function(){

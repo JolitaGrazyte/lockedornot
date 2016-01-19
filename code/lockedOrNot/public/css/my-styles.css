@@ -37,7 +37,8 @@
 
 }
 html, body{
-    font-family: 'exo-regular', sans-serif;
+    /*font-family: 'exo-regular', sans-serif;*/
+    font-family: "Roboto";
 }
 
 
@@ -48,6 +49,11 @@ a.register-now, .menu-button, .close-button{
 .site-name{
     font-family: 'din_condensedbold';
 }
+
+.how-it-works-list{
+    margin-left: -20px;
+}
+
 
 .navbar-brand{
     /*margin-top: 8px;*/
@@ -351,6 +357,7 @@ input.ng-invalid.ng-dirty ~ .fa-times-circle-o, input.ng-valid.ng-dirty ~ .fa-ch
         margin-left: 15px;
     }
 
+
     #product-section-img{
         display: none;
     }
@@ -370,12 +377,12 @@ input.ng-invalid.ng-dirty ~ .fa-times-circle-o, input.ng-valid.ng-dirty ~ .fa-ch
 /*======== end 2 STEP FORM ========*/
 
 
-.error-message {
+.error-message, .other-error-message {
     background-color: #ff3b2b;
     color: whitesmoke;
     text-transform: uppercase;
     text-align: center;
-    padding: .8em;
+    padding: 1rem .5em .2rem;
     display: none;
 }
 .help-text{
@@ -408,6 +415,38 @@ button[class='close']{
     width: 100%;
 }
 
-.how-it-works-list{
-    margin-left: -20px;
+
+/*======== 404 page ========*/
+
+.wrapper-404{
+    position: absolute;
+    z-index: 1200;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    font-family: Helvetica;
+}
+
+.h1-404{
+    font-size: 5rem;
+}
+.go-back{
+    color: #76fdc4;
+    font-size: 2.7rem;
+    font-family: 'exo-regular';
+}
+.go-back:hover{
+    color: #b5e8d4;
+}
+
+.img-wrapper-404{
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+/*======== end 404 page ========*/
+
+.btn-login{
+    background: #b5e8d4;
 }

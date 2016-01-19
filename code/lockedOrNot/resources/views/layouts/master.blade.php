@@ -46,18 +46,14 @@
 
 <body>
 
-{{--    @include('errors.errors')--}}
-
     @include('partials.nav')
 
     @yield('content')
 
 
-    {{--@include('auth.login-modal')--}}
-
     @include('auth.register-modal')
 
-    {{--@include('auth.password-modal')--}}
+    @include('auth.password-modal')
 
     @include('partials.modal')
 
