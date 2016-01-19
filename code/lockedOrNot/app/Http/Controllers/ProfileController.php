@@ -52,7 +52,7 @@ class ProfileController extends Controller
 
             $unlocked_devices = $user->devices()->unlocked();
 
-            $msg            =   $unlocked_devices->count() == 0 ? 'Your car is locked now!': 'Oops, your car is unlocked!';
+            $msg            =   $unlocked_devices->count() == 0 ? "": "Oops, looks like your car is not locked yet! You might wanna do somethin' about it.";
             $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 
             $stats          = $this->authUser->stats;
@@ -79,6 +79,7 @@ class ProfileController extends Controller
 
         return view('stats.index',
             compact(
+                'user',
                 'stats_true',
                 'locked_stats',
                 'stats_total',
@@ -173,7 +174,7 @@ class ProfileController extends Controller
 
 
         switch($status){
-            case 'Problem locker':
+            case 'Problem Locker':
                 return [
                     'status' => $status,
                     "msg"     =>  "Oh no, ".$name.", the most of time your car was unlocked when checking.
@@ -184,37 +185,39 @@ class ProfileController extends Controller
                 ];
                 break;
 
-            case 'Trouble locker':
+            case 'Trouble Locker':
                 return [
                     'status' => $status,
                     "msg"    =>  "Hmm, ". $name .", looks like even more then a half of the time you forget to lock your car.
-                             You might wanna do somethin' about it...",
+                                You might wanna do somethin' about it...",
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'  =>  'red'
 
                 ];
                 break;
 
-            case 'Ok locker':
+            case 'Ok Locker':
                 return [
                     'status'        =>  $status,
-                    "msg"           =>  "Hmm, ". $name .", looks like about a half of the time you forget to lock your car. You definitely can do beter then that...",
+                    "msg"           =>  "Hmm, ". $name .", looks like about a half of the time you forget to lock your car.
+                                        You definitely can do better then that...",
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'         =>  'salmon'
 
                 ];
                 break;
 
-            case 'Vice locker':
+            case 'Vice Locker':
                 return [
                     'status' =>  $status,
-                    'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. But you could do even better...",
+                    'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car.
+                                 But you could do even better...",
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'  =>  "green"
                 ];
                 break;
 
-            case 'Top locker':
+            case 'Top Locker':
                 return [
                     'status' =>  $status,
                     'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. That's really fine.",
@@ -269,9 +272,10 @@ class ProfileController extends Controller
 
     }
 
-
     public function updatePassword(){
 
+        $user = $this->authUser;
+        return $user;
     }
 
 }

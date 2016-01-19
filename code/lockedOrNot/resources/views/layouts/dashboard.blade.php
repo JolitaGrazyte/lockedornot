@@ -20,6 +20,9 @@
     <title>HTML Dashboard </title>
 </head>
 <body>
+<div class="">
+    @yield('note')
+</div>
 
 <div id="wrapper">
     <nav>

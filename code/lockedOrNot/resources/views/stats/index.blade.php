@@ -2,13 +2,17 @@
 
 @section('title', 'Stats')
 
+@section('note')
+    @if(!empty($msg))
+        <div class="col-lg-12">
+            <div class="note box-shadow center">
+                {{ $msg }}<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        </div>
+    @endif
+@stop
 @section('content')
 
-    {{--<div class="row">--}}
-        {{--<div class="col-lg-12">--}}
-            {{--{{ $msg }}--}}
-        {{--</div>--}}
-    {{--</div>--}}
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">
@@ -22,7 +26,6 @@
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
-
 
     <div class="col-lg-4 pull-right">
         <div class="row">
@@ -47,18 +50,9 @@
     <div class="col-lg-4 right">
         <div class="row">
             <div class="col-lg-12">
-                <div class="panel panel-default text-right" style="padding-right: 20px">
+                <div class="panel panel-default text-right padding-right-20">
                     <h2>My car</h2>
-                    <ul>
-                        <li> lon device nr.:</li>
-                        <li>
-                            color: dark-blue
-                        </li>
-                        <li>
-                            brand: volvo
-                        </li>
-                        <li>status: <span class="{{ $device_status }}"><em><strong>{{ $device_status }}</strong></em></span></li>
-                    </ul>
+                   @include('partials.user-info')
                 </div>
             </div>
         </div>

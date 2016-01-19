@@ -10,6 +10,7 @@ body {
 
 #wrapper {
     width: 100%;
+
 }
 
 #page-wrapper {
@@ -305,6 +306,45 @@ hr{
     line-height: 1rem;
     margin: 1rem 0 .5rem 0;
 }
+.box-shadow{
+    box-shadow: 1px 1px 1px 1px #DEDEDE;
+}
+
+
+
+.note{
+
+    position:absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding:1rem;
+    background:#e54115;
+    color: #fdfdfd;
+    font-size: 2rem;
+    z-index: 12;
+    -webkit-animation: fall-in 2s 1; /* Safari 4+ */
+    -moz-animation:    fall-in 2s 1; /* Fx 5+ */
+    -o-animation:      fall-in 2s 1; /* Opera 12+ */
+    animation: fall-in 2s 1;
+}
+
+@-webkit-keyframes fall-in {
+    0%   { top: -60px; }
+    100% { top: 0; }
+}
+@-moz-keyframes fall-in {
+    0%   { top: -60px; }
+    100% { top: 0; }
+}
+@-o-keyframes fall-in {
+    0%   { top: -60px; }
+    100% { top: 0; }
+}
+@keyframes fall-in {
+    0%   { top: -60px; }
+    100% { top: 0; }
+}
 
 .panel-green {
     border-color: #97c4b0;
@@ -492,6 +532,11 @@ footer{
 
 }
 
+#side-menu li:first-child > ul li:first-child{
+    font-size: 1.6rem;
+    margin-left: -30px
+}
+
 #side-menu li a:hover, #side-menu li a.active{
     color: #f44516;
     border-right: 4px #5b57e3 solid;
@@ -551,6 +596,12 @@ footer{
 }
 .unlocked {
     color: #e54115;
+}
+.padding-right-20{
+    padding-right: 20px;
+}
+#side-menu h2{
+    padding-left: 10px
 }
 @media(max-width:768px) {
     .logout{
