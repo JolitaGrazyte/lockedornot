@@ -22,6 +22,9 @@ class AppServiceProvider extends ServiceProvider
 
         $user = Auth::user();
 
+        $unlocked_devices = $user->devices()->unlocked();
+        $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
+
         $no_device = empty($user->devices) && is_null($user->devices);
 
              view()->composer(['partials.nav-right', 'profile.edit-form'], function($view) use($no_device){
@@ -33,6 +36,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['partials.nav', 'profile.index'], function($view) use($user){
 
             $view->with('auth', $user);
+        });
+
+        view()->composer(['partials.sidebar', 'layouts.dashboard'], function($view) use($device_status){
+
+            $view->with('auth', $device_status);
         });
 
     }

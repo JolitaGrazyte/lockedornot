@@ -4,17 +4,21 @@
 
 @section('content')
 
+    {{--<div class="row">--}}
+        {{--<div class="col-lg-12">--}}
+            {{--{{ $msg }}--}}
+        {{--</div>--}}
+    {{--</div>--}}
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">
-                How i'm doing
+                How i'm doing ?
             </h2>
-            <span style="margin-left:20px;">
-                <em>
-                    my overall statistics
-                </em>
-            </span>
+            <h4 class="o-font" style="margin-left: 20px;">
+                my overall statistics
+            </h4>
         </div>
+
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -53,7 +57,7 @@
                         <li>
                             brand: volvo
                         </li>
-                        <li>status: <span style="color: #97c4b0;"><em><strong>locked</strong></em></span></li>
+                        <li>status: <span class="{{ $device_status }}"><em><strong>{{ $device_status }}</strong></em></span></li>
                     </ul>
                 </div>
             </div>
@@ -90,25 +94,7 @@
 
             <div class="col-lg-12">
 
-                <div class="progress">
-                    <div title="{{$percent_true}}%" class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%;">
-                        open when checked
-                    </div>
-
-                    <div title="{{$percent_false}}%" class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%;">
-                        locked when cheched
-                    </div>
-                </div>
-                <div class="bottom-padding">
-
-                    <div class="pull-left">
-                        <p> {{$percent_true}}% </p>
-                    </div>
-
-                    <div class="pull-right">
-                        <p> {{$percent_false}}% </p>
-                    </div>
-                </div>
+            @include('stats.progressbar')
             </div>
         </div>
     </div>
@@ -117,8 +103,8 @@
     <div class="col-lg-8">
         <div class="panel panel-default">
             <div class="panel-heading mostly-checking">
-                Mostly checking: on weekends
-                Mostly checking: in the week days
+                Mostly checking: <em>on weekends</em>
+                {{--Mostly checking: in the week days--}}
                 <div class="pull-right">
                     <ul class="inline-list">
                         <li>see it:</li>
@@ -129,100 +115,13 @@
                 </div>
             </div>
             <!-- /.panel-heading -->
+
             <div class="panel-body">
                 <div class="row">
                     <div class="col-lg-12">
 
-                        @foreach($days as $day)
 
-                            <div class="stats-table-responsive">
-                                <table class="table table-bordered table-hover table-striped lon-table">
-                                    <thead>
-                                    <tr>
-                                        <td colspan="2">
-                                            <div title="total times checked">
-                                                {{  $totaL_daily[$day] }}
-                                            </div>
-                                            <div class="s-font">times checked</div>
-                                        </td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                           <span title="unlocked">
-                                100
-                           </span>
-                                        </td>
-
-                                        <td>
-                           <span title="locked">
-                                170
-                           </span>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                    <tfoot>
-                                    <tr>
-                                        <td colspan="2">
-                                            {{ strtoupper($day) }}
-                                        </td>
-                                    </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-
-                            @endforeach
-
-                            {{--<div class="table-responsive">--}}
-                            {{--<table class="table table-bordered table-hover table-striped lon-table">--}}
-
-                            {{--<thead>--}}
-                            {{--<tr>--}}
-                            {{--@for($i=1; $i <= 7; ++$i)--}}
-                            {{--<td colspan="2">--}}
-                            {{--<div title="total times checked">--}}
-                            {{--100--}}
-                            {{--</div>--}}
-                            {{--<div style="font-size: 10px">times checked</div>--}}
-                            {{--</td>--}}
-
-                            {{--@endfor--}}
-
-                            {{--</tr>--}}
-                            {{--</thead>--}}
-
-                            {{--<tbody>--}}
-                            {{--<tr>--}}
-                            {{--@for($i=1; $i <= 7; ++$i)--}}
-                            {{--<td>--}}
-                            {{--<span title="unlocked">--}}
-                            {{--100--}}
-                            {{--</span>--}}
-                            {{--</td>--}}
-                            {{--<td>--}}
-                            {{--<span title="locked">--}}
-                            {{--170--}}
-                            {{--</span>--}}
-                            {{--</td>--}}
-                            {{--@endfor--}}
-
-                            {{--</tr>--}}
-                            {{--</tbody>--}}
-
-                            {{--<tfoot>--}}
-                            {{--<tr>--}}
-                            {{--@foreach($days as $day)--}}
-
-                            {{--<td colspan="2">{{ strtoupper($day) }}</td>--}}
-
-                            {{--@endforeach--}}
-                            {{--</tr>--}}
-
-                            {{--</tfoot>--}}
-                            {{--</table>--}}
-                            {{--</div>--}}
-                                    <!-- /.table-responsive -->
+                        @include('stats.mostly-checking-panel', ['total_daily' => $total_daily, 'days' => $days])
 
                     </div>
                     <!-- /.col-lg-8 (nested) -->

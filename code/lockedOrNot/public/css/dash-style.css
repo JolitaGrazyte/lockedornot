@@ -527,8 +527,9 @@ footer{
 .first-letter::first-letter{
     text-transform: uppercase;
 }
-.bottom-padding{
-    padding-bottom: 60px;
+.percents.bottom-padding{
+    padding-bottom: 50px;
+    margin-top: -18px;
 }
 
 .navbar-default.sidebar{
@@ -544,6 +545,12 @@ footer{
 }
 .o-font{
     font-style: oblique;
+}
+.locked {
+    color: #97c4b0;
+}
+.unlocked {
+    color: #e54115;
 }
 @media(max-width:768px) {
     .logout{

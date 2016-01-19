@@ -5,7 +5,7 @@
             <li>
                 <h2 style="padding-left: 10px">My car</h2>
                 <ul>
-                    <li style="margin-left: -30px">status: <span style="color: #17b880; font-size:20px"><em><strong>LOCKED</strong></em></span></li>
+                    <li style="margin-left: -30px">status: <span class="{{ $device_status }}" style="font-size:20px"><em><strong>{{ $device_status }}</strong></em></span></li>
                     <li>
                         lon device nr.: <em> LON0001 </em>
                     </li>

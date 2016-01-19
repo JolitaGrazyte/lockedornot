@@ -23,15 +23,6 @@ class User extends Model implements AuthenticatableContract,
      * @var string
      */
     protected $table = 'users';
-//
-//    protected $status    = [
-//        1 => StatusEnum::TOP_LOCKER,
-//        2 => StatusEnum::VICE_LOCKER,
-//        3 => StatusEnum::OK_LOCKER,
-//        4 => StatusEnum::PROBLEM_LOCKER,
-//        5 => StatusEnum::PARANOID_LOCKER
-//    ];
-
 
     /**
      * The attributes that are mass assignable.
@@ -65,26 +56,27 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Stats');
     }
 
-    public function scopeParanoiaStats($q){
-        $q->whereHas('stats', function($query){
+    public function scopeLockedStats($q){
+       return $q->whereHas('stats', function($query){
             $query->where('device_state', 1);
         });
     }
 
     public function scopeUnlockedStats($q){
-        $q->whereHas('stats', function($query){
+       return $q->whereHas('stats', function($query){
             $query->where('device_state', 0);
         });
     }
+
     public function scopeMonthlyStats($q, $month){
-        $q->whereHas('stats', function($query) use ($month){
+       return $q->whereHas('stats', function($query) use ($month){
             $query->where('device_state', 0)
                 ->whereRaw('MONTH(created_at) = '.$month);
         });
     }
 
     public function scopeDailyStats($q, $day){
-        $q->whereHas('stats', function($query) use ($day){
+      return  $q->whereHas('stats', function($query) use ($day){
             $query->where('device_state', 0)
                 ->whereRaw('DAY(created_at) = '.$day);
         });
@@ -103,9 +95,5 @@ class User extends Model implements AuthenticatableContract,
         });
     }
 
-//    public function scopeStatus($q){
-//
-//
-//    }
 
 }

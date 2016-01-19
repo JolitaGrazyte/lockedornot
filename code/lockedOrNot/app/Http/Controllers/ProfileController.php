@@ -35,7 +35,7 @@ class ProfileController extends Controller
     {
         $user           = $this->authUser;
 
-        $status = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
+        $msg = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
 
         $no_device      = empty($user->devices) && is_null($user->devices);
         $device_state   = false;
@@ -44,52 +44,43 @@ class ProfileController extends Controller
         $days = $stats_obj->days();
 //        dd($days[1]);
 
-        if(!$no_device){
-
-            $unlocked_devices = $user->devices()->unlocked();
-            $msg = $unlocked_devices->count() == 0 ? 'Your car is locked now!': 'Oops, your car is unlocked!';
-            $stats = $this->authUser->stats;
-
-//            dd($stats->first()->created_at->format('D'));
-
-//            $device = $user->devices;
-//            dd($device);
-
-            $stats_true     = $user->unlockedStats()->count(); // car open == 0
-            $paranoia_stats = $user->paranoiaStats()->count(); // car locked == 1
-            $stats_total    = $stats->count();
-            $percent_true   = $stats_total != 0 ? $stats_true*100/$stats_total : 0;
-
-            $st   = new Stats();
-            $days = $st->days();
-
-            foreach($days as $key => $day){
-
-                $totaL_daily[$day] = $user->weekDayStats($key-1)->count();
-
-            }
-//            dd($totaL_daily);
-        }
-        else{
+        if($no_device){
             $msg = "It happened so, that we didn't receive your Locked Or Not device number.
                     Please update your information and provide the Locked Or Not device number.";
         }
-//        $stats_true = 1;
-//        $stats_false = 1;
-//        $percent_true = 50;
+        else{
 
+            $unlocked_devices = $user->devices()->unlocked();
 
-        $percent_false  = 100 - $percent_true;
+            $msg            =   $unlocked_devices->count() == 0 ? 'Your car is locked now!': 'Oops, your car is unlocked!';
+            $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 
+            $stats          = $this->authUser->stats;
+            $stats_true     = $user->unlockedStats()->count(); // car open == 0
+            $locked_stats   = $user->lockedStats()->count(); // car locked == 1
+            $stats_total    = $stats->count();
+            $percent_true   = $stats_total != 0 ? $stats_true*100/$stats_total : 0;
+            $percent_true = round($percent_true);
 
-        $panels = $this->getPanels($user);
-        $support = $this->getUserStatusAndMsg($percent_true);
-//        dd($support);
+            foreach($days as $key => $day){
+
+                $total_daily[$day] = $user->weekDayStats($key-1)->count();
+
+            }
+
+        }
+
+        $percent_false  = 100 - round($percent_true);
+
+        $status = $this->getUserStatus($percent_true);
+        $panels = $this->getPanels($user, $status);
+        $support = $this->getUserStatusAndMsg($percent_true, $user);
+
 
         return view('stats.index',
             compact(
                 'stats_true',
-                'paranoia_stats',
+                'locked_stats',
                 'stats_total',
                 'device_state',
                 'percent_true',
@@ -101,22 +92,22 @@ class ProfileController extends Controller
                 'support',
                 'panels',
                 'days',
-                'totaL_daily'
+                'total_daily',
+                'device_status'
             ));
     }
 
-    private function getPanels($user){
+    private function getPanels($user, $status){
 
         $stats = $user->stats;
-        $stats_true     = $user->unlockedStats()->count(); // car open == 0
-        $paranoia_stats = $user->paranoiaStats()->count(); // car locked == 1
+//        $stats_true     = $user->unlockedStats()->count(); // car open == 0
+        $locked_stats   = $user->lockedStats()->count(); // car locked == 1
         $stats_total    = $stats->count();
+        $stats_true = $stats_total-$locked_stats;
 
-
-        $status = StatusEnum::OK_LOCKER;
         return [
             [
-                'title' => "The total times you've checked and your car was locked.",
+                'title' => "The total times you've checked.",
                 'color' => 'blue',
                 'stats' => $stats_total,
                 'name'  => 'Total times checked'
@@ -124,8 +115,8 @@ class ProfileController extends Controller
             ],
             [
                 'title' =>  "The total times you've checked and your car was locked.",
-                'color' =>   'green',
-                'stats' =>  $paranoia_stats,
+                'color' =>  'green',
+                'stats' =>  $locked_stats,
                 'name'  =>  'Locked when checked'
             ],
             [
@@ -143,67 +134,96 @@ class ProfileController extends Controller
         ];
     }
 
+    private function getUserStatus($percent_true)
+    {
 
-
-    private function getUserStatusAndMsg($percent_true){
-
-        $user  =    $this->authUser;
-        $name  =    $user->first_name;
-
-        if($percent_true >= 10){
-            $status = [
-                'status' => StatusEnum::PROBLEM_LOCKER,
-                "msg"     =>  "Oh no, ".$name.", the most of time your car was unlocked when checking.
-                              You really should be considering some action, my friend...",
-                "compare_msg"   =>  '... many people did better then you over past year.',
-                'color'   =>  'red'
-
-            ];
+        if($percent_true < 10){
+            $status = StatusEnum::PROBLEM_LOCKER;
         }
 
 
         if($percent_true >= 10 && $percent_true <= 30){
-            $status = [
-                'status' => StatusEnum::TROUBLE_LOCKER,
-                "msg"    =>  "Hmm, ". $name .", looks like even more then a half of the time you forget to lock your car.
-                             You might wanna do somethin' about it...",
-                "compare_msg"   =>  '... many people did better then you over past year.',
-                'color'  =>  'red'
-
-            ];
+            $status = StatusEnum::TROUBLE_LOCKER;
         }
 
 
         if($percent_true >= 30 && $percent_true <= 65){
-            $status = [
-                'status'        =>  StatusEnum::OK_LOCKER,
-                "msg"           =>  "Hmm, ". $name .", looks like about a half of the time you forget to lock your car.",
-                "compare_msg"   =>  '... many people did better then you over past year.',
-                'color'         =>  'salmon'
+            $status = StatusEnum::OK_LOCKER;
 
-            ];
         }
 
         if($percent_true >= 65 && $percent_true < 80){
-            $status = [
-                'status' =>  StatusEnum::VICE_LOCKER,
-                'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. But you could do even better...",
-                "compare_msg"   =>  '... many people did better then you over past year.',
-                'color'  =>  "green"
-            ];
+            $status = StatusEnum::VICE_LOCKER;
         }
 
         if($percent_true >= 80){
 
-            $status = [
-                'status' =>  StatusEnum::TOP_LOCKER,
-                'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. That's really fine.",
-                "compare_msg"   =>  '... many people did better then you over past year.',
-                'color'  =>  "green"
-            ];
+            $status = StatusEnum::TOP_LOCKER;
         }
 
+//        dd($status);
+
         return $status;
+    }
+
+    private function getUserStatusAndMsg($percent_true, $user)
+    {
+        $name  =    $user->first_name;
+        $status = $this->getUserStatus($percent_true);
+
+
+        switch($status){
+            case 'Problem locker':
+                return [
+                    'status' => $status,
+                    "msg"     =>  "Oh no, ".$name.", the most of time your car was unlocked when checking.
+                              You really should be considering some action, my friend...",
+                    "compare_msg"   =>  '... many people did better then you over past year.',
+                    'color'   =>  'red'
+
+                ];
+                break;
+
+            case 'Trouble locker':
+                return [
+                    'status' => $status,
+                    "msg"    =>  "Hmm, ". $name .", looks like even more then a half of the time you forget to lock your car.
+                             You might wanna do somethin' about it...",
+                    "compare_msg"   =>  '... many people did better then you over past year.',
+                    'color'  =>  'red'
+
+                ];
+                break;
+
+            case 'Ok locker':
+                return [
+                    'status'        =>  $status,
+                    "msg"           =>  "Hmm, ". $name .", looks like about a half of the time you forget to lock your car. You definitely can do beter then that...",
+                    "compare_msg"   =>  '... many people did better then you over past year.',
+                    'color'         =>  'salmon'
+
+                ];
+                break;
+
+            case 'Vice locker':
+                return [
+                    'status' =>  $status,
+                    'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. But you could do even better...",
+                    "compare_msg"   =>  '... many people did better then you over past year.',
+                    'color'  =>  "green"
+                ];
+                break;
+
+            case 'Top locker':
+                return [
+                    'status' =>  $status,
+                    'msg'    =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. That's really fine.",
+                    "compare_msg"   =>  '... many people did better then you over past year.',
+                    'color'  =>  "green"
+                ];
+                break;
+        }
+
     }
 
     /**
