@@ -1,9 +1,15 @@
 <div class="front-login">
     <ul class="">
-        {{--<li><a href="" id="login" data-toggle="modal" data-target="#loginModal" >Login</a></li>--}}
-        <li><a href="{{ url('/auth/login .content') }}" id="login" data-toggle="modal" data-target="#myModal">Login</a></li>
-
-        {{--<li><a id="register" href="{{ url('/auth/register .content') }}" data-toggle="modal" data-target="#myModal">Register</a></li>--}}
-        <li><a href="" id="register" data-toggle="modal" data-target="#registerModal" >Register</a>
+        @include('partials.login-register-links')
     </ul>
 </div>
+
+<div class="menu-wrap mobile">
+    <nav class="menu">
+        <ul class="icon-list">
+            @include('partials.login-register-links')
+        </ul>
+    </nav>
+    <button class="close-button" id="close-button">Close Menu</button>
+</div>
+<button class="menu-button {{ Auth::guest()?'hide':'' }} {{ Request::is("how-i'm-doing")?'dark':'' }}" id="open-button">Open Menu</button>

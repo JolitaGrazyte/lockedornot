@@ -56,44 +56,23 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Stats');
     }
 
-    public function scopeLockedStats($q){
+    public function scopeLocked($q){
        return $q->whereHas('stats', function($query){
             $query->where('device_state', 1);
         });
     }
-
-    public function scopeUnlockedStats($q){
-       return $q->whereHas('stats', function($query){
-            $query->where('device_state', 0);
+    public function scopeOthersLocked($q, $user){
+        return $q->whereHas('stats', function($query) use($user){
+            $query->where('device_state', 1)
+            ->where('user_id', '!=', $user->id);
         });
     }
 
-    public function scopeMonthlyStats($q, $month){
-       return $q->whereHas('stats', function($query) use ($month){
+    public function scopeOthersUnlocked($q, $user){
+        return $q->whereHas('stats', function($query) use($user){
             $query->where('device_state', 0)
-                ->whereRaw('MONTH(created_at) = '.$month);
+                ->where('user_id', '!=', $user->id);
         });
     }
-
-    public function scopeDailyStats($q, $day){
-      return  $q->whereHas('stats', function($query) use ($day){
-            $query->where('device_state', 0)
-                ->whereRaw('DAY(created_at) = '.$day);
-        });
-    }
-
-    public function scopeHourlyStats($q, $hour){
-        $q->whereHas('stats', function($query) use ($hour){
-            $query->where('device_state', 0)
-                ->whereRaw('HOUR(created_at) = '.$hour);
-        });
-    }
-
-    public function scopeWeekDayStats($q, $day){
-        $q->whereHas('stats', function($query) use ($day){
-            $query->whereRaw('WEEKDAY(created_at) = '.$day);
-        });
-    }
-
 
 }

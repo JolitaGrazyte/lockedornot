@@ -2,186 +2,19 @@
 
  @import "../font-awesome-scss/font-awesome";
  @import "font_mixin";
- @import "colors";
-
- //@include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
- //@include font_mixin('cantarellregular', 'cantarell_regular', 'Cantarell-Regular');
- //@include font_mixin('cantarelloblique', 'cantarell_oblique', 'Cantarell-Oblique');
- //@include font_mixin('cantarellbold', 'cantarell_bold', 'Cantarell-Bold-webfont');
- //@include font_mixin('ciclefina', 'cicle_fina', 'Cicle_Fina');
- //@include font_mixin('ciclegordita_italic', 'cicle_gorditaitalic', 'Cicle_Gordita_Italic-webfont');
- //@include font_mixin('ciclegordita', 'cicle_gordita', 'Cicle_Gordita-webfont');
- //@include font_mixin('cicle_semi_italicsemi_italic', 'cicle_semiitalic', 'Cicle_Semi_Italic-webfont');
- //@include font_mixin('cicle_semi', 'cicle_semi', 'Cicle_Semi-webfont');
 
 
  @include font_mixin('bebasregular', 'bebas_regular', 'bebas');
  @include font_mixin('icomoon', 'icomoon', 'icomoon');
  @include font_mixin('fontawesome', 'fontawesome', 'fontawesome');
 
- @include font_mixin('exoregular', 'exo', 'exo-regular');
- //@include font_mixin('din_condensedbold', 'din', 'din_condensed_bold-webfont')
- //@include font_mixin('exo-black', 'exo', 'exo-black');
-
- //@import "main";
+ @import "colors";
+ @import "main";
+ @import "site-name";
+ @import "nav";
+ @import "parallax";
  @import "forms";
  @import "modals";
  @import "social";
- @import "nav";
- @import "login";
- @import "parallax";
  @import "locked-footer";
-
- html, body {
-  //font-family: 'exo-regular', sans-serif;
- }
-
- a{
-  outline:0;
- }
-
- .name-slogan-wrapper{
-  z-index: 12;
-  position: absolute;
-  left: 2.3%;
-  top: 45%;
-  //border: red dotted 1px;
- }
-
-
- .site-name{
-  line-height: 11rem;
-  font-size: 19rem;
-  color: $site-name;
-  position: relative;
-  text-shadow: 1px 1px #0d102e;
-
- }
-
- .slogan{
-  color: whitesmoke;
-  width: 365px;
-  font-size: 4rem;
-  font-style: oblique;
-  border-top: 1px solid white;
-  text-shadow: 1px 1px #0d102e;
- }
-
-
- //
- //#map {
- // position:relative;
- // top:100px;
- // height: 400px;
- // bottom:0;
- // width:100%;
- //}
-
- //.menu-ui {
- // position:absolute;
- // top:10px;
- // right:10px;
- //}
-
-
- .how-it-works{
-  width: 100%;
-  font-size: 1.6rem;
-
- }
- .how-it-works-title{
-  margin-left: -40px;
-  margin-bottom: 10px;
- }
-
- .parallax-window-img img{
-  opacity: 0.8;
-  //filter: alpha(opacity=1);
- }
-
- .form-control{
-  border-radius: 0;
-  height: 45px;
-  font-size: 1.4rem;
- }
-
- .center{
-  text-align: center;
- }
-
- .for-free{
-  text-transform: uppercase;
-  color: $site-name;
- }
-
- .register-now{
-  color: $site-name;
-  font-size: 1.8rem;
- }
-
-
-
- .dashboard-container, .page-not-found, .stats-container{
-  margin-top: 100px;
-
- }
- .stats-container{
-  position: relative;
-  top: 100px;
-
- }
-
- .urgent{
-  color: $site-name;
-
- }
- .urgent-update{
-  text-align: center;
- }
-
- .urgent.form-control
- {
-  border: 1px solid $site-name;
- }
-
-
- .front-login{
-  z-index: 100;
-  position: absolute;
-  right: 2.5%;
-  top: 2.43rem;
- }
-
- .front-login li{
-  text-align: center;
-  display: inline-block;
-  width: 180px;
-  height: 43px;
-  line-height: 40px;
-  border: 1px solid white;
-
- }
-
- .front-login ul > li a{
-  font-family: 'bebasregular';
-  color: #FFF;
-  font-size: 2rem;
-  outline: 0;
-
- }
-
- .fa-mobile-phone{
-  font-size: 2.5rem;
- }
- .fa-bars{
-  font-size: 3rem;
-  line-height: 5rem;
-  color: whitesmoke;
- }
-
- .fa-circle.unlocked{
-  color: #fb4039;
- }
- .fa-circle.locked{
-  color: #00b000;
- }
+ @import "buttons";

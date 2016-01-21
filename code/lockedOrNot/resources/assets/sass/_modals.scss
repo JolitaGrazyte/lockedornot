@@ -1,5 +1,7 @@
+@import "colors";
+
 .modal h2{
-  font-family: 'bebas', sans-serif;
+  font-family: 'bebasregular', sans-serif;
 }
 
 div.modal-backdrop.fade.in{
@@ -9,6 +11,7 @@ div.modal-backdrop.fade.in{
 
 .modal.fade .modal-dialog {
   position: absolute;
+  opacity: 1;
   top: 10%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -18,14 +21,70 @@ div.modal-backdrop.fade.in{
 }
 
 .modal-backdrop.in {
-  opacity: 0.7;
-  filter: alpha(opacity=10); }
+  background: #FFF;
+  //opacity: 1;
+  //filter: alpha(opacity=100);
+}
 
 
 .modal-content{
   border-radius:0;
   padding-bottom: 1.5rem;
 }
+
+.content{
+  padding: 1rem 2rem;
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 2;
+}
+
+
+.error-message, .other-error-message {
+  background-color: $panel-red;
+  color: whitesmoke;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem .5em .2rem;
+  display: none;
+}
+.help-text{
+  color:  $panel-red;
+  margin-left: 50px;
+}
+
+.or-social-line {
+  line-height: 0.5;
+  text-align: center;
+}
+.or-social-line span {
+  display: inline-block;
+  position: relative;
+}
+.or-social-line span:before,
+.or-social-line span:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 1px solid #8b8b8b;
+  border-top: 1px solid #8b8b8b;
+  top: 0;
+  width: 200px;
+}
+.or-social-line span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+.or-social-line span:after {
+  left: 100%;
+  margin-left: 15px;
+}
+.social-login-links p{
+  margin-left: -4px;
+}
+
 
 @media (min-width: 768px) {
   .modal-dialog {
@@ -34,7 +93,9 @@ div.modal-backdrop.fade.in{
 }
 
 @media (max-width: 414px) {
+
   .modal.fade  .modal-dialog {
+    position: absolute;
     top: 0;
     left: 0;
     transform: translate(0, 0);

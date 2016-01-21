@@ -15,6 +15,8 @@
     <title> Locked Or Not | @yield('title') </title>
 
     {{--<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">--}}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -36,10 +38,8 @@
     @if(!Request::is('/'))
     <link rel="stylesheet" href="{{ url('css/dashboard-app.css') }}">
     @endif
-    <link rel="stylesheet" href="{{ url('css/my-styles.css') }}">
+{{--    <link rel="stylesheet" href="{{ url('css/my-styles.css') }}">--}}
     {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
-
-
 
 </head>
 @show
@@ -50,7 +50,6 @@
 
     @yield('content')
 
-
     @include('auth.register-modal')
 
     @include('auth.password-modal')
@@ -59,7 +58,7 @@
 
     @if(Auth::check())
 
-        @include('profile.edit-modal', ['user'=> Auth::user(), 'no_device' => empty(Auth::user()->devices) && is_null(Auth::user()->devices)])
+        @include('profile.edit-modal', ['user'=> Auth::user(), 'no_device' => empty(Auth::user()->devices) || is_null(Auth::user()->devices)])
 
     @endif
 
@@ -83,9 +82,9 @@
 
     <script src="{{ url('js/alert-dismiss.js') }}"></script>
 
-    @if(Auth::check())
+    {{--@if(Auth::check())--}}
         <script src="{{ 'js/main.js' }}"></script>
-        @endif
+        {{--@endif--}}
     <script src="{{ 'js/classie.js' }}"></script>
 
     <script src="{{ 'js/modal.js' }}"></script>

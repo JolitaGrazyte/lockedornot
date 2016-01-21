@@ -74,16 +74,7 @@ class DeviceController extends Controller
         $device_state = $unlocked->count() == 0 ? 1 : 0;
 
         $data   = ['state' => $device_state, 'username' => $user->first_name];
-//        $text = $user->device->state == 0 ? 'Oeps! Your car is not locked!' : 'All good. Your car is locked!';
         $this->putStats($user);
-
-//        $pusher = App::make('pusher');
-//
-//        $pusher->trigger(
-//            'notifications',
-//            'new-notification',
-//            ['text' => $text]
-//        );
 
         return Response::json($data);
 
@@ -93,8 +84,10 @@ class DeviceController extends Controller
 
         $stats = Stats::create();
         $stats->user_id         = $user->id;
-        $stats->device_nr       = $user->device->device_nr;
-        $stats->device_state    = $user->device->state;
+
+        $device = $user->devices->first();
+        $stats->device_nr       = $device->device_nr;
+        $stats->device_state    = $device->state;
         $stats->save();
 
     }

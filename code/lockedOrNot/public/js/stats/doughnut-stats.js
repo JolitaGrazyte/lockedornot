@@ -3,16 +3,16 @@ $(function(){
 
 
     var stats_data = [
-        {value: 25, color: "#FF003D", label: 'real danger %'},
-        {value: 100-25, color: "#FFF", label: 'false alarm %'},
+        {value: 25, color: "#e54115", label: ''},
+        {value: 100-25, color: " #97c4b0", label: ''},
 
     ];
     var options = {
-        segmentStrokeColor : "#0f0",
+        //segmentStrokeColor : " #97c4b0",
 //            segmentShowStroke : true,
 //            animateScale : true,
         animateScale : false,
-        segmentStrokeWidth : 1,
+        segmentStrokeWidth : 0,
         percentageInnerCutout : 70
     };
 

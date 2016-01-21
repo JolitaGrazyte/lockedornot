@@ -24,10 +24,9 @@ Route::controllers([
 
 
 // Registration routes...
-get('auth/register',             ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
-post('auth/register',            ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
-get('login/{provider}',     ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
-
+get('auth/register',            ['as' => 'register',        'uses' => 'Auth\AuthController@getRegister' ]);
+post('auth/register',           ['as' => 'post-register',   'uses' => 'Auth\AuthController@postRegister' ]);
+get('login/{provider}',         ['as' => 'social-register', 'uses' => 'Auth\AuthController@social_register']);
 
 
 
@@ -42,12 +41,27 @@ get('nglogin', function(){
 });
 Route::group(['middleware' => 'auth'], function()
 {
-//    resource('dashboard', 'DashboardController');
-    get('{name}/personal-stats', ['as' => 'personal-stats', 'uses' => 'StatsController@personalStats']);
+
     resource('profile', 'ProfileController');
+
+    get('profile', function(){
+        return redirect()->to('how-i\'m-doing');
+    });
+
+    get('{name}/personal-stats',    ['as' => 'personal-stats',  'uses' => 'StatsController@personalStats']);
+    get('how-i\'m-doing',           ['as' => 'how-im-doing',    'uses' => 'StatsController@index']);
+
+    get('update-login-info/{name}', ['as' => 'edit-login',      'uses' => 'ProfileController@editMyLogin']);
+    post('update-login/{user}',     ['as' => 'update-login',    'uses' => 'ProfileController@updateMyLogin']);
 
     //get state: locked or not on web-page
     get('device-state/{id}', 'DeviceController@response');
+
+//    get('{name}/{week}', ['as' => 'mostly-checked-per-week', 'uses' => 'StatsController@personalStats']);
+//    get('{name}/{month}',['as' => 'mostly-checked-per-month', 'uses' => 'StatsController@personalStats']);
+    get('{name}/mostly-checked-per/{week}', ['as' => 'mostly-checked-filter', 'uses' => 'StatsController@index']);
+    get('{name}/mostly-checked-per/{month}', ['as' => 'filter-interval-plus', 'uses' => 'StatsController@index']);
+    get('{name}/mostly-checked-per/{year}', ['as' => 'filter-interval-minus', 'uses' => 'ProfileController@index']);
 
 });
 

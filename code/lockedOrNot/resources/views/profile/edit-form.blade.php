@@ -4,11 +4,9 @@
 
     @if(empty($user->devices))
         <div class="col-lg-12">
-            <h5 class="urgent">You must urgently update your profile and add a device serial number for a further interaction. </h5>
+            <h5 class="urgent">You must urgently update your profile and add a 'Locked Or Not' device serial number for a further interaction. </h5>
         </div>
     @endif
-
-
 
             <div class="col-lg-12">
 
@@ -21,14 +19,13 @@
                     {{--<span class="fa fa-circle-thin"></span>--}}
                     {{--<span class="fa fa-check"></span>--}}
                     <label for="package"></label>
-                    {!! Form::radio('quantity',  5, ['class' => '']) !!}
+                    {!! Form::radio('quantity', 5, !empty($user->devices) && $user->devices->count() > 1? true:false, ['class' => '']) !!}
                     <span class="radio-text">5 devices</span>
 
-                    {!! Form::radio('quantity',  1, ['class' => '']) !!}
+                    {!! Form::radio('quantity',  1, !empty($user->devices) && $user->devices->count() == 1? true:false, ['class' => '']) !!}
                     <span class="radio-text"> 1 devices </span>
 
                 </div>
-
 
             </div>
 
@@ -36,7 +33,7 @@
         {!! Form::label('device_nr', 'Your lockedOrNot serial nr:', ['class' => 'control-label']) !!}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
-            {!! Form::text('device_nr',  $no_device ? null : substr($user->devices->first()->device_nr, 0, 7), ['class' => $no_device ? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
+            {!! Form::text('device_nr',  empty($user->devices->first()) ? null : substr($user->devices->first()->device_nr, 0, 7), ['class' => $no_device ? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
         </div>
 
 
@@ -49,7 +46,8 @@
         {!! Form::label('first_name', 'Your name and surname:', ['class' => 'control-label']) !!}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-            {!! Form::text('first_name', null, ['class' => 'form-control col-lg-3', 'placeholder' => 'your name']) !!}{!! Form::text('last_name',  null, ['class' => 'form-control', 'placeholder' => 'your surname']) !!}
+            {!! Form::text('first_name', old('first_name'), ['class' => 'form-control col-lg-3', 'placeholder' => 'your name']) !!}
+            {!! Form::text('last_name',  old('last_name'), ['class' => 'form-control', 'placeholder' => 'your surname']) !!}
         </div>
     </div>
 </div>
@@ -68,8 +66,6 @@
         </div>
     </div>
 </div>
-
-<a href="">Update my login information</a>
 
 <div class="form-group">
 

@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $unlocked_devices = $user->devices()->unlocked();
         $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 
-        $no_device = empty($user->devices) && is_null($user->devices);
+        $no_device = empty($user->devices) || is_null($user->devices);
 
              view()->composer(['partials.nav-right', 'profile.edit-form'], function($view) use($no_device){
 
@@ -33,14 +33,19 @@ class AppServiceProvider extends ServiceProvider
              });
 
 
-        view()->composer(['partials.nav', 'profile.index'], function($view) use($user){
+        view()->composer(['partials.nav', 'profile.index', 'home.index'], function($view) use($user){
 
             $view->with('auth', $user);
         });
 
-        view()->composer(['partials.sidebar', 'layouts.dashboard'], function($view) use($device_status){
+        view()->composer(['partials.nav', 'profile.index', 'home.index'], function($view) use($user){
 
-            $view->with('auth', $device_status);
+            $view->with('user', $user);
+        });
+
+        view()->composer(['profile.edit', 'profile.edit-login', 'layouts.dashboard', 'partials.sidebar'], function($view) use($device_status){
+
+            $view->with('device_status', $device_status);
         });
 
     }
