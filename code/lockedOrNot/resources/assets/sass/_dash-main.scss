@@ -1,0 +1,76 @@
+@import "colors";
+
+html, body{
+  font-family: "Roboto Condensed";
+}
+
+body {
+  background-color: #f8f8f8;
+}
+
+.center{
+  text-align: center;
+}
+.inline-list li{
+  display: inline;
+}
+
+.s-font{
+  font-size: 13px;
+}
+.o-font{
+  font-style: oblique;
+}
+.locked {
+  color: #97c4b0;
+}
+.unlocked {
+  color: #e54115;
+}
+.padding-right-20{
+  padding-right: 20px;
+}
+
+.display-remove{
+  display: none;
+}
+
+.huge {
+  font-size: 3.3rem;
+  line-height: 3rem;
+}
+
+hr{
+  padding: 0;
+  line-height: 1rem;
+  margin: 1rem 0 .5rem 0;
+}
+.box-shadow{
+  box-shadow: 1px 1px 1px 1px #DEDEDE;
+}
+
+
+a.active-sort{
+  color: #e54115;
+}
+
+a:link, a:visited, .blue-info{
+  color: $panel-blue;
+}
+
+.blue-info{
+  margin-left: -10px;
+}
+
+a:hover, a:focus, a:active{
+  color: #FB5542;
+}
+.right {
+  display: none;
+
+}
+
+.row.edit-profile{
+
+  margin-top: 2rem;
+}

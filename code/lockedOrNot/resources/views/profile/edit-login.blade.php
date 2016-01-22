@@ -9,20 +9,28 @@
             @include('errors.errors')
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="page-header">
-                Update my login info
-            </h2>
 
-          <div class="col-lg-8">
-              {!!Form::model($user, ['route' =>  ['update-login', $user->id], 'class' => 'form-horizontal', 'method' => 'POST'])  !!}
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-2">
+                            <h2>
+                                Update my login info
+                            </h2>
+                        </div>
+                    </div>
+                </div>
 
-                    @include('auth.partials.email-password')
+            </div>
+            <div class="col-lg-6 col-lg-offset-2">
+                {!!Form::model($user, ['route' =>  ['update-login', $user->id], 'class' => 'form-horizontal', 'method' => 'POST'])  !!}
 
-              {!! Form::submit('update', ['class' => 'btn btn-primary']) !!}
-              {!! Form::close() !!}
-          </div>
+                @include('auth.partials.email-password')
+
+                {!! Form::submit('Update', ['class' => 'form-control']) !!}
+                {!! Form::close() !!}
+            </div>
         </div>
 
 

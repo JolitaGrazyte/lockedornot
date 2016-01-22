@@ -32,12 +32,12 @@
                     <i class="fa fa-gear fa-fw"></i>
                 </span>
 
-                <span class="fa fa-circle-thin"></span>
+                {{--<span class="fa fa-circle-thin"></span>--}}
                 {{--<span class="fa fa-check"></span>--}}
                 {!! Form::text('device_nr',  null, ['class' => 'form-control required', 'placeholder' => 'your device serial nr.']) !!}
             </div>
 
-
+            <p>(*) Mandatory</p>
         </div>
 
 </fieldset>

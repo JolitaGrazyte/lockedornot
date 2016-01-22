@@ -1,0 +1,55 @@
+.stats-table-responsive{
+  float:left;
+  margin-right: 10px;
+  min-width: 114px;
+}
+
+.dataTables_wrapper {
+  position: relative;
+  clear: both;
+}
+
+.lon-table{
+  margin-bottom: 2rem;
+  min-height: 15rem;
+
+}
+
+.lon-table td{
+  /*min-width: 100px;*/
+  text-align: center;
+
+}
+
+.lon-table tfoot, .lon-table thead{
+  font-size: 32px;
+}
+
+.lon-table tbody td{
+  font-size: 15px;
+}
+
+.unlocked-td{
+  /*border-bottom: 2px solid #f44516;*/
+  background: #f44516;
+  color: #F4F4F4;
+}
+.locked-td{
+  background: #97c4b0;
+  border-bottom: 2px solid #97c4b0;
+  color: #F4F4F4;
+}
+.white-border{
+
+  border-bottom: 2px solid #FFF;
+  border-top: 2px solid #FFF;
+}
+.red-border{
+
+  border-bottom: 2px solid #f44516;
+  border-top: 2px solid #f44516;
+}
+.green-border{
+  border-bottom: 2px solid #97c4b0;
+  border-top: 2px solid #97c4b0;
+}

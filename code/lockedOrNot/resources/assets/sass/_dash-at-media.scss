@@ -1,0 +1,29 @@
+@media(max-width:768px) {
+  .logout{
+    float: right;
+  }
+  .navbar-default.sidebar{
+    margin-top: 0;
+  }
+  .right {
+    display: block;
+    /*float: none;*/
+  }
+  #side-menu li:first-child{
+    display: none;
+
+  }
+
+  .panel-heading.mostly-checking{
+    min-height: 80px;
+  }
+  .panel-heading.mostly-checking .pull-right{
+    float: none;
+    margin-left: 10px;
+
+  }
+
+  footer{
+    position: relative;
+  }
+}

@@ -30,8 +30,7 @@ class StatsController extends Controller
      */
     public function index(Stats $stats_model, $name = null, $filter = null)
     {
-
-        $user = $this->authUser;
+        $user            = $this->authUser;
         $userBusiestDay  =  $user->stats()->busiestDay()->first()->date;
 
         $busiestDay      =  $stats_model->busiestDay()->first()->date;
@@ -169,17 +168,17 @@ class StatsController extends Controller
         }
 
 
-        if($percent_true >= 10 && $percent_true <= 30){
+        if($percent_true >= 20 && $percent_true <= 49){
             $status = StatusEnum::TROUBLE_LOCKER;
         }
 
 
-        if($percent_true > 30 && $percent_true <= 65){
+        if($percent_true == 50){
             $status = StatusEnum::OK_LOCKER;
 
         }
 
-        if($percent_true > 65 && $percent_true < 80){
+        if($percent_true > 50 && $percent_true < 80){
             $status = StatusEnum::VICE_LOCKER;
         }
 
@@ -204,8 +203,10 @@ class StatsController extends Controller
             case 'Problem Locker':
                 return [
                     'status'        =>  $status,
-                    "msg"           =>  "Oh no, ".$name.", the most of time your car was unlocked when checking.
-                                        You really should be considering some action, my friend...",
+                    "msg"           =>  "Oh no, ".$name.", You keep forgetting it! Work on it..
+                                        Work on it, here's a tip: create a pattern for locking your car!
+                                        You're making it easy for the bad guys! Be aware!",
+
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'         =>  'red'
 
@@ -216,18 +217,21 @@ class StatsController extends Controller
                 return [
                     'status'        =>  $status,
                     "msg"           =>  "Hmm, ". $name .", looks like even more then a half of the time you forget to lock your car.
-                                         You might wanna do somethin' about it...",
+                                         You might wanna do somethin' about it... Create routine, make it a habit!",
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'         =>  'red'
 
                 ];
                 break;
 
-            case 'Ok Locker':
+            case 'Coinflip Locker':
                 return [
                     'status'        =>  $status,
-                    "msg"           =>  "Hmm, ". $name .", looks like about a half of the time of even a little bit more you forget to lock your car.
-                                        You definitely can do better then that...",
+                    "msg"           =>  "Hey, ". $name .", a coinflip locker.
+                                        50/50 -  may the odds be in your favor!
+	                                    You're on the halfwaybridge, go in the right direction!
+	                                    Still not sure? Try to visualise, if you locked it or not.",
+
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'         =>  'salmon'
 
@@ -237,8 +241,10 @@ class StatsController extends Controller
             case 'Vice Locker':
                 return [
                     'status'        =>  $status,
-                    'msg'           =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car.
-                                        But you could do even better...",
+                    'msg'           =>  "Hi ". $name. ", nice job. Almost at the top!
+                                        Most of the time you don't forget to lock your car.
+                                        Keep locking it, vice locker!",
+
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'         =>  "green"
                 ];
@@ -247,7 +253,10 @@ class StatsController extends Controller
             case 'Top Locker':
                 return [
                     'status'        =>  $status,
-                    'msg'           =>  "Hi ". $name. ", nice job. Most of the time you don't forget to lock your car. That's really fine.",
+                    'msg'           =>  "Hi ". $name. ", nice job. Nobody locks a lock like you!
+                                        A Toplocker like you gives the bad guys a hard time!
+                                        Keep it this way.",
+
                     "compare_msg"   =>  '... many people did better then you over past year.',
                     'color'         =>  "green"
                 ];

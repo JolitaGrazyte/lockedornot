@@ -23,10 +23,12 @@ elixir(function(mix) {
     var jqueryStepsPath     =   'bower_components/jquery.steps/build';
     var jqueryValid         =   'bower_components/jquery-validation/dist';
 
-    mix.sass('app.scss')
+    mix
+        .sass('app.scss', 'public/css/app.css')
+        .sass('admin.scss', 'public/css/admin.css')
         .copy(bootstrapPath + '/fonts', 'public/fonts')
         .copy(bootstrapPath + '/javascripts/bootstrap.min.js', 'public/js')
-        .copy(waypointsPath + '/noframework.waypoints.min.js', 'public/js')
+        //.copy(waypointsPath + '/noframework.waypoints.min.js', 'public/js')
         .copy(jqueryPath + '/jquery.min.js', 'public/js')
         .copy(jqueryStepsPath + '/jquery.steps.min.js','public/js')
         .copy(jqueryValid + '/jquery.validate.min.js','public/js');

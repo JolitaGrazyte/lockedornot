@@ -19,7 +19,7 @@
 
     <div class="panel-body">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12 m-left">
                 @foreach($days as $day)
 
                     <div class="stats-table-responsive">
@@ -80,16 +80,18 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-2 pull-left">
-                <a href="{{ route('filter-interval-plus', [Auth::user()->full_name, 'week']) }}">
-                    <i class="fa fa-angle-double-left"> </i><span> previous week</span>
-                </a>
-            </div>
-            <div class="col-lg-2 pull-right">
-                <a href="{{ route('filter-interval-minus', [Auth::user()->full_name, 'week']) }}">
-                    <span>next week </span> <i class="fa fa-angle-double-right"> </i>
-                </a>
-            </div>
+           <div class="col-lg-12 center">
+               <div class="col-lg-2 pull-left">
+                   <a href="{{ route('filter-interval-plus', [Auth::user()->full_name, 'week']) }}">
+                       <i class="fa fa-angle-double-left"> </i><span> previous week</span>
+                   </a>
+               </div>
+               <div class="col-lg-2 pull-right next-link">
+                   <a href="{{ route('filter-interval-minus', [Auth::user()->full_name, 'week']) }}">
+                       <span>next week </span> <i class="fa fa-angle-double-right"> </i>
+                   </a>
+               </div>
+           </div>
         </div>
     </div>
 

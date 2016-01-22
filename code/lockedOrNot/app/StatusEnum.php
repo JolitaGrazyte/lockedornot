@@ -7,7 +7,7 @@ abstract class StatusEnum
 
     const TOP_LOCKER        =   "Top Locker";
     const VICE_LOCKER       =   "Vice Locker";
-    const OK_LOCKER         =   "Ok Locker";
+    const OK_LOCKER         =   "Coinflip Locker";
     const CONCERNING_LOCKER =   "Concerning Locker";
     const TROUBLE_LOCKER    =   "Trouble Locker";
     const PROBLEM_LOCKER    =   "Problem Locker";

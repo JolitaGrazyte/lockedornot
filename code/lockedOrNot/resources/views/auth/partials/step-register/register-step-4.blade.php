@@ -18,6 +18,7 @@
             {!! Form::text('car_brand',  old('car_brand'), ['class' => 'form-control', 'placeholder' => 'your car brand']) !!}
             {!! Form::text('car_color',  old('car_color'), ['class' => 'form-control', 'placeholder' => 'your car color']) !!}
         </div>
+        <p>(-) Optional fields</p>
     </div>
 
 </fieldset>

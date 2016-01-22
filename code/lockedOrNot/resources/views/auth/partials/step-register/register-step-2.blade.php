@@ -1,6 +1,6 @@
 <h3></h3>
 <fieldset>
-    <legend>Profile Information</legend>
+    <legend>Profile information</legend>
 
     <div class="col-lg-12">
         {{-- {!! Form::label('first_name', 'Your name:', ['class' => 'control-label']) !!}--}}

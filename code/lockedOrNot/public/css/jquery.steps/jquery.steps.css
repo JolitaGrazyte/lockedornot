@@ -109,7 +109,7 @@
     text-align: center;
     width: 6rem;
     margin: 0 0.5em 0.5em;
-    padding: 1em 1em;
+    padding: 1.2rem 1.5rem 1.5rem 1.9rem;
     text-decoration: none;
 
     -webkit-border-radius: 50%;
@@ -142,8 +142,8 @@
 {
     /*background: wheat;*/
     border: 1px solid #d3d3d3;
-    background: #b5e8d4;
-    color: #858585;
+    background: #97c4b0;
+    color: #FFF;
 
    /*== image done maybe ===*/
     /*color: #71f466;*/
@@ -165,7 +165,7 @@
     /*background: #eee;*/
     display: block;
     margin: 0.5em;
-    min-height: 25em;
+    min-height: 30em;
     overflow: hidden;
     position: relative;
     width: auto;
@@ -280,8 +280,9 @@
 .wizard > .actions a:hover,
 .wizard > .actions a:active
 {
-    background: #b5e8d4;
-    color: #858585;
+    background: #97c4b0;
+    color: #FFF;;
+    color: #FFF;
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;

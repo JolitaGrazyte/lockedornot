@@ -33,14 +33,16 @@ class ProfileController extends Controller
     public function edit($name)
     {
         $user               =   $this->authUser;
-        $no_device          =   empty($user->devices) || is_null($user->devices);
-
+        $no_device          =   empty($user->devices->first()) || is_null($user->devices);
+//        dd(empty($user->devices->first()));
+        $msg = '';
         if($no_device){
 
             $msg = "It happened so, that we didn't receive your Locked Or Not device number.
                     Please update your information and provide the Locked Or Not device number.";
 
         }
+
         $unlocked_devices   =   $user->devices()->unlocked();
         $device_status      =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 

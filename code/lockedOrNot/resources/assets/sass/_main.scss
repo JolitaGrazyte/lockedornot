@@ -8,6 +8,13 @@ a{
   outline:0;
 }
 
+.site-name-img{
+  height: 200px;
+  width: 500px;
+  background-size: 100% 100%;
+  background-image: url("../public/img/site-name.png");
+}
+
 a.register-now, .menu-button, .close-button{
   outline: 0;
 }
@@ -74,6 +81,38 @@ a.register-now:focus, a.register-now:hover{
   font-size: 2.5rem;
 }
 
+/*======== 404 page ========*/
+
+.wrapper-404{
+  position: absolute;
+  z-index: 1200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.h1-404{
+  font-size: 5rem;
+}
+.go-back{
+  color: #76fdc4;
+  font-size: 2.7rem;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.go-back:hover{
+  color: #b5e8d4;
+}
+
+.img-wrapper-404{
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+/*======== end 404 page ========*/
+
+
 
 @media(max-width:768px) {
 
@@ -96,5 +135,26 @@ a.register-now:focus, a.register-now:hover{
   }
 
 
+}
+
+
+
+.container, .container-fluid{
+  margin-bottom: 15rem;
+}
+
+
+.profile-my-info{
+  float: right;
+}
+
+
+@media (max-width: 767px){
+
+  .profile-my-info{
+    float: none;
+  }
 
 }
+
+

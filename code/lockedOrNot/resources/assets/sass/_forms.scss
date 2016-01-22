@@ -36,8 +36,37 @@
   width: 100%;
 }
 
+#register-form{
+
+}
+
+.optional{
+  border-left: 2px solid $panel-blue;
+}
+.help-text-edit-login{
+
+  color: $panel-red;
+  padding: .3rem 5rem;
+}
+form#profile-edit{
+
+  font-size: 1.6rem;
+
+  .package{
+    .radio-text{
+
+      margin: 0 1rem 0 .5rem;
+
+    }
+
+    input{
+      margin: 2rem 0;
+
+    }
 
 
+  }
+}
 /*======== 3 STEP FORM ========*/
 
 

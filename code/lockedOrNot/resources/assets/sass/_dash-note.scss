@@ -1,0 +1,65 @@
+@import "variables";
+
+.note{
+  position:absolute;
+  top: $fall-out-top;
+  right: 0;
+  width: 100%;
+  padding:2rem 1rem;
+  background:#e54115;
+  color: #fdfdfd;
+  font-size: 2rem;
+
+}
+.note-add{
+  top: 0;
+  z-index: 12;
+  -webkit-animation: fall-in 2s 1; /* Safari 4+ */
+  -moz-animation:    fall-in 2s 1; /* Fx 5+ */
+  -o-animation:      fall-in 2s 1; /* Opera 12+ */
+  animation: fall-in 2s 1;
+  opacity: 1;
+  display: block;
+
+}
+.note-remove{
+  -webkit-animation: fall-out 2s 1; /* Safari 4+ */
+  -moz-animation:    fall-out 2s 1; /* Fx 5+ */
+  -o-animation:      fall-out 2s 1; /* Opera 12+ */
+  animation: fall-out 2s 1;
+
+}
+
+@-webkit-keyframes fall-in {
+  0%   { top: $fall-out-top; }
+  100% { top: 0; }
+}
+@-moz-keyframes fall-in {
+  0%   { top: $fall-out-top; }
+  100% { top: 0; }
+}
+@-o-keyframes fall-in {
+  0%   { top: $fall-out-top; }
+  100% { top: 0; }
+}
+@keyframes fall-in {
+  0%   { top: $fall-out-top; }
+  100% { top: 0; }
+}
+
+@-webkit-keyframes fall-out {
+  0%   { top: 0; opacity: 1; }
+  100% { top: $fall-out-top; opacity: 0;}
+}
+@-moz-keyframes fall-out {
+  0%   { top: 0; opacity: 1; }
+  100% { top: $fall-out-top; opacity: 0;}
+}
+@-o-keyframes fall-out {
+  0%   { top: 0; opacity: 1; }
+  100% { top: $fall-out-top; opacity: 0;}
+}
+@keyframes fall-out {
+  0%   { top: 0; opacity: 1; }
+  100% { top: $fall-out-top; opacity: 0;}
+}

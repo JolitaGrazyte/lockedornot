@@ -11,19 +11,19 @@
                 <ul class="icon-list">
                     <li>
                         <a href="{{ url("how-i'm-doing") }}">
-                            <span>How i'm doing</span>
+                            How i'm doing</span>
                         </a>
                     </li>
                     <li>
                         <a href=""
                            data-toggle="modal"
                            data-target="#editModal">
-                            <span>My profile</span>
+                            My profile
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('logout') }}">
-                            <span>Logout</span>
+                            Logout
                         </a>
                     </li>
                 </ul>

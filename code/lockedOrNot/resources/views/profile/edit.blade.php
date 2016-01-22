@@ -15,16 +15,16 @@
         <div class="col-lg-12">
             <div class="page-header">
                 <div class="row">
-                    <div class="col-lg-5 col-lg-offset-2">
+                    <div class="col-lg-65 col-lg-offset-2">
                         <h2>
                             Update my profile
                         </h2>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-2">
-                    <h4><a href="{{ route('edit-login', str_replace(' ', '-', Auth::user()->full_name)) }}">Update my login information</a></h4>
+            <div class="row edit-profile">
+                <div class="col-lg-6 col-lg-offset-2">
+                    <h3><a href="{{ route('edit-login', str_replace(' ', '-', Auth::user()->full_name)) }}">Update my login information</a></h3>
                 </div>
             </div>
         </div>

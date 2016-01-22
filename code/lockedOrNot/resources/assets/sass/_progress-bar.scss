@@ -1,0 +1,32 @@
+.percent{
+  font-size: 23px;
+}
+
+
+[class^='panel'], .progress{
+  border-radius: 0;
+
+}
+
+.progress-bar-success{
+  background: #97c4b0;
+}
+
+.progress-bar-danger{
+  background: #e54115;
+}
+.progress{
+  height: 30px;
+}
+.progress-bar{
+  line-height: 30px;
+  font-size: 1.5rem;
+}
+
+.first-letter::first-letter{
+  text-transform: uppercase;
+}
+.percents.bottom-padding{
+  padding-bottom: 70px;
+  margin-top: -18px;
+}

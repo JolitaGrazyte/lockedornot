@@ -20,17 +20,31 @@ div.modal-backdrop.fade.in{
   transition: transform 0.5s ease-out;
 }
 
-.modal-backdrop.in {
-  background: #FFF;
-  //opacity: 1;
-  //filter: alpha(opacity=100);
-}
 
+.modal-backdrop.in {
+  //background: #FFF;
+  background: #333;
+  opacity: .9;
+  filter: alpha(opacity=100);
+}
 
 .modal-content{
+
   border-radius:0;
   padding-bottom: 1.5rem;
+
 }
+#registerModal .modal-content{
+
+  margin-top: 60px;
+
+}
+
+#myModal .modal-content{
+
+  margin-top: 120px;
+}
+
 
 .content{
   padding: 1rem 2rem;

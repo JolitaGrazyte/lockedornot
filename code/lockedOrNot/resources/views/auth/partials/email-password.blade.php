@@ -36,7 +36,7 @@
 
         </div>
             @if(Request::is('update-login-info/*'))
-                <div style="color: red; "><em> Enter Your NEW password here, only if you want to change it. </em></div>
+                <div class="help-text-edit-login"><em> Enter Your NEW password here, only if you want to change it. </em></div>
             @endif
 
         <div id="password-group">
