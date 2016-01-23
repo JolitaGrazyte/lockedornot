@@ -7,40 +7,42 @@
         <div class="col-lg-6">
             To me:
 
-            <div style="font-size: 3.5rem">
+            <div class="busiest-f-size">
                 {{ $userBusiestDay->format('D') }},
                 {{ $userBusiestDay->format('d') }}
                 {{ $userBusiestDay->format('M') }}
             </div>
-            <div style="margin-right: 16px; font-size: 2rem;" class="pull-right">
+            <div class="pull-right busiest-day-year">
                 {{ $userBusiestDay->format('Y') }}
             </div>
 
             {{--<div class="col-lg-6">--}}
-
             {{--12 locked--}}
             {{--</div>--}}
             {{--<div class="col-lg-6">--}}
             {{--16 open--}}
             {{--</div>--}}
+
         </div>
         <div class="col-lg-6">
             "Locked Or Not":
 
-            <div style="font-size: 3.5rem">
+            <div class="busiest-f-size">
                 {{ $busiestDay->format('D') }},
                 {{ $busiestDay->format('d') }}
                 {{ $busiestDay->format('M') }}
             </div>
-            <div style="margin-right: 6px; font-size: 2rem;" class="pull-right">
+            <div class="pull-right busiest-day-year">
                 {{ $busiestDay->format('Y') }}
             </div>
+
             {{--<div class="col-lg-6">--}}
             {{--12 locked--}}
             {{--</div>--}}
             {{--<div class="col-lg-6">--}}
             {{--16 open--}}
             {{--</div>--}}
+
         </div>
         {{--<a href="#" class="btn btn-default btn-block">View Details</a>--}}
     </div>

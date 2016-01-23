@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function()
     });
 
     get('{name}/personal-stats',    ['as' => 'personal-stats',  'uses' => 'StatsController@personalStats']);
-    get('how-i\'m-doing',           ['as' => 'how-im-doing',    'uses' => 'StatsController@index']);
+    get("how-i'm-doing",           ['as' => 'how-im-doing',    'uses' => 'StatsController@index']);
 
     get('update-login-info/{name}', ['as' => 'edit-login',      'uses' => 'ProfileController@editMyLogin']);
     post('update-login/{user}',     ['as' => 'update-login',    'uses' => 'ProfileController@updateMyLogin']);
@@ -59,9 +59,9 @@ Route::group(['middleware' => 'auth'], function()
 
 //    get('{name}/{week}', ['as' => 'mostly-checked-per-week', 'uses' => 'StatsController@personalStats']);
 //    get('{name}/{month}',['as' => 'mostly-checked-per-month', 'uses' => 'StatsController@personalStats']);
-    get('{name}/mostly-checked-per/{week}', ['as' => 'mostly-checked-filter', 'uses' => 'StatsController@index']);
-    get('{name}/mostly-checked-per/{month}/{i}/{s}', ['as' => 'filter-interval-plus', 'uses' => 'StatsController@index']);
-    get('{name}/mostly-checked-per/{year}/{i}/{s}', ['as' => 'filter-interval-minus', 'uses' => 'StatsController@index']);
+    get('mostly-checked-per/{week}', ['as' => 'mostly-checked-filter', 'uses' => 'StatsController@index']);
+    get('mostly-checked-per/{month}/{s}/{i}', ['as' => 'filter-interval-plus', 'uses' => 'StatsController@index']);
+    get('mostly-checked-per/{year}/{s}/{i}', ['as' => 'filter-interval-minus', 'uses' => 'StatsController@index']);
 
 });
 

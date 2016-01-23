@@ -7,10 +7,10 @@
         <div class="pull-right">
             <ul class="inline-list">
                 <li>see it:</li>
-                <li><a href="{{ route('how-im-doing') }}" class="active-sort">total</a> | </li>
-                <li><a href="{{ route('mostly-checked-filter', [$pretty_user_name, 'week'])  }}" class="">per week</a> | </li>
-                <li><a href="{{ route('mostly-checked-filter', [$pretty_user_name, 'month']) }}">per month</a> | </li>
-                <li><a href="{{ route('mostly-checked-filter', [$pretty_user_name, 'year']) }}">per year</a></li>
+                <li><a href="{{ url("how-i'm-doing") }}" class="active-sort">total</a> | </li>
+                <li><a href="{{ route('mostly-checked-filter', ['week'])  }}">per week</a> | </li>
+                <li><a href="{{ route('mostly-checked-filter', ['month']) }}">per month</a> | </li>
+                <li><a href="{{ route('mostly-checked-filter', ['year']) }}">per year</a></li>
             </ul>
         </div>
     </div>
@@ -78,20 +78,23 @@
 
         </div>
 
-        <div class="row mstl-checking-under-height">
-            <div class="col-lg-12 center">
-                <div class="col-lg-2 pull-left">
-                    <a href="{{ route('filter-interval-plus', [$pretty_user_name, 'week', $w_nr, 'prev']) }}">
-                        <i class="fa fa-angle-double-left"> </i><span> previous week</span>
-                    </a>
-                </div>
-                <div class="col-lg-2 pull-right next-link">
-                    <a href="{{ route('filter-interval-minus', [$pretty_user_name, 'week', $w_nr, 'fw']) }}">
-                        <span>next week </span> <i class="fa fa-angle-double-right"> </i>
-                    </a>
+        @if(!is_null($filter))
+            <div class="row mstl-checking-under-height">
+                <div class="col-lg-12 center">
+                    <div class="col-lg-2 pull-left">
+                        <a href="{{ route('filter-interval-plus', [$filter, 'prev', $w_nr]) }}">
+                            <i class="fa fa-angle-double-left"> </i><span> previous {{ $filter }}</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-2 pull-right next-link">
+                        <a href="{{ route('filter-interval-minus', [$filter, 'fw', $w_nr]) }}">
+                            <span>next {{ $filter }} </span> <i class="fa fa-angle-double-right"> </i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+
     </div>
 
 </div>

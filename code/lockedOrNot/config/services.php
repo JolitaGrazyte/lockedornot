@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id'     =>  env('FB_CLIENT_ID'),
         'client_secret' =>  env('FB_SECRET'),
-        'redirect'      =>  'http://lockdrnot.local.com/login/facebook',
+        'redirect'      =>  'https://lockedornot-jolitagrazyte.c9users.io/login/facebook',
     ],
 
     'google' => [

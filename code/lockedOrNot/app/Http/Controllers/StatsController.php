@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Stats;
 use App\UserStatusMsg;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use Auth;
@@ -27,17 +27,17 @@ class StatsController extends Controller
      * Display a listing of the resource.
      *
      * @param Stats $stats_model
+     * @param null $filter
+     * @param null $side
+     * @param null $nr
      * @return Response
      */
-    public function index(Stats $stats_model, $name = null, $filter = null, $nr = null, $side = null)
+    public function index(Stats $stats_model, $filter = null, $side = null, $nr = null)
     {
         $user = $this->authUser;
         $days = $stats_model->days();
 
-        if(is_null($side) && is_null($nr) || $nr == 53)  $w_nr = 0;
-        if($side == 'prev') $w_nr = $nr+1;
-        if($side == 'fw') $w_nr = $nr-1  ;
-
+        $w_nr   = $this->getWeek($side, $nr);
 
         $userBusiestDay  =  $user->stats()->busiestDay()->first()->date;
         $busiestDay      =  $stats_model->busiestDay()->first()->date;
@@ -89,25 +89,7 @@ class StatsController extends Controller
             $percent_false  = round($percent_false);
             $percent_true   = round($percent_true);
 
-            if(!is_null($filter)){
-
-                $total_daily =  $this->filteredStats($user, $filter, $w_nr, $days);
-//            dd($stats);
-
-            }
-
-            else{
-
-                foreach($days as $key => $day){
-
-                    $total_daily[$day] = [
-                        'total'     => $user->stats()->weekday($key-1)->count(),
-                        'locked'    => $user->stats()->weekdayLocked($key-1)->count(),
-                        'unlocked'  => $user->stats()->weekdayUnlocked($key-1)->count()
-                    ];
-                }
-            }
-
+            $total_daily =  $this->filteredStats($user, $filter, $w_nr, $days);
 
 
             $status = $this->getUserStatus($percent_true);
@@ -146,37 +128,56 @@ class StatsController extends Controller
                 'busiestMonth',
                 'weekOrWeekend',
                 'pretty_user_name',
-                'w_nr'
+                'w_nr',
+                'filter'
             ));
     }
 
 
     private function filteredStats($user, $filter, $nr, $days){
 
-        $subFilter = 'sub'.$filter.'s';
-        $week = Carbon::now()->$subFilter($nr)->weekOfYear;
-//        dd(Carbon::now()->weekOfYear);
-//        dd($week);
+        $stats = [];
 
-        $scope = $filter.'lyStats';
+            foreach($days as $key => $day){
 
-        foreach($days as $key => $day){
-//            dd($week);
-//            dd($key-1);
-            $stats[$day] = [
-                'total'     => $user->stats()->$scope($week, $key-1)->count(),
-                'locked'    => $user->stats()->lockedStats()->$scope($week, $key-1)->count(),
-                'unlocked'  => $user->stats()->unlockedStats()->$scope($week, $key-1)->count(),
-            ];
+                if(is_null($filter)){
 
-        }
+                    $stats[$day] = [
+                        'total'     => $user->stats()->weekday($key-1)->count(),
+                        'locked'    => $user->stats()->weekdayLocked($key-1)->count(),
+                        'unlocked'  => $user->stats()->weekdayUnlocked($key-1)->count()
+                    ];
+                }
+                else{
 
-//        dd($stats);
-//        $stats = $user->stats()->$scope($week, $day)->get();
-//        dd($stats->get());
+                    $subFilter = 'sub'.$filter.'s';
+                    $carbon = Carbon::now()->$subFilter($nr);
+                    $f = $carbon->weekOfYear;
+                    $scope = $filter.'lyStats';
+
+                    $stats[$day] = [
+                        'total'     => $user->stats()->$scope($f, $key-1)->count(),
+                        'locked'    => $user->stats()->lockedStats()->$scope($f, $key-1)->count(),
+                        'unlocked'  => $user->stats()->unlockedStats()->$scope($f, $key-1)->count(),
+                    ];
+                }
+
+
+            }
 
         return $stats;
     }
+
+    private function getWeek($side, $nr){
+
+        if(is_null($side) && is_null($nr) || $nr == 53) $w_nr = 0;
+        elseif($side == 'prev' && $nr < 53) $w_nr = $nr+1;
+        elseif($side == 'fw' && $nr > 0) $w_nr = $nr-1;
+        else $w_nr = 0;
+
+        return $w_nr;
+    }
+
 
     private function getPanels($user, $status){
 

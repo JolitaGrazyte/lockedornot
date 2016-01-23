@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-//use App\DaysEnum;
 use DB;
+
 class Stats extends Model
 {
     /**
@@ -59,7 +59,7 @@ class Stats extends Model
     }
 
     public function scopeMonthlyStats($q, $month,  $day){
-        return $q->whereRaw('MONTH(created_at, 3) = '.$month. ' AND WEEKDAY(created_at) = '.$day);
+        return $q->whereRaw('MONTH(created_at) = '.$month. ' AND WEEKDAY(created_at) = '.$day);
     }
 
     public function scopeMonthlyLocked($q, $month){

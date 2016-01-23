@@ -5963,6 +5963,13 @@ a:hover, a:focus, a:active {
 .row.edit-profile {
   margin-top: 2rem; }
 
+.busiest-f-size {
+  font-size: 3.5rem; }
+
+.busiest-day-year {
+  margin-right: 16px;
+  font-size: 2rem; }
+
 .panel-msg {
   padding: 1rem; }
 
