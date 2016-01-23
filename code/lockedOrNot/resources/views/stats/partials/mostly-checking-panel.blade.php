@@ -38,10 +38,10 @@
                                                 <thead>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div title="total times checked">
+                                                        <div title="total {{ $total_daily[$day]['total'] > 1 ? 'times': 'time' }} checked">
                                                             {{  $total_daily[$day]['total'] }}
                                                         </div>
-                                                        <div class="s-font">times checked</div>
+                                                        <div class="s-font">{{ $total_daily[$day]['total'] > 1 ? 'times': 'time' }} checked</div>
                                                     </td>
                                                 </tr>
                                                 </thead>
@@ -86,11 +86,13 @@
                             <i class="fa fa-angle-double-left"> </i><span> previous {{ $filter }}</span>
                         </a>
                     </div>
-                    <div class="col-lg-2 pull-right next-link">
-                        <a href="{{ route('filter-interval-minus', [$filter, 'fw', $w_nr]) }}">
-                            <span>next {{ $filter }} </span> <i class="fa fa-angle-double-right"> </i>
-                        </a>
-                    </div>
+                    @if($w_nr != 0)
+                        <div class="col-lg-2 pull-right next-link">
+                            <a href="{{ route('filter-interval-minus', [$filter, 'fw', $w_nr]) }}">
+                                <span>next {{ $filter }} </span> <i class="fa fa-angle-double-right"> </i>
+                            </a>
+                        </div>
+                    @endif
                 </div>
             </div>
         @endif

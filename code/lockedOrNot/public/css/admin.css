@@ -6061,6 +6061,9 @@ a:hover, a:focus, a:active {
 .h4-underline:after {
   content: ""; }
 
+.pull-right.me-vs-others {
+  margin-top: -43px; }
+
 .percent {
   font-size: 23px; }
 

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Stats;
 use App\UserStatusMsg;
 use Carbon\Carbon;
-//use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use Auth;
@@ -46,7 +45,7 @@ class StatsController extends Controller
         $userBusiestMonth   =   $monthName = date("M", strtotime($userBusiestMonth));
 
         $busiestMonth       =   $stats_model->busiestMonth()->first()->month;
-        $busiestMonth       =   $monthName = date("F", strtotime($busiestMonth));
+        $busiestMonth       =   $monthName = date("M", strtotime($busiestMonth));
 
 
         $weekOrWeekend = [
@@ -59,10 +58,6 @@ class StatsController extends Controller
         $no_device      = empty($user->devices->first()) || is_null($user->devices->first());
         $device_state   = false;
 
-        $othersLockedCount      = User::othersLocked($user)->count();
-        $othersUnlockedCount    = User::othersUnlocked($user)->count();
-
-//      dd($othersUnlockedCount);
 
 //      dd($no_device);
 
@@ -89,15 +84,17 @@ class StatsController extends Controller
             $percent_false  = round($percent_false);
             $percent_true   = round($percent_true);
 
-            $total_daily =  $this->filteredStats($user, $filter, $w_nr, $days);
+            $total_daily    = $this->filteredStats($user, $filter, $w_nr, $days);
+//            dd($filter.' '.$w_nr);
+//            dd($total_daily);
+
+            $status         = $this->getUserStatus($percent_true);
+            $panels         = $this->getPanels($user, $status);
+            $support        = $this->getUserStatusAndMsg($percent_true, $user);
 
 
-            $status = $this->getUserStatus($percent_true);
-            $panels = $this->getPanels($user, $status);
-            $support = $this->getUserStatusAndMsg($percent_true, $user);
-
-            $pretty_user_name = str_replace(' ', '-', $user->full_name);
         }
+        $pretty_user_name = str_replace(' ', '-', $user->full_name);
 
         if(empty($total_daily)){
             $msg = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
@@ -152,7 +149,13 @@ class StatsController extends Controller
 
                     $subFilter = 'sub'.$filter.'s';
                     $carbon = Carbon::now()->$subFilter($nr);
-                    $f = $carbon->weekOfYear;
+
+                    if($filter == 'week') $f = $carbon->weekOfYear;
+                    else{
+                        $f = $carbon->$filter;
+                    }
+
+
                     $scope = $filter.'lyStats';
 
                     $stats[$day] = [
@@ -166,6 +169,14 @@ class StatsController extends Controller
             }
 
         return $stats;
+    }
+
+    private function getOthersPercent($user){
+
+        $othersLockedCount      = User::othersLocked($user)->count();
+        $othersUnlockedCount    = User::othersUnlocked($user)->count();
+
+        dd($othersLockedCount);
     }
 
     private function getWeek($side, $nr){
@@ -263,9 +274,6 @@ class StatsController extends Controller
     public function personal_stats_json($id)
     {
         $user = User::find($id);
-//        dd($user);
-//        $stats = Stats::personalStats($id);
-
 
         $stats = [
             'user' => [

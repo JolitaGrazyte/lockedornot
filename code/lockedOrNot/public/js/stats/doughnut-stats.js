@@ -4,8 +4,10 @@ $(function(){
     var all_users_dstats    = document.getElementById('all-doughnut-chart').getContext('2d');
 
     var user_id     = document.getElementById('user_id').value;
-    var weekdays    = document.getElementById('weekdays');
-    var weekend     = document.getElementById('weekend');
+    var u_weekdays  = document.getElementById('u-weekdays');
+    var u_weekend   = document.getElementById('u-weekend');
+    var o_weekdays  = document.getElementById('o-weekdays');
+    var o_weekend   = document.getElementById('o-weekend');
 
     //console.log(user_id);
 
@@ -38,6 +40,11 @@ $(function(){
 
             new Chart(d_stats).Doughnut(personal_stats_data, options);
             new Chart(all_users_dstats).Doughnut(all_stats_data, options);
+
+            u_weekend.innerHTML     = data.user.weekend;
+            u_weekdays.innerHTML    = data.user.weekdays;
+            o_weekend.innerHTML     = data.all_users.weekend;
+            o_weekdays.innerHTML    = data.all_users.weekdays;
         }
     });
 

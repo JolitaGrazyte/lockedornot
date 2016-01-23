@@ -107,25 +107,6 @@
                             <p>== From all users ... many users car locked when checked more/less times per month then me ==</p>
                             <p>== From all users ... many users car unlocked when checked more/less times per month then me ==</p>
 
-                            <p>== Others check mostly on weekend/ in the weekdays ==</p>
-
-                            {{--@include('stats.mostly-checking-panel', ['total_daily' => $total_daily, 'days' => $days])--}}
-
-                        {{--</div>--}}
-                        {{--<!-- /.col-lg-8 (nested) -->--}}
-                    {{--</div>--}}
-                    {{--<!-- /.row -->--}}
-
-                    {{--<div class="row">--}}
-                        {{--<div class="col-lg-2 pull-left">--}}
-                            {{--<a href="{{ route('filter-interval-plus', [Auth::user()->full_name, 'week','prev']) }}">--}}
-                                {{--<i class="fa fa-angle-double-left"> </i><span> previous week</span>--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-lg-2 pull-right">--}}
-                            {{--<a href="{{ route('filter-interval-minus', [Auth::user()->full_name, 'week','next']) }}">--}}
-                                {{--<span>next week </span> <i class="fa fa-angle-double-right"> </i>--}}
-                            {{--</a>--}}
                         </div>
                     </div>
                 </div>
