@@ -76,11 +76,11 @@
             @include('stats.partials.mostly-checking-panel', ['total_daily' => $total_daily, 'days' => $days])
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-6">
             @include('stats.partials.busiest-day', ['userBusiestDay' => $userBusiestDay])
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-sm-6">
            @include('stats.partials.busiest-month', ['userBusiestMonth' => $userBusiestMonth])
         </div>
 

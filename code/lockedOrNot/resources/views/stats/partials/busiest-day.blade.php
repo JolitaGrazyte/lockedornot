@@ -7,7 +7,7 @@
         <div class="col-lg-6">
             To me:
 
-            <div class="busiest-f-size">
+            <div class="busiest-f-size pull-right">
                 {{ $userBusiestDay->format('D') }},
                 {{ $userBusiestDay->format('d') }}
                 {{ $userBusiestDay->format('M') }}

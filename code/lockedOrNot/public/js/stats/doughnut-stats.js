@@ -24,11 +24,42 @@ $(function(){
             console.log(data.all_users);
             //console.log(data.user.weekdays);
 
-            personal_stats_data.push({value: data.user.weekdays, color: "#97c4b0", label: 'weekdays'});
-            personal_stats_data.push({value: data.user.weekend, color: "#5b57e3", label: 'weekends'});
+            var u_total = (data.user.weekdays + data.user.weekend);
+            var u_weekday_data = 100/u_total*data.user.weekdays;
+            var u_weekend_data = 100/u_total*data.user.weekend;
 
-            all_stats_data.push({value: data.all_users.weekend, color: "#e54115", label: 'weekends'});
-            all_stats_data.push({value: data.all_users.weekdays, color: "#97c4b0", label: 'weekdays'});
+            var o_total = (data.all_users.weekdays + data.all_users.weekend);
+            var o_weekday_data = 100/o_total*data.all_users.weekdays;
+            var o_weekend_data = 100/o_total*data.all_users.weekend;
+
+            //console.log(o_weekend_data);
+            var u_colour, o_colour;
+
+            if(u_weekend_data < 50) {
+                u_colour = "#5b57e3";
+            }
+            else{
+                u_colour = "#e54115";
+            }
+
+            if(o_weekend_data < 50) {
+                o_colour = "#5b57e3";
+            }
+            else{
+                o_colour = "#e54115";
+            }
+
+            var u_weekend_icon = document.getElementById('u-weekend-icon');
+            u_weekend_icon.style.color = u_colour;
+
+            var o_weekend_icon = document.getElementById('o-weekend-icon');
+            o_weekend_icon.style.color = o_colour;
+
+            personal_stats_data.push({value: u_weekday_data, color: "#97c4b0", label: 'weekdays'});
+            personal_stats_data.push({value: u_weekend_data, color: u_colour, label: 'weekends'});
+
+            all_stats_data.push({value: o_weekend_data, color: o_colour, label: 'weekends'});
+            all_stats_data.push({value: o_weekday_data, color: "#97c4b0", label: 'weekdays'});
 
             var options = {
                 segmentStrokeColor  : "#FFF",
@@ -41,10 +72,10 @@ $(function(){
             new Chart(d_stats).Doughnut(personal_stats_data, options);
             new Chart(all_users_dstats).Doughnut(all_stats_data, options);
 
-            u_weekend.innerHTML     = data.user.weekend;
-            u_weekdays.innerHTML    = data.user.weekdays;
-            o_weekend.innerHTML     = data.all_users.weekend;
-            o_weekdays.innerHTML    = data.all_users.weekdays;
+            u_weekend.innerHTML     = u_weekend_data+'%';
+            u_weekdays.innerHTML    = u_weekday_data+'%';
+            o_weekend.innerHTML     = o_weekend_data+'%';
+            o_weekdays.innerHTML    = o_weekday_data+'%';
         }
     });
 
