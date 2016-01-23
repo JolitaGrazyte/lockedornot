@@ -25,28 +25,28 @@
       <file leaf-file-name="mostly-checking-panel.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/stats/partials/mostly-checking-panel.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0">
-              <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+            <state vertical-scroll-proportion="-55.0">
+              <caret line="88" column="101" selection-start-line="88" selection-start-column="101" selection-end-line="88" selection-end-column="101" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_colors.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_colors.scss">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/stats/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.875">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_user-status-msg.scss" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/sass/_user-status-msg.scss">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.65625">
+              <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -55,8 +55,8 @@
       <file leaf-file-name="StatsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="7.647059">
-              <caret line="100" column="20" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
+            <state vertical-scroll-proportion="-2.4545455">
+              <caret line="31" column="69" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
               <folding>
                 <element signature="e#40#54#0#PHP" expanded="true" />
               </folding>
@@ -64,24 +64,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserStatusMsg.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/UserStatusMsg.php">
+      <file leaf-file-name="Stats.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Stats.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.625">
-              <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+            <state vertical-scroll-proportion="-5.25">
+              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/stats/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5847554">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding>
-                <element signature="e#295#321#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -99,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/assets/sass/_percents-bar.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_progress-bar.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_dash-wrapper.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_dash-at-media.scss" />
@@ -116,7 +103,6 @@
         <option value="$PROJECT_DIR$/resources/assets/sass/_site-name.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_variables.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_dash-note.scss" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/_dash-sidebar.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_modals.scss" />
         <option value="$PROJECT_DIR$/resources/views/auth/partials/step-register/register-step-2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/partials/step-register/register-step-3.blade.php" />
@@ -124,7 +110,6 @@
         <option value="$PROJECT_DIR$/public/css/jquery.steps/jquery.steps.css" />
         <option value="$PROJECT_DIR$/resources/views/partials/user-info.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_dash-forms.scss" />
-        <option value="$PROJECT_DIR$/resources/assets/sass/_dash-main.scss" />
         <option value="$PROJECT_DIR$/app/StatusEnum.php" />
         <option value="$PROJECT_DIR$/resources/views/profile/edit-form.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_dash-footer.scss" />
@@ -136,20 +121,23 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/ProfileController.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/EB_SSL_Trust.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Stats.php" />
         <option value="$PROJECT_DIR$/public/js/stats/doughnut-stats.js" />
         <option value="$PROJECT_DIR$/resources/views/stats/partials/single-panel.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/stats/partials/mostly-checking-panel.blade.php" />
         <option value="$PROJECT_DIR$/app/StatusMsg.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_icons.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_colors.scss" />
         <option value="$PROJECT_DIR$/resources/views/stats/partials/weekend-vs-weekdays-doughnut.blade.php" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_dash-panels.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/admin.scss" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/_dash-sidebar.scss" />
         <option value="$PROJECT_DIR$/resources/assets/sass/_user-status-msg.scss" />
         <option value="$PROJECT_DIR$/app/UserStatusMsg.php" />
+        <option value="$PROJECT_DIR$/app/Stats.php" />
+        <option value="$PROJECT_DIR$/resources/assets/sass/_dash-main.scss" />
         <option value="$PROJECT_DIR$/resources/views/stats/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/StatsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/stats/partials/mostly-checking-panel.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
       </list>
     </option>
   </component>
@@ -514,7 +502,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22234157" sideWeight="0.497558" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22234157" sideWeight="0.497558" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2747253" sideWeight="0.16167665" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -687,24 +675,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_dash-sidebar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.375">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AuthenticateController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.0">
           <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_dash-main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.2941177">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -827,22 +801,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Stats.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.294118">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.686275">
-          <caret line="86" column="48" selection-start-line="86" selection-start-column="48" selection-end-line="86" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/stats/partials/single-panel.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.051194537">
@@ -891,16 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.647059">
-          <caret line="100" column="20" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
-          <folding>
-            <element signature="e#40#54#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/_dash-panels.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9146758">
@@ -917,17 +865,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/stats/partials/mostly-checking-panel.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/UserStatusMsg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.78125">
+          <caret line="116" column="47" selection-start-line="116" selection-start-column="47" selection-end-line="116" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_dash-sidebar.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.046511628">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/_colors.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.875">
+        <state vertical-scroll-proportion="0.24553572">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
           <folding />
         </state>
@@ -935,27 +891,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/sass/_user-status-msg.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
+        <state vertical-scroll-proportion="0.13392857">
           <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/UserStatusMsg.php">
+    <entry file="file://$PROJECT_DIR$/app/Stats.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.625">
-          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+        <state vertical-scroll-proportion="-5.25">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/sass/_dash-main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4017857">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/stats/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5847554">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/stats/partials/mostly-checking-panel.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-55.0">
+          <caret line="88" column="101" selection-start-line="88" selection-start-column="101" selection-end-line="88" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/StatsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4545455">
+          <caret line="31" column="69" selection-start-line="31" selection-start-column="69" selection-end-line="31" selection-end-column="69" />
           <folding>
-            <element signature="e#295#321#0#HTML" expanded="true" />
+            <element signature="e#40#54#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65625">
+          <caret line="63" column="48" selection-start-line="63" selection-start-column="48" selection-end-line="63" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

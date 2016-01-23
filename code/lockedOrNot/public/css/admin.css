@@ -5810,7 +5810,7 @@ li.logout {
   left: auto; }
 
 .navbar-default.sidebar {
-  margin-top: 130px; }
+  margin-top: 131px; }
 
 .list-style-none {
   list-style: none;
@@ -5909,6 +5909,9 @@ body {
 .inline-list li {
   display: inline; }
 
+.margin-l-20 {
+  margin-left: 20px; }
+
 .s-font {
   font-size: 13px; }
 
@@ -5930,6 +5933,9 @@ body {
 .huge {
   font-size: 3.3rem;
   line-height: 3rem; }
+
+.page-header.dash-page-header {
+  margin-top: 20px; }
 
 hr {
   padding: 0;
@@ -6376,6 +6382,6 @@ form#profile-edit {
   /* or pre-wrap */ }
 
 .user-status {
-  font-size: 1.7rem; }
+  font-size: 1.8rem; }
 
 /*# sourceMappingURL=admin.css.map */

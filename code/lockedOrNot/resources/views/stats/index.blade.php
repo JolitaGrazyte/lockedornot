@@ -7,10 +7,10 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">
+            <h2 class="page-header dash-page-header">
                 How i'm doing ?
             </h2>
-            <h4 class="o-font" style="margin-left: 20px;">
+            <h4 class="o-font margin-l-20">
                 my overall statistics
             </h4>
         </div>

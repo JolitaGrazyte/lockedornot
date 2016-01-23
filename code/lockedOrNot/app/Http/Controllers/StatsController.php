@@ -29,11 +29,17 @@ class StatsController extends Controller
      * @param Stats $stats_model
      * @return Response
      */
-    public function index(Stats $stats_model, $name = null, $filter = null)
+    public function index(Stats $stats_model, $name = null, $filter = null, $nr = null, $side = null)
     {
-        $user            = $this->authUser;
-        $userBusiestDay  =  $user->stats()->busiestDay()->first()->date;
+        $user = $this->authUser;
+        $days = $stats_model->days();
 
+        if(is_null($side) && is_null($nr) || $nr == 53)  $w_nr = 0;
+        if($side == 'prev') $w_nr = $nr+1;
+        if($side == 'fw') $w_nr = $nr-1  ;
+
+
+        $userBusiestDay  =  $user->stats()->busiestDay()->first()->date;
         $busiestDay      =  $stats_model->busiestDay()->first()->date;
 
         $userBusiestMonth   =   $user->stats()->busiestMonth()->first()->month;
@@ -48,20 +54,18 @@ class StatsController extends Controller
             'weekdays' => $user->stats()->week()->count(),
         ];
 
-//        dd($weekOrWeekend);
+//      dd($weekOrWeekend);
 
         $no_device      = empty($user->devices->first()) || is_null($user->devices->first());
         $device_state   = false;
-
-        $stats_obj = $stats_model;
-        $days = $stats_obj->days();
 
         $othersLockedCount      = User::othersLocked($user)->count();
         $othersUnlockedCount    = User::othersUnlocked($user)->count();
 
 //      dd($othersUnlockedCount);
 
-//        dd($no_device);
+//      dd($no_device);
+
         $device_status = false;
         if($no_device){
             $msg = "It happened so, that we didn't receive your Locked Or Not device number.
@@ -71,9 +75,9 @@ class StatsController extends Controller
         else{
 
             $unlocked_devices = $user->devices()->unlocked();
-//            dd($user->devices()->unlocked()->get());
+//          dd($user->devices()->unlocked()->get());
 
-            $msg            =   $unlocked_devices->count() == 0 ? "": "Oops, looks like your car is not locked yet! You might wanna do somethin' about it.";
+            $msg            =   $unlocked_devices->count() == 0 ? "": "Oops, looks like your car is not locked yet! You might wanna do somethin' about it...";
             $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 
             $stats          = $this->authUser->stats;
@@ -85,21 +89,32 @@ class StatsController extends Controller
             $percent_false  = round($percent_false);
             $percent_true   = round($percent_true);
 
+            if(!is_null($filter)){
 
-            foreach($days as $key => $day){
+                $total_daily =  $this->filteredStats($user, $filter, $w_nr, $days);
+//            dd($stats);
 
-                $total_daily[$day] = [
-                    'total'     => $user->stats()->weekday($key-1)->count(),
-                    'locked'    => $user->stats()->weekdayLocked($key-1)->count(),
-                    'unlocked'  => $user->stats()->weekdayUnlocked($key-1)->count()
-                ];
             }
+
+            else{
+
+                foreach($days as $key => $day){
+
+                    $total_daily[$day] = [
+                        'total'     => $user->stats()->weekday($key-1)->count(),
+                        'locked'    => $user->stats()->weekdayLocked($key-1)->count(),
+                        'unlocked'  => $user->stats()->weekdayUnlocked($key-1)->count()
+                    ];
+                }
+            }
+
 
 
             $status = $this->getUserStatus($percent_true);
             $panels = $this->getPanels($user, $status);
             $support = $this->getUserStatusAndMsg($percent_true, $user);
 
+            $pretty_user_name = str_replace(' ', '-', $user->full_name);
         }
 
         if(empty($total_daily)){
@@ -129,8 +144,38 @@ class StatsController extends Controller
                 'busiestDay',
                 'userBusiestMonth',
                 'busiestMonth',
-                'weekOrWeekend'
+                'weekOrWeekend',
+                'pretty_user_name',
+                'w_nr'
             ));
+    }
+
+
+    private function filteredStats($user, $filter, $nr, $days){
+
+        $subFilter = 'sub'.$filter.'s';
+        $week = Carbon::now()->$subFilter($nr)->weekOfYear;
+//        dd(Carbon::now()->weekOfYear);
+//        dd($week);
+
+        $scope = $filter.'lyStats';
+
+        foreach($days as $key => $day){
+//            dd($week);
+//            dd($key-1);
+            $stats[$day] = [
+                'total'     => $user->stats()->$scope($week, $key-1)->count(),
+                'locked'    => $user->stats()->lockedStats()->$scope($week, $key-1)->count(),
+                'unlocked'  => $user->stats()->unlockedStats()->$scope($week, $key-1)->count(),
+            ];
+
+        }
+
+//        dd($stats);
+//        $stats = $user->stats()->$scope($week, $day)->get();
+//        dd($stats->get());
+
+        return $stats;
     }
 
     private function getPanels($user, $status){
@@ -311,7 +356,6 @@ class StatsController extends Controller
 //
 //        return $stats;
 //    }
-
 
 
 //    public function monthly_stats_json($id)

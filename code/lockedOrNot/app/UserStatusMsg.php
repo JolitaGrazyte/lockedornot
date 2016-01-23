@@ -19,9 +19,11 @@ class UserStatusMsg
                     'status'        =>  $status,
                     "msg"           =>  [
                         'f-line'    => 'Oh no, '.$name.', ',
-                        'm-body'    => ' You keep forgetting it! Work on it..
-                                        Work on it, here\'s a tip: create a pattern for locking your car!
-                                        You\'re making it easy for the bad guys! Be aware!',
+                        'm-body'    => [
+                            'You keep forgetting it! Work on it..',
+                            "Work on it, here\\'s a tip: create a pattern for locking your car!",
+                            "You're making it easy for the bad guys! Be aware!",
+                        ]
                     ],
 
                     "compare_msg"   =>  $count.' other user of Locked Or Not  did better then you over the past year.',
@@ -52,9 +54,11 @@ class UserStatusMsg
                     'status'        =>  $status,
                     "msg"           =>  [
                         'f-line'    =>  "Hey, ". $name. ', a coinflip locker.',
-                        'm-body'    =>  '50/50 -  may the odds be in your favor!
-	                                    You\'re on the halfwaybridge, go in the right direction!
-	                                    Still not sure? Try to visualise, if you locked it or not.'
+                        'm-body'    =>  [
+                            "50/50 -  may the odds be in your favor!",
+                            "You're on the halfwaybridge, go in the right direction!",
+                            "Still not sure? Try to visualise, if you locked it or not."
+                        ]
                     ],
 
                     "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
@@ -68,9 +72,11 @@ class UserStatusMsg
                     'status'        =>  $status,
                     'msg'           =>  [
                         'f-line'    =>  "Hi ". $name. ", " ,
-                        'm-body'    =>  "nice job. Almost at the top!
-                                        Most of the time you don't forget to lock your car.
-                                        Keep locking it, vice locker!"
+                        'm-body'    =>  [
+                            "nice job. Almost at the top!",
+                            "Most of the time you don't forget to lock your car.",
+                            "Keep locking it, vice locker!"
+                        ]
                     ],
 
                     "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
@@ -83,9 +89,11 @@ class UserStatusMsg
                     'status'        =>  $status,
                     "msg"           =>  [
                         'f-line'    =>  "Hi ". $name. ', ',
-                        'm-body'    =>  'nice job. Nobody locks a lock like you!
-                                        A Toplocker like you gives the bad guys a hard time!
-                                        Keep it this way.'
+                        'm-body'    =>  [
+                            "nice job. Nobody locks a lock like you!",
+                            "A Toplocker like you gives the bad guys a hard time!",
+                            "Keep it this way."
+                        ]
                     ],
 
                     "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
@@ -97,9 +105,12 @@ class UserStatusMsg
                 return [
                     'status'        =>  $status,
                     "msg"           =>  [
-                        'f-line'    =>  "Hi ". $name,
-                        'm-body'    =>  "! Your statistics are empty. Not much to say about you yet...
-                                        First make a use of the Locked Or Not device. Come back later for your statistics."
+                        'f-line'    =>  "Hi ". $name.'.',
+                        'm-body'    =>  [
+                            "Your statistics are empty. Not much to say about you yet...",
+                            "Are you using our app ?",
+                            "Use it first! ...and don't forget to come back later for your statistics."
+                        ]
                     ],
 
                     "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',

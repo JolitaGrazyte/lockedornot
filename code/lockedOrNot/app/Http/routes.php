@@ -60,8 +60,8 @@ Route::group(['middleware' => 'auth'], function()
 //    get('{name}/{week}', ['as' => 'mostly-checked-per-week', 'uses' => 'StatsController@personalStats']);
 //    get('{name}/{month}',['as' => 'mostly-checked-per-month', 'uses' => 'StatsController@personalStats']);
     get('{name}/mostly-checked-per/{week}', ['as' => 'mostly-checked-filter', 'uses' => 'StatsController@index']);
-    get('{name}/mostly-checked-per/{month}', ['as' => 'filter-interval-plus', 'uses' => 'StatsController@index']);
-    get('{name}/mostly-checked-per/{year}', ['as' => 'filter-interval-minus', 'uses' => 'ProfileController@index']);
+    get('{name}/mostly-checked-per/{month}/{i}/{s}', ['as' => 'filter-interval-plus', 'uses' => 'StatsController@index']);
+    get('{name}/mostly-checked-per/{year}/{i}/{s}', ['as' => 'filter-interval-minus', 'uses' => 'StatsController@index']);
 
 });
 

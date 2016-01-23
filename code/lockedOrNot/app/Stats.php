@@ -54,9 +54,14 @@ class Stats extends Model
         return $q->where('device_state', 0);
     }
 
-    public function scopeMonthlyStats($q, $month){
-        return $q->whereRaw('MONTH(created_at) = '.$month);
+    public function scopeWeeklyStats($q, $week, $day){
+        return $q->whereRaw('WEEK(created_at, 3) = '.$week. ' AND WEEKDAY(created_at) = '.$day);
     }
+
+    public function scopeMonthlyStats($q, $month,  $day){
+        return $q->whereRaw('MONTH(created_at, 3) = '.$month. ' AND WEEKDAY(created_at) = '.$day);
+    }
+
     public function scopeMonthlyLocked($q, $month){
         return $q->whereRaw('MONTH(created_at) = '.$month)->where('device_state', 1);
     }
