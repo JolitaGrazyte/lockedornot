@@ -23,14 +23,20 @@
             <div class="col-lg-12">
 
                 <div class="panel panel-{{ $support['color'] }} center border-alert panel-msg">
-                    <div class="panel-heading">
-                        <h4>
-                            <em> {{ $support['msg'] }} </em>
-                        </h4>
+                    <div class="panel-heading user-status">
+                        <div class="first-line">
+                            {{ $support['msg']['f-line'] }}
+                        </div>
+
+                        @foreach($support['msg']['m-body'] as $line)
+                        <div>
+                            {{ $line }}
+                        </div>
+                        @endforeach
                         <hr>
 
                         {{--Todo--}}
-                        <p>About 100 other users did this year better then you.</p>
+                        <p>{{ $support['compare_msg'] }} </p>
                     </div>
 
                 </div>
@@ -59,14 +65,14 @@
 
             <div class="col-lg-12">
 
-            @include('stats.progressbar')
+            @include('stats.partials.progressbar')
             </div>
         </div>
     </div>
 
     <div class="row">
 
-        <div class="col-lg-8">
+        <div class="col-lg-8 mstl-checking-panel">
             @include('stats.partials.mostly-checking-panel', ['total_daily' => $total_daily, 'days' => $days])
         </div>
 
@@ -82,24 +88,11 @@
     </div>
     <!-- /.panel -->
 
-
     <div class="row">
 
-        <div class="col-lg-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{--<i class="fa fa-bar-chart-o fa-fw"></i>--}}
-                    <h4>Weekdays vs weekend</h4>
-                </div>
-                <div class="panel-body">
-                    <canvas id="doughnut-chart"></canvas>
-                    {{--<a href="#" class="btn btn-default btn-block">View Details</a>--}}
-                </div>
-                <!-- /.panel-body -->
-            </div>
-        </div>
+        @include('stats.partials.weekend-vs-weekdays-doughnut')
 
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading mostly-checking">
                    Me vs others:
@@ -115,7 +108,6 @@
                             <p>== From all users ... many users car unlocked when checked more/less times per month then me ==</p>
 
                             <p>== Others check mostly on weekend/ in the weekdays ==</p>
-                            <p> = the busiest day is =</p>
 
                             {{--@include('stats.mostly-checking-panel', ['total_daily' => $total_daily, 'days' => $days])--}}
 

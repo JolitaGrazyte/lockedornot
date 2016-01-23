@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Stats;
+use App\UserStatusMsg;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -42,8 +43,12 @@ class StatsController extends Controller
         $busiestMonth       =   $monthName = date("F", strtotime($busiestMonth));
 
 
+        $weekOrWeekend = [
+            'weekend' => $user->stats()->weekend()->count(),
+            'weekdays' => $user->stats()->week()->count(),
+        ];
 
-        $msg = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
+//        dd($weekOrWeekend);
 
         $no_device      = empty($user->devices->first()) || is_null($user->devices->first());
         $device_state   = false;
@@ -97,6 +102,10 @@ class StatsController extends Controller
 
         }
 
+        if(empty($total_daily)){
+            $msg = "At the moment you still don't have any status. This is maybe because you are a new user and haven't used our app at all.";
+        }
+
 
         return view('stats.index',
             compact(
@@ -119,7 +128,8 @@ class StatsController extends Controller
                 'userBusiestDay',
                 'busiestDay',
                 'userBusiestMonth',
-                'busiestMonth'
+                'busiestMonth',
+                'weekOrWeekend'
             ));
     }
 
@@ -198,100 +208,56 @@ class StatsController extends Controller
         $name  =    $user->first_name;
         $status = $this->getUserStatus($percent_true);
 
+        $count = 100;
 
-        switch($status){
-            case 'Problem Locker':
-                return [
-                    'status'        =>  $status,
-                    "msg"           =>  "Oh no, ".$name.", You keep forgetting it! Work on it..
-                                        Work on it, here's a tip: create a pattern for locking your car!
-                                        You're making it easy for the bad guys! Be aware!",
-
-                    "compare_msg"   =>  '... many people did better then you over past year.',
-                    'color'         =>  'red'
-
-                ];
-                break;
-
-            case 'Trouble Locker':
-                return [
-                    'status'        =>  $status,
-                    "msg"           =>  "Hmm, ". $name .", looks like even more then a half of the time you forget to lock your car.
-                                         You might wanna do somethin' about it... Create routine, make it a habit!",
-                    "compare_msg"   =>  '... many people did better then you over past year.',
-                    'color'         =>  'red'
-
-                ];
-                break;
-
-            case 'Coinflip Locker':
-                return [
-                    'status'        =>  $status,
-                    "msg"           =>  "Hey, ". $name .", a coinflip locker.
-                                        50/50 -  may the odds be in your favor!
-	                                    You're on the halfwaybridge, go in the right direction!
-	                                    Still not sure? Try to visualise, if you locked it or not.",
-
-                    "compare_msg"   =>  '... many people did better then you over past year.',
-                    'color'         =>  'salmon'
-
-                ];
-                break;
-
-            case 'Vice Locker':
-                return [
-                    'status'        =>  $status,
-                    'msg'           =>  "Hi ". $name. ", nice job. Almost at the top!
-                                        Most of the time you don't forget to lock your car.
-                                        Keep locking it, vice locker!",
-
-                    "compare_msg"   =>  '... many people did better then you over past year.',
-                    'color'         =>  "green"
-                ];
-                break;
-
-            case 'Top Locker':
-                return [
-                    'status'        =>  $status,
-                    'msg'           =>  "Hi ". $name. ", nice job. Nobody locks a lock like you!
-                                        A Toplocker like you gives the bad guys a hard time!
-                                        Keep it this way.",
-
-                    "compare_msg"   =>  '... many people did better then you over past year.',
-                    'color'         =>  "green"
-                ];
-                break;
-
-            case 'New Locker':
-                return [
-                    'status'        =>  $status,
-                    'msg'           =>  "Hi ". $name. "! Your statistics are empty. Not much to say about you yet...
-                                        First make a use of the Locked Or Not device. Come back later for your statistics.",
-                    "compare_msg"   =>  '... many people did better then you over past year.',
-                    'color'         =>  "green"
-                ];
-                break;
-        }
+        return UserStatusMsg::getMsg($status, $name, $count);
 
     }
 
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function _index()
+    public function personal_stats_json($id)
     {
-        $stats =  $this->json_stats();
-        return view('stats.index', compact('stats'));
+        $user = User::find($id);
+//        dd($user);
+//        $stats = Stats::personalStats($id);
+
+
+        $stats = [
+            'user' => [
+                'weekend'   => $user->stats()->weekend()->count(),
+                'weekdays'  => $user->stats()->week()->count(),
+            ],
+
+            'all_users'  => [
+                'weekend'   => Stats::weekend()->count(),
+                'weekdays'  => Stats::week()->count(),
+            ]
+
+        ];
+
+//        dd($stats);
+
+        return Response::json($stats);
     }
 
-    public function json_stats(){
+//
+//    /**
+//     * Display a listing of the resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function _index()
+//    {
+//        $stats =  $this->json_stats();
+//        return view('stats.index', compact('stats'));
+//    }
 
-        $car_color_stats    = $this->all_stats('car_color');
-        $car_brand_stats    = $this->all_stats('car_brand');
-        $city_stats         = $this->all_stats('city');
+
+
+//    public function json_stats(){
+//
+//        $car_color_stats    = $this->all_stats('car_color');
+//        $car_brand_stats    = $this->all_stats('car_brand');
+//        $city_stats         = $this->all_stats('city');
 //
 //        dd($car_brand_stats);
 //
@@ -299,23 +265,23 @@ class StatsController extends Controller
 
 //        dd($city_stats);
 
-        return $car_color_stats;
+//        return $car_color_stats;
+//
+//    }
 
-    }
-
-    /**
-     * lookup how many different distinct colors or brands there are
-     *
-     * @param null $sort
-     * @return mixed
-     */
-    private function all_stats($sort=null)
-    {
-
-       $distincts = DB::table('users')
-           ->select(DB::raw( 'count('.$sort.') as value, '.$sort))
-           ->groupBy($sort)
-           ->get();
+//    /**
+//     * lookup how many different distinct colors or brands there are
+//     *
+//     * @param null $sort
+//     * @return mixed
+//     */
+//    private function all_stats($sort=null)
+//    {
+//
+//       $distincts = DB::table('users')
+//           ->select(DB::raw( 'count('.$sort.') as value, '.$sort))
+//           ->groupBy($sort)
+//           ->get();
 
 //        dd($distincts);
 
@@ -326,15 +292,15 @@ class StatsController extends Controller
 
 //       return json_encode($distincts);
 
-       return Response::json($distincts);
+//       return Response::json($distincts);
+//
+//    }
 
-    }
-
-    public function personalStats($name, $filter){
-
-        $stats='';
-        return $stats;
-    }
+//    public function personalStats($name, $filter){
+//
+//        $stats='';
+//        return $stats;
+//    }
 //
 //    public function personalStats($name)
 //    {
@@ -346,13 +312,8 @@ class StatsController extends Controller
 //        return $stats;
 //    }
 
-//    public function personal_stats_json($id)
-//    {
-//        $stats = Stats::personalStats($id);
-//
-//        return Response::json($stats);
-//    }
-//
+
+
 //    public function monthly_stats_json($id)
 //    {
 //        $paranoia       = [];

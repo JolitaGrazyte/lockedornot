@@ -5960,6 +5960,11 @@ a:hover, a:focus, a:active {
 .panel-msg {
   padding: 1rem; }
 
+.rates-panel.panel {
+  border-radius: 0; }
+  .rates-panel.panel .panel-heading {
+    min-height: 120px; }
+
 .panel-green {
   border-color: #97c4b0;
   box-shadow: 1px 1px 1px 1px #DEDEDE; }
@@ -5996,12 +6001,6 @@ a:hover, a:focus, a:active {
   color: #fff;
   background-color: #f0ad4e; }
 
-.panel-yellow a {
-  color: #f0ad4e; }
-
-.panel-yellow a:hover {
-  color: #df8a13; }
-
 .panel-blue {
   border-color: #5b57e3;
   box-shadow: 1px 1px 1px 1px #DEDEDE; }
@@ -6012,14 +6011,11 @@ a:hover, a:focus, a:active {
   /*color: #999999;*/
   background-color: #5b57e3; }
 
-.panel-blue a {
-  color: #f0ad4e; }
-
 .panel-blue a:hover {
   color: #df8a13; }
 
 .panel-salmon {
-  border-color: #e1bc86;
+  border-color: #f0ad4e;
   /*color: #2d2833;*/
   color: #FFF;
   box-shadow: 1px 1px 1px 1px #DEDEDE; }
@@ -6042,6 +6038,15 @@ a:hover, a:focus, a:active {
 
 .m-left {
   margin-left: .6rem; }
+
+.mstl-checking-under-height {
+  min-height: 7.1rem; }
+
+.mstl-checking-panel-padding {
+  padding-top: .5rem; }
+
+.h4-underline:after {
+  content: ""; }
 
 .percent {
   font-size: 23px; }
@@ -6355,5 +6360,22 @@ form#profile-edit {
 
 /*======== 3 STEP FORM ========*/
 /*======== end 3 STEP FORM ========*/
+.icon-red {
+  color: #e54115; }
+
+.icon-blue {
+  color: #5b57e3; }
+
+.icon-green {
+  color: #97c4b0; }
+
+.first-line:before {
+  line-height: 30px;
+  content: "";
+  white-space: pre-wrap;
+  /* or pre-wrap */ }
+
+.user-status {
+  font-size: 1.7rem; }
 
 /*# sourceMappingURL=admin.css.map */

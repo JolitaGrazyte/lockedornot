@@ -1,21 +1,32 @@
+@import "colors";
+
 .panel-msg{
   padding: 1rem;
 }
 
+.rates-panel.panel{
+
+  .panel-heading{
+    min-height: 120px;
+  }
+  border-radius: 0;
+
+}
+
 
 .panel-green {
-  border-color: #97c4b0;
+  border-color: $panel-green;
   box-shadow: 1px 1px 1px 1px #DEDEDE;
 }
 
 .panel-green .panel-heading {
   /*border-color: #17b880;*/
   color: #fdfdfd;
-  background-color: #97c4b0;
+  background-color: $panel-green;
 }
 
 .panel-red {
-  border-color: #e54115;
+  border-color: $panel-red;
 
   /*$site-name*/
   /*border-color: #FB5542;*/
@@ -26,7 +37,7 @@
   /*border-color: #eb3d47;*/
   /*color: #fff;*/
   color: #fdfdfd;
-  background-color: #e54115;
+  background-color: $panel-red;
 }
 
 .panel-red a {
@@ -38,23 +49,15 @@
 }
 
 .panel-yellow {
-  border-color: #f0ad4e;
+  border-color: $panel-salmon;
   box-shadow: 1px 1px 1px 1px #DEDEDE;
 }
 
 
 .panel-yellow .panel-heading {
-  border-color: #f0ad4e;
+  border-color: $panel-salmon;
   color: #fff;
-  background-color: #f0ad4e;
-}
-
-.panel-yellow a {
-  color: #f0ad4e;
-}
-
-.panel-yellow a:hover {
-  color: #df8a13;
+  background-color: $panel-salmon;
 }
 
 .panel-blue {
@@ -64,14 +67,10 @@
 
 
 .panel-blue .panel-heading {
-  border-color: #5b57e3;
+  border-color: $panel-blue;
   color: #fff;
   /*color: #999999;*/
-  background-color: #5b57e3;
-}
-
-.panel-blue a {
-  color: #f0ad4e;
+  background-color: $panel-blue;
 }
 
 .panel-blue a:hover {
@@ -79,7 +78,7 @@
 }
 
 .panel-salmon{
-  border-color: #e1bc86;
+  border-color: $panel-salmon;
   /*color: #2d2833;*/
   color: #FFF;
   box-shadow: 1px 1px 1px 1px #DEDEDE;
@@ -105,7 +104,20 @@
 
 .panel-heading.mostly-checking .pull-right{
   margin-top: -3rem;
+
 }
 .m-left{
   margin-left: .6rem;
+}
+
+.mstl-checking-under-height{
+  min-height: 7.1rem;
+}
+.mstl-checking-panel-padding{
+  padding-top: .5rem;
+}
+
+.h4-underline:after{
+
+  content:"",
 }

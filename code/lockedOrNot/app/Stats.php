@@ -27,7 +27,6 @@ class Stats extends Model
         7 => DaysEnum::sunday,
     ];
 
-
     public function setDateAttribute($date){
 
         $this->attributes['date'] = Carbon::parse($date);
@@ -46,71 +45,6 @@ class Stats extends Model
     public function days(){
         return $this->days;
     }
-
-//    public static function personalStats($user_id)
-//    {
-//        return DB::table('stats')
-//                ->select(DB::raw( 'user_id, created_at, device_state'))
-//                ->where('user_id', $user_id)
-//                ->groupBy('created_at')
-//                ->get();
-//    }
-//
-//    public static function personalStatsWeek($user_id)
-//    {
-//        $now    = Carbon::now();
-//        $start  = $now->subDays(7);
-//
-//        return DB::table('stats')
-//            ->select(DB::raw( 'user_id, created_at, device_state'))
-//            ->where('created_at','>', $start)
-//            ->where('user_id', $user_id)
-//            ->get();
-//    }
-//
-//    public static function statsMonthly($user_id, $month, $state)
-//    {
-//        return DB::table('stats')
-//            ->select(DB::raw( 'count(device_state) as count'))
-//            ->whereRaw('MONTH(created_at) = '.$month)
-//            ->where('user_id', $user_id)
-//            ->where('device_state', $state)
-//            ->get();
-//    }
-//
-//    public static function statsHourly($user_id, $day, $hour, $state){
-//
-//             return DB::table('stats')
-//                 ->select(DB::raw( 'count(device_state) as count'))
-//                 ->whereRaw('DAY(created_at) = '.$day)
-//                 ->whereRaw('HOUR(created_at) = '.$hour)
-//                 ->where('user_id', $user_id)
-//                 ->where('device_state', $state)
-//                 ->get();
-//    }
-//
-//    public static function statsDaily($user_id, $month,  $day ,$state){
-//
-//        return DB::table('stats')
-//            ->select(DB::raw( 'count(device_state) as count, created_at'))
-////            ->whereRaw('YEAR(created_at) = '.$year)
-//            ->whereRaw('MONTH(created_at) = '.$month)
-//            ->whereRaw('DAY(created_at) = '.$day)
-//            ->where('user_id', $user_id)
-//            ->where('device_state', $state)
-//            ->get();
-//    }
-//
-//    public static function statsDailyTotal($user_id, $month,  $day){
-//
-//        return DB::table('stats')
-//            ->select(DB::raw( 'count(device_state) as count, created_at, device_state'))
-////            ->whereRaw('YEAR(created_at) = '.$year)
-//            ->whereRaw('MONTH(created_at) = '.$month)
-//            ->whereRaw('DAY(created_at) = '.$day)
-//            ->where('user_id', $user_id)
-//            ->get();
-//    }
 
     public function scopeLockedStats($q){
         return $q->where('device_state', 1);
@@ -138,6 +72,14 @@ class Stats extends Model
         return $q->whereRaw('HOUR(created_at) = '.$hour);
     }
 
+    public function scopeWeekend($q){
+        return $q->whereRaw('WEEKDAY(created_at) <= 6 AND WEEKDAY(created_at) >= 4');
+    }
+
+    public function scopeWeek($q){
+        return $q->whereRaw('WEEKDAY(created_at) < 4 AND WEEKDAY(created_at) >= 0');
+    }
+
     public function scopeWeekday($q, $day){
         return $q->whereRaw('WEEKDAY(created_at) = '.$day);
     }
@@ -157,7 +99,6 @@ class Stats extends Model
     public function scopeBusiestMonth($q){
         return $q->select(DB::raw('MAX(MONTH(created_at)) AS month'));
     }
-
 
 
 }

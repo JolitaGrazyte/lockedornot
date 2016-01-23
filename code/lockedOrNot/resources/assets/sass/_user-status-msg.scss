@@ -1,0 +1,8 @@
+.first-line:before {
+  line-height: 30px;
+  content:"";
+  white-space: pre-wrap; /* or pre-wrap */
+}
+.user-status{
+  font-size: 1.7rem;
+}
