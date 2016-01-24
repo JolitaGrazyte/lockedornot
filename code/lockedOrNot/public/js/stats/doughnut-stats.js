@@ -13,9 +13,11 @@ $(function(){
 
     var personal_stats_data = [];
     var all_stats_data      = [];
+    //var url = 'http://lockdrnot.local.com/api/personal-stats/'+user_id;
+    var url = 'http://lockedornot.jolitagrazyte.com/api/personal-stats/'+user_id;
 
     $.ajax({
-        url:'http://lockdrnot.local.com/api/personal-stats/'+user_id,
+        url:url,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',
@@ -79,4 +81,4 @@ $(function(){
         }
     });
 
-});
+})();
