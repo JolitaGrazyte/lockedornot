@@ -137,7 +137,7 @@ angular.module('starter')
                         console.log(res.data.username);
 
                         storeResult(res.data.state);
-                        storeUsername(res.data.username);
+                        //storeUsername(res.data.username);
 
                         //console.log('car state: '+result+ ' so it\'s locked' );
 

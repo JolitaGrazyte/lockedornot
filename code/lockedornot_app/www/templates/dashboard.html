@@ -10,11 +10,11 @@
     <ion-content id="ion-content" class="wrapper">
             <div class="row">
                 <div class="text-center">
-                    <h3 class="my-text">Hi {{getUsername()}}! {{state}}</h3>
+                    <h3 class="my-text">Hi {{getUsername()}}!</h3>
                     <h4 id="notification" class="notification"></h4>
                     <!--<h4 class="my-text"> Your car is {{ getState() == 1 ? 'locked':'not locked' }} !!</h4>-->
                     <!--<div class="lock unlocked"></div>-->
-                    <div class="lock"></div>
+                    <div class="lock" ng-class="{ locked:getState() }"></div>
 
                     <!--<div name="lock" class="lock locked"></div>-->
                     <!--<div name="lock" class="lock unlocked"></div>-->
