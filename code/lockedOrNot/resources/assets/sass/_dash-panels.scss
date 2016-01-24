@@ -13,11 +13,24 @@
 
 }
 
+.panel-default .panel-heading{
+  a.active-sort{
+    color: #e54115;
+  }
+}
+
+.panel-default .panel-heading {
+  /*border-color: #17b880;*/
+  //color: #fdfdfd;
+  background-color: #f8f8f8;
+}
+
 
 .panel-green {
   border-color: $panel-green;
   box-shadow: 1px 1px 1px 1px #DEDEDE;
 }
+
 
 .panel-green .panel-heading {
   /*border-color: #17b880;*/

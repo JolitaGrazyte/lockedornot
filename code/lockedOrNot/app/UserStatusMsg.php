@@ -11,7 +11,16 @@ namespace App;
 class UserStatusMsg
 {
 
-    public static function getMsg($status, $name, $count){
+    public static function getMsg($status, $name, $didBetter){
+
+        if($didBetter['others-did-better'] > $didBetter['i-did-better']){
+            $compare_msg = $didBetter['others-did-better'].' other users of "Locked Or Not" did better than you over the past year.';
+        }
+
+        else{
+            $compare_msg ='You did so much better then ' .$didBetter['i-did-better']. ' other users of "Locked Or Not"';
+        }
+
 
         switch($status){
             case 'Problem Locker':
@@ -21,12 +30,12 @@ class UserStatusMsg
                         'f-line'    => 'Oh no, '.$name.', ',
                         'm-body'    => [
                             'You keep forgetting it! Work on it..',
-                            "Work on it, here\\'s a tip: create a pattern for locking your car!",
+                            "Work on it, here's a tip: create a pattern for locking your car!",
                             "You're making it easy for the bad guys! Be aware!",
                         ]
                     ],
 
-                    "compare_msg"   =>  $count.' other user of Locked Or Not  did better then you over the past year.',
+                    "compare_msg"   =>  $compare_msg,
                     'color'         =>  'red'
 
                 ];
@@ -40,10 +49,10 @@ class UserStatusMsg
                         'm-body'     =>  [
                             "looks like even more then a half of the time you forget to lock your car.",
                             "You might wanna do somethin' about it...",
-                            "Create routine, make it a habit!"
+                            "Here is a tip: create routine, make it a habit!"
                         ]
                     ],
-                    "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
+                    "compare_msg"   =>  $compare_msg,
                     'color'         =>  'red'
 
                 ];
@@ -61,7 +70,7 @@ class UserStatusMsg
                         ]
                     ],
 
-                    "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
+                    "compare_msg"   =>  $compare_msg,
                     'color'         =>  'salmon'
 
                 ];
@@ -79,7 +88,7 @@ class UserStatusMsg
                         ]
                     ],
 
-                    "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
+                    "compare_msg"   =>  $compare_msg,
                     'color'         =>  "green"
                 ];
                 break;
@@ -96,7 +105,7 @@ class UserStatusMsg
                         ]
                     ],
 
-                    "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
+                    "compare_msg"   =>  $compare_msg,
                     'color'         =>  "green"
                 ];
                 break;
@@ -113,7 +122,7 @@ class UserStatusMsg
                         ]
                     ],
 
-                    "compare_msg"   =>  $count.' other user of Locked Or Not did better then you over the past year.',
+                    "compare_msg"   =>  $compare_msg,
                     'color'         =>  "green"
                 ];
                 break;

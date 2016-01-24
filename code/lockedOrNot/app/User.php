@@ -61,18 +61,27 @@ class User extends Model implements AuthenticatableContract,
             $query->where('device_state', 1);
         });
     }
-    public function scopeOthersLocked($q, $user){
-        return $q->whereHas('stats', function($query) use($user){
+    public function scopeOthersLocked($q, $user, $date){
+        return $q->whereHas('stats', function($query) use($user, $date){
             $query->where('device_state', 1)
-            ->where('user_id', '!=', $user->id);
-        });
-    }
-
-    public function scopeOthersUnlocked($q, $user){
-        return $q->whereHas('stats', function($query) use($user){
-            $query->where('device_state', 0)
+                ->where('created_at', '>', $date)
                 ->where('user_id', '!=', $user->id);
         });
     }
 
+    public function scopeOthersUnlocked($q, $user, $date){
+        return $q->whereHas('stats', function($query) use($user, $date){
+            $query->where('device_state', 0)
+                ->where('created_at', '>', $date)
+                ->where('user_id', '!=', $user->id);
+        });
+    }
+
+    public function scopeOthersStats($q, $user, $date){
+        return $q->whereHas('stats', function($query) use($user, $date){
+            $query
+                ->where('created_at', '>', $date)
+                ->where('user_id', '!=', $user->id);
+        });
+    }
 }

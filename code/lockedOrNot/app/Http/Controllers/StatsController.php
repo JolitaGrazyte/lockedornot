@@ -70,30 +70,26 @@ class StatsController extends Controller
         else{
 
             $unlocked_devices = $user->devices()->unlocked();
-//          dd($user->devices()->unlocked()->get());
 
             $msg            =   $unlocked_devices->count() == 0 ? "": "Oops, looks like your car is not locked yet! You might wanna do somethin' about it...";
             $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 
             $stats          = $this->authUser->stats;
-            $stats_true     = $user->stats()->unlockedStats()->count(); // car open == 0
-            $locked_stats   = $user->stats()->lockedStats()->count(); // car locked == 1
+            $unlocked       = $user->stats()->unlockedStats()->count(); // car open == 0
+            $locked         = $user->stats()->lockedStats()->count(); // car locked == 1
             $stats_total    = $stats->count();
-            $percent_true   = $stats_total != 0 ? $locked_stats*100/$stats_total : 0;
-            $percent_false  = $stats_total != 0 ? $stats_true*100/$stats_total : 0;
-            $percent_false  = round($percent_false);
-            $percent_true   = round($percent_true);
-
+            $percent_true   = $stats_total != 0 ? $this->countPercent( $unlocked, $stats_total) : 0;
+            $percent_false  = $stats_total != 0 ? $this->countPercent( $locked, $stats_total) : 0;
             $total_daily    = $this->filteredStats($user, $filter, $w_nr, $days);
-//            dd($filter.' '.$w_nr);
-//            dd($total_daily);
 
-            $status         = $this->getUserStatus($percent_true);
+            $status         = $this->getUserStatus($percent_false);
             $panels         = $this->getPanels($user, $status);
-            $support        = $this->getUserStatusAndMsg($percent_true, $user);
-
+            $didBetterCount =  $this->getOthersPercent($user, $percent_true, $percent_false);
+            $support        = $this->getUserStatusAndMsg($percent_false, $user, $didBetterCount);
 
         }
+
+
         $pretty_user_name = str_replace(' ', '-', $user->full_name);
 
         if(empty($total_daily)){
@@ -104,8 +100,8 @@ class StatsController extends Controller
         return view('stats.index',
             compact(
                 'user',
-                'stats_true',
-                'locked_stats',
+                'unlocked',
+                'locked',
                 'stats_total',
                 'device_state',
                 'percent_true',
@@ -165,19 +161,59 @@ class StatsController extends Controller
                     ];
                 }
 
-
             }
 
         return $stats;
     }
 
-    private function getOthersPercent($user){
+    private function countPercent( $stats, $total){
 
-        $othersLockedCount      = User::othersLocked($user)->count();
-        $othersUnlockedCount    = User::othersUnlocked($user)->count();
+        $p          =   100/$total*$stats;
+        $percent    =   round($p);
 
-        dd($othersLockedCount);
+        return $percent;
     }
+
+    private function getOthersPercent($user, $p_unlocked, $p_locked){
+
+        $date = Carbon::now()->subMonths(12);
+//        dd($year);
+
+        $othersAllStats         = User::othersStats($user, $date)->get();
+//        dd($othersAllStats);
+
+        $i_better = 0;
+        $others_better = 0;
+
+        foreach($othersAllStats as $user){
+
+            $locked     = $user->stats()->lockedPastYear($date)->count();
+            $unlocked   = $user->stats()->unlockedPastYear($date)->count();
+            $total      = $user->stats()->count();
+            $others_p_unlocked =  $this->countPercent( $unlocked, $total);
+            $other_p_locked     = $this->countPercent( $locked, $total);
+
+            if($p_unlocked < $others_p_unlocked || $p_locked > $other_p_locked){
+                $i_better += 1;
+            }
+            else{
+                $others_better += 1;
+            }
+
+            $stats = ['others-did-better' =>$others_better, 'i-did-better' => $i_better];
+
+        }
+
+//        dd($stats);
+//        $othersLockedCount      = User::othersLocked($user, $date)->count();
+//        $othersUnlockedCount    = User::othersUnlocked($user, $date)->count();
+
+//        dd($othersUnlockedCount);
+//        dd($othersLockedCount);
+
+        return $stats;
+    }
+
 
     private function getWeek($side, $nr){
 
@@ -230,7 +266,7 @@ class StatsController extends Controller
     {
         if($percent_true == 0 ) $status = 'New Locker';
 
-        if($percent_true < 10 && $percent_true > 0 ){
+        if($percent_true > 0 && $percent_true < 10 ){
             $status = StatusEnum::PROBLEM_LOCKER;
         }
 
@@ -260,14 +296,14 @@ class StatsController extends Controller
     }
 
 
-    private function getUserStatusAndMsg($percent_true, $user)
+    private function getUserStatusAndMsg($percent_true, $user, $did_better)
     {
         $name  =    $user->first_name;
         $status = $this->getUserStatus($percent_true);
 
-        $count = 100;
+//        $count = 100;
 
-        return UserStatusMsg::getMsg($status, $name, $count);
+        return UserStatusMsg::getMsg($status, $name, $did_better);
 
     }
 

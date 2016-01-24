@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Locked Or Not">
     {{--<meta name="csrf-token" content="{{ csrf_token() }}">--}}
-    <meta name="author" content="">
+    <meta name="author" content="Jolita Grazyte">
     {{--<link rel="icon" href="../../favicon.ico">--}}
 
     <title> Locked Or Not | @yield('title') </title>
@@ -32,14 +32,10 @@
     <script src="{{ url('js/jquery.steps.min.js') }}"></script>
     <script src="{{ url('js/jquery.validate.min.js') }}"></script>
 
-    {{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--}}
+
 
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
-    @if(!Request::is('/'))
-    <link rel="stylesheet" href="{{ url('css/dashboard-app.css') }}">
-    @endif
-{{--    <link rel="stylesheet" href="{{ url('css/my-styles.css') }}">--}}
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
+
 
 </head>
 @show
