@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function()
     resource('profile', 'ProfileController');
 
     get('profile', function(){
-        return redirect()->to('how-i\'m-doing');
+        return redirect()->to("how-i'm-doing");
     });
 
     get('{name}/personal-stats',    ['as' => 'personal-stats',  'uses' => 'StatsController@personalStats']);
@@ -57,16 +57,11 @@ Route::group(['middleware' => 'auth'], function()
     //get state: locked or not on web-page
     get('device-state/{id}', 'DeviceController@response');
 
-//    get('{name}/{week}', ['as' => 'mostly-checked-per-week', 'uses' => 'StatsController@personalStats']);
-//    get('{name}/{month}',['as' => 'mostly-checked-per-month', 'uses' => 'StatsController@personalStats']);
     get('mostly-checked-per/{week}', ['as' => 'mostly-checked-filter', 'uses' => 'StatsController@index']);
     get('mostly-checked-per/{month}/{s}/{i}', ['as' => 'filter-interval-plus', 'uses' => 'StatsController@index']);
     get('mostly-checked-per/{year}/{s}/{i}', ['as' => 'filter-interval-minus', 'uses' => 'StatsController@index']);
 
 });
-
-
-//get('stats', ['as' => 'stats', 'uses' => 'StatsController@index']);
 
 
 Route::group(['prefix' => 'api'], function()
@@ -76,8 +71,9 @@ Route::group(['prefix' => 'api'], function()
     //    get('lockedornot',    'DeviceController@jsonResponse');
     get('lockedornot',          'DeviceController@getState');
 
-    //Todo: check, this is not working!
-    post('signup', 'AuthenticateController@register');
+
+//    //Todo: check, this is not working!
+//    post('signup', 'AuthenticateController@register');
 
 });
 
@@ -94,14 +90,3 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
 
 //Pusher real time notifications
 get('/bridge/{device_nr}/{id}', 'DeviceController@putState');
-
-
-//get('/broadcast', function() {
-//    event(new DeviceStateChanged('Broadcasting in Laravel using Pusher!'));
-//
-//    return view('welcome');
-//});
-//
-//get('form', function(){
-//   return view('auth.step-register');
-//});

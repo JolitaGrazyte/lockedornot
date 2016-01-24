@@ -83,9 +83,9 @@ class StatsController extends Controller
             $total_daily    = $this->filteredStats($user, $filter, $w_nr, $days);
 
             $status         = $this->getUserStatus($percent_false);
-            $panels         = $this->getPanels($user, $status);
             $didBetterCount =  $this->getOthersPercent($user, $percent_true, $percent_false);
             $support        = $this->getUserStatusAndMsg($percent_false, $user, $didBetterCount);
+            $panels         = $this->getPanels($user, $support);
 
         }
 
@@ -225,6 +225,7 @@ class StatsController extends Controller
 
     private function getPanels($user, $status){
 
+//        dd($status);
         $stats = $user->stats;
         $stats_true     = $user->stats()->unlockedStats()->count(); // car open == 0
         $locked_stats   = $user->stats()->lockedStats()->count(); // car locked == 1
@@ -252,8 +253,8 @@ class StatsController extends Controller
             ],
             [
                 'title' =>  "This is your status that depends on your statistics.",
-                'color' =>  'salmon',
-                'stats' =>  $status,
+                'color' =>  $status['color'],
+                'stats' =>  $status['status'],
                 'name'  =>  'Your status'
             ],
         ];
@@ -314,8 +315,8 @@ class StatsController extends Controller
             ],
 
             'all_users'  => [
-                'weekend'   => Stats::weekend()->count(),
-                'weekdays'  => Stats::week()->count(),
+                'weekend'   => Stats::weekend() ->where('user_id', '!=', Auth::user()->id)->count(),
+                'weekdays'  => Stats::week() ->where('user_id', '!=', Auth::user()->id)->count(),
             ]
 
         ];

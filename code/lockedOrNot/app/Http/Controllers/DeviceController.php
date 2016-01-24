@@ -35,6 +35,7 @@ class DeviceController extends Controller
             ['device_state' => $device->state, 'text' => $text]
         );
 
+
     }
 
     /**
