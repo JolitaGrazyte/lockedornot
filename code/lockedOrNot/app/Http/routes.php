@@ -90,7 +90,7 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
 
 //Pusher real time notifications
 get('/bridge/{device_nr}/{id}', 'DeviceController@putState');
-get('/add', 'DeviceController@postState');
+post('/add', 'DeviceController@postState');
 
 
 //get('/broadcast', function() {
