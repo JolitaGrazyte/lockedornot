@@ -8,7 +8,7 @@
   right: -.5rem;
 }
 
-.rates-panel:not(:last-child) > .panel{
+.rates-panel > .panel{
 
   .panel-heading{
     padding-top: 40px;
@@ -17,14 +17,14 @@
   border-radius: 0;
 
 }
-.rates-panel:last-child > .panel{
-
-  .panel-heading{
-    padding-top: 20px;
-    //min-height: 120px;
-  }
-
-}
+//.rates-panel:last-child > .panel{
+//
+//  .panel-heading{
+//    padding-top: 20px;
+//    //min-height: 120px;
+//  }
+//
+//}
 .rates-panel > .panel{
 
   .panel-heading{
@@ -32,6 +32,7 @@
   }
 
 }
+
 
 .panel-default .panel-heading{
   a.active-sort{
@@ -44,6 +45,7 @@
   //color: #fdfdfd;
   background-color: #f8f8f8;
 }
+
 
 
 .panel-green {
