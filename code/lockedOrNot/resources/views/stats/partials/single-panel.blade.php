@@ -1,5 +1,5 @@
-<div class="col-lg-3 col-sm-6">
-    <div class="rates-panel panel panel-{{ $panel['color'] }}"
+<div class="col-lg-3 col-sm-6 rates-panel">
+    <div class="panel panel-{{ $panel['color'] }}"
          title="{{ $panel['title'] }}">
         <div class="panel-heading">
             <div class="row">

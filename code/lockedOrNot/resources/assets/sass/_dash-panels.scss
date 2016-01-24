@@ -3,13 +3,33 @@
 .panel-msg{
   padding: 1rem;
 }
+.status-msg{
+  width: 102%;
+  right: -.5rem;
+}
 
-.rates-panel.panel{
+.rates-panel:not(:last-child) > .panel{
 
   .panel-heading{
-    min-height: 120px;
+    padding-top: 40px;
+    //min-height: 120px;
   }
   border-radius: 0;
+
+}
+.rates-panel:last-child > .panel{
+
+  .panel-heading{
+    padding-top: 20px;
+    //min-height: 120px;
+  }
+
+}
+.rates-panel > .panel{
+
+  .panel-heading{
+    min-height: 125px;
+  }
 
 }
 
@@ -137,3 +157,13 @@
 .pull-right.me-vs-others{
   margin-top: -43px;
 }
+
+
+@media (max-width: 767px){
+
+  .status-msg{
+    width: 100%;
+    right: 0;
+  }
+}
+
