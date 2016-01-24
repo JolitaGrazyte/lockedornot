@@ -204,9 +204,10 @@ class StatsController extends Controller
                 $others_better += 1;
             }
 
-            $stats = ['others-did-better' =>$others_better, 'i-did-better' => $i_better];
+
 
         }
+        $stats = ['others-did-better' =>$others_better, 'i-did-better' => $i_better];
 
         return $stats;
     }
