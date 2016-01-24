@@ -92,7 +92,11 @@
                             <i class="fa fa-angle-double-left"> </i><span> previous {{ $filter }}</span>
                         </a>
                     </div>
+
                     @if($w_nr != 0)
+                        <div class="col-lg-4 pull-left col-lg-offset-2">
+                            <h3>{{ $total_daily[$day]['diff'] }}</h3>
+                        </div>
                         <div class="col-lg-2 pull-right next-link">
                             <a href="{{ route('filter-interval-minus', [$filter, 'fw', $w_nr]) }}">
                                 <span>next {{ $filter }} </span> <i class="fa fa-angle-double-right"> </i>
