@@ -54,6 +54,14 @@ class Stats extends Model
         return $q->where('device_state', 0);
     }
 
+    public function scopeLockedPastYear($q, $date){
+        return $q->where('device_state', 1)->where('created_at', '>', $date);
+    }
+
+    public function scopeUnlockedPastYear($q, $date){
+        return $q->where('device_state', 0)->where('created_at', '>', $date);
+    }
+
     public function scopeWeeklyStats($q, $week, $day){
         return $q->whereRaw('WEEK(created_at, 3) = '.$week. ' AND WEEKDAY(created_at) = '.$day);
     }

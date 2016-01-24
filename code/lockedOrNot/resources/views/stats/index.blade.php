@@ -20,26 +20,8 @@
 
     <div class="col-lg-4 pull-right">
         <div class="row">
-            <div class="col-lg-12">
-
-                <div class="panel panel-{{ $support['color'] }} center border-alert panel-msg">
-                    <div class="panel-heading user-status">
-                        <div class="first-line">
-                            {{ $support['msg']['f-line'] }}
-                        </div>
-
-                        @foreach($support['msg']['m-body'] as $line)
-                        <div>
-                            {{ $line }}
-                        </div>
-                        @endforeach
-                        <hr>
-
-                        {{--Todo--}}
-                        <p>{{ $support['compare_msg'] }} </p>
-                    </div>
-
-                </div>
+            <div class="col-lg-12 status-msg">
+                @include('stats.partials.status-msg')
             </div>
         </div>
     </div>

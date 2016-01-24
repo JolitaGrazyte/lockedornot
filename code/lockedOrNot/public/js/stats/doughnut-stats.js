@@ -13,9 +13,11 @@ $(function(){
 
     var personal_stats_data = [];
     var all_stats_data      = [];
+    //var url = 'http://lockdrnot.local.com/api/personal-stats/'+user_id;
+    var url = 'http://lockedornot.jolitagrazyte.com/api/personal-stats/'+user_id;
 
     $.ajax({
-        url:'http://lockdrnot.local.com/api/personal-stats/'+user_id,
+        url:url,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',
@@ -55,11 +57,11 @@ $(function(){
             var o_weekend_icon = document.getElementById('o-weekend-icon');
             o_weekend_icon.style.color = o_colour;
 
-            personal_stats_data.push({value: u_weekday_data, color: "#97c4b0", label: 'weekdays'});
-            personal_stats_data.push({value: u_weekend_data, color: u_colour, label: 'weekends'});
+            personal_stats_data.push({value: Math.round(u_weekday_data), color: "#97c4b0", label: 'weekdays'});
+            personal_stats_data.push({value: Math.round(u_weekend_data), color: u_colour, label: 'weekends'});
 
-            all_stats_data.push({value: o_weekend_data, color: o_colour, label: 'weekends'});
-            all_stats_data.push({value: o_weekday_data, color: "#97c4b0", label: 'weekdays'});
+            all_stats_data.push({value: Math.round(o_weekend_data), color: o_colour, label: 'weekends'});
+            all_stats_data.push({value: Math.round(o_weekday_data), color: "#97c4b0", label: 'weekdays'});
 
             var options = {
                 segmentStrokeColor  : "#FFF",
@@ -72,11 +74,11 @@ $(function(){
             new Chart(d_stats).Doughnut(personal_stats_data, options);
             new Chart(all_users_dstats).Doughnut(all_stats_data, options);
 
-            u_weekend.innerHTML     = u_weekend_data+'%';
-            u_weekdays.innerHTML    = u_weekday_data+'%';
-            o_weekend.innerHTML     = o_weekend_data+'%';
-            o_weekdays.innerHTML    = o_weekday_data+'%';
+            u_weekend.innerHTML     = Math.round(u_weekend_data)+'%';
+            u_weekdays.innerHTML    = Math.round(u_weekday_data)+'%';
+            o_weekend.innerHTML     = Math.round(o_weekend_data)+'%';
+            o_weekdays.innerHTML    = Math.round(o_weekday_data)+'%';
         }
     });
 
-});
+})();

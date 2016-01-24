@@ -5973,10 +5973,27 @@ a:hover, a:focus, a:active {
 .panel-msg {
   padding: 1rem; }
 
-.rates-panel.panel {
+.status-msg {
+  width: 102%;
+  right: -.5rem; }
+
+.rates-panel:not(:last-child) > .panel {
   border-radius: 0; }
-  .rates-panel.panel .panel-heading {
-    min-height: 120px; }
+  .rates-panel:not(:last-child) > .panel .panel-heading {
+    padding-top: 40px; }
+
+.rates-panel:last-child > .panel .panel-heading {
+  padding-top: 20px; }
+
+.rates-panel > .panel .panel-heading {
+  min-height: 125px; }
+
+.panel-default .panel-heading a.active-sort {
+  color: #e54115; }
+
+.panel-default .panel-heading {
+  /*border-color: #17b880;*/
+  background-color: #f8f8f8; }
 
 .panel-green {
   border-color: #97c4b0;
@@ -6063,6 +6080,11 @@ a:hover, a:focus, a:active {
 
 .pull-right.me-vs-others {
   margin-top: -43px; }
+
+@media (max-width: 767px) {
+  .status-msg {
+    width: 100%;
+    right: 0; } }
 
 .percent {
   font-size: 23px; }

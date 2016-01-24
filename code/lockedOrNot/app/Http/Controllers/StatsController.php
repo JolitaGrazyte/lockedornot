@@ -70,30 +70,26 @@ class StatsController extends Controller
         else{
 
             $unlocked_devices = $user->devices()->unlocked();
-//          dd($user->devices()->unlocked()->get());
 
             $msg            =   $unlocked_devices->count() == 0 ? "": "Oops, looks like your car is not locked yet! You might wanna do somethin' about it...";
             $device_status  =   $unlocked_devices->count() == 0 ? 'locked' : 'unlocked';
 
             $stats          = $this->authUser->stats;
-            $stats_true     = $user->stats()->unlockedStats()->count(); // car open == 0
-            $locked_stats   = $user->stats()->lockedStats()->count(); // car locked == 1
+            $unlocked       = $user->stats()->unlockedStats()->count(); // car open == 0
+            $locked         = $user->stats()->lockedStats()->count(); // car locked == 1
             $stats_total    = $stats->count();
-            $percent_true   = $stats_total != 0 ? $locked_stats*100/$stats_total : 0;
-            $percent_false  = $stats_total != 0 ? $stats_true*100/$stats_total : 0;
-            $percent_false  = round($percent_false);
-            $percent_true   = round($percent_true);
-
+            $percent_true   = $stats_total != 0 ? $this->countPercent( $unlocked, $stats_total) : 0;
+            $percent_false  = $stats_total != 0 ? $this->countPercent( $locked, $stats_total) : 0;
             $total_daily    = $this->filteredStats($user, $filter, $w_nr, $days);
-//            dd($filter.' '.$w_nr);
-//            dd($total_daily);
 
-            $status         = $this->getUserStatus($percent_true);
-            $panels         = $this->getPanels($user, $status);
-            $support        = $this->getUserStatusAndMsg($percent_true, $user);
-
+            $status         = $this->getUserStatus($percent_false);
+            $didBetterCount =  $this->getOthersPercent($user, $percent_true, $percent_false);
+            $support        = $this->getUserStatusAndMsg($percent_false, $user, $didBetterCount);
+            $panels         = $this->getPanels($user, $support);
 
         }
+
+
         $pretty_user_name = str_replace(' ', '-', $user->full_name);
 
         if(empty($total_daily)){
@@ -104,8 +100,8 @@ class StatsController extends Controller
         return view('stats.index',
             compact(
                 'user',
-                'stats_true',
-                'locked_stats',
+                'unlocked',
+                'locked',
                 'stats_total',
                 'device_state',
                 'percent_true',
@@ -149,6 +145,7 @@ class StatsController extends Controller
 
                     $subFilter = 'sub'.$filter.'s';
                     $carbon = Carbon::now()->$subFilter($nr);
+//                    dd(Carbon::now()->subYears(2)->diffForHumans());
 
                     if($filter == 'week') $f = $carbon->weekOfYear;
                     else{
@@ -162,22 +159,59 @@ class StatsController extends Controller
                         'total'     => $user->stats()->$scope($f, $key-1)->count(),
                         'locked'    => $user->stats()->lockedStats()->$scope($f, $key-1)->count(),
                         'unlocked'  => $user->stats()->unlockedStats()->$scope($f, $key-1)->count(),
+                        'diff'      =>  $carbon->diffForHumans()
                     ];
                 }
-
 
             }
 
         return $stats;
     }
 
-    private function getOthersPercent($user){
+    private function countPercent( $stats, $total){
 
-        $othersLockedCount      = User::othersLocked($user)->count();
-        $othersUnlockedCount    = User::othersUnlocked($user)->count();
+        $p          =   100/$total*$stats;
+        $percent    =   round($p);
 
-        dd($othersLockedCount);
+        return $percent;
     }
+
+    private function getOthersPercent($user, $p_unlocked, $p_locked){
+
+        $stats = [];
+        $date = Carbon::now()->subMonths(12);
+//        dd($year);
+
+        $othersAllStats         = User::othersStats($user, $date)->get();
+//        dd($othersAllStats);
+
+        $i_better = 0;
+        $others_better = 0;
+
+
+        foreach($othersAllStats as $user){
+
+            $locked     = $user->stats()->lockedPastYear($date)->count();
+            $unlocked   = $user->stats()->unlockedPastYear($date)->count();
+            $total      = $user->stats()->count();
+            $others_p_unlocked =  $this->countPercent( $unlocked, $total);
+            $other_p_locked     = $this->countPercent( $locked, $total);
+
+            if($p_unlocked < $others_p_unlocked || $p_locked > $other_p_locked){
+                $i_better += 1;
+            }
+            else{
+                $others_better += 1;
+            }
+
+
+
+        }
+        $stats = ['others-did-better' =>$others_better, 'i-did-better' => $i_better];
+
+        return $stats;
+    }
+
 
     private function getWeek($side, $nr){
 
@@ -192,6 +226,7 @@ class StatsController extends Controller
 
     private function getPanels($user, $status){
 
+//        dd($status);
         $stats = $user->stats;
         $stats_true     = $user->stats()->unlockedStats()->count(); // car open == 0
         $locked_stats   = $user->stats()->lockedStats()->count(); // car locked == 1
@@ -219,8 +254,8 @@ class StatsController extends Controller
             ],
             [
                 'title' =>  "This is your status that depends on your statistics.",
-                'color' =>  'salmon',
-                'stats' =>  $status,
+                'color' =>  $status['color'],
+                'stats' =>  $status['status'],
                 'name'  =>  'Your status'
             ],
         ];
@@ -230,7 +265,7 @@ class StatsController extends Controller
     {
         if($percent_true == 0 ) $status = 'New Locker';
 
-        if($percent_true < 10 && $percent_true > 0 ){
+        if($percent_true > 0 && $percent_true < 10 ){
             $status = StatusEnum::PROBLEM_LOCKER;
         }
 
@@ -260,14 +295,13 @@ class StatsController extends Controller
     }
 
 
-    private function getUserStatusAndMsg($percent_true, $user)
+    private function getUserStatusAndMsg($percent_true, $user, $did_better)
     {
         $name  =    $user->first_name;
         $status = $this->getUserStatus($percent_true);
 
-        $count = 100;
 
-        return UserStatusMsg::getMsg($status, $name, $count);
+        return UserStatusMsg::getMsg($status, $name, $did_better);
 
     }
 
@@ -282,195 +316,14 @@ class StatsController extends Controller
             ],
 
             'all_users'  => [
-                'weekend'   => Stats::weekend()->count(),
-                'weekdays'  => Stats::week()->count(),
+                'weekend'   => Stats::weekend() ->where('user_id', '!=', Auth::user()->id)->count(),
+                'weekdays'  => Stats::week() ->where('user_id', '!=', Auth::user()->id)->count(),
             ]
 
         ];
 
-//        dd($stats);
 
         return Response::json($stats);
     }
 
-//
-//    /**
-//     * Display a listing of the resource.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function _index()
-//    {
-//        $stats =  $this->json_stats();
-//        return view('stats.index', compact('stats'));
-//    }
-
-
-
-//    public function json_stats(){
-//
-//        $car_color_stats    = $this->all_stats('car_color');
-//        $car_brand_stats    = $this->all_stats('car_brand');
-//        $city_stats         = $this->all_stats('city');
-//
-//        dd($car_brand_stats);
-//
-//        dd($car_color_stats);
-
-//        dd($city_stats);
-
-//        return $car_color_stats;
-//
-//    }
-
-//    /**
-//     * lookup how many different distinct colors or brands there are
-//     *
-//     * @param null $sort
-//     * @return mixed
-//     */
-//    private function all_stats($sort=null)
-//    {
-//
-//       $distincts = DB::table('users')
-//           ->select(DB::raw( 'count('.$sort.') as value, '.$sort))
-//           ->groupBy($sort)
-//           ->get();
-
-//        dd($distincts);
-
-//        $jsonstats = Response::json($distincts);
-//        dd($jsonstats);
-
-//       return $jsonstats;
-
-//       return json_encode($distincts);
-
-//       return Response::json($distincts);
-//
-//    }
-
-//    public function personalStats($name, $filter){
-//
-//        $stats='';
-//        return $stats;
-//    }
-//
-//    public function personalStats($name)
-//    {
-//        $stats = [];
-//        $how_freq_check = 0;
-//        $how_freq_true = 0;
-//        $how_freq_false = 0;
-//
-//        return $stats;
-//    }
-
-
-//    public function monthly_stats_json($id)
-//    {
-//        $paranoia       = [];
-//        $real_danger    = [];
-//
-//        for($i=1; $i<= 12; ++$i){
-//            $month = $i;
-//            $paranoia_stats = Stats::statsMonthly($id, $month, 0);
-//            $real_stats = Stats::statsMonthly($id, $month, 1);
-//
-//            $paranoia[]     = $paranoia_stats[0]->count;
-//            $real_danger[]  = $real_stats[0]->count;
-//            $total = $paranoia_stats[0]->count + $real_stats[0]->count;
-//            $total_stats[] = $total;
-//        }
-//
-//        $stats = ['paranoia'=>$paranoia, 'real_danger' => $real_danger, 'total_stats' => $total_stats ];
-//
-//
-//        return Response::json($stats);
-//    }
-//
-//    public function punch_stats_json($id)
-//    {
-////        $p_stats = Stats::statsHourly($id, 5, 22, 0);
-////        dd($p_stats);
-//
-//        $interval = 3600000;
-//
-//        for($d=0; $d<7; ++$d){
-//            for($h=0; $h<24; ++$h){
-//
-//                $p_stats[$d] = Stats::statsHourly($id, $d, $h, 0);
-//                $paranoia[]     = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $p_stats[$d][0]->count*11]];
-//
-//                $r_stats[$d] = Stats::statsHourly($id, $d, $h, 1);
-//                $real_danger[]     = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $r_stats[$d][0]->count*11]];
-//
-////                dd($p_stats[$d][0]->count);
-//                $total = $p_stats[$d][0]->count + $r_stats[$d][0]->count;
-//                $total_stats[] = ['y'=>$d , 'x'=> $interval * $h, 'marker'=>['radius'=> $total*11]];
-//
-//            }
-//        }
-//
-////        dd($stats);
-//        $stats = ['paranoia'=>$paranoia, 'real'=> $real_danger, 'total' => $total_stats ];
-//
-//        return Response::json($stats);
-//
-//    }
-
-//    public function am_stats($id){
-//
-//        $paranoia       = [];
-//        $real_danger    = [];
-////
-//        $stats = [];
-//
-//        $now = Carbon::now();
-//
-//                $month = $now->month;
-//
-//                for($d=1; $d<=8; ++$d){
-//
-//                    $day = $d;
-//                    $paranoia_stats = Stats::statsDaily($id, $month, $day, 0);
-//                    $real_stats     = Stats::statsDaily($id, $month, $day, 1);
-//                    $total_stats    = Stats::statsDailyTotal($id, $month, $day);
-//
-//                    if($total_stats[0]->count != 0){
-//
-//                        $total[] = [
-//                            'date'  => substr($total_stats[0]->created_at, 0, 10),
-//                            'value' => $total_stats[0]->count,
-//                            'state' => $total_stats[0]->device_state
-//                        ];
-//
-//                        $stats[] = [
-//                            'date'      =>  substr($total_stats[0]->created_at, 0, 10),
-//                            'total'     =>  $total_stats[0]->count != 0 ? $total_stats[0]->count: 0,
-//                            'paranoia'  =>  $paranoia_stats[0]->count != 0 ? $paranoia_stats[0]->count : 0,
-//                            'real'      =>  $real_stats[0]->count != 0 ? $real_stats[0]->count : 0
-//                        ];
-//
-//                    }
-//
-//                    if($paranoia_stats[0]->count != 0){
-//                        $paranoia[] = [
-//                            'date'  => substr($paranoia_stats[0]->created_at, 0, 10),
-//                            'value' => $paranoia_stats[0]->count
-//                        ];
-//
-//                    }
-//
-//                    if( $real_stats[0]->count != 0){
-//                        $real_danger[]  = [
-//                            'date'  => substr($real_stats[0]->created_at, 0, 10),
-//                            'value' => $real_stats[0]->count
-//                        ];
-//                    }
-//
-//                }
-//
-//        return Response::json($stats);
-//    }
 }

@@ -2,37 +2,74 @@
 html, body{
     height: 100%;
     overflow-y: hidden;
+
+    font-family: "Roboto Condensed";
 }
 
 .wrapper{
-
-    /*background-color: #fb382e;*/
-    background: #000000;
+    background: #111;
     padding-top: 50px;
+    /*color: #f1f2f3;*/
+}
+h4.notification{
+    color: #f1f2f3;
+}
+
+.my-text{
+    color: #f1f2f3;
 }
 
 .ion-log-out{
     cursor: pointer;
 }
 
-.fa{
-    font-size: 10rem;
-    color: #3b3b3b;
+.lock{
+    width: 400px;
+    height: 400px;
+    background-size: 100% 100%;
 }
 
+.unlocked{
+    background-image: url("../img/unlocked-glow.png");
+    /*display: none;*/
+}
 .locked{
-    background-color: #50bc57;
+    background-image: url("../img/locked-glow.png");
+    /*display: none;*/
 }
 
 .bar{
 
     height: 70px;
     line-height: 50px;
-    color: #fb5542;
+    /*color: #e54115;*/
 }
 
+.bar a{
+    padding-top: .8rem;
+    color: #5b57e3;
+    text-transform: uppercase;
+}
+.my-btn{
+    background:#5b57e3;
+    color: #f1f2f3;
+    text-transform: uppercase;
+
+}
+.my-btn:hover{
+    background:  #e54115;
+    color: #f1f2f3;
+}
+
+
+a:active, a:hover, a:focus{
+    color: #e54115;
+}
+
+
 .login{
-    margin-top: 200px;
+    padding-top: 2rem;
+    margin-top: 100px;
 }
 .logo-wrapper{
     position: relative;
@@ -44,22 +81,19 @@ html, body{
     width: 160px;
     height: 58px;
     background-size: 100% 100%;
-    background-image: url("../img/locked-logo-2.png");
+    background-image: url("../img/logo-1-dark-2.png");
 }
+.login-logo{
+    margin-top: 60px;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 120px;
+    background-size: 100% 100%;
+    background-image: url("../img/logo-1-dark-2.png");
 
-/*.css-typing*/
-/*{*/
-    /*width: 30em;*/
-    /*white-space:nowrap;*/
-    /*overflow:hidden;*/
-    /*-webkit-animation: type 5s steps(50, end);*/
-    /*animation: type 5s steps(50, end);*/
-/*}*/
-
-/*@keyframes type{*/
-    /*from { width: 0; }*/
-/*}*/
-
-/*@-webkit-keyframes type{*/
-    /*from { width: 0; }*/
-/*}*/
+}
+.padding{
+    padding-top: 200px;
+}

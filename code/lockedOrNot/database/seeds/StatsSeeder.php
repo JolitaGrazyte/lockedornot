@@ -15,6 +15,5 @@ class StatsSeeder extends Seeder
         DB::table('stats')->delete();
 
 
-
     }
 }

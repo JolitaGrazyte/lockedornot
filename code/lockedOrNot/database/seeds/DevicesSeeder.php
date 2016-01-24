@@ -19,6 +19,15 @@ class DevicesSeeder extends Seeder
         foreach($users as $user)
         {
 
+            if($user->id == 1){
+                $devices[] =
+
+                    [
+                        'device_nr'     => 'LON1111',
+                        'state'         => 0,
+                        'user_id'       => $user->id
+                    ];
+            }
             $devices[] =
 
                 [

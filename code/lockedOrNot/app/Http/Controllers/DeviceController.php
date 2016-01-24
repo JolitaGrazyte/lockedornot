@@ -25,7 +25,7 @@ class DeviceController extends Controller
         $device->state = $state;
         $device->save();
 
-        $text = $state == 0 ? 'Your car is not locked!!' : 'All good. Your car is locked!';
+        $text = $state == 0 ? 'Oh no! Your car is not locked!!' : 'All good. Your car is locked!';
 
         $pusher = App::make('pusher');
 
@@ -34,6 +34,7 @@ class DeviceController extends Controller
             'new-notification',
             ['device_state' => $device->state, 'text' => $text]
         );
+
 
     }
 

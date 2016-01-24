@@ -7,10 +7,16 @@
         <div class="pull-right">
             <ul class="inline-list">
                 <li>see it:</li>
-                <li><a href="{{ url("how-i'm-doing") }}" class="active-sort">total</a> | </li>
-                <li><a href="{{ route('mostly-checked-filter', ['week'])  }}">per week</a> | </li>
-                <li><a href="{{ route('mostly-checked-filter', ['month']) }}">per month</a> | </li>
-                <li><a href="{{ route('mostly-checked-filter', ['year']) }}">per year</a></li>
+                <li><a href="{{ url("how-i'm-doing") }}" class="{{ Request::is("how-i'm-doing") ? 'active-sort' :'' }}">total</a> | </li>
+                <li>
+                    <a class="{{ Request::is('*/week') || Request::is('*/week/*') ? 'active-sort' :'' }}"
+                       href="{{ route('mostly-checked-filter', ['week'])  }}">per week</a> | </li>
+                <li>
+                    <a class="{{ Request::is('*/month') || Request::is('*/month/*') ? 'active-sort' :'' }}"
+                       href="{{ route('mostly-checked-filter', ['month']) }}">per month</a> | </li>
+                <li>
+                    <a class="{{ Request::is('*/year') || Request::is('*/year/*') ? 'active-sort' :'' }}"
+                       href="{{ route('mostly-checked-filter', ['year']) }}">per year</a></li>
             </ul>
         </div>
     </div>
@@ -86,7 +92,11 @@
                             <i class="fa fa-angle-double-left"> </i><span> previous {{ $filter }}</span>
                         </a>
                     </div>
+
                     @if($w_nr != 0)
+                        <div class="col-lg-4 pull-left col-lg-offset-2">
+                            <h3>{{ $total_daily[$day]['diff'] }}</h3>
+                        </div>
                         <div class="col-lg-2 pull-right next-link">
                             <a href="{{ route('filter-interval-minus', [$filter, 'fw', $w_nr]) }}">
                                 <span>next {{ $filter }} </span> <i class="fa fa-angle-double-right"> </i>

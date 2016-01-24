@@ -2,9 +2,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             {{--<i class="fa fa-bar-chart-o fa-fw"></i>--}}
-            <h4>Weekdays vs weekend</h4>
+            <h4>Weekdays vs Weekend</h4>
             <div class="pull-right me-vs-others">
-                <h4>me vs others</h4>
+                <h4>Me vs Others</h4>
             </div>
         </div>
         <div class="panel-body">
