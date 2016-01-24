@@ -90,3 +90,15 @@ Route::group(['prefix' => 'api', 'middleware' => 'auth'], function()
 
 //Pusher real time notifications
 get('/bridge/{device_nr}/{id}', 'DeviceController@putState');
+post('/add', 'DeviceController@postState');
+
+
+//get('/broadcast', function() {
+//    event(new DeviceStateChanged('Broadcasting in Laravel using Pusher!'));
+//
+//    return view('welcome');
+//});
+//
+//get('form', function(){
+//   return view('auth.step-register');
+//});

@@ -38,6 +38,29 @@ class DeviceController extends Controller
 
     }
 
+
+    public function poststate(Request $request)
+    {
+
+        $device_nr = $request->id;
+        $state      = $request->data;
+
+        $device = Device::where('device_nr', $device_nr)->first();
+        $device->state = $state;
+        $device->save();
+
+        $text = $state == 0 ? 'Your car is not locked!!' : 'All good. Your car is locked!';
+
+        $pusher = App::make('pusher');
+
+        $pusher->trigger(
+            'notifications',
+            'new-notification',
+            ['device_state' => $device->state, 'text' => $text]
+        );
+    }
+
+
     /**
      * Display a listing of the resource.
      *
