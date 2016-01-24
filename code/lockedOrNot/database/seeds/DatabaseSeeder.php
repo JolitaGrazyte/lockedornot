@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UsersSeeder::class);
         $this->call(DevicesSeeder::class);
-//        factory(\App\Stats::class, 200)->create();
+        factory(\App\Stats::class, 200)->create();
 
         Model::reguard();
     }
