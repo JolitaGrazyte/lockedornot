@@ -8,7 +8,7 @@
                 <h3><em>Sign Up for <span class="for-free">FREE</span>.</em></h3>
                 <p>
                 <div> Get an account.</div>
-                    <div>Register with providing your device serial number.</div>
+                    <div>Register with providing your "Locked Or Not" device serial number.</div>
                     <div>It is needed for the further interaction.</div>
                 </p>
                 <p>
