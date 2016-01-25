@@ -5987,10 +5987,13 @@ a:hover, a:focus, a:active {
   width: 102%;
   right: -.5rem; }
 
-.rates-panel > .panel {
+.rates-panel:not(:last-child) > .panel {
   border-radius: 0; }
-  .rates-panel > .panel .panel-heading {
+  .rates-panel:not(:last-child) > .panel .panel-heading {
     padding-top: 40px; }
+
+.rates-panel:last-child > .panel .panel-heading {
+  padding-top: 20px; }
 
 .rates-panel > .panel .panel-heading {
   min-height: 125px; }
