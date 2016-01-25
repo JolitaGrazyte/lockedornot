@@ -5967,8 +5967,18 @@ a:hover, a:focus, a:active {
   font-size: 3.5rem; }
 
 .busiest-day-year {
-  margin-right: 16px;
-  font-size: 2rem; }
+  text-align: right;
+  padding-right: .5rem;
+  font-size: 2rem;
+  width: 100%;
+  border-top: 1px solid lightgrey; }
+
+.h5-f-size {
+  font-size: 1.8rem;
+  padding-bottom: .5rem; }
+
+.year-wrapper {
+  border-bottom: 1px solid red; }
 
 .panel-msg {
   padding: 1rem; }
@@ -5984,6 +5994,10 @@ a:hover, a:focus, a:active {
 
 .rates-panel > .panel .panel-heading {
   min-height: 125px; }
+
+.panel-busiest-day .panel-body {
+  padding-top: 30px;
+  min-height: 170px; }
 
 .panel-default .panel-heading a.active-sort {
   color: #e54115; }
@@ -6065,9 +6079,6 @@ a:hover, a:focus, a:active {
 
 .m-left {
   margin-left: .6rem; }
-
-.mstl-checking-under-height {
-  min-height: 7.1rem; }
 
 .mstl-checking-panel-padding {
   padding-top: .5rem; }
@@ -6412,5 +6423,24 @@ form#profile-edit {
 
 .user-status {
   font-size: 1.8rem; }
+
+span.tooltip {
+  font-family: "Roboto Condensed";
+  font-weight: 100;
+  position: absolute;
+  display: block;
+  text-align: right;
+  left: 15px;
+  top: -1px;
+  width: 87%;
+  padding: 2.3rem 1.8rem;
+  min-height: 87%;
+  font-size: 1.6rem;
+  color: #fdfdfd;
+  background-color: #4d4d4d;
+  transition: opacity 1s; }
+
+.panel:hover .tooltip {
+  opacity: 1; }
 
 /*# sourceMappingURL=admin.css.map */

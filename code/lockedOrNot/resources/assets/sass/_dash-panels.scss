@@ -33,6 +33,13 @@
 
 }
 
+.panel-busiest-day{
+  .panel-body{
+    padding-top: 30px;
+    min-height: 170px;
+  }
+}
+
 
 .panel-default .panel-heading{
   a.active-sort{
@@ -146,7 +153,7 @@
 }
 
 .mstl-checking-under-height{
-  min-height: 7.1rem;
+  //min-height: 7.1rem;
 }
 .mstl-checking-panel-padding{
   padding-top: .5rem;

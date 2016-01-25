@@ -5,36 +5,27 @@
     </div>
     <div class="panel-body">
         <div class="col-lg-6">
-            To me:
+            <div class="pull-right h5-f-size">
+                To me:
+            </div>
 
-            <div style="font-size: 3.5rem">
+            <div class="busiest-f-size pull-right">
                 {{ $userBusiestMonth }}
 
             </div>
-
-            {{--<div class="col-lg-6">--}}
-
-            {{--12 locked--}}
-            {{--</div>--}}
-            {{--<div class="col-lg-6">--}}
-            {{--16 open--}}
-            {{--</div>--}}
         </div>
         <div class="col-lg-6">
-            "Locked Or Not":
+            <div class="pull-right h5-f-size">
+                On "Locked Or Not" site:
+            </div>
 
-            <div style="font-size: 3.5rem">
+            <div class="busiest-f-size pull-right">
                 {{ $busiestMonth }}
 
             </div>
-            {{--<div class="col-lg-6">--}}
-            {{--12 locked--}}
-            {{--</div>--}}
-            {{--<div class="col-lg-6">--}}
-            {{--16 open--}}
-            {{--</div>--}}
+
         </div>
-        {{--<a href="#" class="btn btn-default btn-block">View Details</a>--}}
+
     </div>
     <!-- /.panel-body -->
 </div>

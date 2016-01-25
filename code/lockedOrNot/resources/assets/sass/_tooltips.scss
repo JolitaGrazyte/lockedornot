@@ -1,0 +1,21 @@
+span.tooltip{
+  font-family: "Roboto Condensed";
+  font-weight: 100;
+  position: absolute;
+  display: block;
+  text-align: right;
+  left: 15px;
+  top: -1px;
+  width:87%;
+  padding: 2.3rem 1.8rem;
+  min-height: 87%;
+  font-size: 1.6rem;
+  color: #fdfdfd;
+  background-color: #4d4d4d;
+  transition: opacity 1s;
+
+}
+
+.panel:hover .tooltip{
+  opacity: 1;
+}

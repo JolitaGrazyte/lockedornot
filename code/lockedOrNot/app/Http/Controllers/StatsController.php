@@ -42,10 +42,10 @@ class StatsController extends Controller
         $busiestDay      =  $stats_model->busiestDay()->first()->date;
 
         $userBusiestMonth   =   $user->stats()->busiestMonth()->first()->month;
-        $userBusiestMonth   =   $monthName = date("M", strtotime($userBusiestMonth));
+        $userBusiestMonth   =   date("M", strtotime($userBusiestMonth)).' 2016';
 
         $busiestMonth       =   $stats_model->busiestMonth()->first()->month;
-        $busiestMonth       =   $monthName = date("M", strtotime($busiestMonth));
+        $busiestMonth       =   date("M", strtotime($busiestMonth)).' 2016';
 
 
         $weekOrWeekend = [

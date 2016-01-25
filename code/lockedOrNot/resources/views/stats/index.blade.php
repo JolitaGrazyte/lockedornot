@@ -59,43 +59,46 @@
         </div>
 
         <div class="col-lg-4 col-sm-6">
+
             @include('stats.partials.busiest-day', ['userBusiestDay' => $userBusiestDay])
+
         </div>
 
-        <div class="col-lg-4 col-sm-6">
-           @include('stats.partials.busiest-month', ['userBusiestMonth' => $userBusiestMonth])
-        </div>
+        {{--<div class="col-lg-4 col-sm-6">--}}
+           {{--@include('stats.partials.busiest-month', ['userBusiestMonth' => $userBusiestMonth])--}}
+        {{--</div>--}}
 
 
     </div>
     <!-- /.panel -->
 
     <div class="row">
+        <div class="col-lg-8">
+            @include('stats.partials.weekend-vs-weekdays-doughnut')
+        </div>
 
-        @include('stats.partials.weekend-vs-weekdays-doughnut')
-
-        <div class="col-lg-6">
-            <div class="panel panel-default">
-                <div class="panel-heading mostly-checking">
-                   Me vs others:
-                </div>
+        {{--<div class="col-lg-6">--}}
+            {{--<div class="panel panel-default">--}}
+                {{--<div class="panel-heading mostly-checking">--}}
+                   {{--Me vs others:--}}
+                {{--</div>--}}
                 {{--<!-- /.panel-heading -->--}}
 
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-12">
+                {{--<div class="panel-body">--}}
+                    {{--<div class="row">--}}
+                        {{--<div class="col-lg-12">--}}
 
-                            <p>== From all users ... many users checked more/less times per month then me ==</p>
-                            <p>== From all users ... many users car locked when checked more/less times per month then me ==</p>
-                            <p>== From all users ... many users car unlocked when checked more/less times per month then me ==</p>
+                            {{--<p>== From all users ... many users checked more/less times per month then me ==</p>--}}
+                            {{--<p>== From all users ... many users car locked when checked more/less times per month then me ==</p>--}}
+                            {{--<p>== From all users ... many users car unlocked when checked more/less times per month then me ==</p>--}}
 
-                        </div>
-                    </div>
-                </div>
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
                 {{--<!-- /.panel-body -->--}}
-            </div>
+            {{--</div>--}}
             {{--<!-- /.panel -->--}}
-        </div>
+        {{--</div>--}}
     </div>
 @stop
 

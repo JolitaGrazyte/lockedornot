@@ -1,20 +1,27 @@
-<div class="panel panel-default">
+<div class="panel panel-default panel-busiest-day">
     <div class="panel-heading">
         {{--<i class="fa fa-bar-chart-o fa-fw"></i>--}}
         <h4>The busiest day ever:</h4>
     </div>
     <div class="panel-body">
         <div class="col-lg-6">
-            To me:
-
+            <div class="pull-right h5-f-size">
+                To me:
+            </div>
+            @if(!empty($userBusiestDay))
             <div class="busiest-f-size pull-right">
-                {{ $userBusiestDay->format('D') }},
-                {{ $userBusiestDay->format('d') }}
-                {{ $userBusiestDay->format('M') }}
+
+                    {{ $userBusiestDay->format('D') }},
+                    {{ $userBusiestDay->format('d') }}
+                    {{ $userBusiestDay->format('M') }}
+
             </div>
             <div class="pull-right busiest-day-year">
-                {{ $userBusiestDay->format('Y') }}
+
+                    {{ $userBusiestDay->format('Y') }}
+
             </div>
+            @endif
 
             {{--<div class="col-lg-6">--}}
             {{--12 locked--}}
@@ -25,9 +32,11 @@
 
         </div>
         <div class="col-lg-6">
-            "Locked Or Not":
+            <div class="pull-right h5-f-size">
+                On "Locked Or Not" site:
+            </div>
 
-            <div class="busiest-f-size">
+            <div class="busiest-f-size pull-right">
                 {{ $busiestDay->format('D') }},
                 {{ $busiestDay->format('d') }}
                 {{ $busiestDay->format('M') }}

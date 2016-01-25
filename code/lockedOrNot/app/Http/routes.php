@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth'], function()
 
 Route::group(['prefix' => 'api'], function()
 {
-    resource('authenticate',    'AuthenticateController', ['only' => ['index']]);
+//    resource('authenticate',    'AuthenticateController', ['only' => ['index']]);
     post('authenticate',        'AuthenticateController@authenticate');
     //    get('lockedornot',    'DeviceController@jsonResponse');
     get('lockedornot',          'DeviceController@getState');

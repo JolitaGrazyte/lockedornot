@@ -14,7 +14,8 @@ $(function(){
     var personal_stats_data = [];
     var all_stats_data      = [];
     //var url = 'http://lockdrnot.local.com/api/personal-stats/'+user_id;
-    var url = 'http://lockedornot.jolitagrazyte.com/api/personal-stats/'+user_id;
+    var url = 'https://lockedornot-jolitagrazyte.c9users.io'+user_id;
+    //var url = 'http://lockedornot.jolitagrazyte.com/api/personal-stats/'+user_id;
 
     $.ajax({
         url:url,
@@ -74,8 +75,8 @@ $(function(){
             new Chart(d_stats).Doughnut(personal_stats_data, options);
             new Chart(all_users_dstats).Doughnut(all_stats_data, options);
 
-            u_weekend.innerHTML     = Math.round(u_weekend_data)+'%';
-            u_weekdays.innerHTML    = Math.round(u_weekday_data)+'%';
+            u_weekend.innerHTML     = !isNaN(u_weekend_data) ? Math.round(u_weekend_data)+'%':'no data yet';
+            u_weekdays.innerHTML    = !isNaN(u_weekday_data) ? Math.round(u_weekday_data)+'%':'no data yet';
             o_weekend.innerHTML     = Math.round(o_weekend_data)+'%';
             o_weekdays.innerHTML    = Math.round(o_weekday_data)+'%';
         }
