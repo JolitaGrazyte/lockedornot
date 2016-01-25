@@ -6443,4 +6443,31 @@ span.tooltip {
 .panel:hover .tooltip {
   opacity: 1; }
 
+.tooltip-inner {
+  background-color: #333; }
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: #333; }
+
+.tooltip.top-left .tooltip-arrow {
+  border-top-color: #333; }
+
+.tooltip.top-right .tooltip-arrow {
+  border-top-color: #333; }
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #333; }
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #333; }
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #333; }
+
+.tooltip.bottom-left .tooltip-arrow {
+  border-bottom-color: #333; }
+
+.tooltip.bottom-right .tooltip-arrow {
+  border-bottom-color: #333; }
+
 /*# sourceMappingURL=admin.css.map */

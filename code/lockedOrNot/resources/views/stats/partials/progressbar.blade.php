@@ -1,11 +1,11 @@
 @if(!empty($percent_false) && !empty($percent_true))
 
     <div class="progress">
-        <div title="{{$percent_true}}%" class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%;">
+        <div data-toggle="tooltip" title="{{$percent_true}}% your car was open when you've checked" class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%;">
             open when checked
         </div>
 
-        <div title="{{$percent_false}}%" class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%;">
+        <div data-toggle="tooltip" title="{{$percent_false}}% your car was open when you've checked" class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%;">
             locked when cheched
         </div>
     </div>

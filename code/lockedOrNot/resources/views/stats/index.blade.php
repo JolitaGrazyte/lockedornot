@@ -109,6 +109,8 @@
         $(document).ready(function(){
 //            console.log('hi');
 
+            $('[data-toggle="tooltip"]').tooltip();
+
             $('button.close, .note').on('click', function(){
 //                console.log('clicked');
                 $('.note').addClass('note-remove').removeClass('note-add');

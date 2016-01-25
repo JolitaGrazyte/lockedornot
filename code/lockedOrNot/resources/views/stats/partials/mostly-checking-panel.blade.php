@@ -44,7 +44,7 @@
                                                 <thead>
                                                 <tr>
                                                     <td colspan="2">
-                                                        <div title="total {{ $total_daily[$day]['total'] > 1 ? 'times': 'time' }} checked">
+                                                        <div  data-toggle="tooltip" title="total {{ $total_daily[$day]['total'] > 1 ? 'times': 'time' }} checked">
                                                             {{  $total_daily[$day]['total'] }}
                                                         </div>
                                                         <div class="s-font">{{ $total_daily[$day]['total'] > 1 ? 'times': 'time' }} checked</div>

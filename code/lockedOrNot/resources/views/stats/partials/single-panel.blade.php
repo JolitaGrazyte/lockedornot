@@ -1,6 +1,7 @@
 <div class="col-lg-3 col-sm-6 rates-panel">
     <div class="panel panel-{{ $panel['color'] }} {{ $panel['stats'] }}"
-         {{--title="{{ $panel['title'] }}"--}}
+         data-toggle="tooltip"  title="{{ $panel['title'] }}"
+
     >
                     <span class="tooltip">
                         {{ $panel['title'] }}
@@ -17,3 +18,4 @@
         </div>
     </div>
 </div>
+
