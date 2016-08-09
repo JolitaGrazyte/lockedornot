@@ -2,11 +2,11 @@
 
     <div class="progress">
         <div data-toggle="tooltip" title="{{$percent_true}}% your car was open when you've checked" class="progress-bar progress-bar-danger" role="progressbar" style="width:{{$percent_true}}%;">
-            open when checked
+            Open when checked
         </div>
 
         <div data-toggle="tooltip" title="{{$percent_false}}% your car was open when you've checked" class="progress-bar progress-bar-success" role="progressbar" style="width:{{$percent_false}}%;">
-            locked when cheched
+            Locked when cheched
         </div>
     </div>
     <div class="percents bottom-padding">

@@ -4,11 +4,14 @@
         <h4>The busiest day ever:</h4>
     </div>
     <div class="panel-body">
-        <div class="col-lg-6">
-            <div class="pull-right h5-f-size">
-                To me:
+        <div class="col-md-12 col-lg-6">
+            <div class="row">
+                <div class="pull-right h5-f-size">
+                    To me:
+                </div>
             </div>
             @if(!empty($userBusiestDay))
+                <div class="row">
             <div class="busiest-f-size pull-right">
 
                     {{ $userBusiestDay->format('D') }},
@@ -21,6 +24,7 @@
                     {{ $userBusiestDay->format('Y') }}
 
             </div>
+                </div>
             @endif
 
             {{--<div class="col-lg-6">--}}
@@ -31,11 +35,14 @@
             {{--</div>--}}
 
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-12">
+            <div class="row">
             <div class="pull-right h5-f-size">
-                On "Locked Or Not" site:
+                Locked Or Not:
+            </div>
             </div>
 
+            <div class="row">
             <div class="busiest-f-size pull-right">
                 {{ $busiestDay->format('D') }},
                 {{ $busiestDay->format('d') }}
@@ -43,6 +50,7 @@
             </div>
             <div class="pull-right busiest-day-year">
                 {{ $busiestDay->format('Y') }}
+            </div>
             </div>
 
             {{--<div class="col-lg-6">--}}

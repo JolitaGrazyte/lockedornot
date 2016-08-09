@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 
-    use Illuminate\Http\Request;
+//    use Illuminate\Http\Request;
     use App\Http\Requests;
     use JWTAuth;
     use Tymon\JWTAuth\Exceptions\JWTException;
@@ -13,6 +13,9 @@ namespace App\Http\Controllers;
 class AuthenticateController extends Controller
 {
 
+    /**
+     * AuthenticateController constructor.
+     */
     public function __construct()
     {
         // Apply the jwt.auth middleware to all methods in this controller
@@ -22,17 +25,9 @@ class AuthenticateController extends Controller
 
     }
 
-    public function index(Request $request)
-    {
-        $email = $request->input('email');
-        if(!is_null($email)){
-            return User::where('email', $email);
-        }
-        $users = User::all();
-        return $users;
-    }
-
-
+    /**
+     * @return mixed
+     */
     public function register(){
         $credentials = Input::only('email', 'password');
 
@@ -47,12 +42,14 @@ class AuthenticateController extends Controller
         return Response::json(compact('token'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function authenticate(Request $request)
     {
 
         $credentials = $request->only('email', 'password');
-
-//        dd($request);
 
         try {
             // verify the credentials and create a token for the user

@@ -15,8 +15,14 @@ use App\StatusEnum;
 
 class StatsController extends Controller
 {
+    /**
+     * @var null
+     */
     private $authUser;
 
+    /**
+     * StatsController constructor.
+     */
     public function __construct(){
 
         $this->authUser = Auth::check() ? Auth::user() : null;
@@ -127,6 +133,13 @@ class StatsController extends Controller
     }
 
 
+    /**
+     * @param $user
+     * @param $filter
+     * @param $nr
+     * @param $days
+     * @return array
+     */
     private function filteredStats($user, $filter, $nr, $days){
 
         $stats = [];
@@ -168,6 +181,11 @@ class StatsController extends Controller
         return $stats;
     }
 
+    /**
+     * @param $stats
+     * @param $total
+     * @return float
+     */
     private function countPercent( $stats, $total){
 
         $p          =   100/$total*$stats;
@@ -176,6 +194,12 @@ class StatsController extends Controller
         return $percent;
     }
 
+    /**
+     * @param $user
+     * @param $p_unlocked
+     * @param $p_locked
+     * @return array
+     */
     private function getOthersPercent($user, $p_unlocked, $p_locked){
 
         $stats = [];
@@ -213,6 +237,11 @@ class StatsController extends Controller
     }
 
 
+    /**
+     * @param $side
+     * @param $nr
+     * @return int
+     */
     private function getWeek($side, $nr){
 
         if(is_null($side) && is_null($nr) || $nr == 53) $w_nr = 0;
@@ -223,7 +252,11 @@ class StatsController extends Controller
         return $w_nr;
     }
 
-
+    /**
+     * @param $user
+     * @param $status
+     * @return array
+     */
     private function getPanels($user, $status){
 
 //        dd($status);
@@ -261,6 +294,10 @@ class StatsController extends Controller
         ];
     }
 
+    /**
+     * @param $percent_true
+     * @return string
+     */
     private function getUserStatus($percent_true)
     {
         if($percent_true == 0 ) $status = 'New Locker';
@@ -295,6 +332,12 @@ class StatsController extends Controller
     }
 
 
+    /**
+     * @param $percent_true
+     * @param $user
+     * @param $did_better
+     * @return array
+     */
     private function getUserStatusAndMsg($percent_true, $user, $did_better)
     {
         $name  =    $user->first_name;
@@ -305,6 +348,10 @@ class StatsController extends Controller
 
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function personal_stats_json($id)
     {
         $user = User::find($id);

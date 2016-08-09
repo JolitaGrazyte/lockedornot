@@ -24,15 +24,16 @@ class UserStatusMsg
 
         switch($status){
             case 'Problem Locker':
+                $msg = [
+                    'You keep forgetting it! Work on it..',
+                    "Work on it, here's a tip: create a pattern for locking your car!",
+                    "You're making it easy for the bad guys! Be aware!",
+                ];
                 return [
                     'status'        =>  $status,
                     "msg"           =>  [
-                        'f-line'    => 'Oh no, '.$name.', ',
-                        'm-body'    => [
-                            'You keep forgetting it! Work on it..',
-                            "Work on it, here's a tip: create a pattern for locking your car!",
-                            "You're making it easy for the bad guys! Be aware!",
-                        ]
+                        'f-line'    => 'Oh no '.$name.', ',
+                        'm-body'    => [ $msg[mt_rand(0,2)]]
                     ],
 
                     "compare_msg"   =>  $compare_msg,
@@ -42,15 +43,16 @@ class UserStatusMsg
                 break;
 
             case 'Trouble Locker':
+                $msg =[
+                    "looks like even more then a half of the time you forget to lock your car.",
+                    "You might wanna do somethin' about it...",
+                    "Here is a tip: create routine, make it a habit!",
+                ];
                 return [
                     'status'        =>  $status,
                     "msg"           =>  [
-                        'f-line'    =>  "Hmm, ". $name. ', ',
-                        'm-body'     =>  [
-                            "looks like even more then a half of the time you forget to lock your car.",
-                            "You might wanna do somethin' about it...",
-                            "Here is a tip: create routine, make it a habit!"
-                        ]
+                        'f-line'    =>  "Hmm ". $name. ', ',
+                        'm-body'     =>  [$msg[mt_rand(0,2)]]
                     ],
                     "compare_msg"   =>  $compare_msg,
                     'color'         =>  'red'
@@ -59,15 +61,16 @@ class UserStatusMsg
                 break;
 
             case 'Coinflip Locker':
+                $msg = [
+                    "50/50 -  may the odds be in your favor!",
+                    "You're on the halfwaybridge, go in the right direction!",
+                    "Still not sure? Try to visualise, if you locked it or not."
+                ];
                 return [
                     'status'        =>  $status,
                     "msg"           =>  [
-                        'f-line'    =>  "Hey, ". $name. ', a coinflip locker.',
-                        'm-body'    =>  [
-                            "50/50 -  may the odds be in your favor!",
-                            "You're on the halfwaybridge, go in the right direction!",
-                            "Still not sure? Try to visualise, if you locked it or not."
-                        ]
+                        'f-line'    =>  "Hey ". $name. ", you're a coinflip locker.",
+                        'm-body'    =>  [$msg[mt_rand(0,2)]]
                     ],
 
                     "compare_msg"   =>  $compare_msg,
@@ -77,15 +80,16 @@ class UserStatusMsg
                 break;
 
             case 'Vice Locker':
+                $msg = [
+                    "Nice job. Almost at the top!",
+                    "Most of the time you don't forget to lock your car.",
+                    "Keep locking it, vice locker!"
+                ];
                 return [
                     'status'        =>  $status,
                     'msg'           =>  [
                         'f-line'    =>  "Hi ". $name. ", " ,
-                        'm-body'    =>  [
-                            "nice job. Almost at the top!",
-                            "Most of the time you don't forget to lock your car.",
-                            "Keep locking it, vice locker!"
-                        ]
+                        'm-body'    =>  [$msg[mt_rand(0,2)]]
                     ],
 
                     "compare_msg"   =>  $compare_msg,
@@ -94,15 +98,16 @@ class UserStatusMsg
                 break;
 
             case 'Top Locker':
+                $msg = [
+                    "nice job. Nobody locks a lock like you!",
+                    "A Toplocker like you gives the bad guys a hard time!",
+                    "Keep it this way."
+                ];
                 return [
                     'status'        =>  $status,
                     "msg"           =>  [
                         'f-line'    =>  "Hi ". $name. ', ',
-                        'm-body'    =>  [
-                            "nice job. Nobody locks a lock like you!",
-                            "A Toplocker like you gives the bad guys a hard time!",
-                            "Keep it this way."
-                        ]
+                        'm-body'    =>  [$msg[mt_rand(0,2)]]
                     ],
 
                     "compare_msg"   =>  $compare_msg,
@@ -111,15 +116,16 @@ class UserStatusMsg
                 break;
 
             case 'New Locker':
+                $msg =[
+                    "Your statistics are empty. Not much to say about you yet...",
+                    "Are you using our app ?",
+                    "Use it first! ...and don't forget to come back later for your statistics."
+                ];
                 return [
                     'status'        =>  $status,
                     "msg"           =>  [
                         'f-line'    =>  "Hi ". $name.'.',
-                        'm-body'    =>  [
-                            "Your statistics are empty. Not much to say about you yet...",
-                            "Are you using our app ?",
-                            "Use it first! ...and don't forget to come back later for your statistics."
-                        ]
+                        'm-body'    =>  [$msg[mt_rand(0,2)]]
                     ],
 
                     "compare_msg"   =>  $compare_msg,

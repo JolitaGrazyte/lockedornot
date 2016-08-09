@@ -71,10 +71,10 @@
                             password:{
                                 minlength: 6
                             },
-//                            device_nr:{
-//                                minlength: 7,
-//
-//                            }
+                            device_nr:{
+                                minlength: 7,
+
+                            },
 
 
                         },

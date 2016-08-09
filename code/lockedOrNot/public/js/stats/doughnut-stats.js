@@ -13,9 +13,8 @@ $(function(){
 
     var personal_stats_data = [];
     var all_stats_data      = [];
-    //var url = 'http://lockdrnot.local.com/api/personal-stats/'+user_id;
-    var url = 'https://lockedornot-jolitagrazyte.c9users.io/api/personal-stats/'+user_id;
-    //var url = 'http://lockedornot.jolitagrazyte.com/api/personal-stats/'+user_id;
+    var baseUrl = document.location.origin;
+    var url = baseUrl +'/api/personal-stats/'+user_id;
 
     $.ajax({
         url:url,
@@ -23,8 +22,7 @@ $(function(){
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',
         success: function(data){
-
-            console.log(data.all_users);
+            // console.log(data.all_users);
             //console.log(data.user.weekdays);
 
             var u_total = (data.user.weekdays + data.user.weekend);

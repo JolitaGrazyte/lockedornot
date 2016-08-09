@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Device;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Response;
@@ -13,11 +13,18 @@ use Illuminate\Support\Facades\App;
 
 class DeviceController extends Controller
 {
+    /**
+     * DeviceController constructor.
+     */
     public function __construct()
     {
         $this->middleware('jwt.auth', ['except' => ['response', 'putState']]);
     }
 
+    /**
+     * @param $device_nr
+     * @param $state
+     */
     public function putState($device_nr, $state){
 
 
@@ -34,11 +41,12 @@ class DeviceController extends Controller
             'new-notification',
             ['device_state' => $device->state, 'text' => $text]
         );
-
-
     }
 
 
+    /**
+     * @param Request $request
+     */
     public function poststate(Request $request)
     {
 
@@ -62,9 +70,8 @@ class DeviceController extends Controller
 
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return mixed
      */
     public function jsonResponse( Request $request )
     {
@@ -76,11 +83,14 @@ class DeviceController extends Controller
         return Response::json($state);
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function response($id){
 
         $device = Device::where('user_id', $id)->first();
         $state = $device->state;
-        $state = mt_rand(0, 1);
 
         /**
          * return the state of the lock;
@@ -90,6 +100,9 @@ class DeviceController extends Controller
         return view('device.index', compact('state'));
     }
 
+    /**
+     * @return mixed
+     */
     public function getState(){
 
         $token      = JWTAuth::getToken();
@@ -104,6 +117,9 @@ class DeviceController extends Controller
 
     }
 
+    /**
+     * @param $user
+     */
     private function putStats($user){
 
         $stats = Stats::create();
@@ -113,7 +129,5 @@ class DeviceController extends Controller
         $stats->device_nr       = $device->device_nr;
         $stats->device_state    = $device->state;
         $stats->save();
-
     }
-
 }

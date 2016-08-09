@@ -1,11 +1,16 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        {{--<i class="fa fa-bar-chart-o fa-fw"></i>--}}
-        <h4>Weekdays vs Weekend</h4>
-        <div class="pull-right me-vs-others">
-            <h4>Me vs Others</h4>
+        <div class="row">
+            <div class="col-lg-6 col-sm-6">
+                <h4>Weekdays vs Weekend</h4>
+            </div>
+            <div class="col-lg-6 col-sm-6 me-vs-others">
+                <h4>Me vs Others</h4>
+            </div>
         </div>
+        {{--<i class="fa fa-bar-chart-o fa-fw"></i>--}}
+
     </div>
     <div class="panel-body">
         <input id="user_id" type="hidden" value="{{ Auth::user()->id }}">

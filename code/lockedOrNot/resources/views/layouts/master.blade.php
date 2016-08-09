@@ -84,6 +84,7 @@
     <script src="{{ 'js/classie.js' }}"></script>
 
     <script src="{{ 'js/modal.js' }}"></script>
+        @yield('js')
 
 @show
 

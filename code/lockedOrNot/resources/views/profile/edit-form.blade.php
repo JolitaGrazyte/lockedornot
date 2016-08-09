@@ -1,34 +1,32 @@
 {!!Form::model($user, ['route' =>  ['profile.update', $user->id], 'class' => 'form-horizontal', 'id' => 'profile-edit', 'method' => 'PATCH'])  !!}
 
 <div class="form-group">
+    <div class="col-lg-12 package">
+        {!! Form::label('package', 'My "Locked Or Not" device package contains:', ['class' => 'control-label']) !!}
+        <div class="input-group margin-bottom-sm">
 
-    @if(empty($user->devices))
-        <div class="col-lg-12">
-            {{--<h5 class="urgent">You must urgently update your profile and add a 'Locked Or Not' device serial number for a further interaction. </h5>--}}
+            <label for="package"></label>
+            {!! Form::radio('quantity', 5, !empty($user->devices) && $user->devices->count() > 1? true:false, ['class' => 'radio-btn']) !!}
+            <span class="radio-text">5 devices</span>
+
+            {!! Form::radio('quantity',  1, !empty($user->devices) && $user->devices->count() == 1? true:false, ['class' => 'radio-btn']) !!}
+            <span class="radio-text"> 1 devices </span>
+
         </div>
-    @endif
 
-            <div class="col-lg-12 package">
-
-                {!! Form::label('package', 'My "Locked Or Not" device package contains:', ['class' => 'control-label']) !!}
-                <div class="input-group margin-bottom-sm">
-
-                    <label for="package"></label>
-                    {!! Form::radio('quantity', 5, !empty($user->devices) && $user->devices->count() > 1? true:false, ['class' => 'radio-btn']) !!}
-                    <span class="radio-text">5 devices</span>
-
-                    {!! Form::radio('quantity',  1, !empty($user->devices) && $user->devices->count() == 1? true:false, ['class' => 'radio-btn']) !!}
-                    <span class="radio-text"> 1 devices </span>
-
-                </div>
-
-            </div>
+    </div>
 
     <div class="col-lg-12">
         {!! Form::label('device_nr', 'Your "Locked Or Not" device serial nr:', ['class' => 'control-label']) !!}
         <div class="input-group margin-bottom-sm">
             <span class="input-group-addon"><i class="fa fa-gear fa-fw"></i></span>
-            {!! Form::text('device_nr',  empty($user->devices->first()) ? null : substr($user->devices->first()->device_nr, 0, 7), ['class' => empty($user->devices->first())    ? 'urgent form-control':'form-control', 'placeholder' => 'your device serial nr.']) !!}
+            {!! Form::text('device_nr',
+            empty($user->devices->first()) ? null : substr($user->devices->first()->device_nr, 0, 7),
+            [
+            'class' => empty($user->devices->first())? 'urgent form-control':'form-control',
+            'placeholder' => 'your device serial nr.'
+            ]
+            )!!}
         </div>
 
 

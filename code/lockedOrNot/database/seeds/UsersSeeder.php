@@ -44,7 +44,7 @@ class UsersSeeder extends Seeder
                 'first_name'    => 'Jonas',
                 'last_name'     => 'Van Reeth',
 //                'email'       => 'jolita.grazyte@student.kdg.be',
-                'email'         => 'test',
+                'email'         => 'test@gmail.com',
                 //'device_nr'     => 'LON0002',
                 'city'          => $cities[rand(0, 4)],
                 'car_brand'     => $cars[rand(0, 4)],

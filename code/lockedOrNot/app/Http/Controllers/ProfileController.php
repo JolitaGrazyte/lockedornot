@@ -7,12 +7,12 @@ use App\Stats;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-use App\Http\Requests;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Controllers\Controller;
 use Auth;
-use Illuminate\Http\Response;
+//use Illuminate\Http\Response;
 use Session;
 
 
@@ -20,6 +20,9 @@ class ProfileController extends Controller
 {
     private $authUser;
 
+    /**
+     * ProfileController constructor.
+     */
     public function __construct(){
 
         $this->authUser = Auth::check() ? Auth::user() : null;
@@ -34,13 +37,10 @@ class ProfileController extends Controller
     {
         $user               =   $this->authUser;
         $no_device          =   empty($user->devices->first()) || is_null($user->devices);
-//        dd(empty($user->devices->first()));
+
         $msg = '';
         if($no_device){
-
-            $msg = "It happened so, that we didn't receive your Locked Or Not device number.
-                    Please update your information and provide the Locked Or Not device number.";
-
+            $msg = trans('costum.no_nr');
         }
 
         $unlocked_devices   =   $user->devices()->unlocked();
@@ -50,25 +50,30 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param ProfileRequest|Request $request
-     * @param  int $id
-     * @return Response
+     * @param ProfileRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update( ProfileRequest $request, $id)
+    public function update( ProfileRequest $request)
     {
         $user = $this->authUser;
         $user->update($request->all());
         $q = $request->get('quantity');
 
-        for($i=1;$i <= $q; ++$i){
-            $device = Device::create([
-                'device_nr' => $request->get('device_nr').'-'.$i
-            ]);
+        //if you work with no central lock
+        if($q>1){
+            for($i=1;$i <= $q; ++$i){
+                $device = Device::create([
+                    'device_nr' => $request->get('device_nr').'-'.$i
+                ]);
 
-            $user->devices()->save($device);
+                $user->devices()->save($device);
+            }
+        }else{
+            $device = Device::where('user_id',$user->id)->first();
+            $device->device_nr = $request->get('device_nr');
+            $device->save();
         }
+
 
         $user->save();
 
@@ -80,7 +85,10 @@ class ProfileController extends Controller
 
     }
 
-    public function editMyLogin($name)
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function editMyLogin()
     {
 
         $user               =   $this->authUser;
@@ -90,18 +98,21 @@ class ProfileController extends Controller
         return view('profile.edit-login', compact('user', 'no_device', 'device_status'));
     }
 
-    public function updateMyLogin( Request $request, $id)
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function updateMyLogin(Request $request)
     {
-
-//        dd($request->get('password'));
         $user =  $this->authUser;
-
-        if(empty($request->get('password'))){
+        if(!empty($request->get('email'))){
             $user->email = $request->get('email');
-            $user->save();
+        }
+        if(!empty($request->get('password'))){
+            $user->password = Hash::make($request->get('email'));
         }
 
-        $user->update($request->all());
+        $user->save();
         return redirect()->to('how-i\'m-doing');
     }
 }

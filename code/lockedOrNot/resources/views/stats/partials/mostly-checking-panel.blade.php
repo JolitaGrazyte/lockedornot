@@ -1,10 +1,15 @@
 <div class="panel panel-default">
     <div class="panel-heading mostly-checking">
-        <h4>
-            Mostly checking
-        </h4>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <h4>
+                    Mostly checking
+                </h4>
+            </div>
+
         {{--Mostly checking: in the week days--}}
-        <div class="pull-right">
+            <div class="col-xs-12 col-sm-8 text-right">
+                <br>
             <ul class="inline-list">
                 <li>see it:</li>
                 <li><a href="{{ url("how-i'm-doing") }}" class="{{ Request::is("how-i'm-doing") ? 'active-sort' :'' }}">total</a> | </li>
@@ -18,6 +23,7 @@
                     <a class="{{ Request::is('*/year') || Request::is('*/year/*') ? 'active-sort' :'' }}"
                        href="{{ route('mostly-checked-filter', ['year']) }}">per year</a></li>
             </ul>
+        </div>
         </div>
     </div>
     <!-- /.panel-heading -->
