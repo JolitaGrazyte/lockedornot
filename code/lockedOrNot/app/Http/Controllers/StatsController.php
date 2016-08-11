@@ -373,4 +373,14 @@ class StatsController extends Controller
         return Response::json($stats);
     }
 
+
+    public function state()
+    {
+        $user = User::find(Auth::id());
+        $unlocked   = $user->devices()->unlocked();
+        $device_state = $unlocked->count() == 0 ? 'locked' : 'unlocked';
+
+        return Response::json(['state' => $device_state]);
+    }
+
 }

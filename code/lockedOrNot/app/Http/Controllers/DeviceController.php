@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Device;
 //use Illuminate\Http\Request;
-
+use Auth;
+use App\User;
 use App\Http\Requests;
 use Response;
 use Tymon\JWTAuth\Facades\JWTAuth;
@@ -99,6 +100,8 @@ class DeviceController extends Controller
 
         return view('device.index', compact('state'));
     }
+
+
 
     /**
      * @return mixed
