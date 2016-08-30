@@ -5,7 +5,7 @@
         @include('partials.front-login')
 
     @else
-        <div class="hidden-xs">
+        {{--<div class="hidden-xs">--}}
             <div class="menu-wrap">
                 <nav class="menu">
                     <ul class="icon-list">
@@ -31,7 +31,7 @@
                 <button class="close-button" id="close-button">Close Menu</button>
             </div>
             <button class="menu-button {{ Request::is("how-i'm-doing")?'dark':'' }}" id="open-button">Open Menu</button>
-        </div>
+        {{--</div>--}}
     @endif
 
 </ul>

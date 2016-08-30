@@ -6,6 +6,7 @@
     </div>
 
         @include('partials.nav.nav-left')
+
         @include('partials.nav.nav-right')
 
 </nav>

@@ -72,8 +72,8 @@
       <file leaf-file-name="nav.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/nav/nav.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="324">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -82,11 +82,9 @@
       <file leaf-file-name="nav-right.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/partials/nav/nav-right.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="31" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#ul#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="576">
+              <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -195,10 +193,10 @@
         <option value="$PROJECT_DIR$/public/css/app.css" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DeviceController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/nav/nav.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/nav/nav-right.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/stats/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/partials/user-info.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/nav/nav.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/nav/nav-right.blade.php" />
       </list>
     </option>
   </component>
@@ -441,12 +439,12 @@
       <updated>1450262161075</updated>
       <workItem from="1472562685641" duration="1332000" />
       <workItem from="1472583603687" duration="1640000" />
-      <workItem from="1472587525922" duration="1955000" />
+      <workItem from="1472587525922" duration="2391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4927000" />
+    <option name="totallyTimeSpent" value="5363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
@@ -878,19 +876,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/nav/nav.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        <state relative-caret-position="324">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/partials/nav/nav-right.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#ul#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="576">
+          <caret line="34" column="10" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
