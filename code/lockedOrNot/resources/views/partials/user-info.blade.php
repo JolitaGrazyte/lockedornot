@@ -40,7 +40,7 @@
                     $('#statusTxt').text( status );
                 });
 
-            }, 3000);
+            }, 500);
         });
 
     </script>
