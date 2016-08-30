@@ -18,8 +18,9 @@ $.getScript('http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'
 //                });
 
         var stats_data = [];
+        var baseUrl = document.location.origin;
         $.ajax({
-            url: 'http://lockdrnot.local.com/api/stats',
+            url: baseUrl+'/api/stats',
             type: 'get',
             headers: {'Content-Type': 'application/json'},
             dataType: 'json',

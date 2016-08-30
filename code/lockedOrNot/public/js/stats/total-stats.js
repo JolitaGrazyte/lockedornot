@@ -1,8 +1,9 @@
 $(function () {
 
     var user_id = document.getElementById('user_id').value;
+    var baseUrl = document.location.origin;
     $.ajax({
-        url:'http://lockdrnot.local.com/api/month-stats/'+user_id,
+        url: baseUrl+'/api/month-stats/'+user_id,
         type: 'get',
         headers: {'Content-Type': 'application/json'},
         dataType: 'json',

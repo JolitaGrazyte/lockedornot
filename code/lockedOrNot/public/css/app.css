@@ -8202,7 +8202,8 @@ ul.icon-list li {
 @media (max-width: 414px) {
   .navbar {
     min-height: 80px;
-    background: #FFF; }
+    /*background: #FFF; */
+    }
   .menu-button {
     top: -.2rem; }
   .menu-wrap.mobile .menu-button {

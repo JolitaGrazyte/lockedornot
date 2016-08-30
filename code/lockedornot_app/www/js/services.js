@@ -85,7 +85,8 @@ angular.module('starter')
                 //var link = 'http://lockdrnot.local.com/api/authenticate';
                 //var link = '';
                 //var link = 'http://lockedornot-jolitagrazyte.c9users.io/api/authenticate';
-                var link = 'http://lockedornot.jolitagrazyte.com/api/authenticate';
+                // var link = 'http://lockedornot.jolitagrazyte.com/api/authenticate';
+                var link = 'https://lockedornot-jonasvr.c9users.io/api/authenticate';
 
                 $http.post(link, { email: name, password: pw })
 
