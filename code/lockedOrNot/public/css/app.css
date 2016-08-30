@@ -8159,7 +8159,9 @@ ul.icon-list li {
   z-index: 100;
   position: absolute;
   right: 2.5%;
-  top: 2.43rem; }
+  top: 2.43rem;
+  text-align:right;
+}
 
 .front-login li {
   text-align: center;

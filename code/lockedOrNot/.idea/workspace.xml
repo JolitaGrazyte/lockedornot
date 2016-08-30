@@ -107,8 +107,8 @@
       <file leaf-file-name="app.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="8204" column="26" selection-start-line="8204" selection-start-column="26" selection-end-line="8204" selection-end-column="26" />
+            <state relative-caret-position="482">
+              <caret line="8162" column="19" selection-start-line="8162" selection-start-column="19" selection-end-line="8162" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -410,12 +410,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1450262161075</updated>
-      <workItem from="1472562685641" duration="455000" />
+      <workItem from="1472562685641" duration="811000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="455000" />
+    <option name="totallyTimeSpent" value="811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
@@ -850,8 +850,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="8204" column="26" selection-start-line="8204" selection-start-column="26" selection-end-line="8204" selection-end-column="26" />
+        <state relative-caret-position="482">
+          <caret line="8162" column="19" selection-start-line="8162" selection-start-column="19" selection-end-line="8162" selection-end-column="19" />
           <folding />
         </state>
       </provider>
