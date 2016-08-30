@@ -30,7 +30,7 @@ class DeviceController extends Controller
 
 
         $device = Device::where('device_nr', $device_nr)->first();
-        if($devcie->state = 0){
+        if($device->state = 0){
             $device->state = 1;
         }else{
             $device->state = 0;

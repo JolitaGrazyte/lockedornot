@@ -47,8 +47,8 @@
       <file leaf-file-name="DeviceController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeviceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="515">
+              <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -349,12 +349,12 @@
       <option name="presentableId" value="Default" />
       <updated>1450262161075</updated>
       <workItem from="1472562685641" duration="1332000" />
-      <workItem from="1472583603687" duration="121000" />
+      <workItem from="1472583603687" duration="715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1453000" />
+    <option name="totallyTimeSpent" value="2047000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2171" y="-11" width="2182" height="1327" extended-state="6" />
@@ -780,8 +780,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DeviceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+        <state relative-caret-position="515">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
           <folding />
         </state>
       </provider>
