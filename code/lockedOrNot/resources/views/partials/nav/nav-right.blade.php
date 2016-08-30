@@ -14,6 +14,7 @@
                                 How i'm doing</span>
                             </a>
                         </li>
+                        <div class="hidden-xs">
                         <li>
                             <a href=""
                                data-toggle="modal"
@@ -21,6 +22,7 @@
                                 My profile
                             </a>
                         </li>
+                        </div>
                         <li>
                             <a href="{{ route('logout') }}">
                                 Logout

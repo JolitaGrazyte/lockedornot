@@ -31,6 +31,21 @@
             var state;
             var baseUrl = document.location.origin;
 
+            $.get(baseUrl + "/api/state", function(data){
+                var status = data['state'];
+                $('#status').removeClass('locked')
+                        .removeClass('unlocked')
+                        .addClass(status);
+                $('#statusTxt').text( status );
+                $('#pnl-unlocked').removeClass('hide');
+                $('#pnl-locked').removeClass('hide');
+                if (status == 'locked'){
+                    $('#pnl-unlocked').addClass('hide');
+                }else{
+                    $('#pnl-locked').addClass('hide');
+                }
+            });
+
             setInterval(function(){
                 $.get(baseUrl + "/api/state", function(data){
                     var status = data['state'];
