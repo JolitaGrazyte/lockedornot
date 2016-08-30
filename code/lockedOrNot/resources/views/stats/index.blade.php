@@ -7,7 +7,7 @@
 </div>
 @section('content')
     <div class="hidden-sm">
-        <div class="panel panel-green" id="pnl-locked">
+        <div class="panel panel-green height-100vh" id="pnl-locked">
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-12 text-right">
