@@ -30,7 +30,12 @@ class DeviceController extends Controller
 
 
         $device = Device::where('device_nr', $device_nr)->first();
-        $device->state = $state;
+        if($devcie->state = 0){
+            $device->state = 1;
+        }else{
+            $device->state = 0;
+        }
+
         $device->save();
 
         $text = $state == 0 ? 'Oh no! Your car is not locked!!' : 'All good. Your car is locked!';

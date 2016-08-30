@@ -2,9 +2,12 @@
 
 @section('title', 'Stats')
 
-@include('partials.note', ['msg' => $msg])
+<div class="hidden-xs">
+    @include('partials.note', ['msg' => $msg])
+</div>
 @section('content')
 
+    <div class="hidden-xs">
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header dash-page-header">
@@ -77,6 +80,7 @@
             @include('stats.partials.weekend-vs-weekdays-doughnut')
         </div>
 
+    </div>
     </div>
 @stop
 
