@@ -1,3 +1,4 @@
+<div class="hidden-xs">
 <div class="navbar-default sidebar">
     <div class="sidebar-nav navbar-collapse">
 
@@ -19,4 +20,5 @@
             </li>
         </ul>
     </div>
+</div>
 </div>
