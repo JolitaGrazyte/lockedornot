@@ -38,6 +38,13 @@
                             .removeClass('unlocked')
                             .addClass(status);
                     $('#statusTxt').text( status );
+                    $('#pnl-unlocked').removeClass('hide');
+                    $('#pnl-locked').removeClass('hide');
+                    if (status == 'locked'){
+                        $('#pnl-unlocked').addClass('hide');
+                    }else{
+                        $('#pnl-locked').addClass('hide');
+                    }
                 });
 
             }, 500);

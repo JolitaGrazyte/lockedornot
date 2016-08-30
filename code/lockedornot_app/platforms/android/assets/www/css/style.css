@@ -1,0 +1,99 @@
+/* Empty. Add your own CSS if you like */
+html, body{
+    height: 100%;
+    overflow-y: hidden;
+
+    font-family: "Roboto Condensed";
+}
+
+.wrapper{
+    background: #111;
+    padding-top: 50px;
+    /*color: #f1f2f3;*/
+}
+h4.notification{
+    color: #f1f2f3;
+}
+
+.my-text{
+    color: #f1f2f3;
+}
+
+.ion-log-out{
+    cursor: pointer;
+}
+
+.lock{
+    width: 400px;
+    height: 400px;
+    background-size: 100% 100%;
+}
+
+.unlocked{
+    background-image: url("../img/unlocked-glow.png");
+    /*display: none;*/
+}
+.locked{
+    background-image: url("../img/locked-glow.png");
+    /*display: none;*/
+}
+
+.bar{
+
+    height: 70px;
+    line-height: 50px;
+    /*color: #e54115;*/
+}
+
+.bar a{
+    padding-top: .8rem;
+    color: #5b57e3;
+    text-transform: uppercase;
+}
+.my-btn{
+    background:#5b57e3;
+    color: #f1f2f3;
+    text-transform: uppercase;
+
+}
+.my-btn:hover{
+    background:  #e54115;
+    color: #f1f2f3;
+}
+
+
+a:active, a:hover, a:focus{
+    color: #e54115;
+}
+
+
+.login{
+    padding-top: 2rem;
+    margin-top: 100px;
+}
+.logo-wrapper{
+    position: relative;
+    /*left: 44.5%;*/
+    width: 100%;
+    text-align: center;
+}
+.logo{
+    width: 160px;
+    height: 58px;
+    background-size: 100% 100%;
+    background-image: url("http://lockedornot.jolitagrazyte.com/img/logo-1-dark-2.png");
+}
+.login-logo{
+    margin-top: 60px;
+    padding-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 120px;
+    background-size: 100% 100%;
+    background-image: url("http://lockedornot.jolitagrazyte.com/img/logo-1-dark-2.png");
+
+}
+.padding{
+    padding-top: 200px;
+}

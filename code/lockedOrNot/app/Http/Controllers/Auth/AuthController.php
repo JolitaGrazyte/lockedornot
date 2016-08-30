@@ -111,6 +111,33 @@ class AuthController extends Controller implements AuthenticateUserListener
 
     }
 
+    public function getState(){
+
+        $user = Auth::user();
+        $unlocked   = $user->devices()->unlocked();
+        $device_state = $unlocked->count() == 0 ? 1 : 0;
+
+        $data   = ['state' => $device_state, 'username' => $user->first_name];
+        $this->putStats($user);
+
+//        return Response::json($data);
+
+    }
+
+    /**
+     * @param $user
+     */
+    private function putStats($user){
+
+        $stats = Stats::create();
+        $stats->user_id         = $user->id;
+
+        $device = $user->devices->first();
+        $stats->device_nr       = $device->device_nr;
+        $stats->device_state    = $device->state;
+        $stats->save();
+    }
+
 //
 //    public function postRegister( Request $request ){
 //
@@ -143,12 +170,14 @@ class AuthController extends Controller implements AuthenticateUserListener
 
         if ($request->ajax()) {
             if($this->auth->attempt($credentials, $request->has('remember'))){
+                $this->getState();
                 return response()->json([redirect()->intended($this->redirectPath())->getTargetUrl()]);
             }
         }
 
         if ($this->auth->attempt($credentials, $request->has('remember')))
         {
+            $this->getState();
             return redirect()->intended($this->redirectPath());
         }
 

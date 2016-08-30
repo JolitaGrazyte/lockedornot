@@ -111,19 +111,7 @@ class DeviceController extends Controller
     /**
      * @return mixed
      */
-    public function getState(){
-
-        $token      = JWTAuth::getToken();
-        $user       = JWTAuth::toUser($token);
-        $unlocked   = $user->devices()->unlocked();
-        $device_state = $unlocked->count() == 0 ? 1 : 0;
-
-        $data   = ['state' => $device_state, 'username' => $user->first_name];
-        $this->putStats($user);
-
-        return Response::json($data);
-
-    }
+    putst
 
     /**
      * @param $user
