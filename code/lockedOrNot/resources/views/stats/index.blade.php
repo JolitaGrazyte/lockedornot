@@ -10,7 +10,7 @@
         <div class="panel panel-green" id="pnl-locked">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-xs-12 text-right height-50vh">
+                    <div class="col-xs-12 text-center height-50vh">
                         <div class="huge">locked</div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
         <div class="panel panel-red unlocked" id="pnl-unlocked">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-xs-12 text-right height-50vh">
+                    <div class="col-xs-12 text-center height-50vh">
                         <div class="huge">unlocked</div>
                     </div>
                 </div>
